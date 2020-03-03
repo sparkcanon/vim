@@ -12,6 +12,7 @@ set clipboard+=unnamed                     " System clipboard
 set wrap                                   " Wrap long lines
 set autoindent                             " Minimal auto indenting for any filetype
 set lazyredraw                             " Only redraw when I tell you to
+set completeopt+=menuone,noinsert          " Open menu and no insert
 
 " Splits
 set splitbelow                             " Split window opens below
@@ -36,10 +37,9 @@ set laststatus=2                           " Display statusline
 set ruler                                  " Set ruler in statusline
 set statusline=\ ❮\ %<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P\ ❯\ 
 
-" Complete options
-set completeopt+=menuone,noinsert          " Open menu and no insert
+" Set wildmenu options
 set wildmenu                               " Turn menu on for wild searches
-set wildignorecase " Ignore case for wildmenuo
+set wildignorecase 			   " Ignore case for wildmenu
 set wildignore=*.swp,*.bak
 set wildignore+=**/node_modules/**
 set wildignore+=*.pyc,*.class,*.sln,*.Master,*.csproj,*.csproj.user,*.cache,*.dll,*.pdb,*.min.*
@@ -47,10 +47,10 @@ set wildignore+=*/.git/**/*,*/.hg/**/*,*/.svn/**/*
 set wildignore+=tags
 set wildignore+=*.tar.*
 
-" Set path
-set path-=/usr/include
-set path-=**/node_modules/**
-set path=.,**
+" Path options
+set path-=/usr/include        		   " Exclude /usr/include dir
+set path-=**/node_modules/**  		   " Exclude the blackhole
+set path=.,**                 		   " Standard inclusion
 
 " Grep
 if executable('rg')
