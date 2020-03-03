@@ -95,6 +95,11 @@ autocmd GeneralSettings VimLeavePre * call functions#sessionSave()
 " Disable cursorline in insert mode
 autocmd GeneralSettings InsertEnter * setlocal nocursorline
 autocmd GeneralSettings VimEnter,InsertLeave * setlocal cursorline
+
+" Leave marks to follow
+autocmd GeneralSettings BufLeave *.css  normal! mC
+autocmd GeneralSettings BufLeave *.html normal! mH
+autocmd GeneralSettings BufLeave *.js   normal! mJ
 "}}}
 
 " Syntax {{{
