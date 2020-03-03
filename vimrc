@@ -97,9 +97,9 @@ autocmd GeneralSettings InsertEnter * setlocal nocursorline
 autocmd GeneralSettings VimEnter,InsertLeave * setlocal cursorline
 
 " Leave marks to follow
-autocmd GeneralSettings BufLeave *.css  normal! mC
+autocmd GeneralSettings BufLeave *.css,*.less  normal! mC
 autocmd GeneralSettings BufLeave *.html normal! mH
-autocmd GeneralSettings BufLeave *.js   normal! mJ
+autocmd GeneralSettings BufLeave *.js,*.ts,*.tsx,*.jsx normal! mJ
 "}}}
 
 " Syntax {{{
