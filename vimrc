@@ -128,8 +128,11 @@ let g:qf_mapping_ack_style = 1
 
 " Set this after vim polyglot has loaded {{{
 " Set prettier as formatter
-autocmd GeneralSettings FileType javascript,typescript,less,css,html,typescriptreact setlocal formatprg=prettier\ --stdin\ --stdin-filepath\ %
-autocmd GeneralSettings FileType javascript,typescript,less,css,html,typescriptreact setlocal formatexpr=""
+autocmd GeneralSettings FileType
+			\ javascript,typescript,less,css,html,typescriptreact setlocal
+			\ formatprg=prettier\ --stdin\ --stdin-filepath\ %
+autocmd GeneralSettings FileType
+			\ javascript,typescript,less,css,html,typescriptreact setlocal formatexpr=
 " }}}
 
 " Visual {{{
