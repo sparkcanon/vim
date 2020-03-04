@@ -181,7 +181,8 @@ call functions#setupCommandAbbrs('gl','Dispatch! git pull')
 call functions#setupCommandAbbrs('gs','Gstash')
 call functions#setupCommandAbbrs('slo','SessionLoad')
 call functions#setupCommandAbbrs('ssa','SessionSave')
-call functions#setupCommandAbbrs('fd','Cfind! ./')
+call functions#setupCommandAbbrs('fd','find ./')
+call functions#setupCommandAbbrs('fdc','Cfind! ./')
 call functions#setupCommandAbbrs('fdv','vert sfind ./')
 " }}}
 
