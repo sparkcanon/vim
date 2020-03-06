@@ -2,7 +2,7 @@
 " Make buffer transparent
 function! functions#modifyBufferColors() abort
 	highlight! Normal ctermbg=NONE
-	highlight! EndOfBuffer ctermbg=NONE
+	highlight! EndOfBuffer ctermbg=NONE ctermfg=241
 	highlight! VertSplit ctermbg=NONE
 endfunction
 
@@ -69,7 +69,7 @@ endfunction
 function! functions#sessionSave() abort
 	let l:findGit = finddir('.git', system('git rev-parse --show-toplevel')[:-2])
 	if !empty(l:findGit)
-		let root = fnamemodify(getcwd(0), ':t')
+		let root = fnamemodify(fnamemodify(getcwd(0), ':t'), ':s?.??')
 		execute 'mks! $HOME/.vim/tmp/dir_session/'.root.'.vim' | echo 'Session saved as '.root.'.vim'
 	else
 		echo "Failed: not a git repo."
@@ -81,7 +81,7 @@ function! functions#sessionLoad(file) abort
 endfunction
 
 function! functions#sessionCompletePath(A,L,P) abort
-	let pathList =  split(globpath('$HOME/.vim/tmp/dir_session/', '*.vim'), '\n')
+	let pathList =  globpath('$HOME/.vim/tmp/dir_session/', '*.vim', 0, 1)
 	let emptyList = []
 	for i in pathList
 		let item = split(i, '/')[-1]

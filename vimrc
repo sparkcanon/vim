@@ -8,7 +8,7 @@ set autoread                               " Update file if changed outside
 set incsearch                              " Turn on incremental search
 set hlsearch                               " Highlight search term
 set showmatch                              " Highlight matching paranthesis
-set clipboard+=unnamed                     " System clipboard
+set clipboard^=unnamedplus                 " System clipboard
 set wrap                                   " Wrap long lines
 set autoindent                             " Minimal auto indenting for any filetype
 set lazyredraw                             " Only redraw when I tell you to
@@ -252,9 +252,6 @@ nnoremap <backspace> <C-^>
 
 " Open last searched qf
 nnoremap <silent> <leader>gr :execute 'Grep '.@/.' %'<CR>
-
-" Window
-nnoremap <leader>w <C-w>
 
 " Find
 nnoremap <leader>F :find <C-R>='./'.expand('%:h').'/*'<CR>
