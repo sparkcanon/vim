@@ -8,6 +8,7 @@ set autoread                               " Update file if changed outside
 set incsearch                              " Turn on incremental search
 set hlsearch                               " Highlight search term
 set showmatch                              " Highlight matching paranthesis
+set cursorline
 set clipboard^=unnamed                     " System clipboard
 set wrap                                   " Wrap long lines
 set autoindent                             " Minimal auto indenting for any filetype
@@ -51,6 +52,7 @@ set wildignore+=*.tar.*
 " Path options
 set path-=/usr/include        		   " Exclude /usr/include dir
 set path-=**/node_modules/**  		   " Exclude the blackhole
+set path-=**/.git/**  		   	   " Exclude the git
 set path=.,**                 		   " Standard inclusion
 
 " Grep
@@ -203,10 +205,6 @@ inoremap        ,'      <C-n><C-r>=pumvisible() ? "\<lt>Down>\<lt>C-p>\<lt>Down>
 inoremap        ,;      <C-x><C-f><C-r>=pumvisible() ? "\<lt>Down>\<lt>C-p>\<lt>Down>\<lt>C-p>" : ""<CR>
 " Whole line completion
 inoremap        ,=      <C-x><C-l><C-r>=pumvisible() ? "\<lt>Down>\<lt>C-p>\<lt>Down>\<lt>C-p>" : ""<CR>
-
-" Vertical movement with cursor center of screen
-nnoremap j gjzz
-nnoremap k gkzz
 
 let mapleader = "\<space>"
 
