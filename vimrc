@@ -40,7 +40,7 @@ set ruler                                  " Set ruler in statusline
 set statusline=\ ❮\ %<%f\
 			\%h%m%r%=%-14.
 			\(%l,%c%V%)\
-			\%P\ ❯\
+			\%P\ ❯\ 
 
 " Set wildmenu options
 set wildmenu                               " Turn menu on for wild searches
@@ -148,7 +148,7 @@ autocmd GeneralSettings FileType
 
 " Visual {{{
 packadd vim-colors-xcode    " Xcode 11’s dark and light colourschemes, now for Vim!
-colorscheme xcodedark
+colorscheme xcodewwdc
 " }}}
 
 " Commands {{{
@@ -272,4 +272,5 @@ nnoremap gb :<c-u>ls<CR>:b<Space>
 packadd vim-tmux-navigator  " Seamless navigation between tmux panes and vim splits
 packadd vim-signify         " ➕ Show a diff using Vim its sign column
 packadd vim-lsc             " A vim plugin for communicating with a language server
+packadd vim-gutentags       " A Vim plugin that manages your tag files
 " }}}
