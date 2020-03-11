@@ -36,6 +36,7 @@ let g:lsc_server_commands = {
   \      },
   \  'supress_stderr': v:true,
   \   },
+  \ 'reason': '/Users/praborde/Documents/playground/rls-macos/reason-language-server'
   \ }
 
 " Remap default mappings

@@ -107,6 +107,9 @@ autocmd GeneralSettings BufLeave *.css,*.less  normal! mC
 autocmd GeneralSettings BufLeave *.html normal! mH
 autocmd GeneralSettings BufLeave *.js,*.jsx normal! mJ
 autocmd GeneralSettings BufLeave *.ts,*.tsx normal! mT
+
+" Open qf list window
+autocmd GeneralSettings QuickFixCmdPost cgetexpr cwindow
 "}}}
 
 " Syntax {{{
@@ -125,10 +128,8 @@ packadd vim-surround        " quoting/parenthesizing made simple
 packadd vim-commentary      " comment stuff out
 packadd vim-unimpaired      " Pairs of handy bracket mappings
 packadd vim-cool            " A very simple plugin that makes hlsearch more useful
-packadd vim-qf              " Tame the quickfix window
 packadd tabular             " 🌻 A Vim alignment plugin
 packadd traces.vim          " Range, pattern and substitute preview for Vim
-packadd detectindent        " Vim script for automatically detecting indent settings
 
 " Dirvish
 let g:loaded_netrwPlugin = 1                     " disable netrw
@@ -280,4 +281,5 @@ packadd vim-tmux-navigator  " Seamless navigation between tmux panes and vim spl
 packadd vim-signify         " ➕ Show a diff using Vim its sign column
 packadd vim-lsc             " A vim plugin for communicating with a language server
 packadd vim-gutentags       " A Vim plugin that manages your tag files
+packadd cfilter             " Filter results from qf/loc lists
 " }}}
