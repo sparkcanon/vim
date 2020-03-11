@@ -41,7 +41,7 @@ let g:lsc_server_commands = {
 " Remap default mappings
 let g:lsc_auto_map = {
     \ 'GoToDefinition'      : ',d',
-    \ 'GoToDefinitionSplit' : ',v',
+    \ 'GoToDefinitionSplit' : ',h',
     \ 'FindReferences'      : ',r',
     \ 'NextReference'       : ',nr',
     \ 'PreviousReference'   : ',pr',

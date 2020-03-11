@@ -105,7 +105,8 @@ autocmd GeneralSettings VimEnter,InsertLeave * setlocal cursorline
 " Leave marks to follow
 autocmd GeneralSettings BufLeave *.css,*.less  normal! mC
 autocmd GeneralSettings BufLeave *.html normal! mH
-autocmd GeneralSettings BufLeave *.js,*.ts,*.tsx,*.jsx normal! mJ
+autocmd GeneralSettings BufLeave *.js,*.jsx normal! mJ
+autocmd GeneralSettings BufLeave *.ts,*.tsx normal! mT
 "}}}
 
 " Syntax {{{
@@ -176,6 +177,8 @@ command! -nargs=0 YAbsolute call functions#yankPath("full")
 command! -nargs=0 Yfname call functions#yankPath("filename")
 " Filename
 command! -nargs=0 Ydirectory call functions#yankPath("directory")
+" Console log
+command! -nargs=0 Logger execute "normal oconsole.log('".expand('<cword>')." ====> ', ".expand('<cword>').")"
 " }}}
 
 " Abbr {{{
@@ -247,7 +250,7 @@ xnoremap g" :Tabularize / ".*<CR>
 nnoremap ga :Tabularize /
 
 " Format buffer
-nnoremap gQ gggqG
+nnoremap gq gggqG
 
 " Previous buffer
 nnoremap <backspace> <C-^>
@@ -266,6 +269,10 @@ nnoremap <leader>T :tabfind <C-R>='./'.expand('%:h').'/*'<CR>
 nnoremap gr :<C-u>registers<CR>:normal! "p<Left>
 " buffers
 nnoremap gb :<c-u>ls<CR>:b<Space>
+nnoremap gB :<c-u>ls<CR>:bd<Space>
+
+" LSC
+nnoremap ,v :vert LSClientGoToDefinitionSplit<CR>
 " }}}
 
 " Heavier plugins load last {{{
