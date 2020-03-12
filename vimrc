@@ -189,11 +189,8 @@ call functions#setupCommandAbbrs('gr','Grep')
 call functions#setupCommandAbbrs('gp','Dispatch! git push')
 call functions#setupCommandAbbrs('gl','Dispatch! git pull')
 call functions#setupCommandAbbrs('gs','Gstash')
-call functions#setupCommandAbbrs('slo','SessionLoad')
+call functions#setupCommandAbbrs('ssl','SessionLoad')
 call functions#setupCommandAbbrs('ssa','SessionSave')
-call functions#setupCommandAbbrs('fd','find ./')
-call functions#setupCommandAbbrs('fdc','Cfind! ./')
-call functions#setupCommandAbbrs('fdv','vert sfind ./')
 " }}}
 
 " Mappings {{{
@@ -260,10 +257,11 @@ nnoremap <backspace> <C-^>
 nnoremap <silent> <leader>gr :execute 'Grep '.@/.' %'<CR>
 
 " Find
-nnoremap <leader>F :find <C-R>='./'.expand('%:h').'/*'<CR>
-nnoremap <leader>S :sfind <C-R>='./'.expand('%:h').'/*'<CR>
-nnoremap <leader>V :vert sfind <C-R>='./'.expand('%:h').'/*'<CR>
-nnoremap <leader>T :tabfind <C-R>='./'.expand('%:h').'/*'<CR>
+nnoremap <leader>f :find <C-R>='./'<CR>
+nnoremap <leader>c :Cfind <C-R>='./'<CR>
+nnoremap <leader>s :sfind <C-R>='./'<CR>
+nnoremap <leader>v :vert sfind <C-R>='./'<CR>
+nnoremap <leader>t :tabfind <C-R>='./'<CR>
 
 " Lists
 " registers
