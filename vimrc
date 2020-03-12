@@ -148,7 +148,7 @@ autocmd GeneralSettings FileType
 			\ javascript,typescript,less,css,html,typescriptreact setlocal formatexpr=
 " }}}
 
-" Visual {{{
+" Colorscheme {{{
 packadd vim-colors-xcode    " Xcode 11’s dark and light colourschemes, now for Vim!
 colorscheme xcodewwdc
 " }}}
