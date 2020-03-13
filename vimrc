@@ -179,8 +179,6 @@ command! -nargs=0 YAbsolute call functions#yankPath("full")
 command! -nargs=0 Yfname call functions#yankPath("filename")
 " Filename
 command! -nargs=0 Ydirectory call functions#yankPath("directory")
-" Console log
-command! -nargs=0 Logger execute "normal oconsole.log('".expand('<cword>')." ====> ', ".expand('<cword>').")"
 " }}}
 
 " Abbr {{{
