@@ -9,7 +9,6 @@ set incsearch                              " Turn on incremental search
 set hlsearch                               " Highlight search term
 set showmatch                              " Highlight matching paranthesis
 set cursorline
-set clipboard^=unnamed                     " System clipboard
 set wrap                                   " Wrap long lines
 set autoindent                             " Minimal auto indenting for any filetype
 set lazyredraw                             " Only redraw when I tell you to
@@ -19,6 +18,7 @@ set conceallevel=2                         " Conceal characters
 " Splits
 set splitbelow                             " Split window opens below
 set splitright                             " Split window opens right
+set switchbuf=vsplit                       " Vert split window for qf entries
 
 " Case
 set smartcase                              " To ignore case in certain cases, overrides ignorecase
@@ -198,6 +198,16 @@ call functions#setupCommandAbbrs('ssa','SessionSave')
 nnoremap ; :
 nnoremap : ;
 
+" Clipboard
+vnoremap <C-c> "*y
+map <C-v> "*P
+
+" Text object []
+xnoremap ir i[
+onoremap ir :normal vi[<CR>
+xnoremap ar a[
+onoremap ar :normal va[<CR>
+
 " Omnifunc
 " Completion pum
 inoremap ,, <C-x><C-o>
@@ -235,12 +245,12 @@ nnoremap * *zvzz
 nnoremap # #zvzz
 
 " Substitute
-nnoremap <leader>sr :%s/<C-r><C-w>//gc<Left><Left><Left>
-xnoremap <leader>sr <Esc>:%s/<C-R><C-R>=<SID>functions#getVisualSelection()<CR>//gc<Left><Left><Left>
+nnoremap <leader>sr :%s/<C-r><C-w>/
+xnoremap <leader>sr <Esc>:%s/\V<C-R><C-R>=functions#getVisualSelection()<CR>/
 
 " CFDO
 nnoremap <leader>sc :cfdo %s/<C-r><C-w>//g \| update<S-Left><Left><Left><Left><Left><Left>
-xnoremap <leader>sc :cfdo %s/<C-R><C-R>=<SID>functions#getVisualSelection()<CR>//gc \| update<S-Left><S-Left><Left><Left><Left><Left>
+xnoremap <leader>sc :cfdo %s/\V<C-R><C-R>=functions#getVisualSelection()<CR>//gc \| update<S-Left><S-Left><Left><Left><Left><Left>
 
 " Tabularize
 xnoremap ga :Tabularize /
@@ -267,8 +277,8 @@ nnoremap <leader>t :tabfind <C-R>='./'<CR>
 " registers
 nnoremap gr :<C-u>registers<CR>:normal! "p<Left>
 " buffers
-nnoremap gb :<c-u>ls<CR>:b<Space>
-nnoremap gB :<c-u>ls<CR>:bd<Space>
+nnoremap gb :<c-u>ls t<CR>:b<Space>
+nnoremap gB :<c-u>ls t<CR>:bd<Space>
 
 " LSC
 nnoremap ,v :vert LSClientGoToDefinitionSplit<CR>
