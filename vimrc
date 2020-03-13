@@ -118,25 +118,26 @@ syntax on
 " }}}
 
 " Plugins {{{
-packadd vim-polyglot        " A solid language pack for Vim
-packadd vim-dirvish         " Directory viewer for Vim ⚡️
-packadd vim-fugitive        " 💀 A Git wrapper so awesome, it should be illegal
-packadd vim-eunuch          " Helpers for UNIX
-packadd vim-dispatch        " Asynchronous build and test dispatcher
-packadd vim-repeat          " repeat any command
-packadd vim-surround        " quoting/parenthesizing made simple
-packadd vim-commentary      " comment stuff out
-packadd vim-unimpaired      " Pairs of handy bracket mappings
-packadd vim-cool            " A very simple plugin that makes hlsearch more useful
-packadd tabular             " 🌻 A Vim alignment plugin
-packadd traces.vim          " Range, pattern and substitute preview for Vim
+packadd vim-polyglot    " A solid language pack for Vim
+packadd vim-dirvish     " Directory viewer for Vim ⚡️
+packadd vim-fugitive    " 💀 A Git wrapper so awesome, it should be illegal
+packadd vim-eunuch      " Helpers for UNIX
+packadd vim-dispatch    " Asynchronous build and test dispatcher
+packadd vim-repeat      " repeat any command
+packadd vim-surround    " quoting/parenthesizing made simple
+packadd vim-commentary  " comment stuff out
+packadd vim-unimpaired  " Pairs of handy bracket mappings
+packadd vim-cool        " A very simple plugin that makes hlsearch more useful
+packadd tabular         " 🌻 A Vim alignment plugin
+packadd traces.vim      " Range, pattern and substitute preview for Vim
+packadd vim-rhubarb     " GitHub extension for fugitive.vim
 
 " Dirvish
 let g:loaded_netrwPlugin = 1                     " disable netrw
 let g:dirvish_mode = ':sort | sort ,^.*[^/]$, r' " Sort dir at the top
 
-" Vim-qf
-let g:qf_mapping_ack_style = 1
+" Rhubarb
+let g:github_enterprise_urls = ['https://github.dev.global.tesco.org']
 " }}}
 
 " Set this after vim polyglot has loaded {{{
