@@ -75,13 +75,13 @@ autocmd GeneralSettings CompleteDone * silent! pclose
 autocmd GeneralSettings CursorMoved * silent! pclose
 
 " Modify buffer colors
-autocmd GeneralSettings ColorScheme * call functions#modifyBufferColors()
+autocmd GeneralSettings ColorScheme * call colors#modifyBufferColors()
 
 " Lsc colors
-autocmd GeneralSettings ColorScheme * call functions#modifylscColors()
+autocmd GeneralSettings ColorScheme * call colors#modifylscColors()
 
 " Signify colors
-autocmd GeneralSettings ColorScheme * call functions#modifySignifyColors()
+autocmd GeneralSettings ColorScheme * call colors#modifySignifyColors()
 
 " Create a new dir if it doesnt exists
 autocmd GeneralSettings BufWritePre *
@@ -96,7 +96,7 @@ autocmd GeneralSettings BufEnter * silent! Glcd
 autocmd GeneralSettings VimResized * wincmd =
 
 " Save session on exit
-autocmd GeneralSettings VimLeavePre * call functions#sessionSave()
+autocmd GeneralSettings VimLeavePre * call sessions#sessionSave()
 
 " Disable cursorline in insert mode
 autocmd GeneralSettings InsertEnter * setlocal nocursorline
@@ -164,21 +164,21 @@ command! -nargs=0 Gstash :call functions#getGitStash()
 " Run jest test watcher
 command! -nargs=1 -complete=file JestSingleFile call functions#jestRunForSingleFile()
 " Save sessions (force)
-command! -nargs=0 SessionSave call functions#sessionSave()
+command! -nargs=0 SessionSave call sessions#sessionSave()
 " Load sessions
-command! -nargs=1 -complete=customlist,functions#sessionCompletePath
-			\ SessionLoad call functions#sessionLoad(<q-args>)
+command! -nargs=1 -complete=customlist,sessions#sessionCompletePath
+			\ SessionLoad call sessions#sessionLoad(<q-args>)
 " Show all diagnostics
 command! -nargs=0 AllDiagnostics execute 'LSClientAllDiagnostics'
 " Yank paths
 " Relative path
-command! -nargs=0 YRelative call functions#yankPath("relative")
+command! -nargs=0 YRelative call yank#yankPath("relative")
 " Full path
-command! -nargs=0 YAbsolute call functions#yankPath("full")
+command! -nargs=0 YAbsolute call yank#yankPath("full")
 " Filename
-command! -nargs=0 Yfname call functions#yankPath("filename")
+command! -nargs=0 Yfname call yank#yankPath("filename")
 " Filename
-command! -nargs=0 Ydirectory call functions#yankPath("directory")
+command! -nargs=0 Ydirectory call yank#yankPath("directory")
 " }}}
 
 " Abbr {{{
@@ -245,11 +245,11 @@ nnoremap # #zvzz
 
 " Substitute
 nnoremap <leader>sr :%s/<C-r><C-w>/
-xnoremap <leader>sr <Esc>:%s/\V<C-R><C-R>=functions#getVisualSelection()<CR>/
+xnoremap <leader>sr <Esc>:%s/<C-R><C-R>=functions#getVisualSelection()<CR>/
 
 " CFDO
 nnoremap <leader>sc :cfdo %s/<C-r><C-w>//g \| update<S-Left><Left><Left><Left><Left><Left>
-xnoremap <leader>sc :cfdo %s/\V<C-R><C-R>=functions#getVisualSelection()<CR>//gc \| update<S-Left><S-Left><Left><Left><Left><Left>
+xnoremap <leader>sc :cfdo %s/<C-R><C-R>=functions#getVisualSelection()<CR>//gc \| update<S-Left><S-Left><Left><Left><Left><Left>
 
 " Tabularize
 xnoremap ga :Tabularize /
@@ -285,7 +285,7 @@ nnoremap ,v :vert LSClientGoToDefinitionSplit<CR>
 
 " Heavier plugins load last {{{
 packadd vim-tmux-navigator  " Seamless navigation between tmux panes and vim splits
-packadd vim-signify         " ➕ Show a diff using Vim its sign column
+packadd vim-signify         " ➕Show a diff using Vim its sign column
 packadd vim-lsc             " A vim plugin for communicating with a language server
 packadd vim-gutentags       " A Vim plugin that manages your tag files
 packadd cfilter             " Filter results from qf/loc lists
