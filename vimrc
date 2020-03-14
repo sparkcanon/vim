@@ -1,3 +1,14 @@
+"  _____________________________________ 
+" / The only thing necessary for the    \
+" | triumph of evil is that good men do |
+" \ nothing.                            /
+"  ------------------------------------- 
+"         \   ^__^
+"          \  (oo)\_______
+"             (__)\       )\/\
+"                 ||----w |
+"                 ||     ||
+
 " Settings {{{
 " Basic
 set backspace=indent,eol,start             " Normal backspace behaviour
