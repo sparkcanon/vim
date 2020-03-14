@@ -159,17 +159,24 @@ colorscheme xcodewwdc
 command! -nargs=+ -complete=file -bar Grep cgetexpr functions#grep(<q-args>)
 " Grep for quickfix list
 command! -nargs=0 -bar GrepWord cgetexpr functions#grep(expand('<cword>'))
+" Last grep
+command! -nargs=0 LastGrep execute 'Grep '.@/.' %'
+
 " Git stash list
 command! -nargs=0 Gstash :call functions#getGitStash()
+
 " Run jest test watcher
 command! -nargs=1 -complete=file JestSingleFile call functions#jestRunForSingleFile()
+
 " Save sessions (force)
 command! -nargs=0 SessionSave call sessions#sessionSave()
 " Load sessions
 command! -nargs=1 -complete=customlist,sessions#sessionCompletePath
 			\ SessionLoad call sessions#sessionLoad(<q-args>)
+
 " Show all diagnostics
 command! -nargs=0 AllDiagnostics execute 'LSClientAllDiagnostics'
+
 " Yank paths
 " Relative path
 command! -nargs=0 YRelative call yank#yankPath("relative")
@@ -221,9 +228,6 @@ inoremap        ,=      <C-x><C-l><C-r>=pumvisible() ? "\<lt>Down>\<lt>C-p>\<lt>
 
 let mapleader = "\<space>"
 
-" Clear highlights
-nnoremap <leader>/ :nohlsearch<CR>
-
 " Tabs
 nnoremap <Tab> gt
 nnoremap <S-Tab> gT
@@ -231,25 +235,12 @@ nnoremap <silent> <S-t> :tabnew<CR>
 
 " Terminal
 tnoremap <Esc> <C-\><C-n>
-nnoremap <silent> <leader>tt :tab terminal<CR>
-
-" Vim-qf
-nmap <UP> <Plug>(qf_qf_toggle)
-nmap <DOWN> <Plug>(qf_loc_toggle)
 
 " Center search result line in screen
 nnoremap n nzvzz
 nnoremap N Nzvzz
 nnoremap * *zvzz
 nnoremap # #zvzz
-
-" Substitute
-nnoremap <leader>sr :%s/<C-r><C-w>/
-xnoremap <leader>sr <Esc>:%s/<C-R><C-R>=functions#getVisualSelection()<CR>/
-
-" CFDO
-nnoremap <leader>sc :cfdo %s/<C-r><C-w>//g \| update<S-Left><Left><Left><Left><Left><Left>
-xnoremap <leader>sc :cfdo %s/<C-R><C-R>=functions#getVisualSelection()<CR>//gc \| update<S-Left><S-Left><Left><Left><Left><Left>
 
 " Tabularize
 xnoremap ga :Tabularize /
@@ -262,15 +253,13 @@ nnoremap gq gggqG
 " Previous buffer
 nnoremap <backspace> <C-^>
 
-" Open last searched qf
-nnoremap <silent> <leader>gr :execute 'Grep '.@/.' %'<CR>
+" Substitute
+nnoremap \s :%s/<C-r><C-w>/
+xnoremap \s <Esc>:%s/<C-R><C-R>=functions#getVisualSelection()<CR>/
 
-" Find
-nnoremap <leader>f :find <C-R>='./'<CR>
-nnoremap <leader>c :Cfind <C-R>='./'<CR>
-nnoremap <leader>s :sfind <C-R>='./'<CR>
-nnoremap <leader>v :vert sfind <C-R>='./'<CR>
-nnoremap <leader>t :tabfind <C-R>='./'<CR>
+" CFDO
+nnoremap \c :cfdo %s/<C-r><C-w>//g \| update<S-Left><Left><Left><Left><Left><Left>
+xnoremap \c :cfdo %s/<C-R><C-R>=functions#getVisualSelection()<CR>//gc \| update<S-Left><S-Left><Left><Left><Left><Left>
 
 " Lists
 " registers
@@ -281,6 +270,13 @@ nnoremap gB :<c-u>ls t<CR>:bd<Space>
 
 " LSC
 nnoremap ,v :vert LSClientGoToDefinitionSplit<CR>
+
+" Find
+nnoremap <leader>f :find <C-R>='./'<CR>
+nnoremap <leader>c :Cfind <C-R>='./'<CR>
+nnoremap <leader>s :sfind <C-R>='./'<CR>
+nnoremap <leader>v :vert sfind <C-R>='./'<CR>
+nnoremap <leader>t :tabfind <C-R>='./'<CR>
 " }}}
 
 " Heavier plugins load last {{{
