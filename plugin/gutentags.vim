@@ -1,5 +1,5 @@
 let g:gutentags_add_default_project_roots = 0
-let g:gutentags_project_root = ['package.json', '.git']
+let g:gutentags_project_root = ['package.json', '.git', 'elm.json']
 
 let g:gutentags_cache_dir = expand('~/.cache/vim/ctags/')
 

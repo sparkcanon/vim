@@ -225,17 +225,18 @@ onoremap ir :normal vi[<CR>
 xnoremap ar a[
 onoremap ar :normal va[<CR>
 
-" Omnifunc
-" Completion pum
+" Completion
+" Omni completion
 inoremap ,, <C-x><C-o>
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " keyword completion
-inoremap        ,'      <C-n><C-r>=pumvisible() ? "\<lt>Down>\<lt>C-p>\<lt>Down>\<lt>C-p>" : ""<CR>
+inoremap        ,.      <C-n><C-r>=pumvisible() ? "\<lt>Down>\<lt>C-p>\<lt>Down>\<lt>C-p>" : ""<CR>
 " File name completion
 inoremap        ,;      <C-x><C-f><C-r>=pumvisible() ? "\<lt>Down>\<lt>C-p>\<lt>Down>\<lt>C-p>" : ""<CR>
 " Whole line completion
 inoremap        ,=      <C-x><C-l><C-r>=pumvisible() ? "\<lt>Down>\<lt>C-p>\<lt>Down>\<lt>C-p>" : ""<CR>
+" Tab movement in pum
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 let mapleader = "\<space>"
 
@@ -297,3 +298,6 @@ packadd vim-lsc             " A vim plugin for communicating with a language ser
 packadd vim-gutentags       " A Vim plugin that manages your tag files
 packadd cfilter             " Filter results from qf/loc lists
 " }}}
+
+" Highlights git diff markers
+match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
