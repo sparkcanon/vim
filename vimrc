@@ -189,9 +189,6 @@ command! -nargs=0 SessionSave call sessions#sessionSave()
 command! -nargs=1 -complete=customlist,sessions#sessionCompletePath
 			\ SessionLoad call sessions#sessionLoad(<q-args>)
 
-" Show all diagnostics
-command! -nargs=0 AllDiagnostics execute 'LSClientAllDiagnostics'
-
 " Yank paths
 " Relative path
 command! -nargs=0 YRelative call yank#yankPath("relative")
@@ -201,6 +198,12 @@ command! -nargs=0 YAbsolute call yank#yankPath("full")
 command! -nargs=0 Yfname call yank#yankPath("filename")
 " Filename
 command! -nargs=0 Ydirectory call yank#yankPath("directory")
+
+" Show all diagnostics
+command! -nargs=0 AllDiagnostics execute 'LSClientAllDiagnostics'
+
+" Git chunk undo
+command! -nargs=0 HunkUndo execute 'SignifyHunkUndo'
 " }}}
 
 " Abbr {{{
