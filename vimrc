@@ -149,6 +149,10 @@ let g:dirvish_mode = ':sort | sort ,^.*[^/]$, r' " Sort dir at the top
 
 " Rhubarb
 let g:github_enterprise_urls = ['https://github.dev.global.tesco.org']
+
+" Polyglot
+" Disable elm plugin from polyglot because it doesnt support 0.19
+let g:polyglot_disabled = ['elm']
 " }}}
 
 " Set this after vim polyglot has loaded {{{
@@ -228,8 +232,10 @@ onoremap ar :normal va[<CR>
 " Completion
 " Omni completion
 inoremap ,, <C-x><C-o>
-" keyword completion
-inoremap        ,.      <C-n><C-r>=pumvisible() ? "\<lt>Down>\<lt>C-p>\<lt>Down>\<lt>C-p>" : ""<CR>
+" Keyword completion
+inoremap ,. <C-x><C-n>
+" Tag completion
+inoremap        ,\      <C-n><C-r>=pumvisible() ? "\<lt>Down>\<lt>C-p>\<lt>Down>\<lt>C-p>" : ""<CR>
 " File name completion
 inoremap        ,;      <C-x><C-f><C-r>=pumvisible() ? "\<lt>Down>\<lt>C-p>\<lt>Down>\<lt>C-p>" : ""<CR>
 " Whole line completion
@@ -297,6 +303,7 @@ packadd vim-signify         " ➕Show a diff using Vim its sign column
 packadd vim-lsc             " A vim plugin for communicating with a language server
 packadd vim-gutentags       " A Vim plugin that manages your tag files
 packadd cfilter             " Filter results from qf/loc lists
+packadd elm-vim             " Elm plugin for Vim
 " }}}
 
 " Highlights git diff markers
