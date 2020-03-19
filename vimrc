@@ -286,8 +286,8 @@ xnoremap \c :cfdo %s/<C-R><C-R>=functions#getVisualSelection()<CR>//gc \| update
 " registers
 nnoremap gr :<C-u>registers<CR>:normal! "p<Left>
 " buffers
-nnoremap gb :<c-u>ls t<CR>:b<Space>
-nnoremap gB :<c-u>ls t<CR>:bd<Space>
+nnoremap gb :<c-u>ls<CR>:b<Space>
+nnoremap gB :<c-u>ls<CR>:bd<Space>
 
 " LSC
 nnoremap ,v :vert LSClientGoToDefinitionSplit<CR>
