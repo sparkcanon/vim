@@ -23,7 +23,8 @@ set cursorline
 set wrap                                   " Wrap long lines
 set autoindent                             " Minimal auto indenting for any filetype
 set lazyredraw                             " Only redraw when I tell you to
-set completeopt+=menuone,noinsert          " Open menu and no insert
+set completeopt+=menuone,noinsert,longest  " Open menu and no insert
+set omnifunc=lsc#complete#complete
 set conceallevel=2                         " Conceal characters
 
 " Splits
@@ -173,9 +174,11 @@ colorscheme xcodewwdc
 " Grep for quickfix list
 command! -nargs=+ -complete=file -bar Grep cgetexpr functions#grep(<q-args>)
 " Grep for quickfix list
-command! -nargs=0 -bar GrepWord cgetexpr functions#grep(expand('<cword>'))
+command! -nargs=0 -bar GrepWord execute 'Grep '.expand('<cword>')
 " Last grep
-command! -nargs=0 LastGrep execute 'Grep '.@/.' %'
+command! -nargs=0 GrepLast execute 'Grep '.@/.' %'
+" Grep buffer
+command! -nargs=0 GrepBuffer execute 'Grep '.expand('<cword>').' %'
 
 " Git stash list
 command! -nargs=0 Gstash :call functions#getGitStash()
@@ -200,7 +203,8 @@ command! -nargs=0 Yfname call yank#yankPath("filename")
 command! -nargs=0 Ydirectory call yank#yankPath("directory")
 
 " Show all diagnostics
-command! -nargs=0 AllDiagnostics execute 'LSClientAllDiagnostics'
+command! -nargs=0 ServerDiagnostics execute 'LSClientAllDiagnostics'
+command! -nargs=0 ServerRestart execute 'LSClientRestartServer'
 
 " Git chunk undo
 command! -nargs=0 HunkUndo execute 'SignifyHunkUndo'
@@ -209,12 +213,15 @@ command! -nargs=0 HunkUndo execute 'SignifyHunkUndo'
 " Abbr {{{
 call functions#setupCommandAbbrs('w','update')
 call functions#setupCommandAbbrs('sov','source $MYVIMRC')
-call functions#setupCommandAbbrs('gr','Grep')
 call functions#setupCommandAbbrs('gp','Dispatch! git push')
 call functions#setupCommandAbbrs('gl','Dispatch! git pull')
 call functions#setupCommandAbbrs('gs','Gstash')
 call functions#setupCommandAbbrs('ssl','SessionLoad')
 call functions#setupCommandAbbrs('ssa','SessionSave')
+call functions#setupCommandAbbrs('gr','Grep')
+call functions#setupCommandAbbrs('grl','GrepLast')
+call functions#setupCommandAbbrs('grb','GrepBuffer')
+call functions#setupCommandAbbrs('cfil','Cfilter!')
 " }}}
 
 " Mappings {{{
@@ -224,7 +231,7 @@ nnoremap : ;
 
 " Clipboard
 vnoremap <C-c> "*y
-map <C-v> "*P
+map <C-p> o<C-c>"*P==
 
 " Text object []
 xnoremap ir i[
@@ -233,16 +240,16 @@ xnoremap ar a[
 onoremap ar :normal va[<CR>
 
 " Completion
-" Omni completion
-inoremap ,, <C-x><C-o>
-" Keyword completion
-inoremap ,. <C-x><C-n>
 " Tag completion
-inoremap        ,\      <C-n><C-r>=pumvisible() ? "\<lt>Down>\<lt>C-p>\<lt>Down>\<lt>C-p>" : ""<CR>
+inoremap ,, <C-x><C-]>
+" Keyword completion for current file
+inoremap ,. <C-x><C-n>
+" Omni completion
+inoremap ,' <C-x><C-o>
 " File name completion
-inoremap        ,;      <C-x><C-f><C-r>=pumvisible() ? "\<lt>Down>\<lt>C-p>\<lt>Down>\<lt>C-p>" : ""<CR>
+inoremap ,; <C-x><C-f><C-r>=pumvisible() ? "\<lt>Down>\<lt>C-p>\<lt>Down>\<lt>C-p>" : ""<CR>
 " Whole line completion
-inoremap        ,=      <C-x><C-l><C-r>=pumvisible() ? "\<lt>Down>\<lt>C-p>\<lt>Down>\<lt>C-p>" : ""<CR>
+inoremap ,= <C-x><C-l><C-r>=pumvisible() ? "\<lt>Down>\<lt>C-p>\<lt>Down>\<lt>C-p>" : ""<CR>
 " Tab movement in pum
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
@@ -269,7 +276,7 @@ xnoremap g" :Tabularize / ".*<CR>
 nnoremap ga :Tabularize /
 
 " Format buffer
-nnoremap gq gggqG
+nnoremap gq mlgggqG'l :delm l<CR>
 
 " Previous buffer
 nnoremap <backspace> <C-^>
@@ -286,8 +293,8 @@ xnoremap \c :cfdo %s/<C-R><C-R>=functions#getVisualSelection()<CR>//gc \| update
 " registers
 nnoremap gr :<C-u>registers<CR>:normal! "p<Left>
 " buffers
-nnoremap gb :<c-u>ls<CR>:b<Space>
-nnoremap gB :<c-u>ls<CR>:bd<Space>
+nnoremap gb :<c-u>ls t<CR>:b<Space>
+nnoremap gB :<c-u>ls t<CR>:bd<Space>
 
 " LSC
 nnoremap ,v :vert LSClientGoToDefinitionSplit<CR>

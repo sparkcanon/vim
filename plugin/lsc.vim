@@ -52,8 +52,8 @@ let g:lsc_auto_map = {
     \ 'GoToDefinition'      : ',d',
     \ 'GoToDefinitionSplit' : ',h',
     \ 'FindReferences'      : ',r',
-    \ 'NextReference'       : ',nr',
-    \ 'PreviousReference'   : ',pr',
+    \ 'NextReference'       : ',]',
+    \ 'PreviousReference'   : ',[',
     \ 'FindImplementations' : ',i',
     \ 'FindCodeActions'     : ',a',
     \ 'Rename'              : ',R',
@@ -61,5 +61,4 @@ let g:lsc_auto_map = {
     \ 'DocumentSymbol'      : ',o',
     \ 'WorkspaceSymbol'     : ',S',
     \ 'SignatureHelp'       : ',s',
-    \ 'Completion'          : 'omnifunc',
     \}

@@ -16,7 +16,9 @@ function! colors#modifylscColors() abort
 	" Yellow
 	highlight lscDiagnosticHint ctermfg=226 cterm=bold
 	" Grey
-	highlight lscReference ctermbg=236 ctermfg=white
+	highlight lscReference ctermbg=236 ctermfg=white cterm=bold
+	" Pink
+	highlight lscCurrentParameter cterm=bold ctermfg=48
 endfunction
 
 " Signify color mods
