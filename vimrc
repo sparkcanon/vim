@@ -178,10 +178,11 @@ autocmd GeneralSettings VimResized * wincmd =
 autocmd GeneralSettings VimLeave * call sessions#sessionSave()
 
 " Make on save
-autocmd GeneralSettings BufWritePost *.js,*.jsx silent execute 'Make! '.expand('%')
+autocmd GeneralSettings BufWritePost *.js,*.jsx silent lmake! <afile> | silent redraw!
 
 " Open qf list window
 autocmd GeneralSettings QuickFixCmdPost cgetexpr cwindow
+autocmd GeneralSettings QuickFixCmdPost l* lwindow
 " }}}
 
 " Commands {{{
