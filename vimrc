@@ -99,6 +99,10 @@ inoremap ,= <C-x><C-l><C-r>=pumvisible() ? "\<lt>Down>\<lt>C-p>\<lt>Down>\<lt>C-
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
+" Tags mappings
+nnoremap ,p :ptjump<space><C-R><C-W><CR>
+nnoremap ,d :tjump<space><C-R><C-W><CR>
+
 let mapleader = "\<space>"
 
 " Tabs
@@ -114,6 +118,10 @@ nnoremap n nzvzz
 nnoremap N Nzvzz
 nnoremap * *zvzz
 nnoremap # #zvzz
+
+" Location list
+nnoremap <UP> :lopen<CR>
+nnoremap <Down> :lclose<CR>
 
 " Tabularize
 xnoremap ga :Tabularize /
@@ -178,7 +186,7 @@ autocmd GeneralSettings VimResized * wincmd =
 autocmd GeneralSettings VimLeave * call sessions#sessionSave()
 
 " Make on save
-autocmd GeneralSettings BufWritePost *.js,*.jsx silent lmake! <afile> | silent redraw!
+autocmd GeneralSettings BufWritePost *.js,*.jsx,*.ts,*.tsx silent lmake! <afile> | silent redraw!
 
 " Open qf list window
 autocmd GeneralSettings QuickFixCmdPost cgetexpr cwindow

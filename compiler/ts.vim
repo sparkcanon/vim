@@ -8,5 +8,5 @@ if exists(":CompilerSet") != 2
 	command -nargs=* CompilerSet setlocal <args>
 endif
 
-CompilerSet errorformat=%f:\ line\ %l\\,\ col\ %c\\,\ %m,%-G%.%#,%-G%.%#
-CompilerSet makeprg=eslint\ -f\ compact\ 
+CompilerSet errorformat=%A\ %#%f\ %#(%l\\\,%c):\ %trror%m,%C%m,%A\ %#%f\ %#(%l\\\,%c):\ %tarning%m,%C%m
+CompilerSet makeprg=tsc\ 
