@@ -3,22 +3,7 @@ function! colors#modifyBufferColors() abort
 	highlight! Normal ctermbg=NONE
 	highlight! EndOfBuffer ctermbg=NONE ctermfg=241
 	highlight! VertSplit ctermbg=NONE
-endfunction
-
-" Lsc signs color mods
-function! colors#modifylscColors() abort
-	" Red
-	highlight lscDiagnosticError ctermfg=196 cterm=bold
-	" Orange
-	highlight lscDiagnosticWarning ctermfg=202 cterm=bold
-	" Green
-	highlight lscDiagnosticInfo ctermfg=48 cterm=bold
-	" Yellow
-	highlight lscDiagnosticHint ctermfg=226 cterm=bold
-	" Grey
-	highlight lscReference ctermbg=236 ctermfg=white cterm=bold
-	" Pink
-	highlight lscCurrentParameter cterm=bold ctermfg=48
+	highlight! signcolumn ctermbg=NONE
 endfunction
 
 " Signify color mods

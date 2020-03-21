@@ -46,11 +46,6 @@
 - 
   category: default
   local: false
-  name: "natebosch/vim-lsc"
-  opt: false
-- 
-  category: default
-  local: false
   name: "romainl/vim-cool"
   opt: false
 - 

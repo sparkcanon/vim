@@ -1,74 +1,74 @@
-"  _____________________________________ 
-" / The only thing necessary for the    \
-" | triumph of evil is that good men do |
-" \ nothing.                            /
-"  ------------------------------------- 
-"         \   ^__^
-"          \  (oo)\_______
-"             (__)\       )\/\
-"                 ||----w |
-"                 ||     ||
+" Reset augroup
+augroup GeneralSettings
+	autocmd!
+augroup END
 
-" Settings {{{
-" Basic
-set backspace=indent,eol,start             " Normal backspace behaviour
-set number                                 " Display number line
-set hidden                                 " Display hidden buffers in list
-set signcolumn=auto                        " Display sign column
-set autoread                               " Update file if changed outside
-set incsearch                              " Turn on incremental search
-set hlsearch                               " Highlight search term
-set showmatch                              " Highlight matching paranthesis
-set cursorline
-set wrap                                   " Wrap long lines
-set autoindent                             " Minimal auto indenting for any filetype
-set lazyredraw                             " Only redraw when I tell you to
+" Syntax {{{
+filetype plugin indent on
+syntax enable
+" }}}
+
+" Completion {{{
 set completeopt+=menuone,noinsert,longest  " Open menu and no insert
-set omnifunc=lsc#complete#complete
-set conceallevel=2                         " Conceal characters
+set omnifunc=syntaxcomplete#Complete       " General purpose omnifunc
+" }}}
+
+" Basic Settings {{{
+set backspace=indent,eol,start            " Normal backspace behaviour
+set number                                " Display number line
+set hidden                                " Display hidden buffers in list
+set signcolumn=auto                       " Display sign column
+set autoread                              " Update file if changed outside
+set incsearch                             " Turn on incremental search
+set hlsearch                              " Highlight search term
+set showmatch                             " Highlight matching paranthesis
+set wrap                                  " Wrap long lines
+set autoindent                            " Minimal auto indenting for any filetype
+set clipboard+=unnamed                    " Set clipboard options
+set cursorline
 
 " Splits
-set splitbelow                             " Split window opens below
-set splitright                             " Split window opens right
-set switchbuf=vsplit                       " Vert split window for qf entries
+set splitbelow                            " Split window opens below
+set splitright                            " Split window opens right
+set switchbuf=vsplit                      " Vert split window for qf entries
 
 " Case
-set smartcase                              " To ignore case in certain cases, overrides ignorecase
-set ignorecase                             " Ignore case all together
+set smartcase                             " To ignore case in certain cases, overrides ignorecase
+set ignorecase                            " Ignore case all together
+
+" Wild menu options
+set wildmenu                              " Turn menu on for wild searches
+set wildignorecase                        " Ignore case for wildmenu
+set wildignore=*.swp,*.bak
+set wildignore+=**/node_modules/**        " Ignore node_modules
+set wildignore+=*.cache,*.min.*
+set wildignore+=*/.git/**/*               " Ignore version control
+set wildignore+=tags                      " Ignore tag files
+set wildignore+=*.tar.*                   " Ignore tar files
+
+" Path options
+set path-=/usr/include                    " Exclude /usr/include dir
+set path-=**/node_modules/**              " Exclude the blackhole
+set path-=**/.git/**                      " Exclude the git
+set path=.,**                             " Standard inclusion
 
 " Backup settings
 set sessionoptions-=options
 set viewoptions-=options
-set undofile                               " Set this option to have full undo power
-set backup                                 " Set this option to enable backup
-set writebackup                            " Set this option to write back up
-set backupdir=$HOME/.vim/tmp/dir_backup//  " Back up dir
-set directory^=$HOME/.vim/tmp/dir_swap//   " Swap file dir
-set undodir=$HOME/.vim/tmp/dir_undo        " Undo dir
+set undofile                              " Set this option to have full undo power
+set backup                                " Set this option to enable backup
+set writebackup                           " Set this option to write back up
+set backupdir=$HOME/.vim/tmp/dir_backup// " Back up dir
+set directory^=$HOME/.vim/tmp/dir_swap//  " Swap file dir
+set undodir=$HOME/.vim/tmp/dir_undo       " Undo dir
 
 " Statusline
-set laststatus=2                           " Display statusline
-set ruler                                  " Set ruler in statusline
-set statusline=\ ❮\ %<%f\
-			\%h%m%r%=%-14.
-			\(%l,%c%V%)\
-			\%P\ ❯\ 
+set laststatus=2                          " Display statusline
+set ruler                                 " Set ruler in statusline
+set statusline=\ ❮\ %<%f\%h%m%r%=%-14.(%l,%c%V%)\%P\ ❯\ 
 
-" Set wildmenu options
-set wildmenu                               " Turn menu on for wild searches
-set wildignorecase                         " Ignore case for wildmenu
-set wildignore=*.swp,*.bak
-set wildignore+=**/node_modules/**         " Ignore node_modules
-set wildignore+=*.cache,*.min.*
-set wildignore+=*/.git/**/*                " Ignore version control
-set wildignore+=tags                       " Ignore tag files
-set wildignore+=*.tar.*                    " Ignore tar files
-
-" Path options
-set path-=/usr/include                     " Exclude /usr/include dir
-set path-=**/node_modules/**               " Exclude the blackhole
-set path-=**/.git/**                       " Exclude the git
-set path=.,**                              " Standard inclusion
+" Highlights git diff markers
+match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
 " Grep
 if executable('rg')
@@ -77,173 +77,18 @@ if executable('rg')
 endif
 " }}}
 
-" Autocmd {{{
-augroup GeneralSettings
-	autocmd!
-augroup END
-
-" Auto close preview window
-autocmd GeneralSettings CompleteDone * silent! pclose
-autocmd GeneralSettings CursorMoved * silent! pclose
-
-" Modify buffer colors
-autocmd GeneralSettings ColorScheme * call colors#modifyBufferColors()
-
-" Lsc colors
-autocmd GeneralSettings ColorScheme * call colors#modifylscColors()
-
-" Signify colors
-autocmd GeneralSettings ColorScheme * call colors#modifySignifyColors()
-
-" Create a new dir if it doesnt exists
-autocmd GeneralSettings BufWritePre *
-			\ if '<afile>' !~ '^scp:' && !isdirectory(expand('<afile>:h')) |
-			\ call mkdir(expand('<afile>:h'), 'p') |
-			\ endif
-
-" Set cwd on bufenter
-autocmd GeneralSettings BufEnter * silent! Glcd
-
-" Auto-resize splits when Vim gets resized.
-autocmd GeneralSettings VimResized * wincmd =
-
-" Save session on exit
-autocmd GeneralSettings VimLeavePre * call sessions#sessionSave()
-
-" Disable cursorline in insert mode
-autocmd GeneralSettings InsertEnter * setlocal nocursorline
-autocmd GeneralSettings VimEnter,InsertLeave * setlocal cursorline
-
-" Leave marks to follow
-autocmd GeneralSettings BufLeave *.css,*.less  normal! mC
-autocmd GeneralSettings BufLeave *.html normal! mH
-autocmd GeneralSettings BufLeave *.js,*.jsx normal! mJ
-autocmd GeneralSettings BufLeave *.ts,*.tsx normal! mT
-
-" Open qf list window
-autocmd GeneralSettings QuickFixCmdPost cgetexpr cwindow
-"}}}
-
-" Syntax {{{
-filetype plugin indent on
-syntax on
-" }}}
-
-" Plugins {{{
-packadd vim-polyglot    " A solid language pack for Vim
-packadd vim-dirvish     " Directory viewer for Vim ⚡️
-packadd vim-fugitive    " 💀 A Git wrapper so awesome, it should be illegal
-packadd vim-eunuch      " Helpers for UNIX
-packadd vim-dispatch    " Asynchronous build and test dispatcher
-packadd vim-repeat      " repeat any command
-packadd vim-surround    " quoting/parenthesizing made simple
-packadd vim-commentary  " comment stuff out
-packadd vim-unimpaired  " Pairs of handy bracket mappings
-packadd vim-cool        " A very simple plugin that makes hlsearch more useful
-packadd tabular         " 🌻 A Vim alignment plugin
-packadd traces.vim      " Range, pattern and substitute preview for Vim
-packadd vim-rhubarb     " GitHub extension for fugitive.vim
-
-" Dirvish
-let g:loaded_netrwPlugin = 1                     " disable netrw
-let g:dirvish_mode = ':sort | sort ,^.*[^/]$, r' " Sort dir at the top
-
-" Rhubarb
-let g:github_enterprise_urls = ['https://github.dev.global.tesco.org']
-
-" Polyglot
-" Disable elm plugin from polyglot because it doesnt support 0.19
-let g:polyglot_disabled = ['elm']
-" }}}
-
-" Set this after vim polyglot has loaded {{{
-" Set prettier as formatter
-autocmd GeneralSettings FileType
-			\ javascript,typescript,less,css,html,typescriptreact setlocal
-			\ formatprg=prettier\ --stdin\ --stdin-filepath\ %
-autocmd GeneralSettings FileType
-			\ javascript,typescript,less,css,html,typescriptreact setlocal formatexpr=
-" }}}
-
-" Colorscheme {{{
-packadd vim-colors-xcode    " Xcode 11’s dark and light colourschemes, now for Vim!
-colorscheme xcodewwdc
-" }}}
-
-" Commands {{{
-" Grep for quickfix list
-command! -nargs=+ -complete=file -bar Grep cgetexpr functions#grep(<q-args>)
-" Grep for quickfix list
-command! -nargs=0 -bar GrepWord execute 'Grep '.expand('<cword>')
-" Last grep
-command! -nargs=0 GrepLast execute 'Grep '.@/.' %'
-" Grep buffer
-command! -nargs=0 GrepBuffer execute 'Grep '.expand('<cword>').' %'
-
-" Git stash list
-command! -nargs=0 Gstash :call functions#getGitStash()
-
-" Run jest test watcher
-command! -nargs=1 -complete=file JestSingleFile call functions#jestRunForSingleFile()
-
-" Save sessions (force)
-command! -nargs=0 SessionSave call sessions#sessionSave()
-" Load sessions
-command! -nargs=1 -complete=customlist,sessions#sessionCompletePath
-			\ SessionLoad call sessions#sessionLoad(<q-args>)
-
-" Yank paths
-" Relative path
-command! -nargs=0 YRelative call yank#yankPath("relative")
-" Full path
-command! -nargs=0 YAbsolute call yank#yankPath("full")
-" Filename
-command! -nargs=0 Yfname call yank#yankPath("filename")
-" Filename
-command! -nargs=0 Ydirectory call yank#yankPath("directory")
-
-" Show all diagnostics
-command! -nargs=0 ServerDiagnostics execute 'LSClientAllDiagnostics'
-command! -nargs=0 ServerRestart execute 'LSClientRestartServer'
-
-" Git chunk undo
-command! -nargs=0 HunkUndo execute 'SignifyHunkUndo'
-" }}}
-
-" Abbr {{{
-call functions#setupCommandAbbrs('w','update')
-call functions#setupCommandAbbrs('sov','source $MYVIMRC')
-call functions#setupCommandAbbrs('gp','Dispatch! git push')
-call functions#setupCommandAbbrs('gl','Dispatch! git pull')
-call functions#setupCommandAbbrs('gs','Gstash')
-call functions#setupCommandAbbrs('ssl','SessionLoad')
-call functions#setupCommandAbbrs('ssa','SessionSave')
-call functions#setupCommandAbbrs('gr','Grep')
-call functions#setupCommandAbbrs('grl','GrepLast')
-call functions#setupCommandAbbrs('grb','GrepBuffer')
-call functions#setupCommandAbbrs('cfil','Cfilter!')
-" }}}
-
 " Mappings {{{
 " Commands
 nnoremap ; :
 nnoremap : ;
-
-" Clipboard
-vnoremap <C-c> "*y
-map <C-p> o<C-c>"*P==
-
-" Text object []
-xnoremap ir i[
-onoremap ir :normal vi[<CR>
-xnoremap ar a[
-onoremap ar :normal va[<CR>
 
 " Completion
 " Tag completion
 inoremap ,, <C-x><C-]>
 " Keyword completion for current file
 inoremap ,. <C-x><C-n>
+" Keyword completion for included files
+inoremap ,\ <C-x><C-I>
 " Omni completion
 inoremap ,' <C-x><C-o>
 " File name completion
@@ -296,9 +141,6 @@ nnoremap gr :<C-u>registers<CR>:normal! "p<Left>
 nnoremap gb :<c-u>ls t<CR>:b<Space>
 nnoremap gB :<c-u>ls t<CR>:bd<Space>
 
-" LSC
-nnoremap ,v :vert LSClientGoToDefinitionSplit<CR>
-
 " Find
 nnoremap <leader>f :find <C-R>='./'<CR>
 nnoremap <leader>c :Cfind <C-R>='./'<CR>
@@ -307,14 +149,114 @@ nnoremap <leader>v :vert sfind <C-R>='./'<CR>
 nnoremap <leader>t :tabfind <C-R>='./'<CR>
 " }}}
 
-" Heavier plugins load last {{{
-packadd vim-tmux-navigator  " Seamless navigation between tmux panes and vim splits
-packadd vim-signify         " ➕Show a diff using Vim its sign column
-packadd vim-lsc             " A vim plugin for communicating with a language server
-packadd vim-gutentags       " A Vim plugin that manages your tag files
-packadd cfilter             " Filter results from qf/loc lists
-packadd elm-vim             " Elm plugin for Vim
+" Set colors {{{
+" Modify buffer colors
+autocmd GeneralSettings ColorScheme * call colors#modifyBufferColors()
+
+" Signify colors
+autocmd GeneralSettings ColorScheme * call colors#modifySignifyColors()
+
+" Set color scheme after setting buffer colors
+colorscheme default
 " }}}
 
-" Highlights git diff markers
-match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
+" Misc Autocmd {{{
+" Preview window close
+autocmd GeneralSettings CompleteDone * silent! pclose
+autocmd GeneralSettings CursorMoved * silent! pclose
+
+" Create a new dir if it doesnt exists
+autocmd GeneralSettings BufWritePre *
+			\ if '<afile>' !~ '^scp:' && !isdirectory(expand('<afile>:h')) |
+			\ call mkdir(expand('<afile>:h'), 'p') |
+			\ endif
+
+" Auto-resize splits when Vim gets resized.
+autocmd GeneralSettings VimResized * wincmd =
+
+" Save session on exit
+autocmd GeneralSettings VimLeave * call sessions#sessionSave()
+
+" Make on save
+autocmd GeneralSettings BufWritePost *.js,*.jsx silent execute 'Make! '.expand('%')
+
+" Open qf list window
+autocmd GeneralSettings QuickFixCmdPost cgetexpr cwindow
+" }}}
+
+" Commands {{{
+" Grep for quickfix list
+command! -nargs=+ -complete=file -bar Grep cgetexpr functions#grep(<q-args>)
+" Grep for quickfix list
+command! -nargs=0 -bar GrepWord execute 'Grep '.expand('<cword>')
+" Last grep
+command! -nargs=0 GrepLast execute 'Grep '.@/.' %'
+" Grep buffer
+command! -nargs=0 GrepBuffer execute 'Grep '.expand('<cword>').' %'
+
+" Git stash list
+command! -nargs=0 Gstash :call functions#getGitStash()
+
+" Run jest test watcher
+command! -nargs=1 -complete=file JestSingleFile call functions#jestRunForSingleFile()
+
+" Save sessions (force)
+command! -nargs=0 SessionSave call sessions#sessionSave()
+" Load sessions
+command! -nargs=1 -complete=customlist,sessions#sessionCompletePath
+			\ SessionLoad call sessions#sessionLoad(<q-args>)
+
+" Yank paths
+" Relative path
+command! -nargs=0 YRelative call yank#yankPath("relative")
+" Full path
+command! -nargs=0 YAbsolute call yank#yankPath("full")
+" Filename
+command! -nargs=0 Yfname call yank#yankPath("filename")
+" Filename
+command! -nargs=0 Ydirectory call yank#yankPath("directory")
+
+" Git chunk undo
+command! -nargs=0 HunkUndo execute 'SignifyHunkUndo'
+" }}}
+
+" Abbr {{{
+call functions#setupCommandAbbrs('w','update')
+call functions#setupCommandAbbrs('sov','source $MYVIMRC')
+call functions#setupCommandAbbrs('gp','Dispatch! git push')
+call functions#setupCommandAbbrs('gl','Dispatch! git pull')
+call functions#setupCommandAbbrs('gs','Gstash')
+call functions#setupCommandAbbrs('ssl','SessionLoad')
+call functions#setupCommandAbbrs('ssa','SessionSave')
+call functions#setupCommandAbbrs('gr','Grep')
+call functions#setupCommandAbbrs('grl','GrepLast')
+call functions#setupCommandAbbrs('grb','GrepBuffer')
+" }}}
+
+" Plugins {{{
+packloadall          " Load all plugins
+packadd cfilter      " Filter results from qf lists
+
+" Dirvish
+let g:loaded_netrwPlugin = 1                     " disable netrw
+let g:dirvish_mode = ':sort | sort ,^.*[^/]$, r' " Sort dir at the top
+
+" Rhubarb
+let g:github_enterprise_urls = ['https://github.dev.global.tesco.org']
+
+" Polyglot
+" Disable elm plugin from polyglot because it doesnt support 0.19
+let g:polyglot_disabled = ['elm']
+
+" Dispatch
+set shellpipe=2>&1\|tee
+" }}}
+
+" Set this after vim polyglot has loaded {{{
+" Set prettier as formatter
+autocmd GeneralSettings FileType
+			\ javascript,typescript,less,css,html,typescriptreact setlocal
+			\ formatprg=prettier\ --stdin\ --stdin-filepath\ %
+autocmd GeneralSettings FileType
+			\ javascript,typescript,less,css,html,typescriptreact setlocal formatexpr=
+" }}}

@@ -38,3 +38,14 @@ function! functions#jestRunForSingleFile() abort
 	execute 'vert terminal ./web/node_modules/.bin/jest --watch '
 endfunction
 " }}}
+
+" Make {{{
+" TODO: Check if buffers are laoded
+function! MassMake() abort
+    let buffers = []
+    for number in range(bufnr('$'))
+        call add(buffers, bufname(number))
+    endfor
+    execute 'Make! ' .. join(buffers, ' ')
+endfunction
+" }}}
