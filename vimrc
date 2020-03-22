@@ -1,4 +1,4 @@
-" Reset augroup
+" Reset GeneralSettings augroup
 augroup GeneralSettings
 	autocmd!
 augroup END

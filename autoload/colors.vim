@@ -2,7 +2,7 @@
 function! colors#modifyBufferColors() abort
 	highlight! Normal ctermbg=NONE
 	highlight! EndOfBuffer ctermbg=NONE ctermfg=241
-	highlight! VertSplit ctermbg=NONE
+	highlight! VertSplit cterm=NONE
 	highlight! signcolumn ctermbg=NONE
 endfunction
 
