@@ -200,6 +200,13 @@ autocmd GeneralSettings BufWritePost *.js,*.jsx,*.ts,*.tsx silent lmake! <afile>
 " Open qf list window
 autocmd GeneralSettings QuickFixCmdPost cgetexpr cwindow
 autocmd GeneralSettings QuickFixCmdPost l* lwindow
+
+" Set prettier as formatter
+autocmd GeneralSettings FileType
+			\ javascript,typescript,less,css,html,typescriptreact setlocal
+			\ formatprg=prettier\ --stdin\ --stdin-filepath\ %
+autocmd GeneralSettings FileType
+			\ javascript,typescript,less,css,html,typescriptreact setlocal formatexpr=
 " }}}
 
 " Commands {{{
@@ -264,13 +271,4 @@ let g:github_enterprise_urls = ['https://github.dev.global.tesco.org']
 
 " Dispatch
 set shellpipe=2>&1\|tee
-" }}}
-
-" Set this after vim polyglot has loaded {{{
-" Set prettier as formatter
-autocmd GeneralSettings FileType
-			\ javascript,typescript,less,css,html,typescriptreact setlocal
-			\ formatprg=prettier\ --stdin\ --stdin-filepath\ %
-autocmd GeneralSettings FileType
-			\ javascript,typescript,less,css,html,typescriptreact setlocal formatexpr=
 " }}}
