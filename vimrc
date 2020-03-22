@@ -253,10 +253,6 @@ let g:dirvish_mode = ':sort | sort ,^.*[^/]$, r' " Sort dir at the top
 " Rhubarb
 let g:github_enterprise_urls = ['https://github.dev.global.tesco.org']
 
-" Polyglot
-" Disable elm plugin from polyglot because it doesnt support 0.19
-let g:polyglot_disabled = ['elm']
-
 " Dispatch
 set shellpipe=2>&1\|tee
 " }}}
