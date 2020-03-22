@@ -112,8 +112,6 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 nnoremap ,p :ptjump<space><C-R><C-W><CR>
 nnoremap ,d :tjump<space><C-R><C-W><CR>
 
-let mapleader = "\<space>"
-
 " Tabs
 nnoremap <Tab> gt
 nnoremap <S-Tab> gT
@@ -159,11 +157,11 @@ nnoremap gb :<c-u>ls t<CR>:b<Space>
 nnoremap gB :<c-u>ls t<CR>:bd<Space>
 
 " Find
-nnoremap <leader>f :find <C-R>='./'<CR>
-nnoremap <leader>c :Cfind <C-R>='./'<CR>
-nnoremap <leader>s :sfind <C-R>='./'<CR>
-nnoremap <leader>v :vert sfind <C-R>='./'<CR>
-nnoremap <leader>t :tabfind <C-R>='./'<CR>
+nnoremap <space>f :find <C-R>='./'<CR>
+nnoremap <space>c :Cfind <C-R>='./'<CR>
+nnoremap <space>s :sfind <C-R>='./'<CR>
+nnoremap <space>v :vert sfind <C-R>='./'<CR>
+nnoremap <space>t :tabfind <C-R>='./'<CR>
 " }}}
 
 " Set colors {{{
