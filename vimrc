@@ -14,57 +14,57 @@ set omnifunc=syntaxcomplete#Complete       " General purpose omnifunc
 " }}}
 
 " Basic Settings {{{
-set backspace=indent,eol,start            " Normal backspace behaviour
-set number                                " Display number line
-set hidden                                " Display hidden buffers in list
-set signcolumn=auto                       " Display sign column
-set autoread                              " Update file if changed outside
-set incsearch                             " Turn on incremental search
-set hlsearch                              " Highlight search term
-set showmatch                             " Highlight matching paranthesis
-set wrap                                  " Wrap long lines
-set autoindent                            " Minimal auto indenting for any filetype
-set clipboard+=unnamed                    " Set clipboard options
+set backspace=indent,eol,start             " Normal backspace behaviour
+set number                                 " Display number line
+set hidden                                 " Display hidden buffers in list
+set signcolumn=auto                        " Display sign column
+set autoread                               " Update file if changed outside
+set incsearch                              " Turn on incremental search
+set hlsearch                               " Highlight search term
+set showmatch                              " Highlight matching paranthesis
+set wrap                                   " Wrap long lines
+set autoindent                             " Minimal auto indenting for any filetype
+set clipboard+=unnamed                     " Set clipboard options
 set cursorline
 
 " Splits
-set splitbelow                            " Split window opens below
-set splitright                            " Split window opens right
-set switchbuf=vsplit                      " Vert split window for qf entries
+set splitbelow                             " Split window opens below
+set splitright                             " Split window opens right
+set switchbuf=useopen                      " Vert split window for qf entries
 
 " Case
-set smartcase                             " To ignore case in certain cases, overrides ignorecase
-set ignorecase                            " Ignore case all together
+set smartcase                              " To ignore case in certain cases, overrides ignorecase
+set ignorecase                             " Ignore case all together
 
 " Wild menu options
-set wildmenu                              " Turn menu on for wild searches
-set wildignorecase                        " Ignore case for wildmenu
+set wildmenu                               " Turn menu on for wild searches
+set wildignorecase                         " Ignore case for wildmenu
 set wildignore=*.swp,*.bak
-set wildignore+=**/node_modules/**        " Ignore node_modules
+set wildignore+=**/node_modules/**         " Ignore node_modules
 set wildignore+=*.cache,*.min.*
-set wildignore+=*/.git/**/*               " Ignore version control
-set wildignore+=tags                      " Ignore tag files
-set wildignore+=*.tar.*                   " Ignore tar files
+set wildignore+=*/.git/**/*                " Ignore version control
+set wildignore+=tags                       " Ignore tag files
+set wildignore+=*.tar.*                    " Ignore tar files
 
 " Path options
-set path-=/usr/include                    " Exclude /usr/include dir
-set path-=**/node_modules/**              " Exclude the blackhole
-set path-=**/.git/**                      " Exclude the git
-set path=.,**                             " Standard inclusion
+set path-=/usr/include                     " Exclude /usr/include dir
+set path-=**/node_modules/**               " Exclude the blackhole
+set path-=**/.git/**                       " Exclude the git
+set path=.,**                              " Standard inclusion
 
 " Backup settings
 set sessionoptions-=options
 set viewoptions-=options
-set undofile                              " Set this option to have full undo power
-set backup                                " Set this option to enable backup
-set writebackup                           " Set this option to write back up
-set backupdir=$HOME/.vim/tmp/dir_backup// " Back up dir
-set directory^=$HOME/.vim/tmp/dir_swap//  " Swap file dir
-set undodir=$HOME/.vim/tmp/dir_undo       " Undo dir
+set undofile                               " Set this option to have full undo power
+set backup                                 " Set this option to enable backup
+set writebackup                            " Set this option to write back up
+set backupdir=$HOME/.vim/tmp/dir_backup//  " Back up dir
+set directory^=$HOME/.vim/tmp/dir_swap//   " Swap file dir
+set undodir=$HOME/.vim/tmp/dir_undo        " Undo dir
 
 " Statusline
-set laststatus=2                          " Display statusline
-set ruler                                 " Set ruler in statusline
+set laststatus=2                           " Display statusline
+set ruler                                  " Set ruler in statusline
 set statusline=\ ❮\ %<%f\%h%m%r%=%-14.(%l,%c%V%)\%P\ ❯\ 
 
 " Highlights git diff markers
@@ -165,7 +165,7 @@ autocmd GeneralSettings ColorScheme * call colors#modifyBufferColors()
 autocmd GeneralSettings ColorScheme * call colors#modifySignifyColors()
 
 " Set color scheme after setting buffer colors
-colorscheme default
+colorscheme murphy
 " }}}
 
 " Misc Autocmd {{{
