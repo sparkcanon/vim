@@ -110,7 +110,7 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " Tags mappings
 nnoremap ,p :ptjump<space><C-R><C-W><CR>
-nnoremap ,d :tjump<space><C-R><C-W><CR>
+nnoremap ,t :tjump<space><C-R><C-W><CR>
 
 " Tabs
 nnoremap <Tab> gt
@@ -135,10 +135,10 @@ xnoremap ga :Tabularize /
 xnoremap g" :Tabularize / ".*<CR>
 nnoremap ga :Tabularize /
 
-" Format buffer
+" Buffers
+" format buffer
 nnoremap gq mlgggqG'l :delm l<CR>
-
-" Previous buffer
+" previously used buffer
 nnoremap <backspace> <C-^>
 
 " Substitute
@@ -162,6 +162,9 @@ nnoremap <space>c :Cfind <C-R>='./'<CR>
 nnoremap <space>s :sfind <C-R>='./'<CR>
 nnoremap <space>v :vert sfind <C-R>='./'<CR>
 nnoremap <space>t :tabfind <C-R>='./'<CR>
+nnoremap <space>e :e <C-R>='%:h/'<CR>
+nnoremap <space>v :vsp <C-R>='%:h/'<CR>
+nnoremap <space>s :sp <C-R>='%:h/'<CR>
 " }}}
 
 " Set colors {{{
