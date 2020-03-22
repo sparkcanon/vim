@@ -41,7 +41,7 @@ endfunction
 
 " Make {{{
 " TODO: Check if buffers are laoded
-function! MassMake() abort
+function! functions#massMake() abort
     let buffers = []
     for number in range(bufnr('$'))
         call add(buffers, bufname(number))

@@ -14,7 +14,7 @@ endif
 compiler ts
 
 " Make on all open buffers
-command! -nargs=0 MassMake call MassMake()
+command! -nargs=0 MassMake call functions#massMake()
 
 " Console log
 command! -nargs=0 Log execute "normal oconsole.log('".expand('<cword>')
