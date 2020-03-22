@@ -1,3 +1,12 @@
+ " _____________________ 
+" < Typescript Compiler >
+ " --------------------- 
+ "        \   ^__^
+ "         \  (oo)\_______
+ "            (__)\       )\/\
+ "                ||----w |
+ "                ||     ||
+
 if exists("current_compiler")
   finish
 endif

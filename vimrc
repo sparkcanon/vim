@@ -1,3 +1,12 @@
+ " _______ 
+" < VIMRC >
+ " ------- 
+ "        \   ^__^
+ "         \  (oo)\_______
+ "            (__)\       )\/\
+ "                ||----w |
+ "                ||     ||
+
 " Reset GeneralSettings augroup
 augroup GeneralSettings
 	autocmd!
