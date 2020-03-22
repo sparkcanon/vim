@@ -1,8 +1,5 @@
-" For gf mapping
-setlocal suffixesadd+=.ts
 setlocal suffixesadd+=.js
 setlocal suffixesadd+=.jsx
-setlocal suffixesadd+=.tsx
 setlocal include=^\\s*[^\/]\\+\\(from\\\|require(['\"]\\)
 setlocal define=^\\s*[^/,\\":=]*\\s*[:=]*\\s*\\(class\\\|function\\\|define\\\|export\\s\\(default\\)*\\)[('\"]\\{-\\}
 
