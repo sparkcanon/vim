@@ -5,13 +5,3 @@ function! colors#modifyBufferColors() abort
 	highlight! VertSplit cterm=NONE
 	highlight! signcolumn ctermbg=NONE
 endfunction
-
-" Signify color mods
-function! colors#modifySignifyColors() abort
-	" Green
-	highlight SignifySignAdd ctermfg=48
-	" Red
-	highlight SignifySignDelete ctermfg=196
-	" Yellow
-	highlight SignifySignChange ctermfg=226
-endfunction

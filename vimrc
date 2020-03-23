@@ -171,9 +171,6 @@ nnoremap <space>es :sp <C-R>='%:h/'<CR>
 " Modify buffer colors
 autocmd GeneralSettings ColorScheme * call colors#modifyBufferColors()
 
-" Signify colors
-autocmd GeneralSettings ColorScheme * call colors#modifySignifyColors()
-
 " Set color scheme after setting buffer colors
 colorscheme murphy
 " }}}
