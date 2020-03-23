@@ -2,9 +2,9 @@
 " < VIMRC >
  " ------- 
  "        \   ^__^
- "         \  (oo)\_______
+ "         \  (**)\_______
  "            (__)\       )\/\
- "                ||----w |
+ "             U  ||----w |
  "                ||     ||
 
 " Reset GeneralSettings augroup
@@ -26,7 +26,7 @@ set omnifunc=syntaxcomplete#Complete       " General purpose omnifunc
 set backspace=indent,eol,start             " Normal backspace behaviour
 set number                                 " Display number line
 set hidden                                 " Display hidden buffers in list
-set signcolumn=auto                        " Display sign column
+set signcolumn&                            " Display sign column
 set autoread                               " Update file if changed outside
 set incsearch                              " Turn on incremental search
 set hlsearch                               " Highlight search term
