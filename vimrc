@@ -98,11 +98,6 @@ inoremap <C-l> <C-x><C-l>
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-" Tags
-nnoremap ,p :ptjump<space><C-R><C-W><CR>
-nnoremap ,t :tjump<space><C-R><C-W><CR>
-nnoremap ,v :vert stjump<space><C-R><C-W><CR>
-
 " Tabs
 nnoremap <Tab> gt
 nnoremap <S-Tab> gT
@@ -187,6 +182,12 @@ autocmd GeneralSettings ColorScheme * call colors#modifyBufferColors()
 
 " Highlights git diff markers
 autocmd GeneralSettings ColorScheme * match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
+
+" Lsc colors
+autocmd GeneralSettings ColorScheme * call colors#modifylscColors()
+
+" Signify colors
+autocmd GeneralSettings ColorScheme * call colors#modifySignifyColors()
 
 " Set color scheme after setting buffer colors
 packadd vim-colors-xcode
