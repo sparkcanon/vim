@@ -172,7 +172,7 @@ nnoremap <space>es :sp <C-R>='%:h/'<CR>
 autocmd GeneralSettings ColorScheme * call colors#modifyBufferColors()
 
 " Set color scheme after setting buffer colors
-colorscheme murphy
+colorscheme evening
 " }}}
 
 " Misc Autocmd {{{

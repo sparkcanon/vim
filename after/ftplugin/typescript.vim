@@ -8,11 +8,11 @@ if fnamemodify(getcwd(), ":p:h:t") == 'lego-web'
 	set includeexpr=substitute(v:fname,'^#/','web/','g')
 endif
 
-compiler ts
+compiler js
 
 " Make on all open buffers
 command! -nargs=0 MassMake call functions#massMake()
 
-" Console log
+" Console log command
 command! -nargs=0 Log execute "normal oconsole.log('".expand('<cword>')
 			\ . "====> ', ".expand('<cword>').")"

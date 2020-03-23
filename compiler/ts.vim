@@ -1,6 +1,6 @@
- " _____________________ 
-" < Typescript Compiler >
- " --------------------- 
+ " ______________ 
+" < TSC Compiler >
+ " -------------- 
  "        \   ^__^
  "         \  (oo)\_______
  "            (__)\       )\/\
@@ -11,7 +11,7 @@ if exists("current_compiler")
   finish
 endif
 
-let current_compiler = "ts"
+let current_compiler = "tsc"
 
 if exists(":CompilerSet") != 2
 	command -nargs=* CompilerSet setlocal <args>
