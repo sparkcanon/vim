@@ -163,8 +163,8 @@ nnoremap <space>s :sfind <C-R>='./'<CR>
 nnoremap <space>v :vert sfind <C-R>='./'<CR>
 nnoremap <space>t :tabfind <C-R>='./'<CR>
 nnoremap <space>e :e <C-R>='%:h/'<CR>
-nnoremap <space>v :vsp <C-R>='%:h/'<CR>
-nnoremap <space>s :sp <C-R>='%:h/'<CR>
+nnoremap <space>ev :vsp <C-R>='%:h/'<CR>
+nnoremap <space>es :sp <C-R>='%:h/'<CR>
 " }}}
 
 " Set colors {{{
@@ -205,7 +205,7 @@ autocmd GeneralSettings QuickFixCmdPost l* lwindow
 " Set prettier as formatter
 autocmd GeneralSettings FileType
 			\ javascript,typescript,less,css,html,typescriptreact setlocal
-			\ formatprg=prettier\ --stdin\ --stdin-filepath\ %
+			\ formatprg=node_modules/.bin/prettier\ --stdin\ --stdin-filepath\ %
 autocmd GeneralSettings FileType
 			\ javascript,typescript,less,css,html,typescriptreact setlocal formatexpr=
 " }}}
