@@ -3,10 +3,8 @@ setlocal suffixesadd+=.jsx
 setlocal include=^\\s*[^\/]\\+\\(from\\\|require(['\"]\\)
 setlocal define=^\\s*[^/,\\":=]*\\s*[:=]*\\s*\\(class\\\|function\\\|define\\\|export\\s\\(default\\)*\\)[('\"]\\{-\\}
 
-" Set alias setting
-if fnamemodify(getcwd(), ":p:h:t") == 'lego-web'
-	set includeexpr=substitute(v:fname,'^#/','web/','g')
-endif
+" Tesco Lego stuff
+source <sfile>:h/lego.vim
 
 compiler js
 
