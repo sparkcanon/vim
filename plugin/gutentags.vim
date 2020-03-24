@@ -5,9 +5,6 @@ let g:gutentags_project_root = ['package.json', 'elm.json']
 " Enable gtags module
 let g:gutentags_modules = ['ctags']
 
-" Tag file location
-let g:gutentags_cache_dir = expand('~/.cache/vim/ctags/')
-
 " Generate tags conditions
 let g:gutentags_generate_on_new = 1
 let g:gutentags_generate_on_missing = 1

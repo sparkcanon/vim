@@ -6,7 +6,7 @@ setlocal define=^\\s*[^/,\\":=]*\\s*[:=]*\\s*\\(class\\\|function\\\|define\\\|e
 " Tesco Lego stuff
 source <sfile>:h/lego.vim
 
-compiler js
+compiler tsc
 
 " Make on all open buffers
 command! -nargs=0 MassMake call functions#massMake()

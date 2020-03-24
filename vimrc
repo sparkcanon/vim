@@ -54,6 +54,7 @@ set wildignore+=**/node_modules/**         " Ignore node_modules
 set wildignore+=*.cache,*.min.*
 set wildignore+=*/.git/**/*                " Ignore version control
 set wildignore+=tags                       " Ignore tag files
+set wildignore+=*-lock.json                       " Ignore tag files
 set wildignore+=*.tar.*                    " Ignore tar files
 
 " Path options
@@ -76,9 +77,6 @@ set undodir=$HOME/.vim/tmp/dir_undo        " Undo dir
 set laststatus=2                           " Display statusline
 set ruler                                  " Set ruler in statusline
 set statusline=\ ❮\ %<%f\%h%m%r%=%-14.(%l,%c%V%)\%P\ ❯\ 
-
-" Highlights git diff markers
-match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
 " Grep
 if executable('rg')
@@ -126,6 +124,7 @@ nnoremap n nzvzz
 nnoremap N Nzvzz
 nnoremap * *zvzz
 nnoremap # #zvzz
+nnoremap `` ``zz
 
 " Location list
 nnoremap <UP> :lopen<CR>
@@ -172,8 +171,10 @@ nnoremap <space>es :sp <C-R>='%:h/'<CR>
 " Modify buffer colors
 autocmd GeneralSettings ColorScheme * call colors#modifyBufferColors()
 
+" Highlights git diff markers
+autocmd GeneralSettings ColorScheme * match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 " Set color scheme after setting buffer colors
-colorscheme evening
+colorscheme xcodewwdc
 " }}}
 
 " Misc Autocmd {{{
@@ -246,6 +247,8 @@ command! -nargs=0 HunkUndo execute 'SignifyHunkUndo'
 
 " Abbr {{{
 call functions#setupCommandAbbrs('w','update')
+call functions#setupCommandAbbrs('nw','noautocmd update')
+call functions#setupCommandAbbrs('ngw','noautocmd Gw')
 call functions#setupCommandAbbrs('sov','source $MYVIMRC')
 call functions#setupCommandAbbrs('gp','Dispatch! git push')
 call functions#setupCommandAbbrs('gl','Dispatch! git pull')
@@ -264,6 +267,7 @@ packadd cfilter      " Filter results from qf lists
 " Netrw
 let g:netrw_liststyle = 3
 let g:netrw_banner = 0
+let g:netrw_winsize = 25
 
 " Rhubarb
 let g:github_enterprise_urls = ['https://github.dev.global.tesco.org']

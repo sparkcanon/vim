@@ -11,6 +11,11 @@
 - 
   category: default
   local: false
+  name: "arzg/vim-colors-xcode"
+  opt: false
+- 
+  category: default
+  local: false
   name: "christoomey/vim-tmux-navigator"
   opt: false
 - 
