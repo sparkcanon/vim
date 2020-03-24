@@ -92,17 +92,13 @@ nnoremap : ;
 
 " Completion
 " Tag completion
-inoremap ,, <C-x><C-]>
-" Keyword completion for current file
-inoremap ,. <C-x><C-n>
-" Keyword completion for included files
-inoremap ,\ <C-x><C-I>
+inoremap <C-]> <C-x><C-]>
 " Omni completion
-inoremap ,' <C-x><C-o>
+inoremap <C-k> <C-x><C-o>
 " File name completion
-inoremap ,; <C-x><C-f><C-r>=pumvisible() ? "\<lt>Down>\<lt>C-p>\<lt>Down>\<lt>C-p>" : ""<CR>
-" Whole line completion
-inoremap ,= <C-x><C-l><C-r>=pumvisible() ? "\<lt>Down>\<lt>C-p>\<lt>Down>\<lt>C-p>" : ""<CR>
+inoremap <C-f> <C-x><C-f><C-r>=pumvisible() ? "\<lt>Down>\<lt>C-p>\<lt>Down>\<lt>C-p>" : ""<CR>
+" Line completion
+inoremap <C-l> <C-x><C-l>
 " Tab movement in pum
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
