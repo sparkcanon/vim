@@ -21,11 +21,6 @@
 - 
   category: default
   local: false
-  name: "justinmk/vim-dirvish"
-  opt: false
-- 
-  category: default
-  local: false
   name: "ludovicchabant/vim-gutentags"
   opt: false
 - 

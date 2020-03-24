@@ -1,16 +1,17 @@
- " _______ 
+"  _______ 
 " < VIMRC >
- " ------- 
- "        \   ^__^
- "         \  (**)\_______
- "            (__)\       )\/\
- "             U  ||----w |
- "                ||     ||
+"  ------- 
+"        \   ^__^
+"         \  (**)\_______
+"            (__)\       )\/\
+"             U  ||----w |
+"                ||     ||
 
-" Reset GeneralSettings augroup
+" Reset augroup {{{
 augroup GeneralSettings
 	autocmd!
 augroup END
+" }}}
 
 " Syntax {{{
 filetype plugin indent on
@@ -167,7 +168,7 @@ nnoremap <space>ev :vsp <C-R>='%:h/'<CR>
 nnoremap <space>es :sp <C-R>='%:h/'<CR>
 " }}}
 
-" Set colors {{{
+" Colors {{{
 " Modify buffer colors
 autocmd GeneralSettings ColorScheme * call colors#modifyBufferColors()
 
@@ -260,9 +261,9 @@ call functions#setupCommandAbbrs('grb','GrepBuffer')
 packloadall          " Load all plugins
 packadd cfilter      " Filter results from qf lists
 
-" Dirvish
-let g:loaded_netrwPlugin = 1                     " disable netrw
-let g:dirvish_mode = ':sort | sort ,^.*[^/]$, r' " Sort dir at the top
+" Netrw
+let g:netrw_liststyle = 3
+let g:netrw_banner = 0
 
 " Rhubarb
 let g:github_enterprise_urls = ['https://github.dev.global.tesco.org']
@@ -270,3 +271,6 @@ let g:github_enterprise_urls = ['https://github.dev.global.tesco.org']
 " Dispatch
 set shellpipe=2>&1\|tee
 " }}}
+
+
+" vim:foldmethod=marker
