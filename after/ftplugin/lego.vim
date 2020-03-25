@@ -1,7 +1,8 @@
-" Tesco Lego related stuff
+" Purpose: set path, include expr
+" Project: Tesco
 if fnamemodify(getcwd(), ":p:h:t") == 'lego-web'
-	" Set alias setting
-	" This is especially useful for include search
+	" Sets import statement suffix
+	" Custom alias `#` replacement
 	setlocal includeexpr=substitute(v:fname,'^#/','./web/','g')
 
 	" Set path
@@ -27,11 +28,15 @@ if fnamemodify(getcwd(), ":p:h:t") == 'lego-web'
 	setlocal path+=web/locales
 	setlocal path+=web/specs
 	setlocal path+=web/conditional-resources
+endif
 
-	" Set mappings
-	nnoremap <space>f :find<space>
-	nnoremap <space>c :Cfind<space>
-	nnoremap <space>s :sfind<space>
-	nnoremap <space>v :vert sfind<space>
-	nnoremap <space>t :tabfind<space>
+if fnamemodify(getcwd(), ":p:h:t") == 'peas'
+	" Sets import statement suffix
+	" eg., `path/to/file` without `index.js` at the end
+	setlocal includeexpr=substitute(a:fname, '$','/index.js','g')
+
+	" Set peas specific path
+	setlocal path=.
+	setlocal path+=packages/node/**
+	setlocal path+=packages/web**
 endif

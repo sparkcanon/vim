@@ -1,3 +1,6 @@
+" Purpose: include-search, define-search settings, path and JS specific
+" commands
+
 " Useful for include-search e.g., [I
 setlocal suffixesadd+=.ts
 setlocal suffixesadd+=.js
@@ -5,7 +8,16 @@ setlocal suffixesadd+=.jsx
 setlocal suffixesadd+=.tsx
 
 setlocal include=\\%(\\<require\\s*(\\s*\\\|\\<import\\>[^;\"']*\\)[\"']\\zs[^\"']*
-setlocal define=^\\s*[^/,\\":=]*\\s*[:=]*\\s*\\(class\\\|function\\\|define\\\|export\\s\\(default\\)*\\)[('\"]\\{-\\}
+
+" Source: https://gist.github.com/romainl/a50b49408308c45cc2f9f877dfe4df0c#file-typescript-vim-L242
+let &l:define  = '^\s*\('
+             \ . '\(export\s\)*\(default\s\)*\(var\|const\|let\|function\|class\|interface\)\s'
+             \ . '\|\(public\|private\|protected\|readonly\|static\)\s'
+             \ . '\|\(get\s\|set\s\)'
+             \ . '\|\(export\sdefault\s\|abstract\sclass\s\)'
+             \ . '\|\(async\s\)'
+             \ . '\|\(\ze\i\+([^)]*).*{$\)'
+             \ . '\)'
 
 " Tesco Lego stuff
 source <sfile>:h/lego.vim

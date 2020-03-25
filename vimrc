@@ -153,11 +153,11 @@ nnoremap gb :<c-u>ls t<CR>:b<Space>
 nnoremap gB :<c-u>ls t<CR>:bd<Space>
 
 " Find
-nnoremap <space>f :find <C-R>='./'<CR>
-nnoremap <space>c :Cfind <C-R>='./'<CR>
-nnoremap <space>s :sfind <C-R>='./'<CR>
-nnoremap <space>v :vert sfind <C-R>='./'<CR>
-nnoremap <space>t :tabfind <C-R>='./'<CR>
+nnoremap <space>f :find <space>
+nnoremap <space>c :Cfind <space>
+nnoremap <space>s :sfind <space>
+nnoremap <space>v :vert sfind <space>
+nnoremap <space>t :tabfind <space>
 nnoremap <space>e :e <C-R>='%:h/'<CR>
 nnoremap <space>ev :vsp <C-R>='%:h/'<CR>
 nnoremap <space>es :sp <C-R>='%:h/'<CR>
