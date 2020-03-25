@@ -3,6 +3,7 @@
 if fnamemodify(getcwd(), ":p:h:t") == 'lego-web'
 	" Sets import statement suffix
 	" Custom alias `#` replacement
+	" substitute does not like spaces between args
 	setlocal includeexpr=substitute(v:fname,'^#/','./web/','g')
 
 	" Set path
@@ -33,7 +34,8 @@ endif
 if fnamemodify(getcwd(), ":p:h:t") == 'peas'
 	" Sets import statement suffix
 	" eg., `path/to/file` without `index.js` at the end
-	setlocal includeexpr=substitute(a:fname, '$','/index.js','g')
+	" substitute does not like spaces between args
+	setlocal includeexpr=substitute(v:fname,'$','/index','g')
 
 	" Set peas specific path
 	setlocal path=.

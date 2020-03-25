@@ -41,6 +41,11 @@
 - 
   category: default
   local: false
+  name: "romainl/vim-qlist"
+  opt: false
+- 
+  category: default
+  local: false
   name: "tpope/vim-commentary"
   opt: false
 - 
