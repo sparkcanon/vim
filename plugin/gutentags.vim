@@ -1,6 +1,6 @@
 " Project root
 let g:gutentags_add_default_project_roots = 0
-let g:gutentags_project_root = ['package.json', 'elm.json']
+let g:gutentags_project_root = ['.git', 'elm.json']
 
 " Enable gtags module
 let g:gutentags_modules = ['ctags']

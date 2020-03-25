@@ -54,7 +54,7 @@ set wildignore+=**/node_modules/**         " Ignore node_modules
 set wildignore+=*.cache,*.min.*
 set wildignore+=*/.git/**/*                " Ignore version control
 set wildignore+=tags                       " Ignore tag files
-set wildignore+=*-lock.json                       " Ignore tag files
+set wildignore+=*-lock.json                " Ignore tag files
 set wildignore+=*.tar.*                    " Ignore tar files
 
 " Path options
@@ -263,7 +263,6 @@ packadd cfilter      " Filter results from qf lists
 " Netrw
 let g:netrw_liststyle = 3
 let g:netrw_banner = 0
-let g:netrw_winsize = 25
 
 " Rhubarb
 let g:github_enterprise_urls = ['https://github.dev.global.tesco.org']
@@ -271,6 +270,3 @@ let g:github_enterprise_urls = ['https://github.dev.global.tesco.org']
 " Dispatch
 set shellpipe=2>&1\|tee
 " }}}
-
-
-" vim:foldmethod=marker

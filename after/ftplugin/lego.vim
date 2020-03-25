@@ -1,7 +1,8 @@
 " Tesco Lego related stuff
 if fnamemodify(getcwd(), ":p:h:t") == 'lego-web'
 	" Set alias setting
-	setlocal includeexpr=substitute(v:fname,'^#/','web/','g')
+	" This is especially useful for include search
+	setlocal includeexpr=substitute(v:fname,'^#/','./web/','g')
 
 	" Set path
 	setlocal path=.
@@ -12,6 +13,7 @@ if fnamemodify(getcwd(), ":p:h:t") == 'lego-web'
 	setlocal path+=web/experiments
 	setlocal path+=web/config
 	setlocal path+=web/actions
+	setlocal path+=web/constants
 	setlocal path+=web/analytics
 	setlocal path+=web/gulp
 	setlocal path+=web/reducers

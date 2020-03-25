@@ -1,6 +1,10 @@
+" Useful for include-search e.g., [I
+setlocal suffixesadd+=.ts
 setlocal suffixesadd+=.js
 setlocal suffixesadd+=.jsx
-setlocal include=^\\s*[^\/]\\+\\(from\\\|require(['\"]\\)
+setlocal suffixesadd+=.tsx
+
+setlocal include=\\%(\\<require\\s*(\\s*\\\|\\<import\\>[^;\"']*\\)[\"']\\zs[^\"']*
 setlocal define=^\\s*[^/,\\":=]*\\s*[:=]*\\s*\\(class\\\|function\\\|define\\\|export\\s\\(default\\)*\\)[('\"]\\{-\\}
 
 " Tesco Lego stuff
