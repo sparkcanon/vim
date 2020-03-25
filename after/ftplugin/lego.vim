@@ -5,30 +5,28 @@ if fnamemodify(getcwd(), ":p:h:t") == 'lego-web'
 	" Custom alias `#` replacement
 	" substitute does not like spaces between args
 	setlocal includeexpr=substitute(v:fname,'^#/','./web/','g')
-
-	" Set path
-	setlocal path=.
-	setlocal path+=web/
-	setlocal path+=web/lib
-	setlocal path+=web/components
-	setlocal path+=web/selectors
-	setlocal path+=web/experiments
-	setlocal path+=web/config
-	setlocal path+=web/actions
-	setlocal path+=web/constants
-	setlocal path+=web/analytics
-	setlocal path+=web/gulp
-	setlocal path+=web/reducers
-	setlocal path+=web/routes
-	setlocal path+=web/utils
-	setlocal path+=web/views
-	setlocal path+=web/middleware
-	setlocal path+=web/resource-signatures
-	setlocal path+=web/resourcePrep
-	setlocal path+=web/tools
-	setlocal path+=web/locales
-	setlocal path+=web/specs
-	setlocal path+=web/conditional-resources
+	let &path = '.,'
+				\ . 'web/,'
+				\ . 'web/lib,'
+				\ . 'web/components,'
+				\ . 'web/selectors,'
+				\ . 'web/experiments,'
+				\ . 'web/config,'
+				\ . 'web/actions,'
+				\ . 'web/constants,'
+				\ . 'web/analytics,'
+				\ . 'web/gulp,'
+				\ . 'web/reducers,'
+				\ . 'web/routes,'
+				\ . 'web/utils,'
+				\ . 'web/views,'
+				\ . 'web/middleware,'
+				\ . 'web/resource-signatures,'
+				\ . 'web/resourcePrep,'
+				\ . 'web/tools,'
+				\ . 'web/locales,'
+				\ . 'web/specs,'
+				\ . 'web/conditional-resources'
 endif
 
 if fnamemodify(getcwd(), ":p:h:t") == 'peas'
@@ -38,7 +36,7 @@ if fnamemodify(getcwd(), ":p:h:t") == 'peas'
 	setlocal includeexpr=substitute(v:fname,'$','/index','g')
 
 	" Set peas specific path
-	setlocal path=.
-	setlocal path+=packages/node/**
-	setlocal path+=packages/web**
+	let &path = '.,'
+				\ . 'packages/node/**,'
+				\ . 'packages/web/**,'
 endif
