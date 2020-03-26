@@ -26,11 +26,6 @@
 - 
   category: default
   local: false
-  name: "ludovicchabant/vim-gutentags"
-  opt: false
-- 
-  category: default
-  local: false
   name: markonm/traces.vim
   opt: false
 - 

@@ -49,13 +49,13 @@ set ignorecase                             " Ignore case all together
 " Wild menu options
 set wildmenu                               " Turn menu on for wild searches
 set wildignorecase                         " Ignore case for wildmenu
-set wildignore=*.swp,*.bak
-set wildignore+=**/node_modules/**         " Ignore node_modules
+set wildignore=*.swp,*.bak                 " Ignore files
+set wildignore+=**/node_modules/**
 set wildignore+=*.cache,*.min.*
-set wildignore+=*/.git/**/*                " Ignore version control
-set wildignore+=tags                       " Ignore tag files
-set wildignore+=*-lock.json                " Ignore tag files
-set wildignore+=*.tar.*                    " Ignore tar files
+set wildignore+=*/.git/**/*
+set wildignore+=tags
+set wildignore+=*-lock.json
+set wildignore+=*.tar.*
 
 " Path options
 set path-=/usr/include                     " Exclude /usr/include dir
@@ -205,6 +205,11 @@ autocmd GeneralSettings FileType
 			\ formatprg=node_modules/.bin/prettier\ --stdin\ --stdin-filepath\ %
 autocmd GeneralSettings FileType
 			\ javascript,typescript,less,css,html,typescriptreact setlocal formatexpr=
+
+autocmd GeneralSettings BufWritePost * 
+			\ if finddir('./.git')
+			\ | execute 'Dispatch! ctags .'
+			\ | endif
 " }}}
 
 " Commands {{{

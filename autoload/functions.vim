@@ -49,18 +49,3 @@ function! functions#massMake() abort
 	execute 'Make! ' .. join(buffers, ' ')
 endfunction
 " }}}
-
-" Includeexpr {{{
-" TODO: Investigate why this is so slow
-function! functions#PathSubs(fname) abort
-	if a:fname =~ '^\.'
-		let dotFormat = substitute(a:fname,'^\W*','','')
-		return dotFormat
-	endif
-	if a:fname =~ '^\#'
-		let aliasFormat = substitute(a:fname,'^#/','./web/','g')
-		return aliasFormat
-	endif
-	return a:fname
-endfunction
-" }}}
