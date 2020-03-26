@@ -51,6 +51,7 @@ endfunction
 " }}}
 
 " Includeexpr {{{
+" TODO: Investigate why this is so slow
 function! functions#PathSubs(fname) abort
 	if a:fname =~ '^\.'
 		let dotFormat = substitute(a:fname,'^\W*','','')
