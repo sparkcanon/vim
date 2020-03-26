@@ -7,6 +7,7 @@ setlocal suffixesadd+=.js
 setlocal suffixesadd+=.jsx
 setlocal suffixesadd+=.tsx
 
+" Source: https://gist.github.com/romainl/a50b49408308c45cc2f9f877dfe4df0c#file-typescript-vim-L240
 setlocal include=^\\s*[^\/]\\+\\(from\\\|require(\\)\\s*['\"\.]
 
 " Source: https://gist.github.com/romainl/a50b49408308c45cc2f9f877dfe4df0c#file-typescript-vim-L242
