@@ -4,7 +4,15 @@ if fnamemodify(getcwd(), ":p:h:t") == 'lego-web'
 	" Sets import statement suffix
 	" Custom alias `#` replacement
 	" substitute does not like spaces between args
-	setlocal includeexpr=substitute(v:fname,'^#/','./web/','g')
+	setlocal includeexpr=PathSubs(v:fname)
+	
+	function! PathSubs(fname) abort
+		if a:fname =~ '^\.'
+			return substitute(a:fname,'^\W*','','')
+		endif
+		return substitute(a:fname,'^#/','./web/','g')
+	endfunction
+
 	let &path = '.,'
 				\ . 'web/,'
 				\ . 'web/lib,'
