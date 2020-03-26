@@ -42,10 +42,24 @@ endfunction
 " Make {{{
 " TODO: Check if buffers are laoded
 function! functions#massMake() abort
-    let buffers = []
-    for number in range(bufnr('$'))
-        call add(buffers, bufname(number))
-    endfor
-    execute 'Make! ' .. join(buffers, ' ')
+	let buffers = []
+	for number in range(bufnr('$'))
+		call add(buffers, bufname(number))
+	endfor
+	execute 'Make! ' .. join(buffers, ' ')
+endfunction
+" }}}
+
+" Includeexpr {{{
+function! functions#PathSubs(fname) abort
+	if a:fname =~ '^\.'
+		let dotFormat = substitute(a:fname,'^\W*','','')
+		return dotFormat
+	endif
+	if a:fname =~ '^\#'
+		let aliasFormat = substitute(a:fname,'^#/','./web/','g')
+		return aliasFormat
+	endif
+	return a:fname
 endfunction
 " }}}

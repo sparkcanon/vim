@@ -95,6 +95,8 @@ nnoremap : ;
 inoremap <C-]> <C-x><C-]>
 " Omni completion
 inoremap <C-k> <C-x><C-o>
+" Keyword completion
+inoremap <C-n> <C-x><C-n>
 " File name completion
 inoremap <C-f> <C-x><C-f><C-r>=pumvisible() ? "\<lt>Down>\<lt>C-p>\<lt>Down>\<lt>C-p>" : ""<CR>
 " Line completion
