@@ -172,7 +172,8 @@ autocmd GeneralSettings ColorScheme * call colors#modifyBufferColors()
 " Highlights git diff markers
 autocmd GeneralSettings ColorScheme * match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 " Set color scheme after setting buffer colors
-colorscheme xcodewwdc
+colorscheme paramount
+set background=dark
 " }}}
 
 " Misc Autocmd {{{
