@@ -6,13 +6,14 @@ setlocal suffixesadd+=.ts
 setlocal suffixesadd+=.js
 setlocal suffixesadd+=.jsx
 setlocal suffixesadd+=.tsx
+setlocal suffixesadd+=.defs
 
 " Source: https://gist.github.com/romainl/a50b49408308c45cc2f9f877dfe4df0c#file-typescript-vim-L240
 setlocal include=^\\s*[^\/]\\+\\(from\\\|require(\\)\\s*['\"\.]
 
 " Source: https://gist.github.com/romainl/a50b49408308c45cc2f9f877dfe4df0c#file-typescript-vim-L242
 let &define  = '^\s*\('
-			\ . '\(export\s\)*\(default\s\)*\(var\|const\|let\|function\|class\|interface\)\s'
+			\ . '\(export\s\)*\(default\s\)*\(var\|const\|let\|function\|class\|interface\|type\)\s'
 			\ . '\|\(public\|private\|protected\|readonly\|static\)\s'
 			\ . '\|\(get\s\|set\s\)'
 			\ . '\|\(export\sdefault\s\|abstract\sclass\s\)'
