@@ -207,10 +207,7 @@ autocmd GeneralSettings FileType
 autocmd GeneralSettings FileType
 			\ javascript,typescript,less,css,html,typescriptreact setlocal formatexpr=
 
-autocmd GeneralSettings BufWritePost * 
-			\ if finddir('./.git')
-			\ | execute 'Dispatch! ctags .'
-			\ | endif
+autocmd GeneralSettings BufWritePost * execute 'Dispatch! ctags .'
 " }}}
 
 " Commands {{{
@@ -262,6 +259,7 @@ call functions#setupCommandAbbrs('ssa','SessionSave')
 call functions#setupCommandAbbrs('gr','Grep')
 call functions#setupCommandAbbrs('grl','GrepLast')
 call functions#setupCommandAbbrs('grb','GrepBuffer')
+call functions#setupCommandAbbrs('grw','GrepWord')
 " }}}
 
 " Plugins {{{

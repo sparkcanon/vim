@@ -1,5 +1,7 @@
+" Purpose: Utility functions for commands
+
 " Grep {{{
-" Perform the search in a sub-shell
+" Desc: Perform the search in a sub-shell
 function! functions#grep(args) abort
 	let args = split(a:args, ' ')
 	return system(join([&grepprg, shellescape(args[0]), len(args) > 1 ? join(args[1:-1], ' ') : ''], ' '))
@@ -7,7 +9,7 @@ endfunction
 " }}}
 
 " Visual {{{
-" Get visual section
+" Desc: Get visual section
 function! functions#getVisualSelection() abort
 	let l=getline("'<")
 	let [line1,col1] = getpos("'<")[1:2]
@@ -17,6 +19,9 @@ endfunction
 " }}}
 
 " Abbrs {{{
+" Desc: Functions to create abbrs
+" Params: from - { string } - short custom command
+" Params: to - { string } - Actual command to map to
 function! functions#setupCommandAbbrs(from, to) abort
 	exec 'cnoreabbrev <expr> '.a:from
 				\ .' ((getcmdtype() ==# ":" && getcmdline() ==# "'.a:from.'")'
@@ -25,6 +30,7 @@ endfunction
 " }}}
 
 " Git stash {{{
+" Desc: Show stash list
 function! functions#getGitStash() abort
 	let stashList = systemlist('git stash list')
 	call setqflist([], ' ', {'lines': systemlist('git stash list'), 'title': 'Stash list'}) 
@@ -40,6 +46,7 @@ endfunction
 " }}}
 
 " Make {{{
+" Desc: Run make on all loaded browsers
 " TODO: Check if buffers are laoded
 function! functions#massMake() abort
 	let buffers = []
@@ -51,10 +58,13 @@ endfunction
 " }}}
 
 " isProject {{{
+" Desc: Check if the given project matches the directory we are in
+" Params: match - { string } - match to
 function! functions#isProject(match) abort
 	if fnamemodify(getcwd(), ":p:h:t") == a:match
 		return 1
 	else
 		return 0
+	endif
 endfunction
 " }}}

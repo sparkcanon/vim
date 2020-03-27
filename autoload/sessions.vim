@@ -1,4 +1,6 @@
-" Save sessions
+" Purpose: Session based logic
+
+" Desc: Save on VIMLEAVE
 function! sessions#sessionSave() abort
 	let l:findGit = finddir('.git', system('git rev-parse --show-toplevel')[:-2])
 	if !empty(l:findGit)
@@ -9,12 +11,12 @@ function! sessions#sessionSave() abort
 	endif
 endfunction
 
-" Load saved session
+" Desc: Load saved session
 function! sessions#sessionLoad(file) abort
 	execute 'source $HOME/.vim/tmp/dir_session/'.a:file | echo 'Session '.a:file.' has been loaded'
 endfunction
 
-" Complete path for save command
+" Desc: Complete path for save command
 function! sessions#sessionCompletePath(A,L,P) abort
 	let pathList =  globpath('$HOME/.vim/tmp/dir_session/', '*.vim', 0, 1)
 	let emptyList = []
