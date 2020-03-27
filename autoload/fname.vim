@@ -9,6 +9,6 @@ endfunction
 function! fname#Build_glob_string_from_aliased_fname(fname)
     return ''
         \ . a:fname
-        \ . '{/' . split(a:fname, '/')[-1] . ',/index,*}'
+        \ . '{/' . split(a:fname, '/')[-1] . ',/index,}'
         \ . '.{' . substitute(&suffixesadd, '\.', '', 'g') . '}'
 endfunction
