@@ -45,12 +45,11 @@ setlocal includeexpr=PathSubstitue(v:fname)
 
 " Desc: includeexpr
 function! PathSubstitue(fname) abort
+	echom "Searching: " . a:fname . ".."
 
   " Aliased
   if functions#isProject('lego-web')
     if a:fname =~ '^\#'
-      " in the substitution below, the # was not escaped in the original snippet,
-      " which caused all sorts of problems
       let alias_plus_fname = substitute(a:fname,'^\#/','./web/','g')
       return get(glob(fname#Build_glob_string_from_aliased_fname(alias_plus_fname), 0, 1), 0, a:fname)
     endif

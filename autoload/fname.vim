@@ -4,6 +4,21 @@
 " Params: fname - v:fname comes through includeexpr, PathSubstitue
 " Params: modifier - stabalize the path
 function! fname#Build_glob_string_from_relative_fname(fname, modifier)
+		" build string to pass to glob()
+		"     expected output:
+		"         src/foo/bar{/bar,/index,*}.{js,ts}
+		"     covered cases:
+		"         ./foo/bar => ./foo/bar.js
+		"         ./foo/bar => ./foo/bar/bar.js
+		"         ./foo/bar => ./foo/bar/index.js
+		"         ../../foo/bar => ../../foo/bar.js
+		"         ../../foo/bar => ../../foo/bar/bar.js
+		"         ../../foo/bar => ../../foo/bar/index.js
+		"     components:
+		"         root: expanded from './' or '../../' and '%'
+		"         path: a:fname without './' or '../../'
+		"         radical: last part of a:fname
+		"         suffixes: expanded from &suffixes
     return ''
         \ . expand('%:.:h' . a:modifier) . '/'
         \ . matchstr(a:fname, '\(\(\.\)\+/\)\+\zs.*')
