@@ -49,3 +49,12 @@ function! functions#massMake() abort
 	execute 'Make! ' .. join(buffers, ' ')
 endfunction
 " }}}
+
+" isProject {{{
+function! functions#isProject(match) abort
+	if fnamemodify(getcwd(), ":p:h:t") == a:match
+		return 1
+	else
+		return 0
+endfunction
+" }}}

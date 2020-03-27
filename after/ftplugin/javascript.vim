@@ -35,3 +35,41 @@ command! -nargs=0 Log execute "normal oconsole.log('".expand('<cword>')
 
 " Add import statement
 command! -nargs=0 ImportJs execute "normal ggOimport { ".expand('<cword>')." } from '';"
+
+" Sets import statement suffix
+setlocal includeexpr=PathSubstitue(v:fname)
+
+" Desc: includeexpr
+function! PathSubstitue(fname) abort
+
+	" Aliased
+	if functions#isProject('lego-web')
+		if a:fname =~ '^\#'
+			" in the substitution below, the # was not escaped in the original snippet,
+			" which caused all sorts of problems
+			let alias_plus_fname = substitute(a:fname,'^\#/','./web/','g')
+			return get(glob(fname#Build_glob_string_from_aliased_fname(alias_plus_fname), 0, 1), 0, a:fname)
+		endif
+	endif
+
+	" ../
+	if a:fname =~ '^\.\./'
+		let modifier = substitute(matchstr(a:fname, '\(\(\.\)\+/\)\+'), '\.\./', ':h', 'g')
+
+		if functions#isProject('lego-web') || functions#isProject('peas')
+			return './' . get(glob(fname#Build_glob_string_from_relative_fname(a:fname, modifier), 0, 1), 0, a:fname)
+		endif
+
+		return get(glob(fname#Build_glob_string_from_relative_fname(a:fname, modifier), 0, 1), 0, a:fname)
+	endif
+
+	" ./
+	if a:fname =~ '^\./'
+
+		if functions#isProject('lego-web') || functions#isProject('peas')
+			return './' . get(glob(fname#Build_glob_string_from_relative_fname(a:fname, ''), 0, 1), 0, a:fname)
+		endif
+
+		return get(glob(fname#Build_glob_string_from_relative_fname(a:fname, ''), 0, 1), 0, a:fname)
+	endif
+endfunction
