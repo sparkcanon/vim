@@ -242,8 +242,9 @@ command! -nargs=0 Yfname call yank#yankPath("filename")
 " Filename
 command! -nargs=0 Ydirectory call yank#yankPath("directory")
 
-" Git chunk undo
-command! -nargs=0 HunkUndo execute 'SignifyHunkUndo'
+" Make on all open buffers
+command! -nargs=0 MassMake call functions#massMake()
+
 " }}}
 
 " Abbr {{{

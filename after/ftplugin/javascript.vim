@@ -28,9 +28,6 @@ source <sfile>:h/lego.vim
 compiler eslint
 
 " Commands {{{
-" Make on all open buffers
-command! -nargs=0 MassMake call functions#massMake()
-
 " Console log command
 command! -nargs=0 Log execute "normal oconsole.log('".expand('<cword>')
       \ . "====> ', ".expand('<cword>').")"
@@ -43,36 +40,41 @@ command! -nargs=0 ImportJs execute "normal ggOimport { ".expand('<cword>')." } f
 " Sets import statement suffix
 setlocal includeexpr=PathSubstitue(v:fname)
 
-" Desc: includeexpr
+" Desc: creates paths for alias and local imports @romainl
+" Note: fucking hate javascript implicit rules
 function! PathSubstitue(fname) abort
 	echom "Searching: " . a:fname . ".."
+	let custom_alias = '#'
+	let custom_base_path = './web/'
 
   " Aliased
-  if functions#isProject('lego-web')
-    if a:fname =~ '^\#'
-      let alias_plus_fname = substitute(a:fname,'^\#/','./web/','g')
-      return get(glob(fname#Build_glob_string_from_aliased_fname(alias_plus_fname), 0, 1), 0, a:fname)
-    endif
-  endif
+	if functions#isProject('lego-web') && a:fname =~ '^\' . custom_alias
+		let alias_plus_fname = substitute(a:fname,'^\#/',custom_base_path,'g')
+		return get(glob(fname#Build_glob_string_from_aliased_fname(alias_plus_fname), 0, 1), 0, a:fname)
+	endif
 
   " ../
   if a:fname =~ '^\.\./'
     let modifier = substitute(matchstr(a:fname, '\(\(\.\)\+/\)\+'), '\.\./', ':h', 'g')
 
+		" Project specific
     if functions#isProject('lego-web') || functions#isProject('peas')
       return './' . get(glob(fname#Build_glob_string_from_relative_fname(a:fname, modifier), 0, 1), 0, a:fname)
     endif
 
+		" Standard output
     return get(glob(fname#Build_glob_string_from_relative_fname(a:fname, modifier), 0, 1), 0, a:fname)
   endif
 
   " ./
   if a:fname =~ '^\./'
 
+		" Project specific
     if functions#isProject('lego-web') || functions#isProject('peas')
       return './' . get(glob(fname#Build_glob_string_from_relative_fname(a:fname, ''), 0, 1), 0, a:fname)
     endif
 
+		" Standard output
     return get(glob(fname#Build_glob_string_from_relative_fname(a:fname, ''), 0, 1), 0, a:fname)
   endif
 endfunction
