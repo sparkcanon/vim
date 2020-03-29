@@ -209,7 +209,11 @@ autocmd GeneralSettings FileType
 autocmd GeneralSettings FileType
 			\ javascript,typescript,less,css,html,typescriptreact setlocal formatexpr=
 
-autocmd GeneralSettings BufWritePost * execute 'Dispatch! ctags .'
+" Run ctags if git exists
+autocmd GeneralSettings BufWritePost * 
+			\ if finddir('.git', '.;') != "" |
+			\ execute 'Dispatch! ctags .' |
+			\ endif
 " }}}
 
 " Commands {{{
