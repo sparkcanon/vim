@@ -43,7 +43,6 @@ setlocal includeexpr=PathSubstitue(v:fname)
 " Desc: creates paths for alias and local imports @romainl
 " Note: fucking hate javascript implicit rules
 function! PathSubstitue(fname) abort
-	echom "Searching: " . a:fname . ".."
 	let custom_alias = '#'
 	let custom_base_path = './web/'
 
