@@ -108,6 +108,7 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " Tags mappings
 nnoremap ,p :ptjump<space><C-R><C-W><CR>
 nnoremap ,t :tjump<space><C-R><C-W><CR>
+nnoremap ,v :vert stjump<space><C-R><C-W><CR>
 
 " Tabs
 nnoremap <Tab> gt
@@ -151,7 +152,8 @@ xnoremap \c :cfdo %s/<C-R><C-R>=functions#getVisualSelection()<CR>//gc \| update
 " registers
 nnoremap gr :<C-u>registers<CR>:normal! "p<Left>
 " buffers
-nnoremap gb :<c-u>ls t<CR>:b<Space>
+nnoremap gbb :<c-u>ls t<CR>:b<Space>
+nnoremap gbv :<c-u>ls t<CR>:vert sb<Space>
 nnoremap gB :<c-u>ls t<CR>:bd<Space>
 
 " Find

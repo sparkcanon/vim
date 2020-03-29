@@ -6,7 +6,7 @@ if functions#isProject('lego-web')
 
 	let &l:path = '.,'
 		\ . 'web/,'
-		\ . 'web/lib,'
+		\ . 'web/lib/**,'
 		\ . 'web/components/**,'
 		\ . 'web/selectors/**,'
 		\ . 'web/experiments/**,'
