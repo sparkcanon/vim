@@ -81,7 +81,7 @@ set statusline=\ ❮\ %<%f\%h%m%r%=%-14.(%l,%c%V%)\%P\ ❯\
 " Grep
 if executable('rg')
 	set grepprg=rg\ --column\ --no-heading\ --smart-case\ --follow\ --vimgrep
-	set grepformat=%f:%l:%c:%m,%f:%l:%m
+	set grepformat=%f:%l:%c:%m
 endif
 " }}}
 
@@ -162,7 +162,7 @@ nnoremap <space>c :Cfind<space>
 nnoremap <space>s :sfind<space>
 nnoremap <space>v :vert sfind<space>
 nnoremap <space>t :tabfind<space>
-nnoremap <space>e :e <C-R>='%:h/'<CR>
+nnoremap <space>ee :e <C-R>='%:h/'<CR>
 nnoremap <space>ev :vsp <C-R>='%:h/'<CR>
 nnoremap <space>es :sp <C-R>='%:h/'<CR>
 " }}}
@@ -211,7 +211,7 @@ autocmd GeneralSettings FileType
 
 " Run ctags if git exists
 autocmd GeneralSettings BufWritePost * 
-			\ if finddir('.git', '.;') != "" |
+			\ if finddir('.git', '.;') == ".git" |
 			\ execute 'Dispatch! ctags .' |
 			\ endif
 " }}}
