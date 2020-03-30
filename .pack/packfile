@@ -73,8 +73,3 @@
   local: false
   name: "tpope/vim-surround"
   opt: false
-- 
-  category: default
-  local: false
-  name: "tpope/vim-unimpaired"
-  opt: false

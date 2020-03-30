@@ -61,7 +61,7 @@ set wildignore+=*.tar.*
 set path-=/usr/include                     " Exclude /usr/include dir
 set path-=**/node_modules/**               " Exclude the blackhole
 set path-=**/.git/**                       " Exclude the git
-set path=.,**                              " Standard inclusion
+set path=.,,**                             " Standard inclusion
 
 " Backup settings
 set sessionoptions-=options
@@ -128,6 +128,20 @@ nnoremap `` ``zz
 " Location list
 nnoremap <UP> :lopen<CR>
 nnoremap <Down> :lclose<CR>
+nnoremap ]l :lnext<CR>
+nnoremap [l :lprevious<CR>
+nnoremap ]L :lfirst<CR>
+nnoremap ]L :llast<CR>
+nnoremap ]<C-L> :lnfile<CR>
+nnoremap ]<C-L> :lpfile<CR>
+
+" quickfix list
+nnoremap ]q :cnext<CR>
+nnoremap [q :cprevious<CR>
+nnoremap ]Q :cfirst<CR>
+nnoremap ]Q :clast<CR>
+nnoremap ]<C-Q> :cnfile<CR>
+nnoremap ]<C-Q> :cpfile<CR>
 
 " Tabularize
 xnoremap ga :Tabularize /
@@ -139,6 +153,12 @@ nnoremap ga :Tabularize /
 nnoremap gq mlgggqG'l :delm l<CR>
 " previously used buffer
 nnoremap <backspace> <C-^>
+nnoremap ]b :bnext<CR>
+nnoremap [b :bprevious<CR>
+
+" Args
+nnoremap ]a :next<CR>
+nnoremap [a :previous<CR>
 
 " Substitute
 nnoremap \s :%s/<C-r><C-w>/
@@ -155,6 +175,10 @@ nnoremap gr :<C-u>registers<CR>:normal! "p<Left>
 nnoremap gbb :<c-u>ls t<CR>:b<Space>
 nnoremap gbv :<c-u>ls t<CR>:vert sb<Space>
 nnoremap gB :<c-u>ls t<CR>:bd<Space>
+
+" Empty lines
+nnoremap ]<space> o<C-c>
+nnoremap [<space> O<C-c>
 
 " Find
 nnoremap <space>f :find<space>

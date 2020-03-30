@@ -4,7 +4,7 @@
 " Desc: Set lego path
 if functions#isProject('lego-web')
 
-	let &l:path = ''
+	let &l:path = '.,,'
 		\ . 'web/,'
 		\ . 'web/lib/**,'
 		\ . 'web/components/**,'
@@ -31,7 +31,7 @@ endif
 " Desc: Set peas path
 if functions#isProject('peas')
 
-	let &l:path = '.,'
+	let &l:path = '.,,'
 		\ . 'packages/node/**,'
 		\ . 'packages/web/**,'
 endif
