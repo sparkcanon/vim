@@ -17,12 +17,9 @@ function! sessions#sessionLoad(file) abort
 endfunction
 
 " Desc: Complete path for save command
+" TODO: Path autocomplete using a:A
 function! sessions#sessionCompletePath(A,L,P) abort
-	let pathList =  globpath('$HOME/.vim/tmp/dir_session/', '*.vim', 0, 1)
-	let emptyList = []
-	for i in pathList
-		let item = split(i, '/')[-1]
-		let finalList = add(emptyList, item)
-	endfor
-	return finalList
+	let l:pathList = globpath('$HOME/.vim/tmp/dir_session/', '*.vim')
+	let l:fname = substitute(l:pathList, '/Users/praborde/.vim/tmp/dir_session/', '', 'g')
+	return split(l:fname, '\n')
 endfunction
