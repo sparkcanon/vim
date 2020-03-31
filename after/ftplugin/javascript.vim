@@ -34,6 +34,9 @@ command! -nargs=0 Log execute "normal oconsole.log('".expand('<cword>')
 
 " Add import statement
 command! -nargs=0 ImportJs execute "normal ggOimport { ".expand('<cword>')." } from '';"
+
+" Run jest test watcher
+command! -nargs=1 -complete=file JestSingleFile call functions#jestRunForSingleFile()
 " }}}
 
 " Includeexpr {{{

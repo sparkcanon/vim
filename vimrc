@@ -253,9 +253,6 @@ command! -nargs=0 GrepBuffer execute 'Grep '.expand('<cword>').' %'
 " Git stash list
 command! -nargs=0 Gstash :call functions#getGitStash()
 
-" Run jest test watcher
-command! -nargs=1 -complete=file JestSingleFile call functions#jestRunForSingleFile()
-
 " Save sessions (force)
 command! -nargs=0 SessionSave call sessions#sessionSave()
 " Load sessions
