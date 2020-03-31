@@ -131,21 +131,21 @@ nnoremap <Down> :lclose<CR>
 nnoremap ]l :lnext<CR>
 nnoremap [l :lprevious<CR>
 nnoremap ]L :lfirst<CR>
-nnoremap ]L :llast<CR>
+nnoremap [L :llast<CR>
 nnoremap ]<C-L> :lnfile<CR>
-nnoremap ]<C-L> :lpfile<CR>
+nnoremap [<C-L> :lpfile<CR>
 
 " quickfix list
 nnoremap ]q :cnext<CR>
 nnoremap [q :cprevious<CR>
 nnoremap ]Q :cfirst<CR>
-nnoremap ]Q :clast<CR>
+nnoremap [Q :clast<CR>
 nnoremap ]<C-Q> :cnfile<CR>
-nnoremap ]<C-Q> :cpfile<CR>
+nnoremap [<C-Q> :cpfile<CR>
 
 " Tabularize
 xnoremap ga :Tabularize /
-xnoremap g" :Tabularize / ".*<CR>
+xnoremap ga" :Tabularize / ".*<CR>
 nnoremap ga :Tabularize /
 
 " Buffers
