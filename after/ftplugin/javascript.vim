@@ -37,6 +37,9 @@ command! -nargs=0 ImportJs execute "normal ggOimport { ".expand('<cword>')." } f
 
 " Run jest test watcher
 command! -nargs=1 -complete=file JestSingleFile call functions#jestRunForSingleFile()
+
+" format buffer
+nnoremap gq mlgggqG'l :delm l<CR>
 " }}}
 
 " Includeexpr {{{

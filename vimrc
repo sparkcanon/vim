@@ -126,7 +126,7 @@ nnoremap # #zvzz
 nnoremap `` ``zz
 
 " Location list
-nnoremap <UP> :lopen<CR>
+nnoremap <Up> :lopen<CR>
 nnoremap <Down> :lclose<CR>
 nnoremap ]l :lnext<CR>
 nnoremap [l :lprevious<CR>
@@ -135,7 +135,9 @@ nnoremap [L :llast<CR>
 nnoremap ]<C-L> :lnfile<CR>
 nnoremap [<C-L> :lpfile<CR>
 
-" quickfix list
+" Quickfix list
+nnoremap <Left> :copen<CR>
+nnoremap <Right> :cclose<CR>
 nnoremap ]q :cnext<CR>
 nnoremap [q :cprevious<CR>
 nnoremap ]Q :cfirst<CR>
@@ -149,10 +151,8 @@ xnoremap ga" :Tabularize / ".*<CR>
 nnoremap ga :Tabularize /
 
 " Buffers
-" format buffer
-nnoremap gq mlgggqG'l :delm l<CR>
 " previously used buffer
-nnoremap <backspace> <C-^>
+nnoremap <BS> <C-^>
 nnoremap ]b :bnext<CR>
 nnoremap [b :bprevious<CR>
 
@@ -161,12 +161,12 @@ nnoremap ]a :next<CR>
 nnoremap [a :previous<CR>
 
 " Substitute
-nnoremap \s :%s/<C-r><C-w>/
-xnoremap \s <Esc>:%s/<C-R><C-R>=functions#getVisualSelection()<CR>/
+nnoremap <Bslash>s :%s/<C-r><C-w>/
+xnoremap <Bslash>s <Esc>:%s/<C-R><C-R>=functions#getVisualSelection()<CR>/
 
 " CFDO
-nnoremap \c :cfdo %s/<C-r><C-w>//g \| update<S-Left><Left><Left><Left><Left><Left>
-xnoremap \c :cfdo %s/<C-R><C-R>=functions#getVisualSelection()<CR>//gc \| update<S-Left><S-Left><Left><Left><Left><Left>
+nnoremap <Bslash>c :cfdo %s/<C-r><C-w>//g <Bar> update<S-Left><Left><Left><Left><Left><Left>
+xnoremap <Bslash>c :cfdo %s/<C-R><C-R>=functions#getVisualSelection()<CR>//gc <Bar> update<S-Left><S-Left><Left><Left><Left><Left>
 
 " Lists
 " registers
