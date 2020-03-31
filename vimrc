@@ -142,8 +142,8 @@ nnoremap ]q :cnext<CR>
 nnoremap [q :cprevious<CR>
 nnoremap ]Q :cfirst<CR>
 nnoremap [Q :clast<CR>
-nnoremap ]<C-Q> :cnfile<CR>
-nnoremap [<C-Q> :cpfile<CR>
+nnoremap ]<C-F> :cnfile<CR>
+nnoremap [<C-F> :cpfile<CR>
 
 " Tabularize
 xnoremap ga :Tabularize /
