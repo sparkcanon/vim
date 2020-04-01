@@ -170,9 +170,6 @@ xnoremap <Bslash>c :cfdo %s/<C-R><C-R>=functions#getVisualSelection()<CR>//gc <B
 
 " Lists
 cnoremap <expr> <CR> listcommands#CR()
-" buffers
-nnoremap gbv :<c-u>ls t<CR>:vert sb<Space>
-nnoremap gB :<c-u>ls t<CR>:bd<Space>
 
 " Empty lines
 nnoremap ]<space> o<C-c>
@@ -286,6 +283,8 @@ call functions#setupCommandAbbrs('gr','Grep')
 call functions#setupCommandAbbrs('grl','GrepLast')
 call functions#setupCommandAbbrs('grb','GrepBuffer')
 call functions#setupCommandAbbrs('grw','GrepWord')
+call functions#setupCommandAbbrs('lv','ls\<space>t\<CR>:vert\<space>sb')
+call functions#setupCommandAbbrs('ld','ls\<space>t\<CR>:bd')
 " }}}
 
 " Plugins {{{
