@@ -169,10 +169,8 @@ nnoremap <Bslash>c :cfdo %s/<C-r><C-w>//g <Bar> update<S-Left><Left><Left><Left>
 xnoremap <Bslash>c :cfdo %s/<C-R><C-R>=functions#getVisualSelection()<CR>//gc <Bar> update<S-Left><S-Left><Left><Left><Left><Left>
 
 " Lists
-" registers
-nnoremap gr :<C-u>registers<CR>:normal! "p<Left>
+cnoremap <expr> <CR> listcommands#CR()
 " buffers
-nnoremap gbb :<c-u>ls t<CR>:b<Space>
 nnoremap gbv :<c-u>ls t<CR>:vert sb<Space>
 nnoremap gB :<c-u>ls t<CR>:bd<Space>
 
