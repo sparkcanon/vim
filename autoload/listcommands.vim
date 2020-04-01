@@ -13,7 +13,7 @@ function! listcommands#CR() abort
 	elseif cmdline =~ '\v\C/(#|nu|num|numb|numbe|number)$'
 		" like :g//# but prompts for a command
 		return "\<CR>:"
-	elseif cmdline =~ '\v\C^(dli|il)'
+	elseif cmdline =~ '\v\C^(dli|il)\ '
 		" like :dlist or :ilist but prompts for a count for :djump or :ijump
 		return "\<CR>:" . cmdline[0] . "j  " . split(cmdline, " ")[1] . "\<S-Left>\<Left>"
 	elseif cmdline =~ '\v\C^(cli|lli)'
