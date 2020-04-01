@@ -270,21 +270,32 @@ command! -nargs=0 MassMake call functions#massMake()
 " }}}
 
 " Abbr {{{
+" Write
 call functions#setupCommandAbbrs('w','update')
 call functions#setupCommandAbbrs('nw','noautocmd update')
 call functions#setupCommandAbbrs('ngw','noautocmd Gw')
+
+" Source vimrc
 call functions#setupCommandAbbrs('sov','source $MYVIMRC')
-call functions#setupCommandAbbrs('gp','Dispatch! git push')
-call functions#setupCommandAbbrs('gl','Dispatch! git pull')
-call functions#setupCommandAbbrs('gs','Gstash')
+
+" Buffer list
+call functions#setupCommandAbbrs('lv','ls\<space>t\<CR>:vert\<space>sb')
+call functions#setupCommandAbbrs('ld','ls\<space>t\<CR>:bd')
+
+" Session
 call functions#setupCommandAbbrs('ssl','SessionLoad')
 call functions#setupCommandAbbrs('ssa','SessionSave')
+
+" Grep
 call functions#setupCommandAbbrs('gr','Grep')
 call functions#setupCommandAbbrs('grl','GrepLast')
 call functions#setupCommandAbbrs('grb','GrepBuffer')
 call functions#setupCommandAbbrs('grw','GrepWord')
-call functions#setupCommandAbbrs('lv','ls\<space>t\<CR>:vert\<space>sb')
-call functions#setupCommandAbbrs('ld','ls\<space>t\<CR>:bd')
+
+" Git
+call functions#setupCommandAbbrs('gp','Dispatch! git push')
+call functions#setupCommandAbbrs('gl','Dispatch! git pull')
+call functions#setupCommandAbbrs('gs','Gstash')
 " }}}
 
 " Plugins {{{
