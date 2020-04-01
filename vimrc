@@ -170,6 +170,8 @@ xnoremap <Bslash>c :cfdo %s/<C-R><C-R>=functions#getVisualSelection()<CR>//gc <B
 
 " Lists
 cnoremap <expr> <CR> listcommands#CR()
+nnoremap <Bslash>F :global //#<left><left>
+nnoremap <Bslash>f :global /<C-R><C-W>/#
 
 " Empty lines
 nnoremap ]<space> o<C-c>
