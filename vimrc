@@ -51,17 +51,19 @@ set wildmenu                               " Turn menu on for wild searches
 set wildignorecase                         " Ignore case for wildmenu
 set wildignore=*.swp,*.bak                 " Ignore files
 set wildignore+=**/node_modules/**
-set wildignore+=*.cache,*.min.*
+set wildignore+=*.cache,*.min.*,**/dist/**
 set wildignore+=*/.git/**/*
 set wildignore+=tags
 set wildignore+=*-lock.json
 set wildignore+=*.tar.*
 
 " Path options
+set path=.,,                               " Standard inclusion
 set path-=/usr/include                     " Exclude /usr/include dir
 set path-=**/node_modules/**               " Exclude the blackhole
 set path-=**/.git/**                       " Exclude the git
-set path=.,,**                             " Standard inclusion
+set path-=**/dist/**                       " Exclude the dist
+set path-=**/.cache/**                     " Exclude the cache
 
 " Backup settings
 set sessionoptions-=options
@@ -226,7 +228,7 @@ autocmd GeneralSettings QuickFixCmdPost l* lwindow
 " Set prettier as formatter
 autocmd GeneralSettings FileType
 			\ javascript,typescript,less,css,html,typescriptreact setlocal
-			\ formatprg=node_modules/.bin/prettier\ --stdin\ --stdin-filepath\ %
+			\ formatprg=./node_modules/.bin/prettier\ --stdin-filepath\ %
 autocmd GeneralSettings FileType
 			\ javascript,typescript,less,css,html,typescriptreact setlocal formatexpr=
 
