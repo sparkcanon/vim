@@ -35,7 +35,7 @@ set showmatch                              " Highlight matching paranthesis
 set wrap                                   " Wrap long lines
 set autoindent                             " Minimal auto indenting for any filetype
 set clipboard+=unnamed                     " Set clipboard options
-set cursorline
+set cursorline&                            " Default cursorline
 
 " Splits
 set splitbelow                             " Split window opens below
