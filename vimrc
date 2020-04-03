@@ -58,7 +58,7 @@ set wildignore+=*-lock.json
 set wildignore+=*.tar.*
 
 " Path options
-set path=.,,                               " Standard inclusion
+set path=.,,**                             " Standard inclusion
 set path-=/usr/include                     " Exclude /usr/include dir
 set path-=**/node_modules/**               " Exclude the blackhole
 set path-=**/.git/**                       " Exclude the git
