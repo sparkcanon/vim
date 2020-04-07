@@ -21,8 +21,9 @@ let &define  = '^\s*\('
       \ . '\|\(\ze\i\+([^)]*).*{$\)'
       \ . '\)'
 
-" Tesco Lego stuff
-source <sfile>:h/lego.vim
+" Desc: Set standard javascript path
+let &l:path = '.,,'
+			\ . 'src/**'
 
 " Set eslint compiler
 compiler eslint

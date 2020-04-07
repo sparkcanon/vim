@@ -218,6 +218,9 @@ autocmd GeneralSettings VimResized * wincmd =
 " Save session on exit
 autocmd GeneralSettings VimLeave * call sessions#sessionSave()
 
+" Set path
+autocmd GeneralSettings BufEnter * call setProjectPath#setProjectPath()
+
 " Make on save
 autocmd GeneralSettings BufWritePost *.js,*.jsx,*.ts,*.tsx silent lmake! <afile> | silent redraw!
 
