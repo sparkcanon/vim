@@ -232,8 +232,6 @@ autocmd GeneralSettings QuickFixCmdPost l* lwindow
 autocmd GeneralSettings FileType
 			\ javascript,typescript,less,css,html,typescriptreact
 			\ call functions#setFormatPrg()
-" autocmd GeneralSettings FileType
-" 			\ javascript,typescript,less,css,html,typescriptreact setlocal formatexpr=
 
 " Run ctags if git exists
 autocmd GeneralSettings BufWritePost * 
