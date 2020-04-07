@@ -32,8 +32,8 @@ endfunction
 " Git stash {{{
 " Desc: Show stash list
 function! functions#getGitStash() abort
-	let stashList = systemlist('git stash list')
-	call setqflist([], ' ', {'lines': systemlist('git stash list'), 'title': 'Stash list'}) 
+	let l:stashList = systemlist('git stash list')
+	call setqflist([], ' ', {'lines': l:stashList, 'title': 'Stash list'}) 
 				\| copen
 endfunction
 " }}}
@@ -66,5 +66,17 @@ function! functions#isProject(match) abort
 	else
 		return 0
 	endif
+endfunction
+" }}}
+
+" Set formatprg & formatexpr {{{
+function! functions#setFormatPrg() abort
+	if finddir('node_modules', '.;') == 'node_modules'
+		let l:prettierPath = './node_modules/.bin/prettier'
+	else
+		let l:prettierPath = 'prettier'
+	endif
+		let &l:formatprg = l:prettierPath . ' --stdin-filepath %'
+		let &l:formatexpr = ''
 endfunction
 " }}}

@@ -132,8 +132,8 @@ nnoremap <Up> :lopen<CR>
 nnoremap <Down> :lclose<CR>
 nnoremap ]l :lnext<CR>
 nnoremap [l :lprevious<CR>
-nnoremap ]L :lfirst<CR>
-nnoremap [L :llast<CR>
+nnoremap [L :lfirst<CR>
+nnoremap ]L :llast<CR>
 nnoremap ]<C-L> :lnfile<CR>
 nnoremap [<C-L> :lpfile<CR>
 
@@ -142,8 +142,8 @@ nnoremap <Left> :copen<CR>
 nnoremap <Right> :cclose<CR>
 nnoremap ]q :cnext<CR>
 nnoremap [q :cprevious<CR>
-nnoremap ]Q :cfirst<CR>
-nnoremap [Q :clast<CR>
+nnoremap [Q :cfirst<CR>
+nnoremap ]Q :clast<CR>
 nnoremap ]<C-F> :cnfile<CR>
 nnoremap [<C-F> :cpfile<CR>
 
@@ -230,10 +230,10 @@ autocmd GeneralSettings QuickFixCmdPost l* lwindow
 
 " Set prettier as formatter
 autocmd GeneralSettings FileType
-			\ javascript,typescript,less,css,html,typescriptreact setlocal
-			\ formatprg=./node_modules/.bin/prettier\ --stdin-filepath\ %
-autocmd GeneralSettings FileType
-			\ javascript,typescript,less,css,html,typescriptreact setlocal formatexpr=
+			\ javascript,typescript,less,css,html,typescriptreact
+			\ call functions#setFormatPrg()
+" autocmd GeneralSettings FileType
+" 			\ javascript,typescript,less,css,html,typescriptreact setlocal formatexpr=
 
 " Run ctags if git exists
 autocmd GeneralSettings BufWritePost * 
