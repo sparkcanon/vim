@@ -20,4 +20,4 @@ endif
 CompilerSet errorformat=%E%f:\ line\ %l\\,\ col\ %c\\,\ Error\ -\ %m,
 CompilerSet errorformat+=%W%f:\ line\ %l\\,\ col\ %c\\,\ Warning\ -\ %m,%-G%.%#
 
-CompilerSet makeprg=eslint\ -f\ compact\ 
+CompilerSet makeprg=node_modules/.bin/eslint\ -f\ compact\ 

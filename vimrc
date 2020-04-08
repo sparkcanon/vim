@@ -78,7 +78,7 @@ set undodir=$HOME/.vim/tmp/dir_undo        " Undo dir
 " Statusline
 set laststatus=2                           " Display statusline
 set ruler                                  " Set ruler in statusline
-set statusline=\ ❮\ %<%f\%h%m%r%=%-14.(%l,%c%V%)\%P\ ❯\ 
+set statusline=\ ❮\ %<%f\ %{functions#locListErrorCount()}\%h%m%r%=%-14.(%l,%c%V%)\%P\ ❯\ 
 
 " Grep
 if executable('rg')
@@ -223,10 +223,6 @@ autocmd GeneralSettings BufEnter * call setProjectPath#setProjectPath()
 
 " Make on save
 autocmd GeneralSettings BufWritePost *.js,*.jsx,*.ts,*.tsx silent lmake! <afile> | silent redraw!
-
-" Open qf list window
-autocmd GeneralSettings QuickFixCmdPost cgetexpr cwindow
-autocmd GeneralSettings QuickFixCmdPost l* lwindow
 
 " Set prettier as formatter
 autocmd GeneralSettings FileType

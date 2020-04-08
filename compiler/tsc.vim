@@ -20,4 +20,4 @@ endif
 CompilerSet errorformat=%A\ %#%f\ %#(%l\\,%c):\ %trror\ %m
 CompilerSet errorformat+=%A\ %#%f\ %#(%l\\,%c):\ %tarning\ %m
 
-CompilerSet makeprg=tsc\ 
+CompilerSet makeprg=node/modules/.bin/tsc\ 
