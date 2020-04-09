@@ -267,7 +267,6 @@ command! -nargs=0 Ydirectory call yank#yankPath("directory")
 
 " Make on all open buffers
 command! -nargs=0 MassMake call utils#massMake()
-
 " }}}
 
 " Abbr {{{
