@@ -78,7 +78,7 @@ set undodir=$HOME/.vim/tmp/dir_undo        " Undo dir
 " Statusline
 set laststatus=2                           " Display statusline
 set ruler                                  " Set ruler in statusline
-set statusline=\ ❮\ %<%f\ %{functions#locListErrorCount()}\%h%m%r%=%-14.(%l,%c%V%)\%P\ ❯\ 
+set statusline=\ ❮\ %<%f\ %{utils#locListErrorCount()}\%h%m%r%=%-14.(%l,%c%V%)\%P\ ❯\ 
 
 " Grep
 if executable('rg')
@@ -164,11 +164,11 @@ nnoremap [a :previous<CR>
 
 " Substitute
 nnoremap <Bslash>s :%s/<C-r><C-w>/
-xnoremap <Bslash>s <Esc>:%s/<C-R><C-R>=functions#getVisualSelection()<CR>/
+xnoremap <Bslash>s <Esc>:%s/<C-R><C-R>=utils#getVisualSelection()<CR>/
 
 " CFDO
 nnoremap <Bslash>c :cfdo %s/<C-r><C-w>//g <Bar> update<S-Left><Left><Left><Left><Left><Left>
-xnoremap <Bslash>c :cfdo %s/<C-R><C-R>=functions#getVisualSelection()<CR>//gc <Bar> update<S-Left><S-Left><Left><Left><Left><Left>
+xnoremap <Bslash>c :cfdo %s/<C-R><C-R>=utils#getVisualSelection()<CR>//gc <Bar> update<S-Left><S-Left><Left><Left><Left><Left>
 
 " Lists
 cnoremap <expr> <CR> listcommands#CR()
@@ -219,7 +219,7 @@ autocmd GeneralSettings VimResized * wincmd =
 autocmd GeneralSettings VimLeave * call sessions#sessionSave()
 
 " Set path
-autocmd GeneralSettings BufEnter * call setProjectPath#setProjectPath()
+autocmd GeneralSettings BufEnter * call project_utils#setProjectPath()
 
 " Make on save
 autocmd GeneralSettings BufWritePost *.js,*.jsx,*.ts,*.tsx silent lmake! <afile> | silent redraw!
@@ -227,7 +227,7 @@ autocmd GeneralSettings BufWritePost *.js,*.jsx,*.ts,*.tsx silent lmake! <afile>
 " Set prettier as formatter
 autocmd GeneralSettings FileType
 			\ javascript,typescript,less,css,html,typescriptreact
-			\ call functions#setFormatPrg()
+			\ call utils#setFormatPrg()
 
 " Run ctags if git exists
 autocmd GeneralSettings BufWritePost * 
@@ -238,7 +238,7 @@ autocmd GeneralSettings BufWritePost *
 
 " Commands {{{
 " Grep for quickfix list
-command! -nargs=+ -complete=file -bar Grep cgetexpr functions#grep(<q-args>)
+command! -nargs=+ -complete=file -bar Grep cgetexpr utils#grep(<q-args>)
 " Grep for quickfix list
 command! -nargs=0 -bar GrepWord execute 'Grep '.expand('<cword>')
 " Last grep
@@ -247,7 +247,7 @@ command! -nargs=0 GrepLast execute 'Grep '.@/.' %'
 command! -nargs=0 GrepBuffer execute 'Grep '.expand('<cword>').' %'
 
 " Git stash list
-command! -nargs=0 Gstash :call functions#getGitStash()
+command! -nargs=0 Gstash :call utils#getGitStash()
 
 " Save sessions (force)
 command! -nargs=0 SessionSave call sessions#sessionSave()
@@ -266,37 +266,37 @@ command! -nargs=0 Yfname call yank#yankPath("filename")
 command! -nargs=0 Ydirectory call yank#yankPath("directory")
 
 " Make on all open buffers
-command! -nargs=0 MassMake call functions#massMake()
+command! -nargs=0 MassMake call utils#massMake()
 
 " }}}
 
 " Abbr {{{
 " Write
-call functions#setupCommandAbbrs('w','update')
-call functions#setupCommandAbbrs('nw','noautocmd update')
-call functions#setupCommandAbbrs('ngw','noautocmd Gw')
+call utils#setupCommandAbbrs('w','update')
+call utils#setupCommandAbbrs('nw','noautocmd update')
+call utils#setupCommandAbbrs('ngw','noautocmd Gw')
 
 " Source vimrc
-call functions#setupCommandAbbrs('sov','source $MYVIMRC')
+call utils#setupCommandAbbrs('sov','source $MYVIMRC')
 
 " Buffer list
-call functions#setupCommandAbbrs('lv','ls\<space>t\<CR>:vert\<space>sb')
-call functions#setupCommandAbbrs('ld','ls\<space>t\<CR>:bd')
+call utils#setupCommandAbbrs('lv','ls\<space>t\<CR>:vert\<space>sb')
+call utils#setupCommandAbbrs('ld','ls\<space>t\<CR>:bd')
 
 " Session
-call functions#setupCommandAbbrs('ssl','SessionLoad')
-call functions#setupCommandAbbrs('ssa','SessionSave')
+call utils#setupCommandAbbrs('ssl','SessionLoad')
+call utils#setupCommandAbbrs('ssa','SessionSave')
 
 " Grep
-call functions#setupCommandAbbrs('gr','Grep')
-call functions#setupCommandAbbrs('grl','GrepLast')
-call functions#setupCommandAbbrs('grb','GrepBuffer')
-call functions#setupCommandAbbrs('grw','GrepWord')
+call utils#setupCommandAbbrs('gr','Grep')
+call utils#setupCommandAbbrs('grl','GrepLast')
+call utils#setupCommandAbbrs('grb','GrepBuffer')
+call utils#setupCommandAbbrs('grw','GrepWord')
 
 " Git
-call functions#setupCommandAbbrs('gp','Dispatch! git push')
-call functions#setupCommandAbbrs('gl','Dispatch! git pull')
-call functions#setupCommandAbbrs('gs','Gstash')
+call utils#setupCommandAbbrs('gp','Dispatch! git push')
+call utils#setupCommandAbbrs('gl','Dispatch! git pull')
+call utils#setupCommandAbbrs('gs','Gstash')
 " }}}
 
 " Plugins {{{

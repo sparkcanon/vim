@@ -2,7 +2,7 @@
 
 " Grep {{{
 " Desc: Perform the search in a sub-shell
-function! functions#grep(args) abort
+function! utils#grep(args) abort
 	let args = split(a:args, ' ')
 	return system(join([&grepprg, shellescape(args[0]), len(args) > 1 ? join(args[1:-1], ' ') : ''], ' '))
 endfunction
@@ -10,7 +10,7 @@ endfunction
 
 " Visual {{{
 " Desc: Get visual section
-function! functions#getVisualSelection() abort
+function! utils#getVisualSelection() abort
 	let l=getline("'<")
 	let [line1,col1] = getpos("'<")[1:2]
 	let [line2,col2] = getpos("'>")[1:2]
@@ -22,7 +22,7 @@ endfunction
 " Desc: Functions to create abbrs
 " Params: from - { string } - short custom command
 " Params: to - { string } - Actual command to map to
-function! functions#setupCommandAbbrs(from, to) abort
+function! utils#setupCommandAbbrs(from, to) abort
 	exec 'cnoreabbrev <expr> '.a:from
 				\ .' ((getcmdtype() ==# ":" && getcmdline() ==# "'.a:from.'")'
 				\ .'? ("'.a:to.'") : ("'.a:from.'"))'
@@ -31,7 +31,7 @@ endfunction
 
 " Git stash {{{
 " Desc: Show stash list
-function! functions#getGitStash() abort
+function! utils#getGitStash() abort
 	let l:stashList = systemlist('git stash list')
 	call setqflist([], ' ', {'lines': l:stashList, 'title': 'Stash list'}) 
 				\| copen
@@ -40,7 +40,7 @@ endfunction
 
 " Jest {{{
 " TODO: Resolve root automatically
-function! functions#jestRunForSingleFile() abort
+function! utils#jestRunForSingleFile() abort
 	execute 'vert terminal ./web/node_modules/.bin/jest --watch '
 endfunction
 " }}}
@@ -48,7 +48,7 @@ endfunction
 " Make {{{
 " Desc: Run make on all loaded browsers
 " TODO: Check if buffers are laoded
-function! functions#massMake() abort
+function! utils#massMake() abort
 	let buffers = []
 	for number in range(bufnr('$'))
 		call add(buffers, bufname(number))
@@ -57,20 +57,8 @@ function! functions#massMake() abort
 endfunction
 " }}}
 
-" isProject {{{
-" Desc: Check if the given project matches the directory we are in
-" Params: match - { string } - match to
-function! functions#isProject(match) abort
-	if fnamemodify(getcwd(), ":p:h:t") == a:match
-		return 1
-	else
-		return 0
-	endif
-endfunction
-" }}}
-
 " Set formatprg & formatexpr {{{
-function! functions#setFormatPrg() abort
+function! utils#setFormatPrg() abort
 	if finddir('node_modules', '.;') == 'node_modules'
 		let l:prettierPath = './node_modules/.bin/prettier'
 	else
@@ -82,7 +70,7 @@ endfunction
 " }}}
 
 " Loc list error count {{{
-function! functions#locListErrorCount() abort
+function! utils#locListErrorCount() abort
 	let l:locList = len(getloclist(winnr())) == 0 ? '' : 'LE: ' . len(getloclist(winnr()))
 	let l:qfList = len(getqflist()) == 0 ? '' : 'QE: ' . len(getqflist())
 	let l:status = l:locList . l:qfList

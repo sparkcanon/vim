@@ -33,14 +33,14 @@ compiler eslint
 command! -nargs=0 Log execute "normal oconsole.log('".expand('<cword>')
       \ . "====> ', ".expand('<cword>').")"
 
-command! -nargs=0 -range LogVisual execute "normal oconsole.log('". functions#getVisualSelection()
-      \ . "====> ', ". functions#getVisualSelection() .")"
+command! -nargs=0 -range LogVisual execute "normal oconsole.log('". utils#getVisualSelection()
+      \ . "====> ', ". utilsgetVisualSelection() .")"
 
 " Add import statement
 command! -nargs=0 ImportJs execute "normal ggOimport { ".expand('<cword>')." } from '';"
 
 " Run jest test watcher
-command! -nargs=1 -complete=file JestSingleFile call functions#jestRunForSingleFile()
+command! -nargs=1 -complete=file JestSingleFile call utils#jestRunForSingleFile()
 
 " format buffer
 nnoremap gQ mlgggqG'l :delm l<CR>
@@ -57,9 +57,9 @@ function! PathSubstitue(fname) abort
 	let custom_base_path = './web/'
 
   " Aliased
-	if functions#isProject('lego-web') && a:fname =~ '^\' . custom_alias
+	if project_utils#isProject('lego-web') && a:fname =~ '^\' . custom_alias
 		let alias_plus_fname = substitute(a:fname,'^\#/',custom_base_path,'g')
-		return get(glob(fname#Build_glob_string_from_aliased_fname(alias_plus_fname), 0, 1), 0, a:fname)
+		return get(glob(path_utils#Build_glob_string_from_aliased_fname(alias_plus_fname), 0, 1), 0, a:fname)
 	endif
 
   " ../
@@ -67,24 +67,24 @@ function! PathSubstitue(fname) abort
     let modifier = substitute(matchstr(a:fname, '\(\(\.\)\+/\)\+'), '\.\./', ':h', 'g')
 
 		" Project specific
-    if functions#isProject('lego-web') || functions#isProject('peas')
-      return './' . get(glob(fname#Build_glob_string_from_relative_fname(a:fname, modifier), 0, 1), 0, a:fname)
+    if project_utils#isProject('lego-web') || project_utils#isProject('peas')
+      return './' . get(glob(path_utils#Build_glob_string_from_relative_fname(a:fname, modifier), 0, 1), 0, a:fname)
     endif
 
 		" Standard output
-    return get(glob(fname#Build_glob_string_from_relative_fname(a:fname, modifier), 0, 1), 0, a:fname)
+    return get(glob(path_utils#Build_glob_string_from_relative_fname(a:fname, modifier), 0, 1), 0, a:fname)
   endif
 
   " ./
   if a:fname =~ '^\./'
 
 		" Project specific
-    if functions#isProject('lego-web') || functions#isProject('peas')
-      return './' . get(glob(fname#Build_glob_string_from_relative_fname(a:fname, ''), 0, 1), 0, a:fname)
+    if project_utils#isProject('lego-web') || project_utils#isProject('peas')
+      return './' . get(glob(path_utils#Build_glob_string_from_relative_fname(a:fname, ''), 0, 1), 0, a:fname)
     endif
 
 		" Standard output
-    return get(glob(fname#Build_glob_string_from_relative_fname(a:fname, ''), 0, 1), 0, a:fname)
+    return get(glob(path_utils#Build_glob_string_from_relative_fname(a:fname, ''), 0, 1), 0, a:fname)
   endif
 endfunction
 " }}}

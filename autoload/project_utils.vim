@@ -1,9 +1,9 @@
 " Purpose: set path
 " Project: Tesco
 
-function! setProjectPath#setProjectPath() abort
+function! project_utils#setProjectPath() abort
 	" Desc: Set lego path
-	if functions#isProject('lego-web')
+	if project_utils#isProject('lego-web')
 
 		let &l:path = '.,,'
 					\ . 'web/,'
@@ -29,9 +29,21 @@ function! setProjectPath#setProjectPath() abort
 					\ . 'web/conditional-resources/**'
 
 		" Desc: Set peas path
-	elseif functions#isProject('peas')
+	elseif project_utils#isProject('peas')
 		let &l:path = '.,,'
 					\ . 'packages/node/**,'
 					\ . 'packages/web/**,'
 	endif
 endfunction
+
+" isProject {{{
+" Desc: Check if the given project matches the directory we are in
+" Params: match - { string } - match to
+function! project_utils#isProject(match) abort
+	if fnamemodify(getcwd(), ":p:h:t") == a:match
+		return 1
+	else
+		return 0
+	endif
+endfunction
+" }}}
