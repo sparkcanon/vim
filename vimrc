@@ -198,6 +198,7 @@ autocmd GeneralSettings ColorScheme * call colors#modifyBufferColors()
 autocmd GeneralSettings ColorScheme * match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
 " Set color scheme after setting buffer colors
+packadd vim-colors-xcode
 colorscheme xcodewwdc
 " }}}
 
@@ -301,6 +302,7 @@ call utils#setupCommandAbbrs('gs','Gstash')
 " Plugins {{{
 packloadall          " Load all plugins
 packadd cfilter      " Filter results from qf lists
+autocmd! GeneralSettings BufReadPre *.elm packadd elm-vim
 
 " Netrw
 let g:netrw_liststyle = 3

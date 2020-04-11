@@ -7,12 +7,12 @@
   category: default
   local: false
   name: "Zaptic/elm-vim"
-  opt: false
+  opt: true
 - 
   category: default
   local: false
   name: "arzg/vim-colors-xcode"
-  opt: false
+  opt: true
 - 
   category: default
   local: false
