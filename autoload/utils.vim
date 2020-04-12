@@ -3,18 +3,18 @@
 " Grep {{{
 " Desc: Perform the search in a sub-shell
 function! utils#grep(args) abort
-	let args = split(a:args, ' ')
-	return system(join([&grepprg, shellescape(args[0]), len(args) > 1 ? join(args[1:-1], ' ') : ''], ' '))
+	let l:args = split(a:args, ' ')
+	return system(join([&grepprg, shellescape(l:args[0]), len(l:args) > 1 ? join(l:args[1:-1], ' ') : ''], ' '))
 endfunction
 " }}}
 
 " Visual {{{
 " Desc: Get visual section
 function! utils#getVisualSelection() abort
-	let l=getline("'<")
+	let l:l=getline("'<")
 	let [line1,col1] = getpos("'<")[1:2]
 	let [line2,col2] = getpos("'>")[1:2]
-	return l[col1 - 1: col2 - 1]
+	return l:l[col1 - 1: col2 - 1]
 endfunction
 " }}}
 
