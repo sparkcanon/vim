@@ -19,71 +19,69 @@ syntax enable
 " }}}
 
 " Completion {{{
-set completeopt+=menuone,noinsert,longest  " Open menu and no insert
-set omnifunc=syntaxcomplete#Complete       " General purpose omnifunc
+setglobal completeopt+=menuone,noinsert,longest  " Open menu and no insert
+setglobal omnifunc=syntaxcomplete#Complete       " General purpose omnifunc
 " }}}
 
 " Basic Settings {{{
-set backspace=indent,eol,start             " Normal backspace behaviour
-set number                                 " Display number line
-set hidden                                 " Display hidden buffers in list
-set signcolumn&                            " Display sign column
-set autoread                               " Update file if changed outside
-set incsearch                              " Turn on incremental search
-set hlsearch                               " Highlight search term
-set showmatch                              " Highlight matching paranthesis
-set wrap                                   " Wrap long lines
-set autoindent                             " Minimal auto indenting for any filetype
-set clipboard+=unnamed                     " Set clipboard options
-set cursorline&                            " Default cursorline
+setglobal backspace=indent,eol,start              " Normal backspace behaviour
+set number                                        " Display number line
+setglobal hidden                                  " Display hidden buffers in list
+setglobal autoread                                " Update file if changed outside
+setglobal incsearch                               " Turn on incremental search
+setglobal hlsearch                                " Highlight search term
+setglobal showmatch                               " Highlight matching paranthesis
+setglobal wrap                                    " Wrap long lines
+setglobal autoindent                              " Minimal auto indenting for any filetype
+setglobal clipboard+=unnamed                      " Set clipboard options
 
 " Splits
-set splitbelow                             " Split window opens below
-set splitright                             " Split window opens right
-set switchbuf=useopen                      " Vert split window for qf entries
+setglobal splitbelow                              " Split window opens below
+setglobal splitright                              " Split window opens right
+setglobal switchbuf=useopen                       " Vert split window for qf entries
 
 " Case
-set smartcase                              " To ignore case in certain cases, overrides ignorecase
-set ignorecase                             " Ignore case all together
+setglobal smartcase                               " To ignore case in certain cases, overrides ignorecase
+setglobal ignorecase                              " Ignore case all together
 
 " Wild menu options
-set wildmenu                               " Turn menu on for wild searches
-set wildignorecase                         " Ignore case for wildmenu
-set wildignore=*.swp,*.bak                 " Ignore files
-set wildignore+=**/node_modules/**
-set wildignore+=*.cache,*.min.*,**/dist/**
-set wildignore+=*/.git/**/*
-set wildignore+=tags
-set wildignore+=*-lock.json
-set wildignore+=*.tar.*
+setglobal wildmenu                                " Turn menu on for wild searches
+setglobal wildignorecase                          " Ignore case for wildmenu
+setglobal wildignore=*.swp,*.bak                  " Ignore files
+setglobal wildignore+=**/node_modules/**
+setglobal wildignore+=*.cache,*.min.*,**/dist/**
+setglobal wildignore+=**/.git/**/*
+setglobal wildignore+=tags
+setglobal wildignore+=*-lock.json
+setglobal wildignore+=*.tar.*
 
 " Path options
-set path=.,,**                             " Standard inclusion
-set path-=/usr/include                     " Exclude /usr/include dir
-set path-=**/node_modules/**               " Exclude the blackhole
-set path-=**/.git/**                       " Exclude the git
-set path-=**/dist/**                       " Exclude the dist
-set path-=**/.cache/**                     " Exclude the cache
+setglobal path=.,,**                              " Standard inclusion
+setglobal path-=/usr/include                      " Exclude /usr/include dir
+setglobal path-=**/node_modules/**                " Exclude the blackhole
+setglobal path-=**/.git/**                        " Exclude the git
+setglobal path-=**/dist/**                        " Exclude the dist
+setglobal path-=**/.cache/**                      " Exclude the cache
 
 " Backup settings
-set sessionoptions-=options
-set viewoptions-=options
-set undofile                               " Set this option to have full undo power
-set backup                                 " Set this option to enable backup
-set writebackup                            " Set this option to write back up
-set backupdir=$HOME/.vim/tmp/dir_backup//  " Back up dir
-set directory^=$HOME/.vim/tmp/dir_swap//   " Swap file dir
-set undodir=$HOME/.vim/tmp/dir_undo        " Undo dir
+setglobal sessionoptions-=options
+setglobal viewoptions-=options
+setglobal undofile                                " Set this option to have full undo power
+setglobal backup                                  " Set this option to enable backup
+setglobal writebackup                             " Set this option to write back up
+setglobal backupdir=$HOME/.vim/tmp/dir_backup//   " Back up dir
+setglobal directory^=$HOME/.vim/tmp/dir_swap//    " Swap file dir
+setglobal undodir=$HOME/.vim/tmp/dir_undo         " Undo dir
 
 " Statusline
-set laststatus=2                           " Display statusline
-set ruler                                  " Set ruler in statusline
-set statusline=\ ❮\ %<%f\ %{utils#locListErrorCount()}\%h%m%r%=%-14.(%l,%c%V%)\%P\ ❯\ 
+setglobal laststatus=2                            " Display statusline
+setglobal ruler                                   " Set ruler in statusline
+setglobal statusline=\ ❮\ %<%f\ %{utils#locListErrorCount()}\%h%m%r%=%-14.(%l,%c%V%)\%P\ ❯\ 
 
 " Grep
 if executable('rg')
-	set grepprg=rg\ --column\ --no-heading\ --smart-case\ --follow\ --vimgrep
-	set grepformat=%f:%l:%c:%m
+	setglobal grepprg=rg\ --column\ --no-heading\ --smart-case\ --follow\ --vimgrep
+	setglobal grepformat=%f:%l:%c:%m
 endif
 " }}}
 
@@ -311,6 +309,6 @@ let g:netrw_banner = 0
 " Rhubarb
 let g:github_enterprise_urls = ['https://github.dev.global.tesco.org']
 
-" Dispatch
-set shellpipe=2>&1\|tee
+" Dispatch: https://github.com/tpope/vim-dispatch/issues/222#issuecomment-442885769
+setglobal shellpipe=2>&1\|tee
 " }}}
