@@ -20,12 +20,12 @@ syntax enable
 
 " Completion {{{
 setglobal completeopt+=menuone,noinsert,longest  " Open menu and no insert
-setglobal omnifunc=syntaxcomplete#Complete       " General purpose omnifunc
+set omnifunc=syntaxcomplete#Complete             " General purpose omnifunc
 " }}}
 
 " Basic Settings {{{
-setglobal backspace=indent,eol,start              " Normal backspace behaviour
 set number                                        " Display number line
+setglobal backspace=indent,eol,start              " Normal backspace behaviour
 setglobal hidden                                  " Display hidden buffers in list
 setglobal autoread                                " Update file if changed outside
 setglobal incsearch                               " Turn on incremental search
@@ -66,7 +66,7 @@ setglobal path-=**/.cache/**                      " Exclude the cache
 " Backup settings
 setglobal sessionoptions-=options
 setglobal viewoptions-=options
-setglobal undofile                                " Set this option to have full undo power
+set undofile                                 " Set this option to have full undo power
 setglobal backup                                  " Set this option to enable backup
 setglobal writebackup                             " Set this option to write back up
 setglobal backupdir=$HOME/.vim/tmp/dir_backup//   " Back up dir
