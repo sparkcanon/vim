@@ -53,20 +53,19 @@ setlocal includeexpr=PathSubstitue(v:fname)
 " Desc: creates paths for alias and local imports @romainl
 " Note: fucking hate javascript implicit rules
 function! PathSubstitue(fname) abort
-	let custom_alias = '#'
-	let custom_base_path = './web/'
+	let l:custom_alias = '#'
 
   " Aliased
-	if project_utils#isProject('lego-web') && a:fname =~ '^\' . custom_alias
-		" .*\/
-		let alias_plus_fname = substitute(a:fname,'^\#/',custom_base_path,'g')
-		return get(glob(path_utils#Build_glob_string_from_aliased_fname(alias_plus_fname), 0, 1), 0, alias_plus_fname)
+	if project_utils#isProject('lego-web') && a:fname =~ '^\' . l:custom_alias
+		let l:custom_base_path = './web/'
+		let l:alias_fname = substitute(a:fname,'^\#/',l:custom_base_path,'g')
+		return get(glob(path_utils#Build_glob_string_from_aliased_fname(l:alias_fname), 0, 1), 0, l:alias_fname)
 	endif
 
 	" ../
 	if a:fname =~ '^\.\./'
-		let modifier = substitute(matchstr(a:fname, '\(\(\.\)\+/\)\+'), '\.\./', ':h', 'g')
-		if getftype(path_utils#Build_glob_string_from_relative_fname(a:fname, modifier)) == 'dir'
+		let l:mod = substitute(matchstr(a:fname, '\(\(\.\)\+/\)\+'), '\.\./', ':h', 'g')
+		if getftype(path_utils#Build_glob_string_from_relative_fname(a:fname, l:mod)) == 'dir'
 			return a:fname . '/index'
 		endif
 		return a:fname
