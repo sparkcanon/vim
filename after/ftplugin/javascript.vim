@@ -79,5 +79,7 @@ function! PathSubstitue(fname) abort
 		endif
 		return a:fname
 	endif
+
+	return a:fname
 endfunction
 " }}}
