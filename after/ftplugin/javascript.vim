@@ -58,33 +58,26 @@ function! PathSubstitue(fname) abort
 
   " Aliased
 	if project_utils#isProject('lego-web') && a:fname =~ '^\' . custom_alias
+		" .*\/
 		let alias_plus_fname = substitute(a:fname,'^\#/',custom_base_path,'g')
-		return get(glob(path_utils#Build_glob_string_from_aliased_fname(alias_plus_fname), 0, 1), 0, a:fname)
+		return get(glob(path_utils#Build_glob_string_from_aliased_fname(alias_plus_fname), 0, 1), 0, alias_plus_fname)
 	endif
 
-  " ../
-  if a:fname =~ '^\.\./'
-    let modifier = substitute(matchstr(a:fname, '\(\(\.\)\+/\)\+'), '\.\./', ':h', 'g')
+	" ../
+	if a:fname =~ '^\.\./'
+		let modifier = substitute(matchstr(a:fname, '\(\(\.\)\+/\)\+'), '\.\./', ':h', 'g')
+		if getftype(path_utils#Build_glob_string_from_relative_fname(a:fname, modifier)) == 'dir'
+			return a:fname . '/index.js'
+		endif
+		return a:fname
+	endif
 
-		" Project specific
-    if project_utils#isProject('lego-web') || project_utils#isProject('peas')
-      return './' . get(glob(path_utils#Build_glob_string_from_relative_fname(a:fname, modifier), 0, 1), 0, a:fname)
-    endif
-
-		" Standard output
-    return get(glob(path_utils#Build_glob_string_from_relative_fname(a:fname, modifier), 0, 1), 0, a:fname)
-  endif
-
-  " ./
-  if a:fname =~ '^\./'
-
-		" Project specific
-    if project_utils#isProject('lego-web') || project_utils#isProject('peas')
-      return './' . get(glob(path_utils#Build_glob_string_from_relative_fname(a:fname, ''), 0, 1), 0, a:fname)
-    endif
-
-		" Standard output
-    return get(glob(path_utils#Build_glob_string_from_relative_fname(a:fname, ''), 0, 1), 0, a:fname)
-  endif
+	" ./
+	if a:fname =~ '^\./'
+		if getftype(path_utils#Build_glob_string_from_relative_fname(a:fname, '')) == 'dir'
+			return a:fname . '/index.js'
+		endif
+		return a:fname
+	endif
 endfunction
 " }}}

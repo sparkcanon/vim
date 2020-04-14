@@ -34,6 +34,7 @@ setglobal showmatch                               " Highlight matching paranthes
 setglobal wrap                                    " Wrap long lines
 setglobal autoindent                              " Minimal auto indenting for any filetype
 setglobal clipboard+=unnamed                      " Set clipboard options
+setglobal shell=/usr/local/bin/fish
 
 " Splits
 setglobal splitbelow                              " Split window opens below
