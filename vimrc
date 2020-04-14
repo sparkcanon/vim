@@ -222,7 +222,10 @@ autocmd GeneralSettings VimLeave * call sessions#sessionSave()
 autocmd GeneralSettings BufEnter * call project_utils#setProjectPath()
 
 " Set GLCD
-autocmd GeneralSettings BufEnter * execute 'Glcd'
+autocmd GeneralSettings BufEnter * 
+			\ if finddir('.git', '.;') == ".git" |
+			\ execute 'Glcd' |
+			\ endif
 
 " Make on save
 autocmd GeneralSettings BufWritePost *.js,*.jsx,*.ts,*.tsx silent lmake! <afile> | silent redraw!
