@@ -67,7 +67,7 @@ function! PathSubstitue(fname) abort
 	if a:fname =~ '^\.\./'
 		let modifier = substitute(matchstr(a:fname, '\(\(\.\)\+/\)\+'), '\.\./', ':h', 'g')
 		if getftype(path_utils#Build_glob_string_from_relative_fname(a:fname, modifier)) == 'dir'
-			return a:fname . '/index.js'
+			return a:fname . '/index'
 		endif
 		return a:fname
 	endif
@@ -75,7 +75,7 @@ function! PathSubstitue(fname) abort
 	" ./
 	if a:fname =~ '^\./'
 		if getftype(path_utils#Build_glob_string_from_relative_fname(a:fname, '')) == 'dir'
-			return a:fname . '/index.js'
+			return a:fname . '/index'
 		endif
 		return a:fname
 	endif
