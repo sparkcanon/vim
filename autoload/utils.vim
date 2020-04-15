@@ -57,18 +57,6 @@ function! utils#massMake() abort
 endfunction
 " }}}
 
-" Set formatprg & formatexpr {{{
-function! utils#setFormatPrg() abort
-	if finddir('node_modules', '.;') == 'node_modules'
-		let l:prettierPath = './node_modules/.bin/prettier'
-	else
-		let l:prettierPath = 'prettier'
-	endif
-		let &l:formatprg = l:prettierPath . ' --stdin-filepath %'
-		let &l:formatexpr = ''
-endfunction
-" }}}
-
 " Loc list error count {{{
 function! utils#locListErrorCount() abort
 	let l:locList = len(getloclist(winnr())) == 0 ? '' : 'LE: ' . len(getloclist(winnr()))

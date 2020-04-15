@@ -12,7 +12,7 @@ setlocal suffixesadd+=.defs
 setlocal include=^\\s*[^\/]\\+\\(from\\\|require(\\)\\s*['\"\.]
 
 " Source: https://gist.github.com/romainl/a50b49408308c45cc2f9f877dfe4df0c#file-typescript-vim-L242
-let &define  = '^\s*\('
+let &l:define  = '^\s*\('
       \ . '\(export\s\)*\(default\s\)*\(var\|const\|let\|function\|class\|interface\|type\)\s'
       \ . '\|\(public\|private\|protected\|readonly\|static\)\s'
       \ . '\|\(get\s\|set\s\)'
@@ -27,6 +27,9 @@ let &l:path = '.,,'
 
 " Set eslint compiler
 compiler eslint
+
+" Desc: Set up format prg
+call format_utils#setFormatPrg()
 
 " Commands {{{
 " Console log command

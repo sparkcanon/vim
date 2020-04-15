@@ -17,7 +17,11 @@ if exists(":CompilerSet") != 2
 	command -nargs=* CompilerSet setlocal <args>
 endif
 
-CompilerSet errorformat=%A\ %#%f\ %#(%l\\,%c):\ %trror\ %m
-CompilerSet errorformat+=%A\ %#%f\ %#(%l\\,%c):\ %tarning\ %m
+CompilerSet errorformat^=%E\ %#%f\ %#(%l\\,%c):\ error\ %m
+CompilerSet errorformat+=%W\ %#%f\ %#(%l\\,%c):\ warning\ %m
 
-CompilerSet makeprg=node/modules/.bin/tsc\ 
+if findfile('tsc', 'node_modules/.bin/') == 'node_modules/.bin/tsc'
+	CompilerSet makeprg=node_modules/.bin/tsc
+elseif executable('eslint')
+	CompilerSet makeprg=tsc
+endif

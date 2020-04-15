@@ -49,25 +49,17 @@ setglobal ignorecase                              " Ignore case all together
 setglobal wildmenu                                " Turn menu on for wild searches
 setglobal wildignorecase                          " Ignore case for wildmenu
 setglobal wildignore=*.swp,*.bak                  " Ignore files
-setglobal wildignore+=**/node_modules/**
 setglobal wildignore+=*.cache,*.min.*,**/dist/**
 setglobal wildignore+=**/.git/**/*
-setglobal wildignore+=tags
 setglobal wildignore+=*-lock.json
-setglobal wildignore+=*.tar.*
 
 " Path options
 setglobal path=.,,**                              " Standard inclusion
-setglobal path-=/usr/include                      " Exclude /usr/include dir
-setglobal path-=**/node_modules/**                " Exclude the blackhole
-setglobal path-=**/.git/**                        " Exclude the git
-setglobal path-=**/dist/**                        " Exclude the dist
-setglobal path-=**/.cache/**                      " Exclude the cache
 
 " Backup settings
 setglobal sessionoptions-=options
 setglobal viewoptions-=options
-set undofile                                 " Set this option to have full undo power
+set undofile                                      " Set this option to have full undo power
 setglobal backup                                  " Set this option to enable backup
 setglobal writebackup                             " Set this option to write back up
 setglobal backupdir=$HOME/.vim/tmp/dir_backup//   " Back up dir
@@ -230,11 +222,6 @@ autocmd GeneralSettings BufEnter *
 " Make on save
 autocmd GeneralSettings BufWritePost *.js,*.jsx,*.ts,*.tsx silent lmake! <afile> | silent redraw!
 
-" Set prettier as formatter
-autocmd GeneralSettings FileType
-			\ javascript,typescript,less,css,html,typescriptreact
-			\ call utils#setFormatPrg()
-
 " Run ctags if git exists
 autocmd GeneralSettings BufWritePost * 
 			\ if finddir('.git', '.;') == ".git" |
@@ -286,7 +273,9 @@ call utils#setupCommandAbbrs('sov','source $MYVIMRC')
 
 " Buffer list
 call utils#setupCommandAbbrs('lv','ls\<space>t\<CR>:vert\<space>sb')
+call utils#setupCommandAbbrs('lt','ls\<space>t\<CR>:tab\<space>sb')
 call utils#setupCommandAbbrs('ld','ls\<space>t\<CR>:bd')
+call utils#setupCommandAbbrs('bD','bp\<bar>bd#')
 
 " Session
 call utils#setupCommandAbbrs('ssl','SessionLoad')
