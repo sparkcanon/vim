@@ -296,7 +296,8 @@ call utils#setupCommandAbbrs('gs','Gstash')
 " Plugins {{{
 packloadall          " Load all plugins
 packadd cfilter      " Filter results from qf lists
-autocmd GeneralSettings BufReadPre *.elm packadd elm-vim
+autocmd GeneralSettings FileType elm packadd elm-vim
+autocmd GeneralSettings FileType reason packadd vim-reason-plus
 
 " Netrw
 let g:netrw_liststyle = 3

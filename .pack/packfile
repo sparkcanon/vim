@@ -31,6 +31,11 @@
 - 
   category: default
   local: false
+  name: "reasonml-editor/vim-reason-plus"
+  opt: true
+- 
+  category: default
+  local: false
   name: "romainl/vim-cool"
   opt: false
 - 
