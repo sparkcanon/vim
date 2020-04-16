@@ -34,7 +34,7 @@ setglobal showmatch                               " Highlight matching paranthes
 setglobal wrap                                    " Wrap long lines
 setglobal autoindent                              " Minimal auto indenting for any filetype
 setglobal clipboard+=unnamed                      " Set clipboard options
-setglobal shell=/usr/local/bin/fish
+setglobal shell=/usr/local/bin/fish               " Set fish as default shell
 
 " Splits
 setglobal splitbelow                              " Split window opens below
@@ -54,7 +54,7 @@ setglobal wildignore+=**/.git/**/*
 setglobal wildignore+=*-lock.json
 
 " Path options
-setglobal path=.,,**                              " Standard inclusion
+setglobal path=.,,**                              " Standard path
 
 " Backup settings
 setglobal sessionoptions-=options
@@ -294,10 +294,11 @@ call utils#setupCommandAbbrs('gs','Gstash')
 " }}}
 
 " Plugins {{{
-packloadall          " Load all plugins
-packadd cfilter      " Filter results from qf lists
-autocmd GeneralSettings FileType elm packadd elm-vim
-autocmd GeneralSettings FileType reason packadd vim-reason-plus
+packloadall!                                                     " Load all plugins
+packadd! cfilter                                                 " Filter results from qf lists
+packadd! matchit                                                 " Jump to brackets
+autocmd GeneralSettings FileType elm packadd elm-vim             " Goodies for elm files
+autocmd GeneralSettings FileType reason packadd vim-reason-plus  " Goodies for reason files
 
 " Netrw
 let g:netrw_liststyle = 3

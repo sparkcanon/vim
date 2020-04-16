@@ -21,6 +21,13 @@ let &l:define  = '^\s*\('
       \ . '\|\(\ze\i\+([^)]*).*{$\)'
       \ . '\)'
 
+" Matchit words
+let b:match_words = '\<function\>:\<return\>,'
+      \ . '\<if\>:\<else\>,'
+      \ . '\<switch\>:\<case\>:\<default\>,'
+      \ . '\<do\>:\<while\>,'
+      \ . '\<try\>:\<catch\>:\<finally\>,'
+
 " Desc: Set standard javascript path
 let &l:path = '.,,'
 			\ . 'src/**'
