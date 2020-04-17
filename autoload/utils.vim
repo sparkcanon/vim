@@ -29,15 +29,6 @@ function! utils#setupCommandAbbrs(from, to) abort
 endfunction
 " }}}
 
-" Git stash {{{
-" Desc: Show stash list
-function! utils#getGitStash() abort
-	let l:stashList = systemlist('git stash list')
-	call setqflist([], ' ', {'lines': l:stashList, 'title': 'Stash list'}) 
-				\| copen
-endfunction
-" }}}
-
 " Jest {{{
 " TODO: Resolve root automatically
 function! utils#jestRunForSingleFile() abort

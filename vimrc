@@ -98,7 +98,7 @@ inoremap <C-l> <C-x><C-l>
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-" Tags mappings
+" Tags
 nnoremap ,p :ptjump<space><C-R><C-W><CR>
 nnoremap ,t :tjump<space><C-R><C-W><CR>
 nnoremap ,v :vert stjump<space><C-R><C-W><CR>
@@ -227,6 +227,10 @@ autocmd GeneralSettings BufWritePost *
 			\ if finddir('.git', '.;') == ".git" |
 			\ execute 'Dispatch! ctags .' |
 			\ endif
+
+" Set up formatprg, formatexpr
+autocmd GeneralSettings FileType typescript,typescriptreact call
+			\ format_utils#setFormatPrg()
 " }}}
 
 " Commands {{{
@@ -238,9 +242,6 @@ command! -nargs=0 -bar GrepWord execute 'Grep '.expand('<cword>')
 command! -nargs=0 GrepLast execute 'Grep '.@/.' %'
 " Grep buffer
 command! -nargs=0 GrepBuffer execute 'Grep '.expand('<cword>').' %'
-
-" Git stash list
-command! -nargs=0 Gstash :call utils#getGitStash()
 
 " Save sessions (force)
 command! -nargs=0 SessionSave call sessions#sessionSave()
@@ -290,7 +291,6 @@ call utils#setupCommandAbbrs('grw','GrepWord')
 " Git
 call utils#setupCommandAbbrs('gp','Dispatch! git push')
 call utils#setupCommandAbbrs('gl','Dispatch! git pull')
-call utils#setupCommandAbbrs('gs','Gstash')
 " }}}
 
 " Plugins {{{

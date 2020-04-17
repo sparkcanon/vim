@@ -1,5 +1,7 @@
+" Purpose: HTML settings
+
+" Set formatprg, formatexpr to prettier
+call format_utils#setFormatPrg()
+
 " format buffer
 nnoremap gQ mlgggqG'l :delm l<CR>
-
-" Desc: Set up format prg
-call format_utils#setFormatPrg()

@@ -1,4 +1,7 @@
 " Purpose: Less settings
 
-" Desc: Set up format prg
+" Set formatprg, formatexpr to prettier
 call format_utils#setFormatPrg()
+
+" format buffer
+nnoremap gQ mlgggqG'l :delm l<CR>
