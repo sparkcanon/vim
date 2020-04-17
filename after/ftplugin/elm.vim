@@ -1,8 +1,7 @@
-" Purpose: Set elm ft settings
+" Purpose: Set elm settings
 
-augroup Elm
-	autocmd!
-augroup END
+" Load elm-vim package
+packadd elm-vim
 
 " Desc: Lint on file save
-autocmd Elm BufWritePost * execute 'ElmMake'
+autocmd BufWritePost * execute 'ElmMake'

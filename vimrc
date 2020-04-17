@@ -294,11 +294,9 @@ call utils#setupCommandAbbrs('gl','Dispatch! git pull')
 " }}}
 
 " Plugins {{{
-packloadall!                                                     " Load all plugins
-packadd! cfilter                                                 " Filter results from qf lists
-packadd! matchit                                                 " Jump to brackets
-autocmd GeneralSettings FileType elm packadd elm-vim             " Goodies for elm files
-autocmd GeneralSettings FileType reason packadd vim-reason-plus  " Goodies for reason files
+packloadall!      " Load all plugins
+packadd! cfilter  " Filter results from qf lists
+packadd! matchit  " Jump to brackets
 
 " Netrw
 let g:netrw_liststyle = 3
