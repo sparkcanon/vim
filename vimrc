@@ -188,9 +188,12 @@ autocmd GeneralSettings ColorScheme * call colors#modifyBufferColors()
 " Highlights git diff markers
 autocmd GeneralSettings ColorScheme * match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
+set termguicolors " set 24bit colors
+
 " Set color scheme after setting buffer colors
-packadd vim-colors-xcode
-colorscheme xcodewwdc
+packadd molokai " Load colorscheme
+colorscheme molokai
+set background=dark
 " }}}
 
 " Misc Autocmd {{{
