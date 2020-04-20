@@ -66,10 +66,5 @@
 - 
   category: default
   local: false
-  name: "tpope/vim-rhubarb"
-  opt: false
-- 
-  category: default
-  local: false
   name: "tpope/vim-surround"
   opt: false
