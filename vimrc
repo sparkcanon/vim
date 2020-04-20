@@ -34,7 +34,6 @@ setglobal showmatch                               " Highlight matching paranthes
 setglobal wrap                                    " Wrap long lines
 setglobal autoindent                              " Minimal auto indenting for any filetype
 setglobal clipboard+=unnamed                      " Set clipboard options
-setglobal shell=/usr/local/bin/fish               " Set fish as default shell
 
 " Splits
 setglobal splitbelow                              " Split window opens below
@@ -68,7 +67,6 @@ setglobal undodir=$HOME/.vim/tmp/dir_undo         " Undo dir
 
 " Statusline
 setglobal laststatus=2                            " Display statusline
-setglobal ruler                                   " Set ruler in statusline
 setglobal statusline=\ ❮\ %<%f\ %{utils#locListErrorCount()}\%h%m%r%=%-14.(%l,%c%V%)\%P\ ❯\ 
 
 " Grep
