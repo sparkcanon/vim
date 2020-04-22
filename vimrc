@@ -238,7 +238,7 @@ autocmd GeneralSettings FileType typescript,typescriptreact call
 
 " Commands {{{
 " Grep for quickfix list
-command! -nargs=+ -complete=file -bar Grep cgetexpr utils#grep(<q-args>)
+command! -nargs=+ -complete=file Grep cgetexpr utils#grep(<q-args>)
 " Grep for quickfix list
 command! -nargs=0 -bar GrepWord execute 'Grep '.expand('<cword>')
 " Last grep
@@ -307,4 +307,5 @@ packadd! matchit  " Jump to brackets
 " Netrw
 let g:netrw_liststyle = 3
 let g:netrw_banner = 0
+let g:netrw_hide = 0
 " }}}
