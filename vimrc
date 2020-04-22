@@ -228,7 +228,7 @@ autocmd GeneralSettings BufWritePost *.js,*.jsx,*.ts,*.tsx Lint <afile>
 " Run ctags if git exists
 autocmd GeneralSettings BufWritePost * 
 			\ if finddir('.git', '.;') == ".git" |
-			\ call system('ctags .') |
+			\ silent call system('ctags .') |
 			\ endif
 
 " Set up formatprg, formatexpr
