@@ -223,12 +223,12 @@ autocmd GeneralSettings BufEnter *
 			\ endif
 
 " Make on save
-autocmd GeneralSettings BufWritePost *.js,*.jsx,*.ts,*.tsx silent lmake! <afile> | silent redraw!
+autocmd GeneralSettings BufWritePost *.js,*.jsx,*.ts,*.tsx Lint <afile>
 
 " Run ctags if git exists
 autocmd GeneralSettings BufWritePost * 
 			\ if finddir('.git', '.;') == ".git" |
-			\ execute 'Dispatch! ctags .' |
+			\ call system('ctags .') |
 			\ endif
 
 " Set up formatprg, formatexpr
@@ -264,6 +264,9 @@ command! -nargs=0 Ydirectory call yank#yankPath("directory")
 
 " Make on all open buffers
 command! -nargs=0 MassMake call utils#massMake()
+
+" Lint
+command! -nargs=* -complete=file -bar Lint call linter#getexpr_efm("lgetexpr", linter#runMake(<f-args>))
 " }}}
 
 " Abbr {{{
@@ -292,8 +295,8 @@ call utils#setupCommandAbbrs('grb','GrepBuffer')
 call utils#setupCommandAbbrs('grw','GrepWord')
 
 " Git
-call utils#setupCommandAbbrs('gp','Dispatch! git push')
-call utils#setupCommandAbbrs('gl','Dispatch! git pull')
+call utils#setupCommandAbbrs('gp','Git push')
+call utils#setupCommandAbbrs('gl','Git pull')
 " }}}
 
 " Plugins {{{
@@ -304,7 +307,4 @@ packadd! matchit  " Jump to brackets
 " Netrw
 let g:netrw_liststyle = 3
 let g:netrw_banner = 0
-
-" Dispatch: https://github.com/tpope/vim-dispatch/issues/222#issuecomment-442885769
-setglobal shellpipe=2>&1\|tee
 " }}}

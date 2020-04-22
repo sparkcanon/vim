@@ -46,11 +46,6 @@
 - 
   category: default
   local: false
-  name: "tpope/vim-dispatch"
-  opt: false
-- 
-  category: default
-  local: false
   name: "tpope/vim-eunuch"
   opt: false
 - 
