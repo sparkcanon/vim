@@ -18,21 +18,12 @@ if exists(":CompilerSet") != 2
 endif
 
 " Set errorformat WIP
-let &errorformat = '%E%.%#--\ %m\ -%# %f' . ',' .
+let &errorformat = '%E%.%#-- %m -%# %f' . ',' .
 			\ '%C%l\\|' . ',' .
 			\ '%C%.%#'
-
-" let &errorformat = '%.%#path":"%f",'
-
 
 if executable('elm')
 	CompilerSet makeprg=elm\ make
 elseif executable('elm-app')
 	CompilerSet makeprg=elm-app\ make
 endif
-
-" if executable('elm')
-" 	CompilerSet makeprg=elm\ make\ --report=json\ --output=/dev/null
-" elseif executable('elm-app')
-" 	CompilerSet makeprg=elm-app\ make\ --report=json\ --output=/dev/null
-" endif
