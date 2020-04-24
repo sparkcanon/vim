@@ -38,7 +38,7 @@ setglobal clipboard+=unnamed                           " Set clipboard options
 " Splits
 setglobal splitbelow                                   " Split window opens below
 setglobal splitright                                   " Split window opens right
-setglobal switchbuf=useopen                            " Vert split window for qf entries
+setglobal switchbuf=newtab                             " Vert split window for qf entries
 
 " Case
 setglobal smartcase                                    " To ignore case in certain cases, overrides ignorecase
@@ -119,8 +119,7 @@ nnoremap # #zvzz
 nnoremap `` ``zz
 
 " Location list
-nnoremap <Up> :lopen<CR>
-nnoremap <Down> :lclose<CR>
+nnoremap <Up> :call togglelist#ToggleList('Location List', 'l')<CR>
 nnoremap ]l :lnext<CR>
 nnoremap [l :lprevious<CR>
 nnoremap [L :lfirst<CR>
@@ -129,8 +128,7 @@ nnoremap ]<C-L> :lnfile<CR>
 nnoremap [<C-L> :lpfile<CR>
 
 " Quickfix list
-nnoremap <Left> :copen<CR>
-nnoremap <Right> :cclose<CR>
+nnoremap <Down> :call togglelist#ToggleList('Quickfix List','c')<CR>
 nnoremap ]q :cnext<CR>
 nnoremap [q :cprevious<CR>
 nnoremap [Q :cfirst<CR>
