@@ -1,7 +1,14 @@
 " Purpose: Set elm settings
 
 " Load elm-vim package
-packadd elm-vim
+packadd vim-elm-syntax
 
-" Desc: Lint on file save
-autocmd BufWritePost * execute 'ElmMake'
+" Make
+compiler elm-make
+
+" Format
+set formatprg=elm-format\ --stdin\ --yes 
+set formatexpr=
+
+" format buffer
+nnoremap gQ mlgggqG'l :delm l<CR>
