@@ -3,8 +3,9 @@
 " Load elm-vim package
 packadd vim-elm-syntax
 
-" Make
-compiler elm-make
+" let &errorformat = '%E%.%#-- %m -%# %f' . ',' .
+" 			\ '%C%l\\|' . ',' .
+" 			\ '%C%.%#'
 
 " Format
 set formatprg=elm-format\ --stdin\ --yes 
