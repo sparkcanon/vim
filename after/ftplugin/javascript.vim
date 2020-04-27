@@ -62,13 +62,19 @@ setlocal includeexpr=PathSubstitue(v:fname)
 " Desc: creates paths for alias and local imports @romainl
 " Note: fucking hate javascript implicit rules
 function! PathSubstitue(fname) abort
+	echo 'Searching: ' . a:fname . '..'
 	let l:custom_alias = '#'
 
   " Aliased
 	if project_utils#isProject('lego-web') && a:fname =~ '^\' . l:custom_alias
 		let l:custom_base_path = './web/'
 		let l:alias_fname = substitute(a:fname,'^\#/',l:custom_base_path,'g')
-		return get(glob(path_utils#Build_glob_string_from_aliased_fname(l:alias_fname), 0, 1), 0, l:alias_fname)
+		let l:result =  get(glob(path_utils#Build_glob_string_from_aliased_fname(l:alias_fname), 0, 1), 0, l:alias_fname)
+		if getftype(l:result) == 'dir'
+			return l:result . '/index'
+		else
+			return l:result
+		endif
 	endif
 
 	" ../
