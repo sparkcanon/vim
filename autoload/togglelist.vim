@@ -1,3 +1,5 @@
+" Purpose: Toggle qf/loc list
+
 function! s:GetBufferList() abort
 	redir =>buflist
 	silent! ls!
@@ -23,7 +25,7 @@ function! togglelist#ToggleList(bufname, pfx) abort
 	endif
 
 	let l:winnr = winnr()
-	exec(a:pfx.'open')
+	exec(a:pfx . 'open')
 
 	if winnr() != l:winnr
 		wincmd p

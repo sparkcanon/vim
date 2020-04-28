@@ -260,10 +260,10 @@ command! -nargs=0 Yfname call yank#yankPath("filename")
 " Filename
 command! -nargs=0 Ydirectory call yank#yankPath("directory")
 
-" Make on all open buffers
-command! -nargs=0 MassMake call utils#massMake()
-
 " Lint
+" Lint all open buffers
+command! -nargs=0 MassMake call utils#massMake()
+" Lint current buffer
 command! -nargs=* -complete=file -bar Lint call linter#getexpr_efm("lgetexpr", linter#runMake(<f-args>))
 " }}}
 
