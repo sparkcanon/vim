@@ -29,13 +29,6 @@ function! utils#setupCommandAbbrs(from, to) abort
 endfunction
 " }}}
 
-" Jest {{{
-" TODO: Resolve root automatically
-function! utils#jestRunForSingleFile() abort
-	execute 'vert terminal ./web/node_modules/.bin/jest --watch '
-endfunction
-" }}}
-
 " Make {{{
 " Desc: Run make on all loaded browsers
 " TODO: Check if buffers are laoded
@@ -48,11 +41,19 @@ function! utils#massMake() abort
 endfunction
 " }}}
 
-" Loc list error count {{{
+" Desc: Loc list error count {{{
 function! utils#locListErrorCount() abort
 	let l:locList = len(getloclist(winnr())) == 0 ? '' : 'LE: ' . len(getloclist(winnr()))
-	let l:qfList = len(getqflist()) == 0 ? '' : 'QE: ' . len(getqflist())
+	let l:qfList = len(getqflist()) == 0 ? '' : ' QE: ' . len(getqflist())
 	let l:status = l:locList . l:qfList
 	return l:status
+endfunction
+" }}}
+
+" Desc: Long fnames in statusline {{{
+function! utils#ShortenFname() abort
+	let fname = expand("%f")
+	let fnameList = fname->split('/')->len() > 4
+	return fnameList ? pathshorten(fname) : fname
 endfunction
 " }}}

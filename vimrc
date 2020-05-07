@@ -67,7 +67,7 @@ setglobal undodir=$HOME/.vim/tmp/dir_undo              " Undo dir
 
 " Statusline
 setglobal laststatus=2                                 " Display statusline
-setglobal statusline=\ ❮\ %<%f
+setglobal statusline=\ ❮\ %<%{utils#ShortenFname()}
 setglobal statusline+=\ %{utils#locListErrorCount()}
 setglobal statusline+=\%h%m%r%=%-14.(%l,%c%V%)\%P\ ❯\ 
 
@@ -106,7 +106,6 @@ nnoremap ,v :vert stjump<space><C-R><C-W><CR>
 " Tabs
 nnoremap <Tab> gt
 nnoremap <S-Tab> gT
-nnoremap <silent> <S-t> :tabnew<CR>
 
 " Terminal
 tnoremap <Esc> <C-\><C-n>

@@ -48,9 +48,6 @@ command! -nargs=0 -range LogVisual execute "normal oconsole.log('". utils#getVis
 " Add import statement
 command! -nargs=0 ImportJs execute "normal ggOimport { ".expand('<cword>')." } from '';"
 
-" Run jest test watcher
-command! -nargs=1 -complete=file JestSingleFile call utils#jestRunForSingleFile()
-
 " format buffer
 nnoremap gQ mlgggqG'l :delm l<CR>
 " }}}
