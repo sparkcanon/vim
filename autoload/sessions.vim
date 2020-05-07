@@ -2,18 +2,11 @@
 
 " Desc: Save on VIMLEAVE
 function! sessions#sessionSave() abort
-	let l:findGit = finddir('.git', system('git rev-parse --show-toplevel')[:-2])
-	if !empty(l:findGit)
-		let root = fnamemodify(fnamemodify(getcwd(0), ':t'), ':s?\.??')
-		execute 'mks! $HOME/.vim/tmp/dir_session/'.root.'.vim' | echo 'Session saved as '.root.'.vim'
-	else
-		echo 'Failed: not a git repo.'
+	let l:findGit = finddir('.git', '.;')
+	if l:findGit == ".git"
+		let l:root = substitute(fnamemodify(getcwd(0), ':t'), '^\.', '', '')
+		execute 'mks! $HOME/.vim/tmp/dir_session/' . l:root . '.vim'
 	endif
-endfunction
-
-" Desc: Load saved session
-function! sessions#sessionLoad(file) abort
-	execute 'source $HOME/.vim/tmp/dir_session/'.a:file | echo 'Session '.a:file.' has been loaded'
 endfunction
 
 " Desc: Complete path for save command

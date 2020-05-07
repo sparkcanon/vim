@@ -38,7 +38,6 @@ setglobal clipboard+=unnamed                           " Set clipboard options
 " Splits
 setglobal splitbelow                                   " Split window opens below
 setglobal splitright                                   " Split window opens right
-setglobal switchbuf=newtab                             " Vert split window for qf entries
 
 " Case
 setglobal smartcase                                    " To ignore case in certain cases, overrides ignorecase
@@ -208,7 +207,7 @@ autocmd GeneralSettings BufWritePre *
 autocmd GeneralSettings VimResized * wincmd =
 
 " Save session on exit
-autocmd GeneralSettings VimLeave * call sessions#sessionSave()
+autocmd GeneralSettings VimLeavePre * call sessions#sessionSave()
 
 " Set path
 autocmd GeneralSettings BufEnter * call project_utils#setProjectPath()
@@ -247,7 +246,7 @@ command! -nargs=0 GrepBuffer execute 'Grep '.expand('<cword>').' %'
 command! -nargs=0 SessionSave call sessions#sessionSave()
 " Load sessions
 command! -nargs=1 -complete=customlist,sessions#sessionCompletePath
-			\ SessionLoad call sessions#sessionLoad(<q-args>)
+			\ SessionLoad execute 'source $HOME/.vim/tmp/dir_session/<args>'
 
 " Yank paths
 " Relative path
