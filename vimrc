@@ -13,12 +13,12 @@ augroup GeneralSettings
 augroup END
 " }}}
 
-" Syntax {{{
+" Section: Syntax {{{
 filetype plugin indent on
 syntax enable
 " }}}
 
-" Completion {{{
+" Section: Completion {{{
 setglobal completeopt+=menuone,noinsert,longest  " Open menu and no insert
 set omnifunc=syntaxcomplete#Complete             " General purpose omnifunc
 " }}}
@@ -70,14 +70,14 @@ setglobal statusline=\ ❮\ %<%{utils#ShortenFname()}
 setglobal statusline+=\ %{utils#locListErrorCount()}
 setglobal statusline+=\%h%m%r%=%-14.(%l,%c%V%)\%P\ ❯\ 
 
-" Grep
+" Grepprg & grepformat
 if executable('rg')
 	setglobal grepprg=rg\ --column\ --no-heading\ --smart-case\ --follow\ --vimgrep
 	setglobal grepformat=%f:%l:%c:%m
 endif
 " }}}
 
-" Mappings {{{
+" Section: Mappings {{{
 " Commands
 nnoremap ; :
 nnoremap : ;
@@ -162,7 +162,7 @@ cnoremap <expr> <CR> listcommands#CR()
 nnoremap <Bslash>F :global //#<left><left>
 nnoremap <Bslash>f :global /<C-R><C-W>/#
 
-" Empty lines
+" New lines
 nnoremap ]<space> o<C-c>
 nnoremap [<space> O<C-c>
 
@@ -172,12 +172,14 @@ nnoremap <space>c :Cfind<space>
 nnoremap <space>s :sfind<space>
 nnoremap <space>v :vert sfind<space>
 nnoremap <space>t :tabfind<space>
+
+" Edit
 nnoremap <space>ee :e <C-R>='%:h/'<CR>
 nnoremap <space>ev :vsp <C-R>='%:h/'<CR>
 nnoremap <space>es :sp <C-R>='%:h/'<CR>
 " }}}
 
-" Colors {{{
+" Section: Colors {{{
 " Modify buffer colors
 autocmd GeneralSettings ColorScheme * call colors#modifyBufferColors()
 
@@ -187,9 +189,9 @@ autocmd GeneralSettings ColorScheme * match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+
 set termguicolors " set 24bit colors
 
 " Set color scheme after setting buffer colors
-packadd molokai " Load colorscheme
-colorscheme molokai
-set background=dark
+packadd molokai      " Load colorscheme
+colorscheme molokai  " Apply theme
+set background=dark  " No clue what this really does, but makes molokai high contrast
 " }}}
 
 " Misc Autocmd {{{
@@ -232,15 +234,15 @@ autocmd GeneralSettings FileType typescript,typescriptreact call
 			\ format_utils#setFormatPrg()
 " }}}
 
-" Commands {{{
+" Section: Commands {{{
 " Grep for quickfix list
 command! -nargs=+ -complete=file Grep cgetexpr utils#grep(<q-args>)
-" Grep for quickfix list
-command! -nargs=0 -bar GrepWord execute 'Grep ' . expand('<cword>')
+" Grep word under the cursor
+command! -nargs=0 -bar GrCword execute 'Grep ' . expand('<cword>')
+" Manual grep for current buffer
+command! -nargs=1 -bar GrWord execute 'Grep ' . <q-args> . ' ' . expand('%')
 " Last grep
-command! -nargs=0 GrepLast execute 'Grep ' . @/ . ' %'
-" Grep buffer
-command! -nargs=0 GrepBuffer execute 'Grep ' . expand('<cword>') . ' %'
+command! -nargs=0 GrLast execute 'Grep ' . @/ . ' %'
 
 " Save sessions (force)
 command! -nargs=0 SessionSave call sessions#sessionSave()
@@ -265,7 +267,7 @@ command! -nargs=0 MassMake call utils#massMake()
 command! -nargs=* -complete=file -bar Lint call linter#getexpr_efm("lgetexpr", linter#runMake(<f-args>))
 " }}}
 
-" Abbr {{{
+" Section: Abbr {{{
 " Write
 call utils#setupCommandAbbrs('w','update')
 call utils#setupCommandAbbrs('nw','noautocmd update')
@@ -286,16 +288,15 @@ call utils#setupCommandAbbrs('ssa','SessionSave')
 
 " Grep
 call utils#setupCommandAbbrs('gr','Grep')
-call utils#setupCommandAbbrs('grl','GrepLast')
-call utils#setupCommandAbbrs('grb','GrepBuffer')
-call utils#setupCommandAbbrs('grw','GrepWord')
+call utils#setupCommandAbbrs('grb','GrWord' )
+call utils#setupCommandAbbrs('grc','GrCword')
 
 " Git
 call utils#setupCommandAbbrs('gp','Git push')
 call utils#setupCommandAbbrs('gl','Git pull')
 " }}}
 
-" Plugins {{{
+" Section: Plugins {{{
 packloadall!      " Load all plugins
 packadd! cfilter  " Filter results from qf lists
 packadd! matchit  " Jump to brackets
