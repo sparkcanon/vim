@@ -236,11 +236,11 @@ autocmd GeneralSettings FileType typescript,typescriptreact call
 " Grep for quickfix list
 command! -nargs=+ -complete=file Grep cgetexpr utils#grep(<q-args>)
 " Grep for quickfix list
-command! -nargs=0 -bar GrepWord execute 'Grep '.expand('<cword>')
+command! -nargs=0 -bar GrepWord execute 'Grep ' . expand('<cword>')
 " Last grep
-command! -nargs=0 GrepLast execute 'Grep '.@/.' %'
+command! -nargs=0 GrepLast execute 'Grep ' . @/ . ' %'
 " Grep buffer
-command! -nargs=0 GrepBuffer execute 'Grep '.expand('<cword>').' %'
+command! -nargs=0 GrepBuffer execute 'Grep ' . expand('<cword>') . ' %'
 
 " Save sessions (force)
 command! -nargs=0 SessionSave call sessions#sessionSave()
