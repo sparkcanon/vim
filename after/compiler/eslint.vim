@@ -25,3 +25,13 @@ if findfile('eslint', 'node_modules/.bin/') == 'node_modules/.bin/eslint'
 elseif executable('eslint')
 	CompilerSet makeprg=eslint\ -f\ compact
 endif
+
+finish " For eslint -f stylish
+" Source: https://github.com/wincent/wincent/blob/master/aspects/vim/files/.vim/after/compiler/eslint.vim#L30
+" CompilerSet errorformat=
+"       \%-P%f,
+"       \%\\s%#%l:%c%\\s%\\+%trror%\\s%\\+%m,
+"       \%\\s%#%l:%c%\\s%\\+%tarning%\\s%\\+%m,
+"       \%-Q,
+"       \%-G%.%#
+
