@@ -220,7 +220,7 @@ autocmd GeneralSettings BufEnter *
 			\ endif
 
 " Make on save
-autocmd GeneralSettings BufWritePost *.js,*.jsx,*.ts,*.tsx Lint <afile>
+autocmd GeneralSettings BufWritePost *.js,*.jsx,*.ts,*.tsx silent Lint <afile> | checktime | silent redraw!
 
 " Run ctags if git exists
 autocmd GeneralSettings BufWritePost * 

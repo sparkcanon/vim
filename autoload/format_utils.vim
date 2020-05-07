@@ -1,7 +1,7 @@
 " Desc: Set formatprg & formatexpr {{{
 function! format_utils#setFormatPrg() abort
 	let l:findNode = findfile('prettier', 'node_modules/.bin/')
-	let l:ext = ' --config-precedence prefer-file %'
+	let l:ext = ' --stdin-filepath %'
 	if l:findNode == 'node_modules/.bin/prettier'
 		let &formatprg = l:findNode . l:ext
 		let &formatexpr = ''
