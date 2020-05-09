@@ -17,7 +17,7 @@ if exists(":CompilerSet") != 2
 	command -nargs=* CompilerSet setlocal <args>
 endif
 
-CompilerSet errorformat=
+CompilerSet errorformat^=
       \%-G%[%^\ ]%.%#,
       \%A%\\s%\\+●\ %m,
       \%Z%\\s%\\+at\ %.%#\ (%f:%l:%c),
