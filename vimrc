@@ -288,7 +288,7 @@ call utils#setupCommandAbbrs('ssa','SessionSave')
 
 " Grep
 call utils#setupCommandAbbrs('gr','Grep')
-call utils#setupCommandAbbrs('grb','GrWord' )
+call utils#setupCommandAbbrs('grw','GrWord' )
 call utils#setupCommandAbbrs('grc','GrCword')
 
 " Git
