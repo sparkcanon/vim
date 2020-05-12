@@ -29,18 +29,6 @@ function! utils#setupCommandAbbrs(from, to) abort
 endfunction
 " }}}
 
-" Make {{{
-" Desc: Run make on all loaded browsers
-" TODO: Check if buffers are laoded
-function! utils#massMake() abort
-	let buffers = []
-	for number in range(bufnr('$'))
-		call add(buffers, bufname(number))
-	endfor
-	execute 'Make! ' .. join(buffers, ' ')
-endfunction
-" }}}
-
 " Desc: Loc list error count {{{
 function! utils#locListErrorCount() abort
 	let l:locList = len(getloclist(winnr())) == 0 ? '' : 'LE: ' . len(getloclist(winnr()))

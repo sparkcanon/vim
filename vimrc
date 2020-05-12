@@ -220,9 +220,6 @@ autocmd GeneralSettings BufEnter *
 			\ execute 'Glcd' |
 			\ endif
 
-" Make on save
-autocmd GeneralSettings BufWritePost *.js,*.jsx,*.ts,*.tsx silent Lint <afile> | checktime | silent redraw!
-
 " Run ctags if git exists
 autocmd GeneralSettings BufWritePost * 
 			\ if finddir('.git', '.;') == ".git" |
@@ -262,9 +259,10 @@ command! -nargs=0 Ydirectory call yank#yankPath("directory")
 
 " Lint
 " Lint all open buffers
-command! -nargs=0 MassMake call utils#massMake()
+command! -nargs=0 MassMake call make_utils#massMake()
 " Lint current buffer
-command! -nargs=* -complete=file -bar Lint call linter#getexpr_efm("lgetexpr", linter#runMake(<f-args>))
+command! -nargs=* -complete=file -bar Make call
+			\ make_make_utils#getexpr_efm("lgetexpr", make_make_utils#runMake(<f-args>))
 " }}}
 
 " Section: Abbr {{{
