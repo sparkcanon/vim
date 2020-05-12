@@ -262,7 +262,7 @@ command! -nargs=0 Ydirectory call yank#yankPath("directory")
 command! -nargs=0 MassMake call make_utils#massMake()
 " Lint current buffer
 command! -nargs=* -complete=file -bar Make call
-			\ make_make_utils#getexpr_efm("lgetexpr", make_make_utils#runMake(<f-args>))
+			\ make_utils#getexpr_efm("lgetexpr", make_utils#runMake(<f-args>))
 " }}}
 
 " Section: Abbr {{{
