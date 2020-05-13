@@ -31,8 +31,8 @@ endfunction
 
 " Desc: Loc list error count {{{
 function! utils#locListErrorCount() abort
-	let l:locList = len(getloclist(winnr())) == 0 ? '' : 'LE: ' . len(getloclist(winnr()))
-	let l:qfList = len(getqflist()) == 0 ? '' : ' QE: ' . len(getqflist())
+	let l:locList = len(getloclist(winnr())) == 0 ? '' : 'LE: ' . len(getloclist(winnr())) . ' '
+	let l:qfList = len(getqflist()) == 0 ? '' : 'QE: ' . len(getqflist())
 	let l:status = l:locList . l:qfList
 	return l:status
 endfunction
