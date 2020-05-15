@@ -36,11 +36,6 @@
 - 
   category: default
   local: false
-  name: tomasr/molokai
-  opt: true
-- 
-  category: default
-  local: false
   name: "tpope/vim-commentary"
   opt: false
 - 
