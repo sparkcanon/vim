@@ -23,7 +23,7 @@ setglobal completeopt+=menuone,noinsert,longest  " Open menu and no insert
 set omnifunc=syntaxcomplete#Complete             " General purpose omnifunc
 " }}}
 
-" Basic Settings {{{
+" Section: Basic Settings {{{
 set number                                             " Display number line
 setglobal backspace=indent,eol,start                   " Normal backspace behaviour
 setglobal hidden                                       " Display hidden buffers in list
@@ -78,7 +78,7 @@ endif
 " }}}
 
 " Section: Mappings {{{
-" Commands
+" Enter Commands mode
 nnoremap ; :
 nnoremap : ;
 
@@ -193,7 +193,7 @@ colorscheme base16-snazzy  " Apply theme
 set background=dark  " No clue what this really does, but makes molokai high contrast
 " }}}
 
-" Misc Autocmd {{{
+" Section: General auto commands {{{
 " Preview window close
 autocmd GeneralSettings CompleteDone * silent! pclose
 autocmd GeneralSettings CursorMoved * silent! pclose
@@ -230,7 +230,7 @@ autocmd GeneralSettings FileType typescript,typescriptreact call
 			\ format_utils#setFormatPrg()
 " }}}
 
-" Section: Commands {{{
+" Section: Custom commands {{{
 " Grep for quickfix list
 command! -nargs=+ -complete=file Grep cgetexpr utils#grep(<q-args>)
 " Grep word under the cursor
@@ -264,7 +264,7 @@ command! -nargs=* -complete=file -bar Make call
 			\ make_utils#getexpr_efm("lgetexpr", make_utils#runMake(<f-args>))
 " }}}
 
-" Section: Abbr {{{
+" Section: Custom abbr {{{
 " Write
 call utils#setupCommandAbbrs('w','update')
 call utils#setupCommandAbbrs('nw','noautocmd update')
@@ -293,7 +293,7 @@ call utils#setupCommandAbbrs('gp','Git push')
 call utils#setupCommandAbbrs('gl','Git pull')
 " }}}
 
-" Section: Plugins {{{
+" Section: Plugins && related setup {{{
 packloadall!      " Load all plugins
 packadd! cfilter  " Filter results from qf lists
 packadd! matchit  " Jump to brackets
