@@ -11,6 +11,11 @@
 - 
   category: default
   local: false
+  name: axvr/zepl.vim
+  opt: true
+- 
+  category: default
+  local: false
   name: "christoomey/vim-tmux-navigator"
   opt: false
 - 

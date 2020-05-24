@@ -27,6 +27,10 @@ let b:match_words = '\<function\>:\<return\>,'
       \ . '\<do\>:\<while\>,'
       \ . '\<try\>:\<catch\>:\<finally\>,'
 
+" Zepl
+packadd zepl.vim
+let b:repl_config = { 'cmd':'node' }
+
 " Desc: Set standard javascript path
 let &l:path = '.,,'
 			\ . 'src/**'
