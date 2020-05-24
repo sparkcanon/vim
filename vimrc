@@ -189,7 +189,7 @@ autocmd GeneralSettings ColorScheme * match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+
 set termguicolors " set 24bit colors
 
 " Set color scheme after setting buffer colors
-colorscheme base16-snazzy  " Apply theme
+colorscheme onehalfdark  " Apply theme
 set background=dark  " No clue what this really does, but makes molokai high contrast
 " }}}
 
