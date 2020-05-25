@@ -181,7 +181,7 @@ nnoremap <space>es :sp <C-R>='%:h/'<CR>
 
 " Section: Colors {{{
 " Modify buffer colors
-autocmd GeneralSettings ColorScheme * call colors#modifyBufferColors()
+autocmd GeneralSettings ColorScheme * call color_utils#modifyBufferColors()
 
 " Highlights git diff markers
 autocmd GeneralSettings ColorScheme * match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
