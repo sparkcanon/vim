@@ -21,6 +21,11 @@
 - 
   category: default
   local: false
+  name: "machakann/vim-highlightedyank"
+  opt: false
+- 
+  category: default
+  local: false
   name: markonm/traces.vim
   opt: false
 - 
