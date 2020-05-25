@@ -27,9 +27,11 @@ let b:match_words = '\<function\>:\<return\>,'
       \ . '\<do\>:\<while\>,'
       \ . '\<try\>:\<catch\>:\<finally\>,'
 
-" Zepl
-packadd zepl.vim
-let b:repl_config = { 'cmd':'node' }
+" Repl
+nmap yrr <Plug>(send-to-term-line)
+nmap yr <Plug>(send-to-term)
+xmap R <Plug>(send-to-term)
+command! -nargs=* -complete=shellcmd Run call repl_utils#RunTerminalCommand(<q-args>, <q-mods>)<CR>
 
 " Desc: Set standard javascript path
 let &l:path = '.,,'
