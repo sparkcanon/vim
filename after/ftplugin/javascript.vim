@@ -1,7 +1,8 @@
 " Purpose: include-search, define-search settings, path and JS specific
 " commands
 
-" Useful for include-search e.g., [I
+" Section: Settings {{{
+" Desc: Useful for include-search e.g., [I
 setlocal suffixesadd+=.ts
 setlocal suffixesadd+=.js
 setlocal suffixesadd+=.jsx
@@ -20,30 +21,25 @@ let &l:define  = '^\s*\('
       \ . '\|\(\ze\i\+([^)]*).*{$\)'
       \ . '\)'
 
-" Matchit words
+" Desc: Matchit words
 let b:match_words = '\<function\>:\<return\>,'
       \ . '\<if\>:\<else\>,'
       \ . '\<switch\>:\<case\>:\<default\>,'
       \ . '\<do\>:\<while\>,'
       \ . '\<try\>:\<catch\>:\<finally\>,'
 
-" Repl
-nmap yrr <Plug>(send-to-term-line)
-nmap yr <Plug>(send-to-term)
-xmap R <Plug>(send-to-term)
-command! -nargs=* -complete=shellcmd Run call repl_utils#RunTerminalCommand(<q-args>, <q-mods>)<CR>
-
 " Desc: Set standard javascript path
 let &l:path = '.,,'
 			\ . 'src/**'
 
-" Set eslint compiler
+" Desc: Set eslint compiler
 compiler eslint
 
 " Desc: Set up format prg
 call format_utils#setFormatPrg()
+" }}}
 
-" Commands {{{
+" Section: Commands & Mappings {{{
 " Console log command
 command! -nargs=0 Log execute "normal oconsole.log('".expand('<cword>')
       \ . "====> ', ".expand('<cword>').")"
@@ -56,9 +52,15 @@ command! -nargs=0 ImportJs execute "normal ggOimport { ".expand('<cword>')." } f
 
 " format buffer
 nnoremap gQ mlgggqG'l :delm l<CR>
+
+" Repl
+nmap yrr <Plug>(send-to-term-line)
+nmap yr <Plug>(send-to-term)
+xmap R <Plug>(send-to-term)
+command! -nargs=* -complete=shellcmd Run call repl_utils#RunTerminalCommand(<q-args>, <q-mods>)<CR>
 " }}}
 
-" Includeexpr {{{
+"Section: Includeexpr {{{
 " Sets import statement suffix
 setlocal includeexpr=PathSubstitue(v:fname)
 

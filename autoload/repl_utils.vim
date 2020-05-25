@@ -1,3 +1,6 @@
+" Purpose: send text to terminal
+" Source: https://stackoverflow.com/a/49366558/1390749
+
 augroup send_to_term
 	autocmd!
 	autocmd TerminalOpen * if &buftype ==# 'terminal' |
@@ -5,6 +8,7 @@ augroup send_to_term
 				\ endif
 augroup END
 
+" Desc: selected text to register
 function! s:op(type, ...) abort
 	let [sel, rv, rt] = [&selection, @@, getregtype('"')]
 	let &selection = "inclusive"
@@ -25,6 +29,7 @@ function! s:op(type, ...) abort
 	call setreg('"', rv, rt)
 endfunction
 
+" Desc: send the text to terminal
 function! s:send_to_term(keys) abort
 	let bufnr = get(t:, 'send_to_term', 0)
 	if bufnr > 0 && bufexists(bufnr) && getbufvar(bufnr, '&buftype') ==# 'terminal'
