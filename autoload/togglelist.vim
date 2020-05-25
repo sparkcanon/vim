@@ -1,5 +1,6 @@
 " Purpose: Toggle qf/loc list
 
+" Desc: get list of buffers
 function! s:GetBufferList() abort
 	redir =>buflist
 	silent! ls!
@@ -7,6 +8,7 @@ function! s:GetBufferList() abort
 	return buflist
 endfunction
 
+" Desc: toggle qf/loc list
 function! togglelist#ToggleList(bufname, pfx) abort
 	let l:buflist = s:GetBufferList()
 

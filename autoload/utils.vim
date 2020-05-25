@@ -1,15 +1,13 @@
 " Purpose: Utility functions for commands
 
-" Grep {{{
-" Desc: Perform the search in a sub-shell
+" Section: Perform the search in a sub-shell {{{
 function! utils#grep(args) abort
 	let l:args = split(a:args, ' ')
 	return system(join([&grepprg, shellescape(l:args[0]), len(l:args) > 1 ? join(l:args[1:-1], ' ') : ''], ' '))
 endfunction
 " }}}
 
-" Visual {{{
-" Desc: Get visual section
+" Section: Get visual section {{{
 function! utils#getVisualSelection() abort
 	let l:l=getline("'<")
 	let [line1,col1] = getpos("'<")[1:2]
@@ -18,8 +16,7 @@ function! utils#getVisualSelection() abort
 endfunction
 " }}}
 
-" Abbrs {{{
-" Desc: Functions to create abbrs
+" Section: Functions to create abbrs {{{
 " Params: from - { string } - short custom command
 " Params: to - { string } - Actual command to map to
 function! utils#setupCommandAbbrs(from, to) abort
@@ -29,7 +26,7 @@ function! utils#setupCommandAbbrs(from, to) abort
 endfunction
 " }}}
 
-" Desc: Loc list error count {{{
+" Section: Loc list error count {{{
 function! utils#locListErrorCount() abort
 	let l:locList = len(getloclist(winnr())) == 0 ? '' : 'LE: ' . len(getloclist(winnr())) . ' '
 	let l:qfList = len(getqflist()) == 0 ? '' : 'QE: ' . len(getqflist())
@@ -38,10 +35,12 @@ function! utils#locListErrorCount() abort
 endfunction
 " }}}
 
-" Desc: Long fnames in statusline {{{
+" Section: Long fnames in statusline {{{
 function! utils#ShortenFname() abort
 	let fname = expand("%f")
 	let fnameList = fname->split('/')->len() > 4
 	return fnameList ? pathshorten(fname) : fname
 endfunction
 " }}}
+
+" vim:foldmethod=marker

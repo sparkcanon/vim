@@ -1,7 +1,6 @@
-" Purpose: include-search, define-search settings, path and JS specific
-" commands
+" Purpose: JS specific include-search, define-search settings, path commands
 
-" Section: Settings {{{
+" Section: suffixesadd, include, define, matchit, path, compiler, format util {{{
 " Desc: Useful for include-search e.g., [I
 setlocal suffixesadd+=.ts
 setlocal suffixesadd+=.js
@@ -60,7 +59,7 @@ xmap R <Plug>(send-to-term)
 command! -nargs=* -complete=shellcmd Run call repl_utils#RunTerminalCommand(<q-args>, <q-mods>)<CR>
 " }}}
 
-"Section: Includeexpr {{{
+" Section: Includeexpr custom function {{{
 " Sets import statement suffix
 setlocal includeexpr=PathSubstitue(v:fname)
 
@@ -111,3 +110,5 @@ function! PathSubstitue(fname) abort
 	return a:fname
 endfunction
 " }}}
+
+" vim:foldmethod=marker
