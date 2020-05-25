@@ -6,6 +6,11 @@
 - 
   category: default
   local: false
+  name: "MaxMEllon/vim-jsx-pretty"
+  opt: true
+- 
+  category: default
+  local: false
   name: "andys8/vim-elm-syntax"
   opt: true
 - 
@@ -28,6 +33,11 @@
   local: false
   name: markonm/traces.vim
   opt: false
+- 
+  category: default
+  local: false
+  name: othree/yajs.vim
+  opt: true
 - 
   category: default
   local: false
