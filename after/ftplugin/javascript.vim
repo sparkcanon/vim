@@ -73,16 +73,10 @@ function! PathSubstitue(fname) abort
 
 	" Aliased
 	if a:fname =~ '^\#/'
+		let l:custom_base_path = './'
+
 		if project_utils#isProject('lego-web')
 			let l:custom_base_path = './web/'
-		endif
-
-		if project_utils#isProject('mango')
-			let l:custom_base_path = './'
-		endif
-
-		if l:custom_base_path->empty()
-			let l:custom_base_path = "./"
 		endif
 
 		let l:alias_fname = substitute(a:fname,'^\#/',l:custom_base_path,'g')
