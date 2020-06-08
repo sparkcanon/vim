@@ -14,7 +14,7 @@ if exists("current_compiler")
   finish
 endif
 
-let current_compiler = "eslint_custom"
+let current_compiler = "Eslint"
 
 if exists(":CompilerSet") != 2
 	command -nargs=* CompilerSet setlocal <args>
