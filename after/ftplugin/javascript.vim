@@ -32,7 +32,7 @@ let &l:path = '.,,'
 			\ . 'src/**'
 
 " Desc: Set eslint compiler
-compiler eslint
+compiler eslint_custom
 
 " Desc: load syntax highlighting
 packadd vim-jsx-pretty

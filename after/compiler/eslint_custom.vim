@@ -7,11 +7,14 @@
  "                ||----w |
  "                ||     ||
 
+ " TODO: Should this be removed now that eslint compiler exists in vim runtime
+ " files ?
+
 if exists("current_compiler")
   finish
 endif
 
-let current_compiler = "eslint"
+let current_compiler = "eslint_custom"
 
 if exists(":CompilerSet") != 2
 	command -nargs=* CompilerSet setlocal <args>

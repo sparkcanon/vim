@@ -22,6 +22,6 @@ CompilerSet errorformat+=%W\ %#%f\ %#(%l\\,%c):\ warning\ %m
 
 if findfile('tsc', 'node_modules/.bin/') == 'node_modules/.bin/tsc'
 	CompilerSet makeprg=node_modules/.bin/tsc
-elseif executable('eslint')
+elseif executable('tsc')
 	CompilerSet makeprg=tsc
 endif
