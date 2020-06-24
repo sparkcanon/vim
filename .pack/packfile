@@ -16,6 +16,11 @@
 - 
   category: default
   local: false
+  name: "bfrg/vim-qf-preview"
+  opt: false
+- 
+  category: default
+  local: false
   name: "christoomey/vim-tmux-navigator"
   opt: false
 - 
