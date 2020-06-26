@@ -7,8 +7,7 @@
  "                ||----w |
  "                ||     ||
 
- " TODO: Should this be removed now that eslint compiler exists in vim runtime
- " files ?
+ " NOTE: Eslint compiler exists in VIM runtime, but use this one still
 
 if exists("current_compiler")
   finish
