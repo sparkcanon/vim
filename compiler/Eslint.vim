@@ -28,7 +28,7 @@ elseif executable('eslint')
 	CompilerSet makeprg=eslint\ -f\ compact
 endif
 
-finish " For eslint -f stylish
+finish " Eslint format sample: eslint -f stylish
 " Source: https://github.com/wincent/wincent/blob/master/aspects/vim/files/.vim/after/compiler/eslint.vim#L30
 " CompilerSet errorformat=
 "       \%-P%f,
