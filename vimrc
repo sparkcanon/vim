@@ -211,12 +211,6 @@ autocmd GeneralSettings VimLeavePre * call sessions#sessionSave()
 " Set path
 autocmd GeneralSettings BufEnter * call project_utils#setProjectPath()
 
-" Set GLCD
-autocmd GeneralSettings BufEnter * 
-			\ if finddir('.git', '.;') == ".git" |
-			\ execute 'Glcd' |
-			\ endif
-
 " Run ctags if git exists
 autocmd GeneralSettings BufWritePost * 
 			\ if finddir('.git', '.;') == ".git" |
@@ -234,7 +228,7 @@ command! -nargs=+ -complete=file Grep cgetexpr utils#grep(<q-args>)
 " Grep word under the cursor
 command! -nargs=0 -bar GrCword execute 'Grep ' . expand('<cword>')
 " Manual grep for current buffer
-command! -nargs=1 -bar GrWord execute 'Grep ' . <q-args> . ' ' . expand('%')
+command! -nargs=1 -bar GrWord execute 'Grep ' . <q-args> . ' %'
 " Last grep
 command! -nargs=0 GrLast execute 'Grep ' . @/ . ' %'
 
