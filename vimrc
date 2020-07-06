@@ -150,12 +150,12 @@ nnoremap ]a :next<CR>
 nnoremap [a :previous<CR>
 
 " Substitute
-nnoremap <Bslash>s :%s/<C-r><C-w>/
+nnoremap <Bslash>s :%s/\v<<C-r><C-w>>/
 xnoremap <Bslash>s <Esc>:%s/<C-R><C-R>=utils#getVisualSelection()<CR>/
 
 " CFDO
-nnoremap <Bslash>c :cfdo %s/<C-r><C-w>//g <Bar> update<S-Left><Left><Left><Left><Left><Left>
-xnoremap <Bslash>c :cfdo %s/<C-R><C-R>=utils#getVisualSelection()<CR>//gc <Bar> update<S-Left><S-Left><Left><Left><Left><Left>
+nnoremap <Bslash>c :cfdo! %s/<C-r><C-w>//g <Bar> update<S-Left><Left><Left><Left><Left><Left>
+" xnoremap <Bslash>c :cfdo %s/<C-R><C-R>=utils#getVisualSelection()<CR>//gc <Bar> update<S-Left><S-Left><Left><Left><Left><Left> FIXME: This mapping is broken
 
 " Lists
 cnoremap <expr> <CR> listcommands#CR()
