@@ -72,7 +72,7 @@ setglobal statusline+=\%h%m%r%=%-14.(%l,%c%V%)\%P\ ❯\
 
 " Grepprg & grepformat
 if executable('rg')
-	setglobal grepprg=rg\ --column\ --no-heading\ --smart-case\ --follow\ --vimgrep
+	setglobal grepprg=rg\ --column\ --no-heading\ --smart-case\ --follow\ --max-columns=150\ --max-columns-preview\ --vimgrep
 	setglobal grepformat=%f:%l:%c:%m
 endif
 " }}}

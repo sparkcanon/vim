@@ -1,9 +1,9 @@
 " Purpose: Utility functions for commands
 
-" Section: Perform the search in a sub-shell {{{
-function! utils#grep(args) abort
-	let l:args = split(a:args, ' ')
-	return system(join([&grepprg, shellescape(l:args[0]), len(l:args) > 1 ? join(l:args[1:-1], ' ') : ''], ' '))
+" Section: Perform the search {{{
+" Source: https://gist.github.com/romainl/56f0c28ef953ffc157f36cc495947ab3#gistcomment-3114427
+function! utils#grep(...) abort
+	return system(join(extend([&grepprg], a:000), ' '))
 endfunction
 " }}}
 
