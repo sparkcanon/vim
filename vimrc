@@ -188,7 +188,7 @@ autocmd GeneralSettings ColorScheme * match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+
 
 set termguicolors " set 24bit colors
 
-colorscheme base16-unikitty-dark " Set color scheme after setting buffer colors
+colorscheme xcodedarkhc " Set color scheme after setting buffer colors
 " }}}
 
 " Section: General auto commands {{{
