@@ -254,7 +254,7 @@ command! -nargs=0 LMake lmake! %
 " Lint all open buffers
 command! -nargs=0 MassMake call make_utils#massMake()
 " Lint current buffer
-command! -nargs=* -complete=file -bar Make call
+command! -nargs=* -complete=file -bar MMake call
 			\ make_utils#getexpr_efm("lgetexpr", make_utils#runMake(<f-args>))
 " }}}
 
