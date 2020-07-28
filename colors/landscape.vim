@@ -70,7 +70,10 @@ highlight default link DiffAdded DiffAdd
 highlight default link ErrorMsg Error
 highlight default link FullSpace Error
 highlight Ignore ctermbg=none gui=none guifg=bg
-highlight ModeMsg ctermfg=none guifg=bg guibg=bg
+
+" EDIT: replace with white text color, fix for transparent terminal and dark
+" wallpaper
+highlight ModeMsg ctermfg=15 guifg=#ffffff guibg=bg
 
 highlight VertSplit term=none gui=none guifg=black guibg=darkgray gui=none ctermfg=black ctermbg=darkgray cterm=none
 highlight Folded term=none ctermfg=247 ctermbg=235 guifg=#9e9e9e guibg=#262626
