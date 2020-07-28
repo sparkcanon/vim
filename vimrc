@@ -99,7 +99,8 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " Tags
 nnoremap ,p :ptjump<space><C-R><C-W><CR>
-nnoremap ,t :tjump<space><C-R><C-W><CR>
+nnoremap ,j :tjump<space><C-R><C-W><CR>
+nnoremap ,t :tab<space>tjump<space><C-R><C-W><CR>
 nnoremap ,v :vert stjump<space><C-R><C-W><CR>
 
 " Tabs
@@ -249,6 +250,7 @@ command! -nargs=0 Yfname call yank#yankPath("filename")
 command! -nargs=0 Ydirectory call yank#yankPath("directory")
 
 " Lint
+command! -nargs=0 LMake lmake! %
 " Lint all open buffers
 command! -nargs=0 MassMake call make_utils#massMake()
 " Lint current buffer

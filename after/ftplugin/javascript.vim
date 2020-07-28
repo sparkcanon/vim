@@ -53,6 +53,13 @@ command! -nargs=0 -range LogVisual execute "normal oconsole.log('". utils#getVis
 " Add import statement
 command! -nargs=0 ImportJs execute "normal ggOimport { ".expand('<cword>')." } from '';"
 
+" Compiler
+
+if project_utils#isProject('lego-web')
+	command! -nargs=0 RunLegoJest compiler jest <bar> cd web/
+	command! -nargs=0 RunLegoEslint compiler Eslint <bar> Glcd
+endif
+
 " format buffer
 nnoremap gQ mlgggqG'l :delm l<CR>
 
