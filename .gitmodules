@@ -1,0 +1,42 @@
+[submodule "pack/main/start/vim-eunuch"]
+	path = pack/main/start/vim-eunuch
+	url = https://github.com/tpope/vim-eunuch.git
+[submodule "pack/main/start/vim-cool"]
+	path = pack/main/start/vim-cool
+	url = https://github.com/romainl/vim-cool.git
+[submodule "pack/main/start/vim-qf-preview"]
+	path = pack/main/start/vim-qf-preview
+	url = https://github.com/bfrg/vim-qf-preview.git
+[submodule "pack/main/start/vim-surround"]
+	path = pack/main/start/vim-surround
+	url = https://github.com/tpope/vim-surround.git
+[submodule "pack/main/start/tabular"]
+	path = pack/main/start/tabular
+	url = https://github.com/godlygeek/tabular.git
+[submodule "pack/main/start/vim-repeat"]
+	path = pack/main/start/vim-repeat
+	url = https://github.com/tpope/vim-repeat.git
+[submodule "pack/main/start/traces.vim"]
+	path = pack/main/start/traces.vim
+	url = https://github.com/markonm/traces.vim.git
+[submodule "pack/main/start/vim-fugitive"]
+	path = pack/main/start/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule "pack/main/start/vim-abolish"]
+	path = pack/main/start/vim-abolish
+	url = https://github.com/tpope/vim-abolish.git
+[submodule "pack/main/start/vim-highlightedyank"]
+	path = pack/main/start/vim-highlightedyank
+	url = https://github.com/machakann/vim-highlightedyank.git
+[submodule "pack/main/start/vim-tmux-navigator"]
+	path = pack/main/start/vim-tmux-navigator
+	url = https://github.com/christoomey/vim-tmux-navigator.git
+[submodule "pack/main/start/vim-commentary"]
+	path = pack/main/start/vim-commentary
+	url = https://github.com/tpope/vim-commentary.git
+[submodule "pack/main/opt/vim-jsx-pretty"]
+	path = pack/main/opt/vim-jsx-pretty
+	url = https://github.com/MaxMEllon/vim-jsx-pretty.git
+[submodule "pack/main/opt/yajs.vim"]
+	path = pack/main/opt/yajs.vim
+	url = https://github.com/othree/yajs.vim.git
