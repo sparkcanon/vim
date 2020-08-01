@@ -36,7 +36,7 @@ compiler Eslint
 
 " Desc: load syntax highlighting
 packadd vim-jsx-pretty
-packadd yajs.vim
+packadd vim-javascript
 
 " Desc: Set up format prg
 call format_utils#setFormatPrg()

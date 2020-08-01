@@ -288,7 +288,7 @@ call utils#setupCommandAbbrs('gl','Git pull')
 " }}}
 
 " Section: Plugins && related setup {{{
-packloadall!      " Load all plugins
+packloadall      " Load all plugins
 packadd! cfilter  " Filter results from qf lists
 packadd! matchit  " Jump to brackets
 
