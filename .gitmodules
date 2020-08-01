@@ -37,6 +37,6 @@
 [submodule "pack/main/opt/vim-jsx-pretty"]
 	path = pack/main/opt/vim-jsx-pretty
 	url = https://github.com/MaxMEllon/vim-jsx-pretty.git
-[submodule "pack/main/opt/yajs.vim"]
-	path = pack/main/opt/yajs.vim
-	url = https://github.com/othree/yajs.vim.git
+[submodule "pack/main/opt/vim-javascript"]
+	path = pack/main/opt/vim-javascript
+	url = https://github.com/pangloss/vim-javascript
