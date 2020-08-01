@@ -110,6 +110,9 @@ nnoremap <S-Tab> gT
 " Terminal
 tnoremap <Esc> <C-\><C-n>
 
+" Netrw
+nnoremap - :Explore<CR>
+
 " Center search result line in screen
 nnoremap n nzvzz
 nnoremap N Nzvzz
