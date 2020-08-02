@@ -215,11 +215,8 @@ autocmd GeneralSettings VimLeavePre * call sessions#sessionSave()
 " Set path
 autocmd GeneralSettings BufEnter * call project_utils#setProjectPath()
 
-" Run ctags if git exists
-autocmd GeneralSettings BufWritePost * 
-			\ if finddir('.git', '.;') == ".git" |
-			\ silent call system('ctags .') |
-			\ endif
+" Run ctags as a job
+autocmd GeneralSettings BufWritePost * call utils#RunCtags()
 
 " Set up formatprg, formatexpr
 autocmd GeneralSettings FileType typescript,typescriptreact call

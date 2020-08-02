@@ -37,9 +37,25 @@ endfunction
 
 " Section: Long fnames in statusline {{{
 function! utils#ShortenFname() abort
-	let fname = expand("%f")
-	let fnameList = fname->split('/')->len() > 4
-	return fnameList ? pathshorten(fname) : fname
+	let l:fname = expand("%f")
+	let l:fnameList = l:fname->split('/')->len() > 4
+	return l:fnameList ? pathshorten(fname) : l:fname
+endfunction
+" }}}
+
+" Section: Ctags job {{{
+function! utils#RunCtags() abort
+	if finddir('.git', '.;') == ".git"
+		let l:gen_ctags = 'fd tags.lock . --change-older-than 2min -x rm {} tags \;
+					\ && [ ! -f tags.lock ] && touch tags.lock
+					\ && ctags .
+					\ && rm -rf tags.lock'
+		call job_start([&shell, &shellcmdflag, l:gen_ctags], {
+					\ "in_io": "null", 
+					\ "out_io": "null", 
+					\	"err_io": "null"
+					\ })
+	endif
 endfunction
 " }}}
 
