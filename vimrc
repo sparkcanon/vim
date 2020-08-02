@@ -192,7 +192,7 @@ autocmd GeneralSettings ColorScheme * match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+
 
 set termguicolors " set 24bit colors
 
-colorscheme landscape " Set color scheme after setting buffer colors
+colorscheme challenger_deep " Set color scheme after setting buffer colors
 " }}}
 
 " Section: General auto commands {{{
