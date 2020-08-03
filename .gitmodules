@@ -34,9 +34,6 @@
 [submodule "pack/main/start/vim-commentary"]
 	path = pack/main/start/vim-commentary
 	url = https://github.com/tpope/vim-commentary.git
-[submodule "pack/main/opt/vim-jsx-pretty"]
-	path = pack/main/opt/vim-jsx-pretty
-	url = https://github.com/MaxMEllon/vim-jsx-pretty.git
-[submodule "pack/main/opt/vim-javascript"]
-	path = pack/main/opt/vim-javascript
-	url = https://github.com/pangloss/vim-javascript
+[submodule "pack/main/start/vim-polyglot"]
+	path = pack/main/start/vim-polyglot
+	url = https://github.com/sheerun/vim-polyglot
