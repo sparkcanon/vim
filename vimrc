@@ -64,6 +64,10 @@ setglobal backupdir=$HOME/.vim/tmp/dir_backup//        " Back up dir
 setglobal directory^=$HOME/.vim/tmp/dir_swap//         " Swap file dir
 setglobal undodir=$HOME/.vim/tmp/dir_undo              " Undo dir
 
+" List chars
+set lcs=trail:·,eol:¬
+set list
+
 " Statusline
 setglobal laststatus=2                                 " Display statusline
 setglobal statusline=\ ❮\ %<%{utils#ShortenFname()}
