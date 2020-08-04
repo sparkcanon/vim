@@ -253,6 +253,11 @@ command! -nargs=0 MassMake call make_utils#massMake()
 " Lint current buffer
 command! -nargs=* -complete=file -bar MMake call
 			\ make_utils#getexpr_efm("lgetexpr", make_utils#runMake(<f-args>))
+
+" Dirvish commands
+command! -nargs=? -complete=dir Explore Dirvish <args>
+command! -nargs=? -complete=dir Sexplore belowright split | silent Dirvish <args>
+command! -nargs=? -complete=dir Vexplore leftabove vsplit | silent Dirvish <args>
 " }}}
 
 " Section: Custom abbr {{{
