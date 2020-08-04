@@ -65,7 +65,7 @@ setglobal directory^=$HOME/.vim/tmp/dir_swap//         " Swap file dir
 setglobal undodir=$HOME/.vim/tmp/dir_undo              " Undo dir
 
 " List chars
-set lcs=trail:·,eol:¬
+set lcs=trail:·,eol:¬,tab:│\ 
 set list
 
 " Statusline
