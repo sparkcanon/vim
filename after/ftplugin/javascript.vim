@@ -44,7 +44,7 @@ command! -nargs=0 Log execute "normal oconsole.log('".expand('<cword>')
       \ . "====> ', ".expand('<cword>').")"
 
 command! -nargs=0 -range LogVisual execute "normal oconsole.log('". utils#getVisualSelection()
-      \ . "====> ', ". utilsgetVisualSelection() .")"
+      \ . "====> ', ". utils#getVisualSelection() .")"
 
 " Add import statement
 command! -nargs=0 ImportJs execute "normal ggOimport { ".expand('<cword>')." } from '';"
