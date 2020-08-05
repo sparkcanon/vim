@@ -228,9 +228,11 @@ autocmd GeneralSettings FileType typescript,typescriptreact call
 " Grep for quickfix list
 command! -nargs=+ -complete=file Grep cgetexpr utils#grep(<q-args>)
 " Grep word under the cursor
-command! -nargs=0 -bar GrCword execute 'Grep ' . expand('<cword>')
+command! -nargs=0 -bar GrepV execute 'Grep ' . expand('<cword>')
+" Grep word under the cursor excluding test files
+command! -nargs=0 -bar GrepVT execute "Grep '" . expand('<cword>') . "' -F -g !'{*spec.*,*test.*}'"
 " Manual grep for current buffer
-command! -nargs=1 -bar GrWord execute 'Grep ' . <q-args> . ' %'
+command! -nargs=1 -bar GrepBuffer execute 'Grep ' . <q-args> . ' %'
 " Last grep
 command! -nargs=0 GrLast execute 'Grep ' . @/ . ' %'
 
@@ -285,8 +287,9 @@ call utils#setupCommandAbbrs('ssa','SessionSave')
 
 " Grep
 call utils#setupCommandAbbrs('gr','Grep')
-call utils#setupCommandAbbrs('grw','GrWord' )
-call utils#setupCommandAbbrs('grc','GrCword')
+call utils#setupCommandAbbrs('grb','GrepBuffer' )
+call utils#setupCommandAbbrs('grv','GrepV')
+call utils#setupCommandAbbrs('grt','GrepVT')
 
 " Git
 call utils#setupCommandAbbrs('gp','Git push')
