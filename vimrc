@@ -86,6 +86,10 @@ endif
 nnoremap ; :
 nnoremap : ;
 
+" Using backtick for marks drops you on the exact column
+nnoremap ` '
+nnoremap ' `
+
 " Completion
 " Tag completion
 inoremap <C-]> <C-x><C-]>
@@ -222,6 +226,14 @@ autocmd GeneralSettings BufWritePost * call utils#RunCtags()
 " Set up formatprg, formatexpr
 autocmd GeneralSettings FileType typescript,typescriptreact call
 			\ format_utils#setFormatPrg()
+
+" Leave marks on BufLeave
+autocmd GeneralSettings BufLeave *.css,*.scss,*.less normal! mC
+autocmd GeneralSettings BufLeave *.html              normal! mH
+autocmd GeneralSettings BufLeave *.js,*.ts,*.tsx     normal! mJ
+autocmd GeneralSettings BufLeave *.yml,*.yaml        normal! mY
+autocmd GeneralSettings BufLeave .env*               normal! mE
+autocmd GeneralSettings BufLeave *.md                normal! mM
 " }}}
 
 " Section: Custom commands {{{
