@@ -2,7 +2,7 @@
 
 " Desc: Build string for relative paths {{{
 " Params: fname - v:fname comes through includeexpr, PathSubstitue
-" Params: modifier - stabalize the path
+" Params: modifier - stabalize the dirsPath
 function! path_utils#Build_glob_string_from_relative_fname(fname, modifier)
 	" build string to pass to glob()
 	"     expected output:
@@ -16,7 +16,7 @@ function! path_utils#Build_glob_string_from_relative_fname(fname, modifier)
 	"         ../../foo/bar => ../../foo/bar/index.js
 	"     components:
 	"         root: expanded from './' or '../../' and '%'
-	"         path: a:fname without './' or '../../'
+	"         dirsPath: a:fname without './' or '../../'
 	"         radical: last part of a:fname
 	"         suffixes: expanded from &suffixes
 	return ''
@@ -32,40 +32,6 @@ function! path_utils#Build_glob_string_from_aliased_fname(fname)
 				\ . a:fname
 				\ . '{/' . split(a:fname, '/')[-1] . ',/index,}'
 				\ . '.{' . substitute(&suffixesadd, '\.', '', 'g') . '}'
-endfunction
-" }}}
-
-" Desc: Fd job to set path {{{
-function! path_utils#setProjectPath() abort
-	if path_utils#isProject('lego-web')
-		let l:depth = '--exact-depth'
-	else
-		let l:depth = '--max-depth'
-	endif
-	let l:lego_cmd = [ 'fd', '.',
-				\ l:depth, '2',
-				\ '-t', 'd',
-				\ '-E', 'test/',
-				\ '-E', 'bin/',
-				\ '-E', 'eslint/',
-				\ '-E', '__mocks__/',
-				\ '-E', 'tests_utils/',
-				\ '-E', 'bin/',
-				\ '-E', 'eslint/',
-				\ '-E', 'docs/',
-				\ '-E', 'backstop_data/',
-				\ ]
-	let l:opt = { 'callback': 'FdPathHandler' }
-	let l:fdJob = job_start(l:lego_cmd, l:opt)
-	let s:path = []
-
-	function! FdPathHandler(channel, msg) abort
-		if !empty(a:msg)
-			let l:rawPath = insert(s:path, a:msg . '/**')
-			let &l:path = l:rawPath->sort()->uniq()->join(',')
-		endif
-	endfunction
-
 endfunction
 " }}}
 

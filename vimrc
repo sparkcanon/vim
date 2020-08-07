@@ -218,7 +218,7 @@ autocmd GeneralSettings VimResized * wincmd =
 autocmd GeneralSettings VimLeavePre * call sessions#sessionSave()
 
 " Set path
-autocmd GeneralSettings BufEnter * call path_utils#setProjectPath()
+autocmd GeneralSettings BufEnter,BufAdd * call path_job#setProjectPath()
 
 " Run ctags as a job
 autocmd GeneralSettings BufWritePost * call utils#RunCtags()
