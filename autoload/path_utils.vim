@@ -52,6 +52,8 @@ function! path_utils#setProjectPath() abort
 				\ '-E', 'tests_utils/',
 				\ '-E', 'bin/',
 				\ '-E', 'eslint/',
+				\ '-E', 'docs/',
+				\ '-E', 'backstop_data/',
 				\ ]
 	let l:opt = { 'callback': 'FdPathHandler' }
 	let l:fdJob = job_start(l:lego_cmd, l:opt)
@@ -60,7 +62,7 @@ function! path_utils#setProjectPath() abort
 	function! FdPathHandler(channel, msg) abort
 		if !empty(a:msg)
 			let l:rawPath = insert(s:path, a:msg . '/**')
-			let &l:path = '.,,' . l:rawPath->sort()->uniq()->join(',')
+			let &l:path = l:rawPath->sort()->uniq()->join(',')
 		endif
 	endfunction
 
