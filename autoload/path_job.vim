@@ -18,12 +18,14 @@ function! path_job#setProjectPath() abort
 				\ '-E', 'eslint/',
 				\ '-E', 'docs/',
 				\ '-E', 'backstop_data/',
+				\ '-E', 'pack/'
 				\ ]
 	let l:dirsOpt = { 'close_cb': 'FdDirHandler' }
 	let l:fdDirsJob = job_start(l:dirs, l:dirsOpt)
 endfunction
 " }}}
 
+" Desc: Handle paths from fd job {{{
 let s:fdPaths = []
 function! FdDirHandler(channel) abort
 	while ch_status(a:channel, {'part': 'out'}) == 'buffered'
@@ -31,5 +33,4 @@ function! FdDirHandler(channel) abort
 	endwhile
 	let &path = '.,,' . s:fdPaths->sort()->uniq()->join(',')
 endfunction
-
-
+" }}}
