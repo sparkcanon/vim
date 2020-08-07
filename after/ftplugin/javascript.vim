@@ -51,7 +51,7 @@ command! -nargs=0 ImportJs execute "normal ggOimport { ".expand('<cword>')." } f
 
 " Compiler
 
-if project_utils#isProject('lego-web')
+if path_utils#isProject('lego-web')
 	command! -nargs=0 RunLegoJest compiler jest <bar> cd web/
 	command! -nargs=0 RunLegoEslint compiler Eslint <bar> Glcd
 endif
@@ -78,7 +78,7 @@ function! PathSubstitue(fname) abort
 	if a:fname =~ '^\#/'
 		let l:custom_base_path = './'
 
-		if project_utils#isProject('lego-web')
+		if path_utils#isProject('lego-web')
 			let l:custom_base_path = './web/'
 		endif
 
