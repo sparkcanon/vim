@@ -1,4 +1,5 @@
 " Purpose: Utility functions for commands
+" Author: Pratik Borde
 
 " Section: Perform the search {{{
 " Source: https://gist.github.com/romainl/56f0c28ef953ffc157f36cc495947ab3#gistcomment-3114427

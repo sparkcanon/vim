@@ -1,3 +1,5 @@
+" Desc: Personal Vimrc
+" Author: Pratik Borde
 "  _______ 
 " < VIMRC >
 "  ------- 

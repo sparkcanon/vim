@@ -1,3 +1,6 @@
+" Purpose: General purpose path setup using fd for various projects
+" Author: Pratik Borde
+
 " Desc: Fd job to set dirsPath {{{
 function! path_job#setProjectPath() abort
 	if path_utils#isProject('lego-web')
@@ -34,3 +37,5 @@ function! FdDirHandler(channel) abort
 	let &path = '.,,' . s:fdPaths->sort()->uniq()->join(',')
 endfunction
 " }}}
+
+" vim:foldmethod=marker
