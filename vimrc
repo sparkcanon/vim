@@ -1,4 +1,4 @@
-" Desc: Personal Vimrc
+" Desc: Personal Vim configuration
 " Author: Pratik Borde
 "  _______ 
 " < VIMRC >
