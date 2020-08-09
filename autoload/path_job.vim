@@ -9,7 +9,7 @@ function! path_job#setProjectPath() abort
 		let l:depth = '--max-depth'
 	endif
 
-	let l:dirs = [ 'fd', '.',
+	let l:cmd = [ 'fd', '.',
 				\ l:depth, '2',
 				\ '-t', 'd',
 				\ '-E', 'test/',
@@ -23,8 +23,8 @@ function! path_job#setProjectPath() abort
 				\ '-E', 'backstop_data/',
 				\ '-E', 'pack/'
 				\ ]
-	let l:dirsOpt = { 'close_cb': 'FdDirHandler' }
-	let l:fdDirsJob = job_start(l:dirs, l:dirsOpt)
+	let l:opt = { 'close_cb': 'FdDirHandler' }
+	let l:jobStart = job_start(l:cmd, l:opt)
 endfunction
 " }}}
 
