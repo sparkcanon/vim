@@ -1,3 +1,5 @@
+" Desc: Vim tsc compiler
+" Author: Pratik Borde
  " ______________ 
 " < TSC Compiler >
  " -------------- 
@@ -21,7 +23,7 @@ CompilerSet errorformat^=%E\ %#%f\ %#(%l\\,%c):\ error\ %m
 CompilerSet errorformat+=%W\ %#%f\ %#(%l\\,%c):\ warning\ %m
 
 if findfile('tsc', 'node_modules/.bin/') == 'node_modules/.bin/tsc'
-	CompilerSet makeprg=node_modules/.bin/tsc
+	CompilerSet makeprg=node_modules/.bin/tsc\ --noEmit\ --jsx\ react
 elseif executable('tsc')
-	CompilerSet makeprg=tsc
+	CompilerSet makeprg=tsc\ --noEmit\ --jsx\ react
 endif

@@ -1,3 +1,5 @@
+" Desc: Vim tsc compiler
+" Author: Pratik Borde
  " _____________________ 
 " < Javascript Compiler >
  " --------------------- 
@@ -36,4 +38,3 @@ finish " Eslint format sample: eslint -f stylish
 "       \%\\s%#%l:%c%\\s%\\+%tarning%\\s%\\+%m,
 "       \%-Q,
 "       \%-G%.%#
-

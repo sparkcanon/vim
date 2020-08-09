@@ -51,7 +51,7 @@ setglobal wildignorecase                               " Ignore case for wildmen
 setglobal wildignore=*.swp,*.bak                       " Ignore files
 setglobal wildignore+=*.cache,*.min.*,**/dist/**
 setglobal wildignore+=**/.git/**/*
-setglobal wildignore+=*-lock.json
+setglobal wildignore+=*-lock.json,*.snap
 
 " Path options
 setglobal path=.,,**                                   " Standard path
