@@ -202,9 +202,9 @@ autocmd GeneralSettings ColorScheme * call color_utils#modifyBufferColors()
 " Highlights git diff markers
 autocmd GeneralSettings ColorScheme * match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
-set termguicolors " set 24bit colors
-
-colorscheme molokai " Set color scheme after setting buffer colors
+set t_Co=256 " 256 colors
+set background=dark
+colorscheme iceberg " Set color scheme after setting buffer colors
 " }}}
 
 " Section: General auto commands {{{
