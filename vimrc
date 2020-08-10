@@ -245,7 +245,7 @@ autocmd GeneralSettings BufLeave *.md                normal! mM
 
 " Section: Custom commands {{{
 " Grep for quickfix list
-command! -nargs=+ -complete=file Grep cgetexpr utils#grep(<q-args>)
+command! -nargs=+ -complete=file_in_path Grep cgetexpr utils#grep(<q-args>)
 " Grep word under the cursor
 command! -nargs=0 -bar GrepV execute 'Grep ' . expand('<cword>')
 " Grep word under the cursor excluding test files
