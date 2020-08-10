@@ -188,6 +188,11 @@ nnoremap <space>t :tabfind<space>
 nnoremap <space>ee :e <C-R>='%:h/'<CR>
 nnoremap <space>ev :vsp <C-R>='%:h/'<CR>
 nnoremap <space>es :sp <C-R>='%:h/'<CR>
+
+" Repl
+nmap yrr <Plug>(send-to-term-line)
+nmap yr <Plug>(send-to-term)
+xmap R <Plug>(send-to-term)
 " }}}
 
 " Section: Colors {{{
@@ -278,6 +283,9 @@ command! -nargs=* -complete=file -bar MMake call
 command! -nargs=? -complete=dir Explore Dirvish <args>
 command! -nargs=? -complete=dir Sexplore belowright split | silent Dirvish <args>
 command! -nargs=? -complete=dir Vexplore leftabove vsplit | silent Dirvish <args>
+
+" Repl
+command! -nargs=* -complete=shellcmd Run call repl_utils#RunTerminalCommand(<q-args>, <q-mods>)<CR>
 " }}}
 
 " Section: Custom abbr {{{

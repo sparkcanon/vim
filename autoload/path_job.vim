@@ -3,7 +3,7 @@
 
 " Desc: Fd job to set dirsPath {{{
 function! path_job#setProjectPath() abort
-	if path_utils#isProject('lego-web')
+	if utils#isProject('lego-web')
 		let l:depth = '--exact-depth'
 	else
 		let l:depth = '--max-depth'
