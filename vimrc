@@ -164,6 +164,9 @@ nnoremap [a :previous<CR>
 nnoremap <Bslash>s :%s/\v<<C-r><C-w>>/
 xnoremap <Bslash>s <Esc>:%s/<C-R><C-R>=utils#getVisualSelection()<CR>/
 
+" Global
+nnoremap <Bslash>g :g//#<Left><Left>
+
 " CFDO
 nnoremap <Bslash>c :cfdo! %s/<C-r><C-w>//g <Bar> update<S-Left><Left><Left><Left><Left><Left>
 " xnoremap <Bslash>c :cfdo %s/<C-R><C-R>=utils#getVisualSelection()<CR>//gc <Bar> update<S-Left><S-Left><Left><Left><Left><Left> FIXME: This mapping is broken
