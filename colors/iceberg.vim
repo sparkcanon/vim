@@ -90,6 +90,29 @@ if &background == 'light'
   hi WildMenu ctermbg=235 ctermfg=252 guibg=#32364c guifg=#e8e9ec
   hi diffAdded ctermfg=64 guifg=#668e3d
   hi diffRemoved ctermfg=125 guifg=#cc517a
+  hi ALEErrorSign ctermbg=253 ctermfg=125 guibg=#dcdfe7 guifg=#cc517a
+  hi ALEWarningSign ctermbg=253 ctermfg=130 guibg=#dcdfe7 guifg=#c57339
+  hi ALEVirtualTextError ctermfg=125 guifg=#cc517a
+  hi ALEVirtualTextWarning ctermfg=130 guifg=#c57339
+  hi CtrlPMode1 ctermbg=247 ctermfg=252 guibg=#9fa6c0 guifg=#e8e9ec
+  hi EasyMotionShade ctermfg=250 guifg=#bbbecd
+  hi EasyMotionTarget ctermfg=64 guifg=#668e3d
+  hi EasyMotionTarget2First ctermfg=130 guifg=#c57339
+  hi EasyMotionTarget2Second ctermfg=130 guifg=#c57339
+  hi GitGutterAdd ctermbg=253 ctermfg=64 guibg=#dcdfe7 guifg=#668e3d
+  hi GitGutterChange ctermbg=253 ctermfg=31 guibg=#dcdfe7 guifg=#3f83a6
+  hi GitGutterChangeDelete ctermbg=253 ctermfg=31 guibg=#dcdfe7 guifg=#3f83a6
+  hi GitGutterDelete ctermbg=253 ctermfg=125 guibg=#dcdfe7 guifg=#cc517a
+  hi gitmessengerEndOfBuffer ctermbg=253 ctermfg=248 guibg=#dcdfe7 guifg=#9fa7bd
+  hi gitmessengerPopupNormal ctermbg=253 ctermfg=237 guibg=#dcdfe7 guifg=#33374c
+  hi Sneak ctermbg=97 ctermfg=254 guibg=#7759b4 guifg=#e8e9ec
+  hi SneakScope ctermbg=251 ctermfg=244 guibg=#c9cdd7 guifg=#8389a3
+  hi SyntasticErrorSign ctermbg=253 ctermfg=125 guibg=#dcdfe7 guifg=#cc517a
+  hi SyntasticStyleErrorSign ctermbg=253 ctermfg=125 guibg=#dcdfe7 guifg=#cc517a
+  hi SyntasticStyleWarningSign ctermbg=253 ctermfg=130 guibg=#dcdfe7 guifg=#c57339
+  hi SyntasticWarningSign ctermbg=253 ctermfg=130 guibg=#dcdfe7 guifg=#c57339
+  hi ZenSpace ctermbg=125 guibg=#cc517a
+  hi icebergALAccentRed ctermfg=125 guifg=#cc517a
   hi! link TermCursor Cursor
   hi! link ToolbarButton TabLineSel
   hi! link ToolbarLine TabLineFill
@@ -421,6 +444,15 @@ else
   hi! link SignifySignChangeDelete GitGutterChangeDelete
   hi! link SignifySignDelete GitGutterDelete
   hi! link SignifySignDeleteFirstLine SignifySignDelete
+  hi! link StartifyBracket Comment
+  hi! link StartifyFile Identifier
+  hi! link StartifyFooter Constant
+  hi! link StartifyHeader Constant
+  hi! link StartifyNumber Special
+  hi! link StartifyPath Comment
+  hi! link StartifySection Statement
+  hi! link StartifySlash Comment
+  hi! link StartifySpecial Normal
   hi! link svssBraces Delimiter
   hi! link swiftIdentifier Normal
   hi! link typescriptAjaxMethods Normal

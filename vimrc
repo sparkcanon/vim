@@ -202,7 +202,8 @@ autocmd GeneralSettings ColorScheme * call color_utils#modifyBufferColors()
 " Highlights git diff markers
 autocmd GeneralSettings ColorScheme * match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
-set t_Co=256 " 256 colors
+" For some color schemes set termguicolors and for some others set t_Co=256
+set t_Co=256
 set background=dark
 colorscheme iceberg " Set color scheme after setting buffer colors
 " }}}
