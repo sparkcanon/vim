@@ -22,9 +22,6 @@
 [submodule "pack/main/start/vim-fugitive"]
 	path = pack/main/start/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
-[submodule "pack/main/start/vim-abolish"]
-	path = pack/main/start/vim-abolish
-	url = https://github.com/tpope/vim-abolish.git
 [submodule "pack/main/start/vim-highlightedyank"]
 	path = pack/main/start/vim-highlightedyank
 	url = https://github.com/machakann/vim-highlightedyank.git
