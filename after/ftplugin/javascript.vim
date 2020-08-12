@@ -25,9 +25,6 @@ let b:match_words = '\<function\>:\<return\>,'
 
 " Set eslint compiler
 compiler Eslint
-
-" Set up format prg
-call format_utils#setFormatPrg()
 " }}}
 
 " Section: Commands & Mappings {{{
@@ -40,9 +37,6 @@ command! -nargs=0 -range LogVisual execute "normal oconsole.log('". utils#getVis
 
 " Add import statement
 command! -nargs=0 ImportJs execute "normal ggOimport { ".expand('<cword>')." } from '';"
-
-" format buffer
-nnoremap gQ mlgggqG'l :delm l<CR>
 
 " Lego specific
 command! -nargs=0 RunLegoJest compiler jest <bar> cd web/

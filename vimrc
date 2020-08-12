@@ -10,7 +10,13 @@
 "                ||     ||
 
 " Reset augroup {{{
-augroup GeneralSettings
+augroup GeneralAutocmds
+	autocmd!
+augroup END
+augroup FileTypeAutocmd
+	autocmd!
+augroup END
+augroup MarksAutocmd
 	autocmd!
 augroup END
 " }}}
@@ -200,10 +206,10 @@ xmap R <Plug>(send-to-term)
 
 " Section: Colors {{{
 " Modify buffer colors
-autocmd GeneralSettings ColorScheme * call color_utils#modifyBufferColors()
+autocmd GeneralAutocmds ColorScheme * call color_utils#modifyBufferColors()
 
 " Highlights git diff markers
-autocmd GeneralSettings ColorScheme * match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
+autocmd GeneralAutocmds ColorScheme * match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
 " For some color schemes set termguicolors and for some others set t_Co=256
 set t_Co=256
@@ -213,38 +219,52 @@ colorscheme iceberg " Set color scheme after setting buffer colors
 
 " Section: General auto commands {{{
 " Preview window close
-autocmd GeneralSettings CompleteDone * silent! pclose
-autocmd GeneralSettings CursorMoved * silent! pclose
+autocmd GeneralAutocmds CompleteDone * silent! pclose
+autocmd GeneralAutocmds CursorMoved * silent! pclose
 
 " Create a new dir if it doesnt exists
-autocmd GeneralSettings BufWritePre *
+autocmd GeneralAutocmds BufWritePre *
 			\ if '<afile>' !~ '^scp:' && !isdirectory(expand('<afile>:h')) |
 			\ call mkdir(expand('<afile>:h'), 'p') |
 			\ endif
 
 " Auto-resize splits when Vim gets resized.
-autocmd GeneralSettings VimResized * wincmd =
+autocmd GeneralAutocmds VimResized * wincmd =
 
 " Save session on exit
-autocmd GeneralSettings VimLeavePre * call sessions#sessionSave()
+autocmd GeneralAutocmds VimLeavePre * call sessions#sessionSave()
 
 " Set path
-autocmd GeneralSettings BufEnter,BufAdd * call path_job#setProjectPath()
+autocmd GeneralAutocmds BufEnter,BufAdd * call path_job#setProjectPath()
 
 " Run ctags as a job
-autocmd GeneralSettings BufWritePost * call utils#RunCtags()
-
-" Set up formatprg, formatexpr
-autocmd GeneralSettings FileType typescript,typescriptreact call
-			\ format_utils#setFormatPrg()
+autocmd GeneralAutocmds BufWritePost * call utils#RunCtags()
 
 " Leave marks on BufLeave
-autocmd GeneralSettings BufLeave *.css,*.scss,*.less normal! mC
-autocmd GeneralSettings BufLeave *.html              normal! mH
-autocmd GeneralSettings BufLeave *.js,*.ts,*.tsx     normal! mJ
-autocmd GeneralSettings BufLeave *.yml,*.yaml        normal! mY
-autocmd GeneralSettings BufLeave .env*               normal! mE
-autocmd GeneralSettings BufLeave *.md                normal! mM
+autocmd MarksAutocmd BufLeave *.css,*.scss,*.less normal! mC
+autocmd MarksAutocmd BufLeave *.html              normal! mH
+autocmd MarksAutocmd BufLeave *.js,*.ts,*.tsx     normal! mJ
+autocmd MarksAutocmd BufLeave *.yml,*.yaml        normal! mY
+autocmd MarksAutocmd BufLeave .env*               normal! mE
+autocmd MarksAutocmd BufLeave *.md                normal! mM
+
+" Set up format prg
+let s:formatprg_for_filetype = {
+			\ "css"             : "prettier --stdin-filepath %",
+			\ "less"            : "prettier --stdin-filepath %",
+			\ "go"              : "gofmt",
+			\ "html"            : "prettier --stdin-filepath %",
+			\ "javascript"      : "prettier --stdin-filepath %",
+			\ "typescript"      : "prettier --stdin-filepath %",
+			\ "typescriptreact" : "prettier --stdin-filepath %",
+			\ "json"            : "prettier --stdin-filepath %",
+			\ }
+
+for [ft, fp] in items(s:formatprg_for_filetype)
+	execute "autocmd FileTypeAutocmd FileType " . ft . " let &l:formatprg=\"" . fp . "\" | setlocal formatexpr="
+endfor
+
+autocmd FileTypeAutocmd FileType css,javascript,typescript,typescriptreact,json,less nnoremap gQ mlgggqG'l :delm l<CR>
 " }}}
 
 " Section: Custom commands {{{
