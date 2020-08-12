@@ -329,8 +329,6 @@ packadd! matchit  " Jump to brackets
 
 " Disable netrw
 let loaded_netrwPlugin = 1
-let g:dirvish_relative_paths = 1
-let g:dirvish_mode = ':sort ,^\v(.*[\/])|\ze,'
 " }}}
 
 " vim:foldmethod=marker
