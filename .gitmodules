@@ -34,6 +34,3 @@
 [submodule "pack/main/start/vim-dirvish"]
 	path = pack/main/start/vim-dirvish
 	url = https://github.com/justinmk/vim-dirvish.git
-[submodule "pack/main/start/traces.vim"]
-	path = pack/main/start/traces.vim
-	url = https://github.com/markonm/traces.vim
