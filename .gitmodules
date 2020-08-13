@@ -19,9 +19,6 @@
 [submodule "pack/main/start/vim-highlightedyank"]
 	path = pack/main/start/vim-highlightedyank
 	url = https://github.com/machakann/vim-highlightedyank.git
-[submodule "pack/main/start/vim-tmux-navigator"]
-	path = pack/main/start/vim-tmux-navigator
-	url = https://github.com/christoomey/vim-tmux-navigator.git
 [submodule "pack/main/start/vim-commentary"]
 	path = pack/main/start/vim-commentary
 	url = https://github.com/tpope/vim-commentary.git
@@ -31,3 +28,6 @@
 [submodule "pack/main/start/vim-dirvish"]
 	path = pack/main/start/vim-dirvish
 	url = https://github.com/justinmk/vim-dirvish.git
+[submodule "pack/main/start/vim-tmux-navigator"]
+	path = pack/main/start/vim-tmux-navigator
+	url = https://github.com/christoomey/vim-tmux-navigator

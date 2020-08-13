@@ -157,11 +157,6 @@ nnoremap ]Q :clast<CR>
 nnoremap ]<C-F> :cnfile<CR>
 nnoremap [<C-F> :cpfile<CR>
 
-" Tabularize
-xnoremap ga :Tabularize /
-xnoremap ga" :Tabularize / ".*<CR>
-nnoremap ga :Tabularize /
-
 " Buffers
 " previously used buffer
 nnoremap <BS> <C-^>
