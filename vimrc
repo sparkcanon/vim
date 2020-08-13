@@ -103,8 +103,11 @@ endif
 
 " Section: Mappings {{{
 " Enter Commands mode
-nnoremap ; :
-nnoremap : ;
+set iminsert=1
+for mode in ['n', 'x', 'c', 'l']
+  execute mode . 'noremap  : ;'
+  execute mode . 'noremap  ; :'
+endfor
 
 " Using backtick for marks drops you on the exact column
 nnoremap ` '
