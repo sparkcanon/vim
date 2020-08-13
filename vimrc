@@ -19,6 +19,12 @@ augroup END
 augroup MarksAutocmd
 	autocmd!
 augroup END
+augroup ColorsAutocmd
+	autocmd!
+augroup END
+augroup MkdirAutocmd
+	autocmd!
+augroup END
 " }}}
 
 " Section: Syntax {{{
@@ -206,10 +212,10 @@ xmap R <Plug>(send-to-term)
 
 " Section: Colors {{{
 " Modify buffer colors
-autocmd GeneralAutocmds ColorScheme * call color_utils#modifyBufferColors()
+autocmd ColorsAutocmd ColorScheme * call color_utils#modifyBufferColors()
 
 " Highlights git diff markers
-autocmd GeneralAutocmds ColorScheme * match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
+autocmd ColorsAutocmd ColorScheme * match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
 " For some color schemes set termguicolors and for some others set t_Co=256
 set t_Co=256
@@ -223,7 +229,7 @@ autocmd GeneralAutocmds CompleteDone * silent! pclose
 autocmd GeneralAutocmds CursorMoved * silent! pclose
 
 " Create a new dir if it doesnt exists
-autocmd GeneralAutocmds BufNewFile * call MkDir(expand('<afile>:p:h'))
+autocmd MkdirAutocmd BufNewFile * call utils#mkdir(expand('<afile>:p:h'))
 
 " Auto-resize splits when Vim gets resized.
 autocmd GeneralAutocmds VimResized * wincmd =

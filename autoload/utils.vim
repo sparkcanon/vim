@@ -83,7 +83,7 @@ endfunction
 " }}}
 
 " Desc: Create new dir if it doesnt exist {{{
-function! utils#MkDir(path) abort
+function! utils#mkdir(path) abort
   if !isdirectory(a:path)
     let b:path = a:path
     autocmd MkDir BufWritePre <buffer>
