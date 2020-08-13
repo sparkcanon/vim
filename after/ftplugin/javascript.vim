@@ -23,8 +23,13 @@ let b:match_words = '\<function\>:\<return\>,'
       \ . '\<do\>:\<while\>,'
       \ . '\<try\>:\<catch\>:\<finally\>,'
 
-" Set eslint compiler
-compiler Eslint
+" Set eslint errorformat
+set errorformat+=%f:\ line\ %l\\,\ col\ %c\\,\ %m,%-G%.%#
+
+" Make prgs : test and lint
+let b:LintPrg = 'eslint -f compact'
+let b:TestPrg = 'jest'
+let b:TscPrg = 'tsc --noEmit --jsx react'
 " }}}
 
 " Section: Commands & Mappings {{{
@@ -37,10 +42,6 @@ command! -nargs=0 -range LogVisual execute "normal oconsole.log('". utils#getVis
 
 " Add import statement
 command! -nargs=0 ImportJs execute "normal ggOimport { ".expand('<cword>')." } from '';"
-
-" Lego specific
-command! -nargs=0 RunLegoJest compiler jest <bar> cd web/
-command! -nargs=0 RunLegoEslint compiler Eslint <bar> Glcd
 " }}}
 
 " vim:foldmethod=marker

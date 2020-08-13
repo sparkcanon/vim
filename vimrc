@@ -25,6 +25,9 @@ augroup END
 augroup MkdirAutocmd
 	autocmd!
 augroup END
+augroup MakeAutocmd
+	autocmd!
+augroup END
 " }}}
 
 " Section: Syntax {{{
@@ -64,6 +67,9 @@ setglobal wildignore=*.swp,*.bak                       " Ignore files
 setglobal wildignore+=*.cache,*.min.*,**/dist/**
 setglobal wildignore+=**/.git/**/*
 setglobal wildignore+=*-lock.json,*.snap
+
+" Make
+set makeef=errorfile.vim
 
 " Path options
 setglobal path=.,,**                                   " Standard path
@@ -265,6 +271,15 @@ for [ft, fp] in items(s:formatprg_for_filetype)
 endfor
 
 autocmd FileTypeAutocmd FileType css,javascript,typescript,typescriptreact,json,less nnoremap gQ mlgggqG'l :delm l<CR>
+
+" Make autocmds
+autocmd MakeAutocmd QuickFixCmdPost lmake let g:LastError = readfile(&makeef)
+autocmd MakeAutocmd QuickFixCmdPre  lmake wall
+autocmd MakeAutocmd QuickFixCmdPost lmake call setloclist(
+			\ bufnr(), 
+			\ filter(getloclist(bufnr()), 
+			\ "v:val['valid']"), 'r'
+			\ )
 " }}}
 
 " Section: Custom commands {{{
@@ -295,14 +310,6 @@ command! -nargs=0 Yfname call yank#yankPath("filename")
 " Filename
 command! -nargs=0 Ydirectory call yank#yankPath("directory")
 
-" Lint
-command! -nargs=0 LMake lmake! %
-" Lint all open buffers
-command! -nargs=0 MassMake call make_utils#massMake()
-" Lint current buffer
-command! -nargs=* -complete=file -bar MMake call
-			\ make_utils#getexpr_efm("lgetexpr", make_utils#runMake(<f-args>))
-
 " Dirvish commands
 command! -nargs=? -complete=dir Explore Dirvish <args>
 command! -nargs=? -complete=dir Sexplore belowright split | silent Dirvish <args>
@@ -310,6 +317,12 @@ command! -nargs=? -complete=dir Vexplore leftabove vsplit | silent Dirvish <args
 
 " Repl
 command! -nargs=* -complete=shellcmd Run call repl_utils#RunTerminalCommand(<q-args>, <q-mods>)<CR>
+
+" Make commands
+command! -nargs=* -complete=file -bar Test call make#Run('Test', <f-args>)
+command! -nargs=* -complete=file -bar Lint call make#Run('Lint', <f-args>)
+command! -nargs=* -complete=file -bar Tsc call make#Run('Tsc', <f-args>)
+command! -nargs=0 -complete=file -bar ErrPrint call make#Print()
 " }}}
 
 " Section: Custom abbr {{{
