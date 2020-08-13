@@ -223,10 +223,7 @@ autocmd GeneralAutocmds CompleteDone * silent! pclose
 autocmd GeneralAutocmds CursorMoved * silent! pclose
 
 " Create a new dir if it doesnt exists
-autocmd GeneralAutocmds BufWritePre *
-			\ if '<afile>' !~ '^scp:' && !isdirectory(expand('<afile>:h')) |
-			\ call mkdir(expand('<afile>:h'), 'p') |
-			\ endif
+autocmd GeneralAutocmds BufNewFile * call MkDir(expand('<afile>:p:h'))
 
 " Auto-resize splits when Vim gets resized.
 autocmd GeneralAutocmds VimResized * wincmd =

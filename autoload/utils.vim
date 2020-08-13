@@ -82,4 +82,16 @@ function! utils#isProject(match) abort
 endfunction
 " }}}
 
+" Desc: Create new dir if it doesnt exist {{{
+function! utils#MkDir(path) abort
+  if !isdirectory(a:path)
+    let b:path = a:path
+    autocmd MkDir BufWritePre <buffer>
+      \ call mkdir(b:path, 'p')
+      \ | unlet b:path
+      \ | autocmd! MkDir * <buffer>
+  endif
+endfunction
+" }}}
+
 " vim:foldmethod=marker
