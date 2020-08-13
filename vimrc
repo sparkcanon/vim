@@ -115,6 +115,8 @@ inoremap <C-n> <C-x><C-n>
 inoremap <C-f> <C-x><C-f><C-r>=pumvisible() ? "\<lt>Down>\<lt>C-p>\<lt>Down>\<lt>C-p>" : ""<CR>
 " Line completion
 inoremap <C-l> <C-x><C-l>
+" Spell completion
+inoremap <C-d> <C-x><C-s>
 " Tab movement in pum
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"

@@ -31,3 +31,6 @@
 [submodule "pack/main/start/vim-tmux-navigator"]
 	path = pack/main/start/vim-tmux-navigator
 	url = https://github.com/christoomey/vim-tmux-navigator
+[submodule "pack/main/opt/tabular"]
+	path = pack/main/opt/tabular
+	url = https://github.com/godlygeek/tabular
