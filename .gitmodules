@@ -34,3 +34,6 @@
 [submodule "pack/main/opt/tabular"]
 	path = pack/main/opt/tabular
 	url = https://github.com/godlygeek/tabular
+[submodule "pack/main/opt/codi.vim"]
+	path = pack/main/opt/codi.vim
+	url = https://github.com/metakirby5/codi.vim
