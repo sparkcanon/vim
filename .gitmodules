@@ -10,9 +10,6 @@
 [submodule "pack/main/start/vim-surround"]
 	path = pack/main/start/vim-surround
 	url = https://github.com/tpope/vim-surround.git
-[submodule "pack/main/start/tabular"]
-	path = pack/main/start/tabular
-	url = https://github.com/godlygeek/tabular.git
 [submodule "pack/main/start/vim-repeat"]
 	path = pack/main/start/vim-repeat
 	url = https://github.com/tpope/vim-repeat.git
