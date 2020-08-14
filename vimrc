@@ -104,7 +104,7 @@ endif
 " Section: Mappings {{{
 " Enter Commands mode
 set iminsert=1
-for mode in ['n', 'x', 'c', 'l']
+for mode in ['n', 'x']
   execute mode . 'noremap  : ;'
   execute mode . 'noremap  ; :'
 endfor
