@@ -71,6 +71,9 @@ setglobal wildignore+=*-lock.json,*.snap
 " Make
 set makeef=errorfile.vim
 
+" Set fd error format
+set errorformat^=%f
+
 " Path options
 setglobal path=.,,**                                   " Standard path
 
@@ -318,6 +321,9 @@ command! -nargs=* -complete=file -bar Test call make#Run('Test', <f-args>)
 command! -nargs=* -complete=file -bar Lint call make#Run('Lint', <f-args>)
 command! -nargs=* -complete=file -bar Tsc call make#Run('Tsc', <f-args>)
 command! -nargs=0 -complete=file -bar ErrPrint call make#Print()
+
+" Find files and add to quickfix list
+command! -nargs=* Fd cgetexpr system('fd -g "' . <q-args> . '" -E "*.snap" -E "test"')
 " }}}
 
 " Section: Custom abbr {{{
