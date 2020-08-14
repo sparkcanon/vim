@@ -348,6 +348,8 @@ call utils#setupCommandAbbrs('grt','GrepVT')
 " Git
 call utils#setupCommandAbbrs('gp','Git push')
 call utils#setupCommandAbbrs('gl','Git pull')
+call utils#setupCommandAbbrs('gd','Git difftool')
+call utils#setupCommandAbbrs('gm','Git mergetool')
 " }}}
 
 " Section: Plugins && related setup {{{
