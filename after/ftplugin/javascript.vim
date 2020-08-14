@@ -23,13 +23,23 @@ let b:match_words = '\<function\>:\<return\>,'
       \ . '\<do\>:\<while\>,'
       \ . '\<try\>:\<catch\>:\<finally\>,'
 
-" Set eslint errorformat
-set errorformat+=%f:\ line\ %l\\,\ col\ %c\\,\ %m,%-G%.%#
-
-" Make prgs : test and lint
+" Prgs
+" Eslint make
 let b:LintPrg = 'eslint -f compact'
+" Eslint errorformat
+let b:LintEfm = '%f: line %l\, col %c\, %trror %m,%f: line %l\, col %c\, %twarning %m,%-G%.%#,'
+" Jest make
 let b:TestPrg = 'jest'
+" Jest errorformat
+let b:TestEfm = '%-G%[%^ ]%.%#,' .
+      \ '%A%\s%\+● %m,' .
+      \ '%Z%\s%\+at %.%# (%f:%l:%c),' .
+      \ '%C%.%#,' .
+      \ '%-G%.%#,'
+" Tsc make
 let b:TscPrg = 'tsc --noEmit --jsx react'
+" Tsc errorformat
+let b:TscEfm = '%E %#%f %#(%l\,%c): %trror %m,%W %#%f %#(%l\,%c): %tarning %m,'
 " }}}
 
 " Section: Commands & Mappings {{{

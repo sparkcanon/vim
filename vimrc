@@ -323,7 +323,7 @@ command! -nargs=* -complete=file -bar Tsc call make#Run('Tsc', <f-args>)
 command! -nargs=0 -complete=file -bar ErrPrint call make#Print()
 
 " Find files and add to quickfix list
-command! -nargs=* Fd cgetexpr system('fd -g "' . <q-args> . '" -E "*.snap" -E "test"')
+command! -nargs=* FdFiles cgetexpr system('fd -g "' . <q-args> . '" -E "*.snap" -E "test"')
 " }}}
 
 " Section: Custom abbr {{{
@@ -350,6 +350,7 @@ call utils#setupCommandAbbrs('gr','Grep')
 call utils#setupCommandAbbrs('grb','GrepBuffer' )
 call utils#setupCommandAbbrs('grv','GrepV')
 call utils#setupCommandAbbrs('grt','GrepVT')
+call utils#setupCommandAbbrs('fd','FdFiles')
 
 " Git
 call utils#setupCommandAbbrs('gp','Git push')
