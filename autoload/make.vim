@@ -24,10 +24,14 @@ endfunction
 
 " Desc: full screen error list {{{
 function! make#Print() abort
-	let l:title =  "Error List for " . expand('%') . ":"
-	echo l:title
-	echo repeat('-', len(l:title))
-  echo join(g:LastError, "\n") . repeat("\n", &lines - len(g:LastError))
+	if len(g:LastError) > 0
+		let l:title =  "Error List for " . expand('%') . ":"
+		echo l:title
+		echo repeat('-', len(l:title))
+		echo join(g:LastError, "\n") . repeat("\n", &lines - len(g:LastError))
+	else
+		echo "No errors"
+	endif
 endfunction
 " }}}
 
