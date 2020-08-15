@@ -1,11 +1,11 @@
 " Purpose: Make
 " Source: https://gist.github.com/george-b/6178c350773d78c7d445c58e87ffe10a
 
-" Desc: Run make {{{
+" Desc: Run make & restore efm {{{
 function! make#Run(...) abort
 
-	if !exists('b:' . a:1 . 'Prg')
-		echo "ERROR: Prgs not defined for current file type."
+	if !exists('b:' . a:1 . 'Prg') || !exists('b:' . a:1 . 'Efm')
+		echo "ERROR: " . a:1 . " not defined for current file type."
 		return
 	endif
 
