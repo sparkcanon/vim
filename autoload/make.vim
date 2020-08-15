@@ -5,7 +5,7 @@
 function! make#Run(...) abort
 
 	if !exists('b:' . a:1 . 'Prg') || !exists('b:' . a:1 . 'Efm')
-		echo "ERROR: " . a:1 . " not defined for current file type."
+		echo "ERROR: " . a:1 . " Prg/Efm not defined for current file type."
 		return
 	endif
 
