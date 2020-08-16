@@ -72,7 +72,7 @@ setglobal wildignore+=*-lock.json,*.snap
 set makeef=errorfile.vim
 
 " Set fd error format
-set errorformat^=%f
+set errorformat+=%f
 
 " Path options
 setglobal path=.,,**                                   " Standard path
