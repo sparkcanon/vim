@@ -1,10 +1,16 @@
 " Purpose: JS/TS specific settings
 
 " Section: Compilers & errorformats {{{
+" Note: Add a comma after efms
 " Eslint Prg
-let b:LintPrg = 'eslint -f compact'
+let b:LintPrg = 'eslint --format stylish'
 " Eslint errorformat
-let b:LintEfm = '%f: line %l\, col %c\, %trror %m,%f: line %l\, col %c\, %twarning %m,%-G%.%#,'
+let b:LintEfm = '%-P%f,' .
+			\ '%.%#%l:%c %# %trror  %m,' .
+			\ '%.%#%l:%c %# %tarning  %m,' .
+			\ '%-Q,' .
+			\ '%-G%.%#,'
+
 " Jest Prg
 let b:TestPrg = 'jest'
 " Jest errorformat
@@ -13,10 +19,11 @@ let b:TestEfm = '%-G%[%^ ]%.%#,' .
       \ '%Z%\s%\+at %.%# (%f:%l:%c),' .
       \ '%C%.%#,' .
       \ '%-G%.%#,'
+
 " Tsc Prg
 let b:TscPrg = 'tsc --noEmit --jsx react'
 " Tsc errorformat
-let b:TscEfm = '%E %#%f %#(%l\,%c): %trror %m,%W %#%f %#(%l\,%c): %tarning %m,'
+let b:TscEfm = '%E%f %#(%l\,%c): %trror TS%n: %m,%W%f %#(%l\,%c): %tarning TS%n: %m,'
 " }}}
 
 " Section: suffixesadd, include, define, matchit, path {{{
