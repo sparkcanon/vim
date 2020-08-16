@@ -11,6 +11,15 @@ let b:LintEfm = '%-P%f,' .
 			\ '%-Q,' .
 			\ '%-G%.%#,'
 
+" Eslint fix prg
+let b:FixPrg = 'eslint --fix'
+" Eslint errorformat
+let b:FixEfm = '%-P%f,' .
+			\ '%.%#%l:%c %# %trror  %m,' .
+			\ '%.%#%l:%c %# %tarning  %m,' .
+			\ '%-Q,' .
+			\ '%-G%.%#,'
+
 " Jest Prg
 let b:TestPrg = 'jest'
 " Jest errorformat

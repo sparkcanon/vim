@@ -318,6 +318,7 @@ command! -nargs=? -complete=dir Vexplore leftabove vsplit | silent Dirvish <args
 
 " Make commands
 command! -nargs=* -complete=file -bar Test call make#Run('Test', <f-args>)
+command! -nargs=* -complete=file -bar Fix call make#Run('Fix', <f-args>)
 command! -nargs=* -complete=file -bar Lint call make#Run('Lint', <f-args>)
 command! -nargs=* -complete=file -bar Tsc call make#Run('Tsc', <f-args>)
 command! -nargs=0 -complete=file -bar ErrPrint call make#Print()
