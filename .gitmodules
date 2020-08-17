@@ -37,3 +37,6 @@
 [submodule "pack/main/opt/codi.vim"]
 	path = pack/main/opt/codi.vim
 	url = https://github.com/metakirby5/codi.vim
+[submodule "pack/main/start/vim-makery"]
+	path = pack/main/start/vim-makery
+	url = https://github.com/igemnace/vim-makery
