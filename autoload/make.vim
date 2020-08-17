@@ -1,24 +1,12 @@
 " Purpose: Make
-" Source: https://gist.github.com/george-b/6178c350773d78c7d445c58e87ffe10a
 
-" Desc: Run make & restore efm {{{
-function! make#Run(...) abort
-
-	if !exists('b:' . a:1 . 'Prg') || !exists('b:' . a:1 . 'Efm')
-		echo "ERROR: " . a:1 . " Prg/Efm not defined for current file type."
-		return
+" Desc: Run makery with args {{{
+function! make#runMakery(...) abort
+	if a:0 == 1
+		execute 'LM' . a:1 . '! ' . expand('%')
+	elseif a:0 > 1
+		execute 'LM' . a:1 . '! ' . expand(join(a:000[1:-1]))
 	endif
-
-	let &l:errorformat = eval('b:' . a:1 . 'Efm')
-  if a:0 == 1
-    let &l:makeprg = eval('b:' . a:1 . 'Prg') . ' ' . expand('%')
-  elseif a:0 > 1
-    let &l:makeprg = eval('b:' . a:1 . 'Prg') . ' ' . expand(join(a:000[1:-1]))
-  endif
-
-	silent lmake! | checktime | silent redraw!
-	call make#Print()
-
 endfunction
 " }}}
 
