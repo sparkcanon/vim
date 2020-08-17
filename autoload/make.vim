@@ -9,7 +9,7 @@ function! make#Run(...) abort
 		return
 	endif
 
-	let &l:errorformat = eval('b:' . a:1 . 'Efm') . &g:errorformat
+	let &l:errorformat = eval('b:' . a:1 . 'Efm')
   if a:0 == 1
     let &l:makeprg = eval('b:' . a:1 . 'Prg') . ' ' . expand('%')
   elseif a:0 > 1

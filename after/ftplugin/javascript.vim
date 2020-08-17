@@ -24,10 +24,12 @@ let b:FixEfm = '%-P%f,' .
 let b:TestPrg = 'jest'
 " Jest errorformat
 let b:TestEfm = '%-G%[%^ ]%.%#,' .
-      \ '%A%\s%\+● %m,' .
-      \ '%Z%\s%\+at %.%# (%f:%l:%c),' .
+      \ '%-G%.%#Test suite failed to run,' .
+      \ '%E%.%#SyntaxError: %f: %m (%l:%c),' .
+      \ '%E%.%#● %m,' .
+      \ '%Z%.%#at %.%# (%f:%l:%c),' .
       \ '%C%.%#,' .
-      \ '%-G%.%#,'
+      \ '%-G%.%#'
 
 " Tsc Prg
 let b:TscPrg = 'tsc --noEmit --jsx react'
