@@ -1,26 +1,29 @@
 " Purpose: Toggle qf/loc list
 
-" Desc: get list of buffers
+" Desc: get list of buffers {{{
 function! s:GetBufferList() abort
 	redir =>buflist
 	silent! ls!
 	redir END
 	return buflist
 endfunction
+" }}}
 
-" Desc: toggle qf/loc list
+" Desc: toggle qf/loc list {{{
 function! togglelist#ToggleList(bufname, pfx) abort
 	let l:buflist = s:GetBufferList()
 
-	for bufnum in map(filter(split(l:buflist, '\n'), 'v:val =~ "' . a:bufname .
-				\ '"'), 'str2nr(matchstr(v:val, "\\d\\+"))')
-		if bufwinnr(bufnum) != -1
+	for bufnum in l:buflist
+				\->split('\n')
+				\->filter('v:val =~ "' . a:bufname . '"')
+				\->map('str2nr(matchstr(v:val, "\\d\\+"))')
+		if bufnum->bufwinnr() != -1
 			exec(a:pfx . 'close')
 			return
 		endif
 	endfor
 
-	if a:pfx == 'l' && len(getloclist(0)) == 0
+	if a:pfx == 'l' && getloclist(0)->len() == 0
 		echohl ErrorMsg
 		echo "Location List is Empty"
 		return
@@ -33,3 +36,6 @@ function! togglelist#ToggleList(bufname, pfx) abort
 		wincmd p
 	endif
 endfunction
+" }}}
+
+" vim:foldmethod=marker
