@@ -92,10 +92,9 @@ set lcs=trail:·,eol:¬,tab:│\
 set list
 
 " Statusline
-setglobal laststatus=2                                 " Display statusline
-setglobal statusline=\ ❮\ %<%{utils#ShortenFname()}
-setglobal statusline+=\ %{utils#locListErrorCount()}
-setglobal statusline+=\%h%m%r%=%-14.(%l,%c%V%)\%P\ ❯\ 
+set laststatus=0                                 " Dont display statusline
+set ruler                                        " Display ruler
+set rulerformat=%45(%t\ ❯\ %l,%c%V%=%P%)             " Display filename in ruler
 
 " Grepprg & grepformat
 if executable('rg')
