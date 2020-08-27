@@ -352,7 +352,8 @@ call utils#setupCommandAbbrs('grt','GrepVT')
 call utils#setupCommandAbbrs('fd','FdFiles')
 
 " Git
-call utils#setupCommandAbbrs('gp','Git push')
+call utils#setupCommandAbbrs('gf','term git fetch --all')
+call utils#setupCommandAbbrs('gp','term git push')
 call utils#setupCommandAbbrs('gl','Git pull')
 call utils#setupCommandAbbrs('gd','Git difftool')
 call utils#setupCommandAbbrs('gm','Git mergetool')
