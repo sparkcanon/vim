@@ -23,8 +23,8 @@ CompilerSet errorformat^=%-P%f,
 			\%-Q,
 			\%-G%.%#,
 
-if executable('eslint')
-	CompilerSet makeprg=eslint\ --format\ stylish
-elseif findfile('eslint', 'node_modules/.bin/') == 'node_modules/.bin/eslint'
+if findfile('eslint', 'node_modules/.bin/') == 'node_modules/.bin/eslint'
 	CompilerSet makeprg=node_modules/.bin/eslint\ --format\ stylish
+elseif executable('eslint')
+	CompilerSet makeprg=eslint\ --format\ stylish
 endif
