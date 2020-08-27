@@ -290,7 +290,7 @@ command! -nargs=0 -bar GrepV execute 'Grep ' . expand('<cword>')
 " Grep word under the cursor excluding test files
 command! -nargs=0 -bar GrepVT execute "Grep '" . expand('<cword>') . "' -F -g !'{*spec.*,*test.*}'"
 " Manual grep for current buffer
-command! -nargs=1 -bar GrepBuffer execute 'Grep ' . <q-args> . ' %'
+command! -nargs=1 -bar GrepBuffer execute 'Grep ' . <q-args> . ' ' . expand('%')
 " Last grep
 command! -nargs=0 GrLast execute 'Grep ' . @/ . ' %'
 
@@ -345,10 +345,10 @@ call utils#setupCommandAbbrs('ssl','SessionLoad')
 call utils#setupCommandAbbrs('ssa','SessionSave')
 
 " Grep
-call utils#setupCommandAbbrs('gr','Grep')
-call utils#setupCommandAbbrs('grb','GrepBuffer' )
-call utils#setupCommandAbbrs('grv','GrepV')
-call utils#setupCommandAbbrs('grt','GrepVT')
+call utils#setupCommandAbbrs('fr','Grep')
+call utils#setupCommandAbbrs('fb','GrepBuffer' )
+call utils#setupCommandAbbrs('fv','GrepV')
+call utils#setupCommandAbbrs('ft','GrepVT')
 call utils#setupCommandAbbrs('fd','FdFiles')
 
 " Git
