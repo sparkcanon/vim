@@ -115,6 +115,9 @@ for mode in ['n', 'x']
   execute mode . 'noremap  ; :'
 endfor
 
+" Replicate go back to background
+silent! noremap <unique> <silent>  <C-z>  :<C-u>call altscreen#AltScreenControlZ()<cr>
+
 " Using backtick for marks drops you on the exact column
 nnoremap ` '
 nnoremap ' `
@@ -285,8 +288,9 @@ autocmd MakeAutocmd QuickFixCmdPost lmake call setloclist(
 			\ "v:val['valid']"), 'r'
 			\ )
 
-autocmd AltScreen VimEnter *  call UnsetAltScreen()
-autocmd AltScreen VimLeave *  call SetAltScreen()
+" Alt screen for make
+autocmd AltScreen VimEnter *  call altscreen#UnsetAltScreen()
+autocmd AltScreen VimLeave *  call altscreen#SetAltScreen()
 " }}}
 
 " Section: Custom commands {{{

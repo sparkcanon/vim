@@ -22,7 +22,7 @@ endfun
 
 function! altscreen#AltScreenControlZ() abort " {{{
   try
-    call SetAltScreen()
+    call altscreen#SetAltScreen()
     if exists('#AltScreen#User#suspend')
       doauto <nomodeline> AltScreen User suspend
     endif
@@ -31,7 +31,7 @@ function! altscreen#AltScreenControlZ() abort " {{{
     if exists('#AltScreen#User#resume')
       doauto <nomodeline> AltScreen User resume
     endif
-    call UnsetAltScreen()
+    call altscreen#UnsetAltScreen()
   endtry
 endfun
 " }}}
