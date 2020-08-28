@@ -20,7 +20,9 @@ function! make#Print() abort
 					\ pos: 'center',
 					\ highlight: 'Normal',
 					\ border: [],
-					\ padding: [0,2,0,2]
+					\ padding: [0,2,0,2],
+					\ minwidth: 150,
+					\ maxheight: 50
 					\ })
 	endif
 endfunction

@@ -41,29 +41,30 @@ set omnifunc=syntaxcomplete#Complete             " General purpose omnifunc
 " }}}
 
 " Section: Basic Settings {{{
-set number                                             " Display number line
-setglobal backspace=indent,eol,start                   " Normal backspace behaviour
-setglobal hidden                                       " Display hidden buffers in list
-setglobal autoread                                     " Update file if changed outside
-setglobal incsearch                                    " Turn on incremental search
-setglobal hlsearch                                     " Highlight search term
-setglobal showmatch                                    " Highlight matching paranthesis
-setglobal wrap                                         " Wrap long lines
-setglobal autoindent                                   " Minimal auto indenting for any filetype
-setglobal clipboard+=unnamed                           " Set clipboard options
+set number                                               " Display number line
+setglobal backspace=indent,eol,start                     " Normal backspace behaviour
+setglobal hidden                                         " Display hidden buffers in list
+setglobal autoread                                       " Update file if changed outside
+setglobal incsearch                                      " Turn on incremental search
+setglobal hlsearch                                       " Highlight search term
+setglobal showmatch                                      " Highlight matching paranthesis
+setglobal wrap                                           " Wrap long lines
+setglobal autoindent                                     " Minimal auto indenting for any filetype
+setglobal clipboard+=unnamed                             " Set clipboard options
+set mouse=a                                              " Allow mouse interactions
 
 " Splits
-setglobal splitbelow                                   " Split window opens below
-setglobal splitright                                   " Split window opens right
+setglobal splitbelow                                     " Split window opens below
+setglobal splitright                                     " Split window opens right
 
 " Case
-setglobal smartcase                                    " To ignore case in certain cases, overrides ignorecase
-setglobal ignorecase                                   " Ignore case all together
+setglobal smartcase                                      " To ignore case in certain cases, overrides ignorecase
+setglobal ignorecase                                     " Ignore case all together
 
 " Wild menu options
-setglobal wildmenu                                     " Turn menu on for wild searches
-setglobal wildignorecase                               " Ignore case for wildmenu
-setglobal wildignore=*.swp,*.bak                       " Ignore files
+setglobal wildmenu                                       " Turn menu on for wild searches
+setglobal wildignorecase                                 " Ignore case for wildmenu
+setglobal wildignore=*.swp,*.bak                         " Ignore files
 setglobal wildignore+=*.cache,*.min.*,**/dist/**
 setglobal wildignore+=**/.git/**/*
 setglobal wildignore+=*-lock.json,*.snap
@@ -75,26 +76,26 @@ set makeef=errorfile.vim
 set errorformat+=%f
 
 " Path options
-setglobal path=.,,**                                   " Standard path
+setglobal path=.,,**                                     " Standard path
 
 " Backup settings
 setglobal sessionoptions-=options
 setglobal viewoptions-=options
-set undofile                                           " Set this option to have full undo power
-setglobal backup                                       " Set this option to enable backup
-setglobal writebackup                                  " Set this option to write back up
-setglobal backupdir=$HOME/.vim/tmp/dir_backup//        " Back up dir
-setglobal directory^=$HOME/.vim/tmp/dir_swap//         " Swap file dir
-setglobal undodir=$HOME/.vim/tmp/dir_undo              " Undo dir
+set undofile                                             " Set this option to have full undo power
+setglobal backup                                         " Set this option to enable backup
+setglobal writebackup                                    " Set this option to write back up
+setglobal backupdir=$HOME/.vim/tmp/dir_backup//          " Back up dir
+setglobal directory^=$HOME/.vim/tmp/dir_swap//           " Swap file dir
+setglobal undodir=$HOME/.vim/tmp/dir_undo                " Undo dir
 
 " List chars
 set lcs=trail:·,eol:¬,tab:│\ 
 set list
 
 " Statusline
-set laststatus=0                                       " Dont display statusline
-set ruler                                              " Display ruler
-set rulerformat=%45(%t%m\ ❯\ %l,%c%V%=%P%)             " Display filename in ruler
+set laststatus=0                                         " Dont display statusline
+set ruler                                                " Display ruler
+set rulerformat=%45(%t%m\ ❯\ %l,%c%V%=%P%)               " Display filename in ruler
 
 " Grepprg & grepformat
 if executable('rg')
