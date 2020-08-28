@@ -28,6 +28,9 @@ augroup END
 augroup MakeAutocmd
 	autocmd!
 augroup END
+augroup AltScreen
+	autocmd!
+augroup END
 " }}}
 
 " Section: Syntax {{{
@@ -281,6 +284,9 @@ autocmd MakeAutocmd QuickFixCmdPost lmake call setloclist(
 			\ filter(getloclist(winnr()), 
 			\ "v:val['valid']"), 'r'
 			\ )
+
+autocmd AltScreen VimEnter *  call UnsetAltScreen()
+autocmd AltScreen VimLeave *  call SetAltScreen()
 " }}}
 
 " Section: Custom commands {{{
