@@ -153,7 +153,7 @@ nnoremap # #zvzz
 nnoremap `` ``zz
 
 " Location list
-nnoremap <Up> :call togglelist#ToggleList('Location List', 'l')<CR>
+nnoremap <script> <silent> <Up> :call togglelist#ToggleList('Location List', 'l')<CR>
 nnoremap ]l :lnext<CR>
 nnoremap [l :lprevious<CR>
 nnoremap [L :lfirst<CR>
@@ -162,7 +162,7 @@ nnoremap ]<C-L> :lnfile<CR>
 nnoremap [<C-L> :lpfile<CR>
 
 " Quickfix list
-nnoremap <Down> :call togglelist#ToggleList('Quickfix List','c')<CR>
+nnoremap <script> <silent> <Down> :call togglelist#ToggleList('Quickfix List','c')<CR>
 nnoremap ]q :cnext<CR>
 nnoremap [q :cprevious<CR>
 nnoremap [Q :cfirst<CR>
