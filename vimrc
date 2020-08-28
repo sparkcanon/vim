@@ -283,8 +283,8 @@ autocmd FileTypeAutocmd FileType css,javascript,typescript,typescriptreact,json,
 autocmd MakeAutocmd QuickFixCmdPost lmake let g:LastError = readfile(&makeef)
 autocmd MakeAutocmd QuickFixCmdPre  lmake wall
 autocmd MakeAutocmd QuickFixCmdPost lmake call setloclist(
-			\ winnr(), 
-			\ filter(getloclist(winnr()), 
+			\ bufnr(), 
+			\ filter(getloclist(bufnr()), 
 			\ "v:val['valid']"), 'r'
 			\ )
 
