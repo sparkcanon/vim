@@ -22,8 +22,6 @@ function! make#Print() abort
 					\ border: [],
 					\ padding: [0,2,0,2]
 					\ })
-	else
-		echo "No errors"
 	endif
 endfunction
 " }}}
