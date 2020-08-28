@@ -7,16 +7,21 @@ function! make#runMakery(...) abort
 	elseif a:0 > 1
 		execute 'LM' . a:1 . '! ' . expand(join(a:000[1:-1]))
 	endif
+	call make#Print()
 endfunction
 " }}}
 
 " Desc: full screen error list {{{
 function! make#Print() abort
-	if len(g:LastError) > 0
-		let l:title =  "Error List for " . expand('%') . ":"
-		echo l:title
-		echo repeat('-', len(l:title))
-		echo join(g:LastError, "\n") . repeat("\n", &lines - len(g:LastError))
+	if exists('g:LastError') && len(g:LastError) > 0
+		call popup_create(g:LastError, #{
+					\ title: ' Error List ',
+					\ moved: 'any',
+					\ pos: 'center',
+					\ highlight: 'Normal',
+					\ border: [],
+					\ padding: [0,2,0,2]
+					\ })
 	else
 		echo "No errors"
 	endif
