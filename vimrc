@@ -92,9 +92,9 @@ set lcs=trail:·,eol:¬,tab:│\
 set list
 
 " Statusline
-set laststatus=0                                 " Dont display statusline
-set ruler                                        " Display ruler
-set rulerformat=%45(%t\ ❯\ %l,%c%V%=%P%)             " Display filename in ruler
+set laststatus=0                                       " Dont display statusline
+set ruler                                              " Display ruler
+set rulerformat=%45(%t%m\ ❯\ %l,%c%V%=%P%)             " Display filename in ruler
 
 " Grepprg & grepformat
 if executable('rg')
