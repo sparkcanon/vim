@@ -4,9 +4,6 @@
 [submodule "pack/main/start/vim-cool"]
 	path = pack/main/start/vim-cool
 	url = https://github.com/romainl/vim-cool.git
-[submodule "pack/main/start/vim-qf-preview"]
-	path = pack/main/start/vim-qf-preview
-	url = https://github.com/bfrg/vim-qf-preview.git
 [submodule "pack/main/start/vim-surround"]
 	path = pack/main/start/vim-surround
 	url = https://github.com/tpope/vim-surround.git
