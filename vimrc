@@ -323,6 +323,10 @@ command! -nargs=0 -complete=file -bar ErrPrint call make#Print()
 
 " Find files and add to quickfix list
 command! -nargs=* FdFiles cgetexpr system('fd -g "' . <q-args> . '" -E "*.snap" -E "test"')
+
+" Git
+command -nargs=0 GitFetch call utils#term(['git', 'fetch', '--all'])
+command -nargs=0 GitPush call utils#term(['git', 'push'])
 " }}}
 
 " Section: Custom abbr {{{
@@ -352,8 +356,8 @@ call utils#setupCommandAbbrs('ft','GrepVT')
 call utils#setupCommandAbbrs('fd','FdFiles')
 
 " Git
-call utils#setupCommandAbbrs('gf','term git fetch --all')
-call utils#setupCommandAbbrs('gp','term git push')
+call utils#setupCommandAbbrs('gf',"GitFetch")
+call utils#setupCommandAbbrs('gp','GitPush')
 call utils#setupCommandAbbrs('gl','Git pull')
 call utils#setupCommandAbbrs('gd','Git difftool')
 call utils#setupCommandAbbrs('gm','Git mergetool')
