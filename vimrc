@@ -72,9 +72,6 @@ setglobal wildignore+=*.cache,*.min.*,**/dist/**
 setglobal wildignore+=**/.git/**/*
 setglobal wildignore+=*-lock.json,*.snap
 
-" Make
-set makeef=errorfile.vim
-
 " Set fd error format
 set errorformat+=%f
 
@@ -116,9 +113,6 @@ for mode in ['n', 'x']
   execute mode . 'noremap  : ;'
   execute mode . 'noremap  ; :'
 endfor
-
-" Replicate go back to background
-silent! noremap <unique> <silent>  <C-z>  :<C-u>call altscreen#AltScreenControlZ()<cr>
 
 " Using backtick for marks drops you on the exact column
 nnoremap ` '
@@ -282,17 +276,12 @@ endfor
 autocmd FileTypeAutocmd FileType css,javascript,typescript,typescriptreact,json,less nnoremap gQ mlgggqG'l :delm l<CR>
 
 " Make autocmds
-autocmd MakeAutocmd QuickFixCmdPost lmake let g:LastError = readfile(&makeef)
 autocmd MakeAutocmd QuickFixCmdPre  lmake wall
 autocmd MakeAutocmd QuickFixCmdPost lmake call setloclist(
 			\ bufnr(), 
 			\ filter(getloclist(bufnr()), 
 			\ "v:val['valid']"), 'r'
 			\ )
-
-" Alt screen for make
-autocmd AltScreen VimEnter *  call altscreen#UnsetAltScreen()
-autocmd AltScreen VimLeave *  call altscreen#SetAltScreen()
 " }}}
 
 " Section: Custom commands {{{
