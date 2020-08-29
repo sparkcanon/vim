@@ -1,6 +1,7 @@
 " Author: romainl
 " Source: https://gist.github.com/romainl/5b2cfb2b81f02d44e1d90b74ef555e31
-" Desc: make list-like commands more intuitive
+
+" Desc: make list-like commands more intuitive {{{
 function! listcommands#CR() abort
 	let l:cmdline = getcmdline()
 	command! -bar Z silent set more|delcommand Z
@@ -44,3 +45,6 @@ function! listcommands#CR() abort
 		return "\<C-]>\<CR>"
 	endif
 endfunction
+" }}}
+
+" vim:foldmethod=marker

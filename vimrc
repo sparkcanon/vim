@@ -44,7 +44,6 @@ set omnifunc=syntaxcomplete#Complete             " General purpose omnifunc
 " }}}
 
 " Section: Basic Settings {{{
-set number                                               " Display number line
 setglobal backspace=indent,eol,start                     " Normal backspace behaviour
 setglobal hidden                                         " Display hidden buffers in list
 setglobal autoread                                       " Update file if changed outside
@@ -189,10 +188,6 @@ xnoremap <Bslash>s <Esc>:%s/<C-R><C-R>=utils#getVisualSelection()<CR>/
 
 " Global
 nnoremap <Bslash>g :g//#<Left><Left>
-
-" CFDO
-nnoremap <Bslash>c :cfdo! %s/<C-r><C-w>//g <Bar> update<S-Left><Left><Left><Left><Left><Left>
-" xnoremap <Bslash>c :cfdo %s/<C-R><C-R>=utils#getVisualSelection()<CR>//gc <Bar> update<S-Left><S-Left><Left><Left><Left><Left> FIXME: This mapping is broken
 
 " Lists
 cnoremap <expr> <CR> listcommands#CR()
