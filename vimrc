@@ -305,12 +305,12 @@ command! -nargs=0 -bar GrepVT execute "Grep '" . expand('<cword>') . "' -F -g !'
 " Manual grep for current buffer
 command! -nargs=1 -bar GrepBuffer execute 'Grep ' . <q-args> . ' ' . expand('%')
 " Last grep
-command! -nargs=0 GrLast execute 'Grep ' . @/ . ' %'
+command! -nargs=0 GrLast execute 'Grep ' . @/ . ' ' . expand('%')
 
 " Save sessions (force)
 command! -nargs=0 SessionSave call sessions#sessionSave()
 " Load sessions
-command! -nargs=1 -complete=customlist,sessions#sessionCompletePath
+command! -nargs=1 -complete=custom,sessions#sessionCompletePath
 			\ SessionLoad execute 'source $HOME/.vim/tmp/dir_session/<args>'
 
 " Yank paths
