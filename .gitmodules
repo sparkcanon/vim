@@ -34,3 +34,6 @@
 [submodule "pack/main/start/vim-makery"]
 	path = pack/main/start/vim-makery
 	url = https://github.com/igemnace/vim-makery
+[submodule "pack/main/start/CommandlineComplete.vim"]
+	path = pack/main/start/CommandlineComplete.vim
+	url = https://github.com/j5shi/CommandlineComplete.vim
