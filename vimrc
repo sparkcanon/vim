@@ -224,7 +224,7 @@ autocmd ColorsAutocmd ColorScheme * call color_utils#modifyBufferColors()
 autocmd ColorsAutocmd ColorScheme * match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
 " For some color schemes set termguicolors and for some others set t_Co=256
-set t_Co=256
+set termguicolors
 set background=dark
 colorscheme iceberg " Set color scheme after setting buffer colors
 " }}}
