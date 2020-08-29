@@ -229,7 +229,7 @@ set background=dark
 colorscheme iceberg " Set color scheme after setting buffer colors
 " }}}
 
-" Section: General auto commands {{{
+" Section: Auto commands {{{
 " Preview window close
 autocmd GeneralAutocmds CompleteDone * silent! pclose
 autocmd GeneralAutocmds CursorMoved * silent! pclose
@@ -321,7 +321,6 @@ command! -nargs=? -complete=dir Vexplore leftabove vsplit | silent Dirvish <args
 command! -nargs=* -complete=file -bar Lint call make#runMakery('Lint', <f-args>)
 command! -nargs=* -complete=file -bar Fix call make#runMakery('Fix', <f-args>)
 command! -nargs=* -complete=file -bar Test call make#runMakery('Test', <f-args>)
-command! -nargs=0 -complete=file -bar ErrPrint call make#Print()
 
 " Find files and add to quickfix list
 command! -nargs=* FdFiles cgetexpr system('fd -g "' . <q-args> . '" -E "*.snap" -E "test"')

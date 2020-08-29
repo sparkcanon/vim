@@ -1,4 +1,6 @@
-" Desc: Yank specified path
+" Purpose: Yank file name variations
+
+" Desc: Yank specified path {{{
 function! yank#yankPath(args) abort
 	let l:init = 'let @+ = expand("$")'
 	" Relative Path
@@ -19,3 +21,6 @@ function! yank#yankPath(args) abort
 	endif
 	execute '' . expand(l:yank)
 endfunction
+" }}}
+
+" vim:foldmethod=marker
