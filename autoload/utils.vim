@@ -30,7 +30,7 @@ endfunction
 " Section: Ctags job {{{
 function! utils#RunCtags() abort
 	if finddir('.git', '.;') == ".git"
-		let l:gen_ctags = 'fd tags.lock . --change-older-than 2min -x rm {} tags \;
+		let l:gen_ctags = 'fd tags.lock . --change-older-than 2min -d 1 --no-ignore -x rm {} tags \;
 					\ && [ ! -f tags.lock ] && touch tags.lock
 					\ && ctags .
 					\ && rm -rf tags.lock'
