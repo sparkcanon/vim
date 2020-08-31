@@ -191,8 +191,6 @@ nnoremap <Bslash>g :g//#<Left><Left>
 
 " Lists
 cnoremap <expr> <CR> listcommands#CR()
-nnoremap <Bslash>F :global //#<left><left>
-nnoremap <Bslash>f :global /<C-R><C-W>/#
 
 " New lines
 nnoremap ]<space> o<C-c>
@@ -213,7 +211,7 @@ nnoremap <space>es :sp <C-R>='%:h/'<CR>
 
 " Section: Colors {{{
 " Modify buffer colors
-autocmd ColorsAutocmd ColorScheme * call color_utils#modifyBufferColors()
+autocmd ColorsAutocmd ColorScheme * call colors#modifyBufferColors()
 
 " Highlights git diff markers
 autocmd ColorsAutocmd ColorScheme * match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
