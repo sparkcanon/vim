@@ -187,7 +187,7 @@ nnoremap <Bslash>s :%s/\v<<C-r><C-w>>/
 xnoremap <Bslash>s <Esc>:%s/<C-R><C-R>=utils#getVisualSelection()<CR>/
 
 " Global
-nnoremap <Bslash>g :g//#<Left><Left>
+nnoremap <Bslash>g :g/\<\>/#<Left><Left><Left><Left>
 
 " Lists
 cnoremap <expr> <CR> listcommands#CR()
