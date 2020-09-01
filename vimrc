@@ -320,8 +320,8 @@ command! -nargs=* -complete=file -bar Test call make#runMakery('Test', <f-args>)
 command! -nargs=* FdFiles cgetexpr system('fd -g "' . <q-args> . '" -E "*.snap" -E "test"')
 
 " Git
-command -nargs=0 GitFetch exe 'term ++hidden ++norestore git status --all'
-command -nargs=0 GitPush exe 'term ++hidden ++norestore git push'
+command -nargs=0 GitFetch exe 'term ++norestore git fetch --all'
+command -nargs=0 GitPush exe 'term ++norestore git push'
 " }}}
 
 " Section: Custom abbr {{{
