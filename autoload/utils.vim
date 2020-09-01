@@ -77,12 +77,4 @@ function! utils#mkdir(path) abort
 endfunction
 " }}}
 
-" Desc: Term close {{{
-function! utils#term(cmd) abort
-	call term_start(a:cmd, #{ 
-				\ term_finish: 'close',
-				\ })
-endfunction
-" }}}
-
 " vim:foldmethod=marker
