@@ -52,7 +52,7 @@ setglobal hlsearch                                       " Highlight search term
 setglobal showmatch                                      " Highlight matching paranthesis
 setglobal wrap                                           " Wrap long lines
 setglobal autoindent                                     " Minimal auto indenting for any filetype
-setglobal clipboard+=unnamed                             " Set clipboard options
+setglobal clipboard^=unnamed                             " Set clipboard options
 set mouse=a                                              " Allow mouse interactions
 
 " Splits
@@ -270,6 +270,7 @@ autocmd FileTypeAutocmd FileType css,javascript,typescript,typescriptreact,json,
 
 " Make autocmds
 autocmd MakeAutocmd QuickFixCmdPre  lmake wall
+autocmd MakeAutocmd QuickFixCmdPre  lmake * call utils#RunCtags()
 autocmd MakeAutocmd QuickFixCmdPost lmake call setloclist(
 			\ bufnr(), 
 			\ filter(getloclist(bufnr()), 
