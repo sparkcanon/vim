@@ -9,7 +9,7 @@
 "             U  ||----w |
 "                ||     ||
 
-" Reset augroup {{{
+" Section: Reset augroup {{{
 augroup GeneralAutocmds
 	autocmd!
 augroup END
