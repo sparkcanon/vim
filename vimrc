@@ -251,22 +251,7 @@ autocmd MarksAutocmd BufLeave .env*               normal! mE
 autocmd MarksAutocmd BufLeave *.md                normal! mM
 
 " Set up format prg
-let s:formatprg_for_filetype = {
-			\ "css"             : "prettier --stdin-filepath %",
-			\ "less"            : "prettier --stdin-filepath %",
-			\ "go"              : "gofmt",
-			\ "html"            : "prettier --stdin-filepath %",
-			\ "javascript"      : "prettier --stdin-filepath %",
-			\ "typescript"      : "prettier --stdin-filepath %",
-			\ "typescriptreact" : "prettier --stdin-filepath %",
-			\ "json"            : "prettier --stdin-filepath %",
-			\ }
-
-for [ft, fp] in items(s:formatprg_for_filetype)
-	execute "autocmd FileTypeAutocmd FileType " . ft . " let &l:formatprg=\"" . fp . "\" | setlocal formatexpr="
-endfor
-
-autocmd FileTypeAutocmd FileType css,javascript,typescript,typescriptreact,json,less nnoremap gQ mlgggqG'l :delm l<CR>
+autocmd FileTypeAutocmd FileType javascript,typescript,typescriptreact,json,less,css call format#formatprg()
 
 " Make autocmds
 autocmd MakeAutocmd QuickFixCmdPre  lmake wall
