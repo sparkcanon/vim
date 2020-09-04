@@ -1,6 +1,6 @@
 " Purpose: Session based logic
 
-" Desc: Save on VIMLEAVE {{{
+" Desc: Save session {{{
 function! sessions#sessionSave() abort
 	if finddir('.git', '.;') == ".git"
 		let l:root = substitute(fnamemodify(getcwd(0), ':t'), '^\.', '', '')
