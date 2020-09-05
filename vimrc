@@ -303,10 +303,6 @@ command! -nargs=* -complete=file -bar Test call make#runMakery('Test', <f-args>)
 
 " Find files and add to quickfix list
 command! -nargs=* FdFiles cgetexpr system('fd -g "' . <q-args> . '" -E "*.snap" -E "test"')
-
-" Git
-command -nargs=0 GitFetch exe 'term ++open ++norestore git fetch --all'
-command -nargs=0 GitPush exe 'term ++open ++norestore git push'
 " }}}
 
 " Section: Custom abbr {{{
@@ -336,8 +332,8 @@ call utils#setupCommandAbbrs('ft','GrepVT')
 call utils#setupCommandAbbrs('fd','FdFiles')
 
 " Git
-call utils#setupCommandAbbrs('gf',"GitFetch")
-call utils#setupCommandAbbrs('gp','GitPush')
+call utils#setupCommandAbbrs('gf','!git fetch --all')
+call utils#setupCommandAbbrs('gp','!git push')
 call utils#setupCommandAbbrs('gl','Git pull')
 call utils#setupCommandAbbrs('gd','Git difftool')
 call utils#setupCommandAbbrs('gm','Git mergetool')
