@@ -265,15 +265,13 @@ autocmd MakeAutocmd QuickFixCmdPost lmake call setloclist(
 
 " Section: Custom commands {{{
 " Grep for quickfix list
-command! -nargs=+ -complete=file_in_path Grep cgetexpr utils#grep(<q-args>)
+command! -nargs=+ -complete=file Grep call grep#any('any', <q-args>)
 " Grep word under the cursor
-command! -nargs=0 -bar GrepV execute 'Grep ' . expand('<cword>')
+command! -nargs=1 GrepExact call grep#any('exact', <q-args>)
 " Grep word under the cursor excluding test files
-command! -nargs=0 -bar GrepVT execute "Grep '" . expand('<cword>') . "' -F -g !'{*spec.*,*test.*}'"
+command! -nargs=1 GrepExclude call grep#any('exclude', <q-args>)
 " Manual grep for current buffer
-command! -nargs=1 -bar GrepBuffer execute 'Grep ' . <q-args> . ' ' . expand('%')
-" Last grep
-command! -nargs=0 GrLast execute 'Grep ' . @/ . ' ' . expand('%')
+command! -nargs=1 GrepBuffer call grep#any('buffer', <q-args>)
 
 " Save sessions (force)
 command! -nargs=0 SessionSave call sessions#sessionSave()
@@ -325,10 +323,10 @@ call utils#setupCommandAbbrs('ssl','SessionLoad')
 call utils#setupCommandAbbrs('ssa','SessionSave')
 
 " Grep
-call utils#setupCommandAbbrs('fr','Grep')
-call utils#setupCommandAbbrs('fb','GrepBuffer' )
-call utils#setupCommandAbbrs('fv','GrepV')
-call utils#setupCommandAbbrs('ft','GrepVT')
+call utils#setupCommandAbbrs('sr','Grep')
+call utils#setupCommandAbbrs('sb','GrepBuffer' )
+call utils#setupCommandAbbrs('se','GrepExact')
+call utils#setupCommandAbbrs('st','GrepExclude')
 call utils#setupCommandAbbrs('fd','FdFiles')
 
 " Git

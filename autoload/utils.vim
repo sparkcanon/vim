@@ -1,14 +1,7 @@
 " Purpose: Utility functions for commands
 " Author: Pratik Borde
 
-" Section: Perform the search {{{
-" Source: https://gist.github.com/romainl/56f0c28ef953ffc157f36cc495947ab3#gistcomment-3114427
-function! utils#grep(...) abort
-	return system(join(extend([&grepprg], a:000), ' '))
-endfunction
-" }}}
-
-" Section: Get visual section {{{
+" Desc: Get visual section {{{
 function! utils#getVisualSelection() abort
 	let l:l=getline("'<")
 	let [line1,col1] = getpos("'<")[1:2]
@@ -17,7 +10,7 @@ function! utils#getVisualSelection() abort
 endfunction
 " }}}
 
-" Section: Functions to create abbrs {{{
+" Desc: Functions to create abbrs {{{
 " Params: from - { string } - short custom command
 " Params: to - { string } - Actual command to map to
 function! utils#setupCommandAbbrs(from, to) abort
@@ -27,7 +20,7 @@ function! utils#setupCommandAbbrs(from, to) abort
 endfunction
 " }}}
 
-" Section: Ctags job {{{
+" Desc: Ctags job {{{
 function! utils#RunCtags() abort
 	if finddir('.git', '.;') == ".git"
 		let l:gen_ctags = 'fd tags.lock . --change-older-than 2min -d 1 --no-ignore -x rm {} tags \;
