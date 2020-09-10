@@ -72,7 +72,7 @@ setglobal wildignore+=**/.git/**/*
 setglobal wildignore+=*-lock.json,*.snap
 
 " Set fd error format
-set errorformat^=%f                                      " Efm for fd
+set errorformat+=%f                                      " Efm for fd
 
 " Path options
 setglobal path=.,,**                                     " Standard path
