@@ -341,9 +341,6 @@ call utils#setupCommandAbbrs('gm','Git mergetool')
 " Disable elm from polyglot
 let g:polyglot_disabled = ['elm']
 
-" Load all plugins
-packloadall       " Load all plugins
-
 " Load built-in optional plugins
 packadd! cfilter  " Filter results from qf lists
 packadd! matchit  " Jump to brackets
