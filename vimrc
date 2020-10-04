@@ -125,7 +125,7 @@ inoremap <C-k> <C-x><C-o>
 " Keyword completion
 inoremap <C-n> <C-x><C-n>
 " File name completion
-inoremap <C-f> <C-x><C-f><C-r>=pumvisible() ? "\<lt>Down>\<lt>C-p>\<lt>Down>\<lt>C-p>" : ""<CR>
+inoremap <expr> <C-f> fzf#vim#complete#path('fd')
 " Line completion
 inoremap <C-l> <C-x><C-l>
 " Spell completion
@@ -177,6 +177,7 @@ nnoremap [<C-F> :cpfile<CR>
 nnoremap <BS> <C-^>
 nnoremap ]b :bnext<CR>
 nnoremap [b :bprevious<CR>
+nnoremap <space>b :Buffers<CR>
 
 " Args
 nnoremap ]a :next<CR>
@@ -197,11 +198,7 @@ nnoremap ]<space> o<C-c>
 nnoremap [<space> O<C-c>
 
 " Find
-nnoremap <space>f :find<space>
-nnoremap <space>c :Cfind<space>
-nnoremap <space>s :sfind<space>
-nnoremap <space>v :vert sfind<space>
-nnoremap <space>t :tabfind<space>
+nnoremap <space>f :Files<CR>
 
 " Edit
 nnoremap <space>ee :e <C-R>='%:h/'<CR>
@@ -347,6 +344,9 @@ packadd! matchit  " Jump to brackets
 
 " Disable netrw
 let loaded_netrwPlugin = 1
+
+" Fzf
+set rtp+=/usr/local/opt/fzf
 " }}}
 
 " vim:foldmethod=marker
