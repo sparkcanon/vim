@@ -28,9 +28,6 @@ augroup END
 augroup MakeAutocmd
 	autocmd!
 augroup END
-augroup AltScreen
-	autocmd!
-augroup END
 " }}}
 
 " Section: Syntax {{{
