@@ -136,6 +136,10 @@ nnoremap ,p :ptjump<space><C-R><C-W><CR>
 nnoremap ,j :tjump<space><C-R><C-W><CR>
 nnoremap ,t :tab<space>tjump<space><C-R><C-W><CR>
 nnoremap ,v :vert stjump<space><C-R><C-W><CR>
+nnoremap [t :tNext<CR>
+nnoremap ]t :tprevious<CR>
+nnoremap ]T :tlast<CR>
+nnoremap [T :tfirst<CR>
 
 " Tabs
 nnoremap <Tab> gt
@@ -275,13 +279,8 @@ command! -nargs=1 -complete=custom,sessions#sessionCompletePath
 
 " Yank paths
 " Relative path
-command! -nargs=0 YRelative call yank#yankPath("relative")
-" Full path
-command! -nargs=0 YAbsolute call yank#yankPath("full")
-" Filename
-command! -nargs=0 Yfname call yank#yankPath("filename")
-" Filename
-command! -nargs=0 Ydirectory call yank#yankPath("directory")
+command! -nargs=? -complete=dir YRelative :let @+ = expand("%")
+command! -nargs=? -complete=dir YFilename :let @+ = expand("%:t")
 
 " Dirvish commands
 command! -nargs=? -complete=dir Explore Dirvish <args>
