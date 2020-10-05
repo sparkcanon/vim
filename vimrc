@@ -274,8 +274,10 @@ command! -nargs=1 GrepBuffer call grep#any('buffer', <q-args>)
 " Save sessions (force)
 command! -nargs=0 SessionSave call sessions#sessionSave()
 " Load sessions
-command! -nargs=1 -complete=custom,sessions#sessionCompletePath
-			\ SessionLoad execute 'source $HOME/.vim/tmp/dir_session/<args>'
+command! -nargs=0 SessionLoad call fzf#run({
+			\  'source': 'fd -a --base-directory ~/.vim/tmp/dir_session/',
+			\  'sink': 'so',
+			\  'down': '40%' })
 
 " Yank paths
 " Relative path
