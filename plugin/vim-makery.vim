@@ -46,7 +46,8 @@ let g:makery_config = {
 			\     'Lint': {
 			\        'makeprg': 'vint --style',
 			\        'errorformat': '%f:%l:%c: %m',
-			\      }
+			\      },
+			\     'Tags': { 'makeprg': 'ctags .' },
 			\   }
 			\ }
 " }}}

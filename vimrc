@@ -85,7 +85,7 @@ setglobal directory^=$HOME/.vim/tmp/dir_swap//           " Swap file dir
 setglobal undodir=$HOME/.vim/tmp/dir_undo                " Undo dir
 
 " List chars
-set lcs=trail:·,eol:¬,tab:│\ 
+set listchars=trail:·,eol:¬,tab:│\ 
 set list
 
 " Statusline
@@ -344,7 +344,7 @@ packadd! matchit  " Jump to brackets
 let loaded_netrwPlugin = 1
 
 " Fzf
-set rtp+=/usr/local/opt/fzf
+set runtimepath+=/usr/local/opt/fzf
 " }}}
 
 " vim:foldmethod=marker
