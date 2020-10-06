@@ -30,6 +30,7 @@ let g:lsc_server_commands = {
 				\ },
 				\ 'html': 'html-languageserver --stdio',
 				\ 'css': 'css-languageserver --stdio',
+				\ 'less': 'css-languageserver --stdio',
 				\ 'vim' : {
 				\   'name': 'vim-language-server',
 				\   'command': 'vim-language-server --stdio',
