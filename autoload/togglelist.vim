@@ -25,20 +25,22 @@ function! togglelist#ToggleList(bufname, pfx) abort
 
 	" Check if qf list is empty
 	if a:pfx == 'c' && getqflist()->len() == 0
-		echohl ErrorMsg
 		echo "Quickfix List is Empty"
 		return
 	endif
 
 	" Check if location list is empty
 	if a:pfx == 'l' && getloclist(0)->len() == 0
-		echohl ErrorMsg
 		echo "Location List is Empty"
 		return
 	endif
 
 	let l:winnr = winnr()
-	exec(a:pfx . 'window')
+	if a:pfx == 'c'
+		exec('botright ' . a:pfx . 'window')
+	else
+		exec('belowright ' . a:pfx . 'window')
+	endif
 
 	if winnr() != l:winnr
 		wincmd p

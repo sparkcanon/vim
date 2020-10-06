@@ -1,15 +1,6 @@
 " Purpose: Utility functions for commands
 " Author: Pratik Borde
 
-" Desc: Get visual section {{{
-function! utils#getVisualSelection() abort
-	let l:l=getline("'<")
-	let [line1,col1] = getpos("'<")[1:2]
-	let [line2,col2] = getpos("'>")[1:2]
-	return l:l[col1 - 1: col2 - 1]
-endfunction
-" }}}
-
 " Desc: Functions to create abbrs {{{
 " Params: from - { string } - short custom command
 " Params: to - { string } - Actual command to map to
@@ -60,13 +51,30 @@ endfunction
 
 " Desc: Create new dir if it doesnt exist {{{
 function! utils#mkdir(path) abort
-  if !isdirectory(a:path)
-    let b:path = a:path
-    autocmd MkdirAutocmd BufWritePre <buffer>
-      \ call mkdir(b:path, 'p')
-      \ | unlet b:path
-      \ | autocmd! MkdirAutocmd  * <buffer>
-  endif
+	if !isdirectory(a:path)
+		let b:path = a:path
+		autocmd MkdirAutocmd BufWritePre <buffer>
+					\ call mkdir(b:path, 'p')
+					\ | unlet b:path
+					\ | autocmd! MkdirAutocmd  * <buffer>
+	endif
+endfunction
+" }}}
+
+" Desc: List jest tests and run selected {{{
+function utils#jestList() abort
+	if utils#isProject('lego-web')
+		call fzf#run({
+					\ 'source': './node_modules/.bin/jest --listTests',
+					\ 'sink': 'term ./node_modules/.bin/jest --watch',
+					\ 'dir': '~/Documents/work_projects/tesco/lego-web/web/',
+					\ 'down': '20%' })
+	else
+		call fzf#run({
+					\ 'source': './node_modules/.bin/jest --listTests',
+					\ 'sink': 'term ./node_modules/.bin/jest --watch',
+					\ 'down': '20%' })
+	endif
 endfunction
 " }}}
 

@@ -170,8 +170,7 @@ nnoremap ]a :next<CR>
 nnoremap [a :previous<CR>
 
 " Substitute
-nnoremap <Bslash>s :%s/\v<<C-r><C-w>>/
-xnoremap <Bslash>s <Esc>:%s/<C-R><C-R>=utils#getVisualSelection()<CR>/
+nnoremap <Bslash>s :%s//
 
 " Global
 nnoremap <Bslash>g :g//#<Left><Left>
@@ -281,11 +280,7 @@ command! -nargs=* -bang -range Tabularize packadd tabular <bar> Tabularize <args
 command! -nargs=0 Npm call npm#scripts()
 
 " List of jest tests
-command! -nargs=0 JestList call fzf#run({
-			\ 'source': './node_modules/.bin/jest --listTests',
-			\ 'sink': 'term ./node_modules/.bin/jest --watch',
-			\ 'dir': '~/Documents/work_projects/tesco/lego-web/web/',
-			\ 'down': '20%' })
+command! -nargs=0 JestList call utils#jestList()
 " }}}
 
 " Section: Custom abbr {{{
