@@ -254,7 +254,7 @@ command! -nargs=0 SessionSave call sessions#sessionSave()
 command! -nargs=0 SessionLoad call fzf#run({
 			\  'source': 'fd -a --base-directory ~/.vim/tmp/dir_session/',
 			\  'sink': 'so',
-			\  'down': '40%' })
+			\  'down': '20%' })
 
 " Yank paths
 " Relative path
@@ -285,7 +285,7 @@ command! -nargs=0 JestList call fzf#run({
 			\ 'source': './node_modules/.bin/jest --listTests',
 			\ 'sink': 'term ./node_modules/.bin/jest --watch',
 			\ 'dir': '~/Documents/work_projects/tesco/lego-web/web/',
-			\ 'down': '40%' })
+			\ 'down': '20%' })
 " }}}
 
 " Section: Custom abbr {{{
