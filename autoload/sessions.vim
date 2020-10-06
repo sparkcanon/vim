@@ -9,10 +9,4 @@ function! sessions#sessionSave() abort
 endfunction
 " }}}
 
-" Desc: Complete path for save command {{{
-function! sessions#sessionCompletePath(A,L,P) abort
-	return system("fd . --base-directory /Users/praborde/.vim/tmp/dir_session/")
-endfunction
-" }}}
-
 " vim:foldmethod=marker

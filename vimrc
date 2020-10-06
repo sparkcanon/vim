@@ -276,6 +276,9 @@ command! -nargs=* FdFiles cgetexpr system('fd -g "' . <q-args> . '" -E "*.snap" 
 
 " Load tabular and align
 command! -nargs=* -bang -range Tabularize packadd tabular <bar> Tabularize <args>
+
+" Npm scripts
+command! -nargs=0 Npm call npm#scripts()
 " }}}
 
 " Section: Custom abbr {{{
