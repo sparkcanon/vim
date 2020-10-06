@@ -1,5 +1,6 @@
 " Purpose: Makery set up
 
+" Eslint stylish efm
 let s:eslint_efm = '%-P%f,%\\s%#%l:%c\ %#\ %trror\ \ %m,%\\s%#%l:%c\ %#\ %tarning\ \ %m,%-Q,%-G%.%#,'
 
 " Desc: Makery config global {{{
@@ -52,7 +53,7 @@ let g:makery_config = {
 			\ }
 " }}}
 
-finish
+finish " {{{
 " Lesshint stylish error sample
 /Users/praborde/Documents/work_projects/tesco/lego-web/web/components/products/product-tile/carousel-tile/small.less
 21:3  warning  Property ordering is not alphabetized                          propertyOrdering
@@ -66,5 +67,6 @@ finish
 /Users/praborde/Documents/work_projects/tesco/lego-web/web/lib/requests/get-tesco-recommendations.js
 2:35  error  Replace `'../recommender-helpers'` with `'../recommender-helpers'`                                          prettier/prettier
 8:8   error  Replace `'./helpers/get-tesco-recommendations-helper'` with `'./helpers/get-tesco-recommendations-helper'`  prettier/prettier
+" }}}
 
 " vim:foldmethod=marker

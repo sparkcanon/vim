@@ -13,21 +13,6 @@
 augroup GeneralAutocmds
 	autocmd!
 augroup END
-augroup FileTypeAutocmd
-	autocmd!
-augroup END
-augroup MarksAutocmd
-	autocmd!
-augroup END
-augroup ColorsAutocmd
-	autocmd!
-augroup END
-augroup MkdirAutocmd
-	autocmd!
-augroup END
-augroup MakeAutocmd
-	autocmd!
-augroup END
 " }}}
 
 " Section: Syntax {{{
@@ -189,7 +174,7 @@ nnoremap <Bslash>s :%s/\v<<C-r><C-w>>/
 xnoremap <Bslash>s <Esc>:%s/<C-R><C-R>=utils#getVisualSelection()<CR>/
 
 " Global
-nnoremap <Bslash>g :g/\<\>/#<Left><Left><Left><Left>
+nnoremap <Bslash>g :g//#<Left><Left>
 
 " Lists
 cnoremap <expr> <CR> listcommands#CR()
@@ -209,10 +194,10 @@ nnoremap <space>es :sp <C-R>='%:h/'<CR>
 
 " Section: Colors {{{
 " Modify buffer colors
-autocmd ColorsAutocmd ColorScheme * call colors#modifyBufferColors()
+autocmd GeneralAutocmds ColorScheme * call colors#modifyBufferColors()
 
 " Highlights git diff markers
-autocmd ColorsAutocmd ColorScheme * match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
+autocmd GeneralAutocmds ColorScheme * match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
 " For some color schemes set termguicolors and for some others set t_Co=256
 set termguicolors
@@ -226,7 +211,7 @@ autocmd GeneralAutocmds CompleteDone * silent! pclose
 autocmd GeneralAutocmds CursorMoved * silent! pclose
 
 " Create a new dir if it doesnt exists
-autocmd MkdirAutocmd BufNewFile * call utils#mkdir(expand('<afile>:p:h'))
+autocmd GeneralAutocmds BufNewFile * call utils#mkdir(expand('<afile>:p:h'))
 
 " Auto-resize splits when Vim gets resized.
 autocmd GeneralAutocmds VimResized * wincmd =
@@ -240,21 +225,13 @@ autocmd GeneralAutocmds BufEnter,BufAdd * call path_job#setProjectPath()
 " Run ctags as a job
 autocmd GeneralAutocmds BufWritePost * call utils#RunCtags()
 
-" Leave marks on BufLeave
-autocmd MarksAutocmd BufLeave *.css,*.scss,*.less normal! mC
-autocmd MarksAutocmd BufLeave *.html              normal! mH
-autocmd MarksAutocmd BufLeave *.js,*.ts,*.tsx     normal! mJ
-autocmd MarksAutocmd BufLeave *.yml,*.yaml        normal! mY
-autocmd MarksAutocmd BufLeave .env*               normal! mE
-autocmd MarksAutocmd BufLeave *.md                normal! mM
-
 " Set up format prg
-autocmd FileTypeAutocmd FileType javascript,typescript,typescriptreact,json,less,css call format#formatprg()
+autocmd GeneralAutocmds FileType javascript,typescript,typescriptreact,json,less,css call format#formatprg()
 
 " Make autocmds
-autocmd MakeAutocmd QuickFixCmdPre  lmake wall
-autocmd MakeAutocmd QuickFixCmdPre  lmake * call utils#RunCtags()
-autocmd MakeAutocmd QuickFixCmdPost lmake call setloclist(
+autocmd GeneralAutocmds QuickFixCmdPre  lmake wall
+autocmd GeneralAutocmds QuickFixCmdPre  lmake * call utils#RunCtags()
+autocmd GeneralAutocmds QuickFixCmdPost lmake call setloclist(
 			\ bufnr(), 
 			\ filter(getloclist(bufnr()), 
 			\ "v:val['valid']"), 'r'
@@ -296,6 +273,9 @@ command! -nargs=* -complete=file -bar Test call make#runMakery('Test', <f-args>)
 
 " Find files and add to quickfix list
 command! -nargs=* FdFiles cgetexpr system('fd -g "' . <q-args> . '" -E "*.snap" -E "test"')
+
+" Load tabular and align
+command! -nargs=* -bang -range Tabularize packadd tabular <bar> Tabularize <args>
 " }}}
 
 " Section: Custom abbr {{{
@@ -335,6 +315,10 @@ call utils#setupCommandAbbrs('gm','Git mergetool')
 " Section: Plugins && related setup {{{
 " Disable elm from polyglot
 let g:polyglot_disabled = ['elm']
+
+" Load external lugins
+packadd! vim-lsc
+packadd! vim-polyglot
 
 " Load built-in optional plugins
 packadd! cfilter  " Filter results from qf lists
