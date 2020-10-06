@@ -65,7 +65,7 @@ endfunction
 function utils#jestList() abort
 	if utils#isProject('lego-web')
 		call fzf#run({
-					\ 'source': './node_modules/.bin/jest --listTests',
+					\ 'source': "fd -g {'*.test.*,*-test.*'} --base-directory ~/Documents/work_projects/tesco/lego-web/web/",
 					\ 'sink': 'term ./node_modules/.bin/jest --watch',
 					\ 'dir': '~/Documents/work_projects/tesco/lego-web/web/',
 					\ 'down': '20%' })
