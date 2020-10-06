@@ -279,6 +279,13 @@ command! -nargs=* -bang -range Tabularize packadd tabular <bar> Tabularize <args
 
 " Npm scripts
 command! -nargs=0 Npm call npm#scripts()
+
+" List of jest tests
+command! -nargs=0 JestList call fzf#run({
+			\ 'source': './node_modules/.bin/jest --listTests',
+			\ 'sink': 'term ./node_modules/.bin/jest --watch',
+			\ 'dir': '~/Documents/work_projects/tesco/lego-web/web/',
+			\ 'down': '40%' })
 " }}}
 
 " Section: Custom abbr {{{
