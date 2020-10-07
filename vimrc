@@ -208,6 +208,13 @@ colorscheme iceberg " Set color scheme after setting buffer colors
 autocmd GeneralAutocmds CompleteDone * silent! pclose
 autocmd GeneralAutocmds CursorMoved * silent! pclose
 
+" Opens fugitive, man, help vertically if space available
+autocmd GeneralAutocmds WinNew * au BufEnter * ++once
+			\ if (&bt ==? 'help' || &ft ==? 'man' || &ft ==? 'fugitive')
+			\     && winwidth(winnr('#')) >= 180 |
+			\ exe 'wincmd ' . (&splitright ? 'L' : 'H') |
+			\ endif
+
 " Create a new dir if it doesnt exists
 autocmd GeneralAutocmds BufNewFile * call utils#mkdir(expand('<afile>:p:h'))
 
