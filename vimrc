@@ -16,8 +16,6 @@ augroup END
 " }}}
 
 " Section: Syntax {{{
-let g:polyglot_disabled = ['elm'] " Disable elm from polyglot
-packadd! vim-polyglot | runtime! ftdetect/polyglot.vim " TODO: Remove this soon
 filetype plugin indent on
 syntax enable
 " }}}

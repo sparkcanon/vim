@@ -37,12 +37,15 @@
 [submodule "pack/main/start/fzf.vim"]
 	path = pack/main/start/fzf.vim
 	url = https://github.com/junegunn/fzf.vim
-[submodule "pack/main/opt/vim-polyglot"]
-	path = pack/main/opt/vim-polyglot
-	url = https://github.com/sheerun/vim-polyglot
 [submodule "pack/main/opt/vim-lsc"]
 	path = pack/main/opt/vim-lsc
 	url = https://github.com/natebosch/vim-lsc
 [submodule "pack/main/opt/tabular"]
 	path = pack/main/opt/tabular
 	url = https://github.com/godlygeek/tabular
+[submodule "pack/main/opt/vim-jsx-pretty"]
+	path = pack/main/opt/vim-jsx-pretty
+	url = https://github.com/MaxMEllon/vim-jsx-pretty
+[submodule "pack/main/opt/vim-fish"]
+	path = pack/main/opt/vim-fish
+	url = https://github.com/dag/vim-fish
