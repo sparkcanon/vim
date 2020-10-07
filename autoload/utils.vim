@@ -62,7 +62,7 @@ endfunction
 " }}}
 
 " Desc: List jest tests and run selected {{{
-function utils#jestList() abort
+function! utils#jestList() abort
 	if utils#isProject('lego-web')
 		call fzf#run({
 					\ 'source': "fd -g {'*.test.*,*-test.*'} --base-directory ~/Documents/work_projects/tesco/lego-web/web/",
