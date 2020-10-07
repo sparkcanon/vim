@@ -16,6 +16,8 @@ augroup END
 " }}}
 
 " Section: Syntax {{{
+let g:polyglot_disabled = ['elm'] " Disable elm from polyglot
+packadd! vim-polyglot | runtime! ftdetect/polyglot.vim " TODO: Remove this soon
 filetype plugin indent on
 syntax enable
 " }}}
@@ -319,12 +321,8 @@ call utils#setupCommandAbbrs('gm','Git mergetool')
 " }}}
 
 " Section: Plugins && related setup {{{
-" Disable elm from polyglot
-let g:polyglot_disabled = ['elm']
-
 " Load external lugins
 packadd! vim-lsc
-packadd! vim-polyglot
 
 " Load built-in optional plugins
 packadd! cfilter  " Filter results from qf lists
