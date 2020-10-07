@@ -221,14 +221,13 @@ autocmd GeneralAutocmds VimLeavePre * call sessions#sessionSave()
 autocmd GeneralAutocmds BufEnter,BufAdd * call path_job#setProjectPath()
 
 " Run ctags as a job
-autocmd GeneralAutocmds BufWritePost * call utils#RunCtags()
+autocmd GeneralAutocmds BufWritePost * call ctags#runner()
 
 " Set up format prg
 autocmd GeneralAutocmds FileType javascript,typescript,typescriptreact,json,less,css call format#formatprg()
 
 " Make autocmds
 autocmd GeneralAutocmds QuickFixCmdPre  lmake wall
-autocmd GeneralAutocmds QuickFixCmdPre  lmake * call utils#RunCtags()
 autocmd GeneralAutocmds QuickFixCmdPost lmake call setloclist(
 			\ bufnr(), 
 			\ filter(getloclist(bufnr()), 
@@ -283,7 +282,7 @@ command! -nargs=* -bang -range Tabularize packadd tabular <bar> Tabularize <args
 command! -nargs=0 Npm call npm#scripts()
 
 " List of jest tests
-command! -nargs=0 JestList call utils#jestList()
+command! -nargs=0 JestList call jest#list()
 " }}}
 
 " Section: Custom abbr {{{
