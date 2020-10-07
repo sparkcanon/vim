@@ -73,10 +73,9 @@ setglobal undodir=$HOME/.vim/tmp/dir_undo                " Undo dir
 set listchars=trail:·,eol:¬,tab:│\ 
 set list
 
-" Statusline
-set laststatus=0                                         " Dont display statusline
-set ruler                                                " Display ruler
-set rulerformat=%45(%t%m\ ❯\ %l,%c%V%=%P%)               " Display filename in ruler
+" Ruler
+set laststatus=0
+set ruler
 
 " Grepprg & grepformat
 if executable('rg')
@@ -235,6 +234,9 @@ autocmd GeneralAutocmds QuickFixCmdPost lmake call setloclist(
 			\ filter(getloclist(bufnr()), 
 			\ "v:val['valid']"), 'r'
 			\ )
+
+" Auto Open quick fix list
+autocmd GeneralAutocmds QuickFixCmdPost cgetexpr cwindow
 " }}}
 
 " Section: Custom commands {{{
