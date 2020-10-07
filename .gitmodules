@@ -49,3 +49,9 @@
 [submodule "pack/main/opt/vim-fish"]
 	path = pack/main/opt/vim-fish
 	url = https://github.com/dag/vim-fish
+[submodule "pack/main/opt/vim-javascript"]
+	path = pack/main/opt/vim-javascript
+	url = https://github.com/pangloss/vim-javascript
+[submodule "pack/main/opt/yats.vim"]
+	path = pack/main/opt/yats.vim
+	url = https://github.com/HerringtonDarkholme/yats.vim
