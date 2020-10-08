@@ -262,7 +262,7 @@ command! -nargs=0 SessionLoad call fzf#run({
 			\  'source': 'fd .',
 			\  'sink': 'so',
 			\  'dir': '~/.vim/tmp/dir_session',
-			\  'down': '20%' })
+			\  'tmux': '-d20%' })
 
 " Yank paths
 " Relative path
@@ -344,6 +344,9 @@ packadd! matchit  " Jump to brackets
 let loaded_netrwPlugin = 1
 
 " Fzf
+if exists('$TMUX')
+  let g:fzf_layout = { 'tmux': '-d30%' }
+endif
 set runtimepath+=/usr/local/opt/fzf
 " }}}
 

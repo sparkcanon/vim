@@ -13,8 +13,7 @@ function! git#stash() abort
 				\ 'source': 'git stash list',
 				\ 'sink': function('s:GitStashActions'),
 				\ 'options': '--expect=ctrl-s,ctrl-d,ctrl-a',
-				\ 'down': '35%'
-				\ })
+				\ 'tmux': '-d20%' })
 endfunction
 " }}}
 
@@ -29,8 +28,7 @@ function! git#checkout() abort
 	call fzf#run({
 				\ 'source': 'git branch --all | grep -v HEAD',
 				\ 'sink': function('s:GitCheckoutAction'),
-				\ 'down': '35%'
-				\ })
+				\ 'tmux': '-d20%' })
 endfunction
 " }}}
 

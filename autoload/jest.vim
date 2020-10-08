@@ -7,12 +7,12 @@ function! jest#list() abort
 					\ 'source': "fd -g {'*.test.*,*-test.*'} --base-directory ~/Documents/work_projects/tesco/lego-web/web/",
 					\ 'sink': 'term ./node_modules/.bin/jest --watch',
 					\ 'dir': '~/Documents/work_projects/tesco/lego-web/web/',
-					\ 'down': '20%' })
+					\ 'tmux': '-d20%' })
 	else
 		call fzf#run({
 					\ 'source': './node_modules/.bin/jest --listTests',
 					\ 'sink': 'term ./node_modules/.bin/jest --watch',
-					\ 'down': '20%' })
+					\ 'tmux': '-d20%' })
 	endif
 endfunction
 " }}}
