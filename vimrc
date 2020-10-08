@@ -293,6 +293,7 @@ command! -nargs=0 JestList call jest#list()
 
 " Git
 command! -nargs=0 GitStash call git#stash()
+command! -nargs=0 GitCheckout call git#checkout()
 " }}}
 
 " Section: Custom abbr {{{
@@ -328,6 +329,7 @@ call utils#setupCommandAbbrs('gl','Git pull')
 call utils#setupCommandAbbrs('gd','Git difftool')
 call utils#setupCommandAbbrs('gm','Git mergetool')
 call utils#setupCommandAbbrs('gs','GitStash')
+call utils#setupCommandAbbrs('gc','GitCheckout')
 " }}}
 
 " Section: Plugins && related setup {{{
