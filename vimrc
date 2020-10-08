@@ -290,6 +290,9 @@ command! -nargs=0 Npm call npm#scripts()
 
 " List of jest tests
 command! -nargs=0 JestList call jest#list()
+
+" Git
+command! -nargs=0 GitStash call git#stash()
 " }}}
 
 " Section: Custom abbr {{{
@@ -324,6 +327,7 @@ call utils#setupCommandAbbrs('gp','!git push')
 call utils#setupCommandAbbrs('gl','Git pull')
 call utils#setupCommandAbbrs('gd','Git difftool')
 call utils#setupCommandAbbrs('gm','Git mergetool')
+call utils#setupCommandAbbrs('gs','GitStash')
 " }}}
 
 " Section: Plugins && related setup {{{
