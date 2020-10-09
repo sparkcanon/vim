@@ -231,7 +231,7 @@ autocmd GeneralAutocmds BufEnter,BufAdd * call path_job#setProjectPath()
 autocmd GeneralAutocmds BufWritePost * call ctags#runner()
 
 " Set up format prg
-autocmd GeneralAutocmds FileType javascript,typescript,typescriptreact,json,less,css call format#formatprg()
+autocmd GeneralAutocmds FileType javascript,javascriptreact,typescript,typescriptreact,json,less,css call format#formatprg()
 
 " Make autocmds
 autocmd GeneralAutocmds QuickFixCmdPre  lmake wall
