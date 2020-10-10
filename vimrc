@@ -294,6 +294,9 @@ command! -nargs=0 JestList call jest#list()
 " Git
 command! -nargs=0 GitStash call git#stash()
 command! -nargs=0 GitCheckout call git#checkout()
+
+" Colors
+command! -nargs=0 ColorsKitty call colors#Kitty()
 " }}}
 
 " Section: Custom abbr {{{
