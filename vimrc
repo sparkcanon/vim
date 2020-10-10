@@ -344,7 +344,7 @@ packadd! cfilter  " Filter results from qf lists
 packadd! matchit  " Jump to brackets
 
 " Disable netrw
-let loaded_netrwPlugin = 1
+let g:loaded_netrwPlugin = 1
 
 " Fzf
 if exists('$TMUX')
