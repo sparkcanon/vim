@@ -26,9 +26,11 @@ function! s:extract(hi, type) abort
 endfunction
 " }}}
 
+" Desc: insert in colors list {{{
 function! s:KeyValue(key,val)
 	call insert(s:colors, 'color' . a:key . ' ' . a:val)
 endfunction
+" }}}
 
 " Desc: Write to kitty file {{{
 function colors#Kitty() abort
