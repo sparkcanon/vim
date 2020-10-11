@@ -41,15 +41,6 @@ let g:lsc_server_commands = {
 				\      },
 				\  'supress_stderr': v:true,
 				\   },
-				\ 'reason': { 
-					\	'command': '/Users/praborde/Documents/playground/rls-macos/reason-language-server',
-					\ 'supress_stderr': v:true
-				\ 	},
-				\ 'elm': {
-					\	'command': 'elm-language-server',
-					\ 'log_level': -1,
-					\	'supress_stderr': v:true
-				\ }
 			\ }
 " }}}
 
