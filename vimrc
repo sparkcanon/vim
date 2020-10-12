@@ -36,6 +36,8 @@ setglobal wrap                                           " Wrap long lines
 setglobal autoindent                                     " Minimal auto indenting for any filetype
 setglobal clipboard^=unnamed                             " Set clipboard options
 set mouse=a                                              " Allow mouse interactions
+set cursorcolumn
+set cursorline
 
 " Splits
 setglobal splitbelow                                     " Split window opens below
@@ -106,7 +108,7 @@ inoremap <C-k> <C-x><C-o>
 " Keyword completion
 inoremap <C-n> <C-x><C-n>
 " File name completion
-inoremap <expr> <C-f> fzf#vim#complete#path('fd')
+inoremap <C-f> <C-x><C-f>
 " Line completion
 inoremap <C-l> <C-x><C-l>
 " Spell completion
@@ -162,7 +164,7 @@ nnoremap [<C-F> :cpfile<CR>
 nnoremap <BS> <C-^>
 nnoremap ]b :bnext<CR>
 nnoremap [b :bprevious<CR>
-nnoremap <space>b :Buffers<CR>
+nnoremap <space>b :call buffer#picker()<CR>
 
 " Args
 nnoremap ]a :next<CR>
@@ -182,7 +184,10 @@ nnoremap ]<space> o<C-c>
 nnoremap [<space> O<C-c>
 
 " Find
-nnoremap <space>f :Files<CR>
+nnoremap <space>f :find<space>
+nnoremap <space>s :sfind<space>
+nnoremap <space>v :vert sfind<space>
+nnoremap <space>t :tabfind<space>
 
 " Edit
 nnoremap <space>ee :e <C-R>='%:h/'<CR>
@@ -258,11 +263,7 @@ command! -nargs=1 GrepBuffer call grep#any('buffer', <q-args>)
 " Save sessions (force)
 command! -nargs=0 SessionSave call sessions#sessionSave()
 " Load sessions
-command! -nargs=0 SessionLoad call fzf#run({
-			\  'source': 'fd .',
-			\  'sink': 'so',
-			\  'dir': '~/.vim/tmp/dir_session',
-			\  'tmux': '-d20%' })
+command! -nargs=0 SessionLoad call sessions#picker()
 
 " Yank paths
 " Relative path
@@ -279,24 +280,18 @@ command! -nargs=* -complete=file -bar Lint call make#runMakery('Lint', <f-args>)
 command! -nargs=* -complete=file -bar Fix call make#runMakery('Fix', <f-args>)
 command! -nargs=* -complete=file -bar Test call make#runMakery('Test', <f-args>)
 
-" Find files and add to quickfix list
-command! -nargs=* FdFiles cgetexpr system('fd -g "' . <q-args> . '" -E "*.snap" -E "test"')
-
 " Load tabular and align
 command! -nargs=* -bang -range Tabularize packadd tabular <bar> Tabularize <args>
 
 " Npm scripts
-command! -nargs=0 Npm call npm#scripts()
+command! -nargs=0 Npm call npm#picker()
 
 " List of jest tests
-command! -nargs=0 JestList call jest#list()
-
-" Git
-command! -nargs=0 GitStash call git#stash()
-command! -nargs=0 GitCheckout call git#checkout()
+command! -nargs=0 JestList call jest#picker()
 
 " Colors
 command! -nargs=0 ColorsKitty call colors#Kitty()
+command! -nargs=0 Colors call colors#picker()
 " }}}
 
 " Section: Custom abbr {{{
@@ -345,12 +340,6 @@ packadd! matchit  " Jump to brackets
 
 " Disable netrw
 let g:loaded_netrwPlugin = 1
-
-" Fzf
-if exists('$TMUX')
-  let g:fzf_layout = { 'tmux': '-d30%' }
-endif
-set runtimepath+=/usr/local/opt/fzf
 " }}}
 
 " vim:foldmethod=marker

@@ -9,4 +9,20 @@ function! sessions#sessionSave() abort
 endfunction
 " }}}
 
+" Desc: init {{{
+function! sessions#picker() abort
+	let l:items = systemlist('fd . --base-directory /Users/praborde/.vim/tmp/dir_session/')
+  call quickpick#open({
+    \ 'items': l:items,
+    \ 'on_accept': function('s:on_accept'),
+    \ })
+endfunction
+
+" Desc: On color picker accept selection
+function! s:on_accept(data, ...) abort
+  call quickpick#close()
+  execute 'source ~/.vim/tmp/dir_session/' . a:data['items'][0]
+endfunction
+" }}}
+
 " vim:foldmethod=marker

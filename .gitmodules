@@ -34,9 +34,6 @@
 [submodule "pack/main/start/CommandlineComplete.vim"]
 	path = pack/main/start/CommandlineComplete.vim
 	url = https://github.com/j5shi/CommandlineComplete.vim
-[submodule "pack/main/start/fzf.vim"]
-	path = pack/main/start/fzf.vim
-	url = https://github.com/junegunn/fzf.vim
 [submodule "pack/main/opt/vim-lsc"]
 	path = pack/main/opt/vim-lsc
 	url = https://github.com/natebosch/vim-lsc
@@ -55,3 +52,6 @@
 [submodule "pack/main/opt/yats.vim"]
 	path = pack/main/opt/yats.vim
 	url = https://github.com/HerringtonDarkholme/yats.vim
+[submodule "pack/main/start/quickpick.vim"]
+	path = pack/main/start/quickpick.vim
+	url = https://github.com/prabirshrestha/quickpick.vim
