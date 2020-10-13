@@ -1,5 +1,4 @@
 " Purpose: General purpose path setup using fd for various projects
-" Author: Pratik Borde
 
 " Desc: Fd job to set dirsPath {{{
 function! path_job#setProjectPath() abort

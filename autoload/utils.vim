@@ -1,5 +1,4 @@
 " Purpose: Utility functions for commands
-" Author: Pratik Borde
 
 " Desc: Functions to create abbrs {{{
 " Params: from - { string } - short custom command
