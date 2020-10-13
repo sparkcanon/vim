@@ -16,8 +16,6 @@ function! path_job#setProjectPath() abort
 				\ '-E', 'eslint/',
 				\ '-E', '__mocks__/',
 				\ '-E', 'tests_utils/',
-				\ '-E', 'bin/',
-				\ '-E', 'eslint/',
 				\ '-E', 'docs/',
 				\ '-E', 'backstop_data/',
 				\ '-E', 'pack/'
