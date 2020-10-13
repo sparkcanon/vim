@@ -292,6 +292,9 @@ command! -nargs=0 JestList call jest#picker()
 " Colors
 command! -nargs=0 ColorsKitty call colors#Kitty()
 command! -nargs=0 Colors call colors#picker()
+
+" Files
+command! -nargs=0 Files call files#picker()
 " }}}
 
 " Section: Custom abbr {{{
