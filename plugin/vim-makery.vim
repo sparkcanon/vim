@@ -7,20 +7,20 @@ let s:eslint_efm = '%-P%f,%\\s%#%l:%c\ %#\ %trror\ \ %m,%\\s%#%l:%c\ %#\ %tarnin
 let g:makery_config = {
 			\   '~/Documents/work_projects/tesco/lego-web/': {
 			\     'Lint': { 
-			\         'makeprg': './node_modules/.bin/eslint --format stylish',
+			\         'makeprg': 'npx eslint --format stylish',
 			\         'errorformat': s:eslint_efm,
 			\     },
 			\     'Fix': {
-			\         'makeprg': './node_modules/.bin/eslint --fix',
+			\         'makeprg': 'npx eslint --fix',
 			\         'errorformat': s:eslint_efm,
 			\     },
 			\     'Tags': { 'makeprg': 'ctags .' },
 			\     'Test': {
-			\         'makeprg': './node_modules/.bin/jest',
+			\         'makeprg': './web/node_modules/.bin/jest',
 			\         'errorformat': '%-G%[%^\ ]%.%#,%-G%.%#Test\ suite\ failed\ to\ run,%E%.%#SyntaxError:\ %f:\ %m\ (%l:%c),%E%.%#●\ %m,%Z%.%#at\ %.%#\ (%f:%l:%c),%C%.%#,%-G%.%#',
 			\     },
 			\     'Tsc': {
-			\         'makeprg': './node_modules/.bin/tsc --noEmit --jsx react',
+			\         'makeprg': 'npx tsc --noEmit --jsx react',
 			\         'errorformat': '%E%f\ %#(%l\\,%c):\ %trror\ TS%n:\ %m,%W%f\ %#(%l\\,%c):\ %tarning\ TS%n:\ %m,',
 			\     },
 			\     'Less' : {
@@ -30,16 +30,16 @@ let g:makery_config = {
 			\   },
 			\   '~/Documents/work_projects/tesco/peas/': {
 			\     'Lint': { 
-			\         'makeprg': './node_modules/.bin/eslint --format stylish',
+			\         'makeprg': 'npx eslint --format stylish',
 			\         'errorformat': s:eslint_efm, 
 			\     },
 			\     'Fix': {
-			\         'makeprg': './node_modules/.bin/eslint --fix',
+			\         'makeprg': 'npx eslint --fix',
 			\         'errorformat': s:eslint_efm, 
 			\     },
 			\     'Tags': { 'makeprg': 'ctags .' },
 			\     'Test': {
-			\         'makeprg': './node_modules/.bin/jest',
+			\         'makeprg': 'npx jest',
 			\         'errorformat': '%-G%[%^\ ]%.%#,%-G%.%#Test\ suite\ failed\ to\ run,%E%.%#SyntaxError:\ %f:\ %m\ (%l:%c),%E%.%#●\ %m,%Z%.%#at\ %.%#\ (%f:%l:%c),%C%.%#,%-G%.%#' 
 			\      },
 			\   },

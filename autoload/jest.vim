@@ -20,7 +20,7 @@ endfunction
 " Desc: On accept event
 function! s:on_accept(data, ...) abort
 	call quickpick#close()
-	execute 'term fish -c "cd web && node_modules/.bin/jest --watch ' . a:data['items'][0]
+	execute 'term fish -c "cd web && npx jest --watch ' . a:data['items'][0]
 endfunction
 " }}}
 

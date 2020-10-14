@@ -55,3 +55,6 @@
 [submodule "pack/main/start/quickpick.vim"]
 	path = pack/main/start/quickpick.vim
 	url = https://github.com/prabirshrestha/quickpick.vim
+[submodule "pack/main/start/context.vim"]
+	path = pack/main/start/context.vim
+	url = https://github.com/wellle/context.vim

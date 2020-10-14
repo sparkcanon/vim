@@ -4,7 +4,7 @@
 function! format#formatprg() abort
 
 	if findfile('prettier', 'node_modules/.bin/') == 'node_modules/.bin/prettier'
-		let l:fmt_prettier = 'node_modules/.bin/prettier'
+		let l:fmt_prettier = 'npx prettier'
 	elseif executable('prettier')
 		let l:fmt_prettier = 'prettier'
 	endif
