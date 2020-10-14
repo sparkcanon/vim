@@ -13,7 +13,7 @@ function! npm#picker() abort
 						\ })
 		endif
 	else
-		echo "No package.json found"
+		echo "Error: Package.json not found"
 	endif
 endfunction
 

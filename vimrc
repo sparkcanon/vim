@@ -247,7 +247,7 @@ autocmd GeneralAutocmds QuickFixCmdPost lmake call setloclist(
 			\ )
 
 " Auto Open quick fix list
-autocmd GeneralAutocmds QuickFixCmdPost cgetexpr cwindow
+autocmd GeneralAutocmds QuickFixCmdPost cgetexpr botright cwindow
 " }}}
 
 " Section: Custom commands {{{
