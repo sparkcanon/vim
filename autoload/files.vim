@@ -2,7 +2,7 @@
 
 " Desc: Fuzzy search files in project {{{
 function! files#picker() abort
-	let l:items = systemlist('fd -E "*.snap" -E test/ -E bin/ -E eslint/ -E tests_utils/ -E docs/ -E backstop_data/ -E pack/ -E __mocks__/')
+	let l:items = systemlist('fd -t f -E "*.snap" -E test/ -E bin/ -E eslint/ -E tests_utils/ -E docs/ -E backstop_data/ -E pack/ -E __mocks__/')
 	call quickpick#open({
 				\ 'items': l:items,
 				\ 'on_accept': function('s:on_accept'),
