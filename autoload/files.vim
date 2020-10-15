@@ -15,22 +15,22 @@ endfunction
 " Desc: On accept event
 function! s:on_accept(data, ...) abort
 	call quickpick#close()
-	execute 'e ' . a:data['items'][0]
+	execute 'e ' . a:data['items']
 endfunction
 
 function! s:on_vsplit(data, ...) abort
   call quickpick#close()
-	execute 'vsp ' . a:data['items'][0]
+	execute 'vsp ' . a:data['items']
 endfunction
 
 function! s:on_split(data, ...) abort
   call quickpick#close()
-	execute 'split ' . a:data['items'][0]
+	execute 'split ' . a:data['items']
 endfunction
 
 function! s:on_tabnew(data, ...) abort
   call quickpick#close()
-	execute 'tabnew ' . a:data['items'][0]
+	execute 'tabnew ' . a:data['items']
 endfunction
 " }}}
 

@@ -20,22 +20,22 @@ endfunction
 
 function! s:on_vsplit(data, ...) abort
   call quickpick#close()
-	execute 'vsp ' . a:data['items'][0]
+	execute 'vsp ' . a:data['items']
 endfunction
 
 function! s:on_split(data, ...) abort
   call quickpick#close()
-	execute 'split ' . a:data['items'][0]
+	execute 'split ' . a:data['items']
 endfunction
 
 function! s:on_tabnew(data, ...) abort
   call quickpick#close()
-	execute 'tab sbuffer ' . a:data['items'][0]
+	execute 'tab sbuffer ' . a:data['items']
 endfunction
 
 function! s:on_bufdel(data, ...) abort
   call quickpick#close()
-	execute 'bdelete ' . a:data['items'][0]
+	execute 'bdelete ' . a:data['items']
 endfunction
 " }}}
 
