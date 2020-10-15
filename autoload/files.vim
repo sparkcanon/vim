@@ -30,7 +30,7 @@ endfunction
 
 function! s:on_tabnew(data, ...) abort
   call quickpick#close()
-	execute 'tab sbuffer ' . a:data['items'][0]
+	execute 'tabnew ' . a:data['items'][0]
 endfunction
 " }}}
 
