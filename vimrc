@@ -235,6 +235,9 @@ autocmd GeneralAutocmds BufEnter,BufAdd * call path_job#setProjectPath()
 " Run ctags as a job
 autocmd GeneralAutocmds BufWritePost * call ctags#runner()
 
+" Disable context
+autocmd GeneralAutocmds TerminalWinOpen * execute 'ContextDisableWindow'
+
 " Set up format prg
 autocmd GeneralAutocmds FileType javascript,javascriptreact,typescript,typescriptreact,json,less,css call format#formatprg()
 
