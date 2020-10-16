@@ -345,5 +345,3 @@ packadd! matchit  " Jump to brackets
 " Disable netrw
 let g:loaded_netrwPlugin = 1
 " }}}
-
-" vim:foldmethod=marker

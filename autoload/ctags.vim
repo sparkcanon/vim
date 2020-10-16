@@ -16,4 +16,3 @@ function! ctags#runner() abort
 endfunction
 " }}}
 
-" vim:foldmethod=marker

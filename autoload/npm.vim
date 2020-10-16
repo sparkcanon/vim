@@ -25,4 +25,3 @@ endfunction
 
 " }}}
 
-" vim:foldmethod=marker

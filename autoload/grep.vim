@@ -25,4 +25,3 @@ function! grep#any(type, arg) abort
 endfunction
 " }}}
 
-" vim:foldmethod=marker

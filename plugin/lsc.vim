@@ -62,4 +62,3 @@ let g:lsc_auto_map = {
 			\}
 " }}}
 
-" vim:foldmethod=marker

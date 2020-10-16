@@ -32,4 +32,3 @@ function! utils#mkdir(path) abort
 endfunction
 " }}}
 
-" vim:foldmethod=marker

@@ -47,5 +47,3 @@ function! togglelist#ToggleList(bufname, pfx) abort
 	endif
 endfunction
 " }}}
-
-" vim:foldmethod=marker

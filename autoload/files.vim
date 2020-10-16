@@ -34,4 +34,3 @@ function! s:on_tabnew(data, ...) abort
 endfunction
 " }}}
 
-" vim:foldmethod=marker

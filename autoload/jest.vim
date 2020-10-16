@@ -24,4 +24,3 @@ function! s:on_accept(data, ...) abort
 endfunction
 " }}}
 
-" vim:foldmethod=marker

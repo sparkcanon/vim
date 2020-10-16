@@ -10,4 +10,3 @@ function! make#runMakery(...) abort
 endfunction
 " }}}
 
-" vim:foldmethod=marker

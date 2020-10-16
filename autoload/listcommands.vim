@@ -47,4 +47,3 @@ function! listcommands#CR() abort
 endfunction
 " }}}
 
-" vim:foldmethod=marker

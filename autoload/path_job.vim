@@ -35,4 +35,3 @@ function! FdDirHandler(channel) abort
 endfunction
 " }}}
 
-" vim:foldmethod=marker

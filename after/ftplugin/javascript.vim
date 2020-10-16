@@ -29,4 +29,3 @@ command! -nargs=0 Log execute "normal oconsole.log('".expand('<cword>')
 command! -nargs=0 ImportJs execute "normal ggOimport { ".expand('<cword>')." } from '';"
 " }}}
 
-" vim:foldmethod=marker

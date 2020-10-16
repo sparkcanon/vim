@@ -39,4 +39,3 @@ function! s:on_bufdel(data, ...) abort
 endfunction
 " }}}
 
-" vim:foldmethod=marker

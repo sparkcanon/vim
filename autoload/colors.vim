@@ -91,4 +91,3 @@ function! s:on_cancel(initial_colorscheme, data, ...) abort
 endfunction
 " }}}
 
-" vim:foldmethod=marker

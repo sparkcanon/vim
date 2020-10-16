@@ -16,4 +16,3 @@ function! format#formatprg() abort
 endfunction
 " }}}
 
-" vim:foldmethod=marker

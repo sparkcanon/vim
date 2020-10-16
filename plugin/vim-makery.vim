@@ -69,4 +69,3 @@ finish " {{{
 8:8   error  Replace `'./helpers/get-tesco-recommendations-helper'` with `'./helpers/get-tesco-recommendations-helper'`  prettier/prettier
 " }}}
 
-" vim:foldmethod=marker
