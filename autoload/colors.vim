@@ -12,10 +12,10 @@ function! colors#modifyBufferColors() abort
 	" highlight! Normal ctermbg=NONE guibg=NONE
 	
 	" Lsc colors
-	highlight! lscDiagnosticError guifg=#cc517a cterm=underline
-	highlight! lscDiagnosticWarning guifg=#cc517a cterm=underline
-	highlight! lscDiagnosticInfo guifg=#6b7089 cterm=underline
-	highlight! lscDiagnosticHint guifg=#6b7089 cterm=underline
+	highlight! lscDiagnosticError guifg=#af5f5f cterm=underline
+	highlight! lscDiagnosticWarning guifg=#af5f5f cterm=underline
+	highlight! lscDiagnosticInfo guifg=#585858 cterm=underline
+	highlight! lscDiagnosticHint guifg=#585858 cterm=underline
 endfunction
 " }}}
 
