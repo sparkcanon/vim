@@ -37,8 +37,10 @@ function colors#Kitty() abort
 	call insert(s:colors, 'selection_background ' . s:visualbg)
 	call insert(s:colors, 'selection_foreground ' . s:visualfg)
 
-	let s:term_colors = eval('g:terminal_ansi_colors')
-	call map(s:term_colors, function('s:KeyValue'))
+	if exists('g:terminal_ansi_colors')
+		let s:term_colors = eval('g:terminal_ansi_colors')
+		call map(s:term_colors, function('s:KeyValue'))
+	endif
 	call writefile(reverse(s:colors), '/Users/praborde/.config/kitty/__autogen_colorscheme__.conf')
 endfunction
 
@@ -59,7 +61,7 @@ endfunction
 function! colors#picker() abort
   let l:initial_colorscheme = get(g:, 'colors_name', 'default')
   call quickpick#open({
-    \ 'items': uniq(map(split(globpath(&rtp, "colors/*.vim"), "\n"), "substitute(fnamemodify(v:val, ':t'), '\\..\\{-}$', '', '')")),
+    \ 'items': getcompletion('', 'color'),
     \ 'on_accept': function('s:on_accept'),
     \ 'on_selection': function('s:on_selection', [l:initial_colorscheme]),
     \ 'on_cancel': function('s:on_cancel', [l:initial_colorscheme]),

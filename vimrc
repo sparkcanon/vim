@@ -36,8 +36,6 @@ setglobal wrap                                           " Wrap long lines
 setglobal autoindent                                     " Minimal auto indenting for any filetype
 setglobal clipboard^=unnamed                             " Set clipboard options
 set mouse=a                                              " Allow mouse interactions
-set cursorcolumn
-set cursorline
 
 " Splits
 setglobal splitbelow                                     " Split window opens below
@@ -205,7 +203,7 @@ autocmd GeneralAutocmds ColorScheme * match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+
 " For some color schemes set termguicolors and for some others set t_Co=256
 set termguicolors
 set background=dark
-colorscheme iceberg " Set color scheme after setting buffer colors
+colorscheme apprentice " Set color scheme after setting buffer colors
 " }}}
 
 " Section: Auto commands {{{
