@@ -163,6 +163,7 @@ nnoremap <BS> <C-^>
 nnoremap ]b :bnext<CR>
 nnoremap [b :bprevious<CR>
 nnoremap <space>b :call buffer#picker()<CR>
+nnoremap gQ :call format#buffer()<CR>
 
 " Args
 nnoremap ]a :next<CR>

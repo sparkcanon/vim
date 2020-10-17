@@ -11,8 +11,13 @@ function! format#formatprg() abort
 
 	let &l:formatprg = l:fmt_prettier . " --stdin-filepath %"
 	setlocal formatexpr=
-	nnoremap gQ mlgggqG'l :delm l<CR>
-
 endfunction
 " }}}
 
+" Desc: Format buffer and restore view {{{
+function! format#buffer() abort
+  let view = winsaveview()
+  normal gggqG
+  call winrestview(view)
+endfunction
+" }}}
