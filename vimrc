@@ -255,16 +255,12 @@ autocmd GeneralAutocmds QuickFixCmdPost cgetexpr botright cwindow
 " Section: Custom commands {{{
 " Grep for quickfix list
 command! -nargs=+ -complete=file Grep call grep#any('any', <q-args>)
-" Grep word under the cursor
-command! -nargs=1 GrepExact call grep#any('exact', <q-args>)
-" Grep word under the cursor excluding test files
-command! -nargs=1 GrepExclude call grep#any('exclude', <q-args>)
-" Manual grep for current buffer
-command! -nargs=1 GrepBuffer call grep#any('buffer', <q-args>)
+command! -nargs=1 GrepExact           call grep#any('exact', <q-args>) " With word boundaries
+command! -nargs=1 GrepExclude         call grep#any('exclude', <q-args>) " Exclude tests/specs
+command! -nargs=1 GrepBuffer          call grep#any('buffer', <q-args>) " Buffer only
 
 " Save sessions (force)
 command! -nargs=0 SessionSave call sessions#sessionSave()
-" Load sessions
 command! -nargs=0 SessionLoad call sessions#picker()
 
 " Yank paths
@@ -279,24 +275,20 @@ command! -nargs=? -complete=dir Vexplore leftabove vsplit | silent Dirvish <args
 
 " Make commands
 command! -nargs=* -complete=file -bar Lint call make#runMakery('Lint', <f-args>)
-command! -nargs=* -complete=file -bar Fix call make#runMakery('Fix', <f-args>)
+command! -nargs=* -complete=file -bar Fix  call make#runMakery('Fix', <f-args>)
 command! -nargs=* -complete=file -bar Test call make#runMakery('Test', <f-args>)
 
 " Load tabular and align
 command! -nargs=* -bang -range Tabularize packadd tabular <bar> Tabularize <args>
 
-" Npm scripts
-command! -nargs=0 Npm call npm#picker()
-
-" List of jest tests
-command! -nargs=0 JestList call jest#picker()
-
 " Colors
 command! -nargs=0 ColorsKitty call colors#Kitty()
-command! -nargs=0 Colors call colors#picker()
 
-" Files
-command! -nargs=0 Files call files#picker()
+" Fuzzy pickers
+command! -nargs=0 Files    call files#picker()
+command! -nargs=0 Colors   call colors#picker()
+command! -nargs=0 JestList call jest#picker()
+command! -nargs=0 Npm      call npm#picker()
 " }}}
 
 " Section: Custom abbr {{{
@@ -323,7 +315,6 @@ call utils#setupCommandAbbrs('sr','Grep')
 call utils#setupCommandAbbrs('sb','GrepBuffer' )
 call utils#setupCommandAbbrs('se','GrepExact')
 call utils#setupCommandAbbrs('st','GrepExclude')
-call utils#setupCommandAbbrs('fd','FdFiles')
 
 " Git
 call utils#setupCommandAbbrs('gf','!git fetch --all')
