@@ -41,7 +41,7 @@ function colors#Kitty() abort
 		let s:term_colors = eval('g:terminal_ansi_colors')
 		call map(s:term_colors, function('s:KeyValue'))
 	endif
-	call writefile(reverse(s:colors), '/Users/praborde/.config/kitty/__autogen_colorscheme__.conf')
+	call writefile(reverse(s:colors), $HOME . '/.config/kitty/__autogen_colorscheme__.conf')
 endfunction
 
 " Desc: extract colors
