@@ -34,9 +34,6 @@
 [submodule "pack/main/start/CommandlineComplete.vim"]
 	path = pack/main/start/CommandlineComplete.vim
 	url = https://github.com/j5shi/CommandlineComplete.vim
-[submodule "pack/main/opt/vim-lsc"]
-	path = pack/main/opt/vim-lsc
-	url = https://github.com/natebosch/vim-lsc
 [submodule "pack/main/opt/tabular"]
 	path = pack/main/opt/tabular
 	url = https://github.com/godlygeek/tabular
@@ -61,3 +58,6 @@
 [submodule "pack/main/start/Apprentice"]
 	path = pack/main/start/Apprentice
 	url = https://github.com/romainl/Apprentice
+[submodule "pack/main/start/vim-gutentags"]
+	path = pack/main/start/vim-gutentags
+	url = https://github.com/ludovicchabant/vim-gutentags

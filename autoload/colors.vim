@@ -10,12 +10,6 @@ function! colors#modifyBufferColors() abort
 	
 	" Hint: This below makes the background transparent
 	" highlight! Normal ctermbg=NONE guibg=NONE
-	
-	" Lsc colors
-	highlight! lscDiagnosticError guifg=#af5f5f cterm=underline
-	highlight! lscDiagnosticWarning guifg=#af5f5f cterm=underline
-	highlight! lscDiagnosticInfo guifg=#585858 cterm=underline
-	highlight! lscDiagnosticHint guifg=#585858 cterm=underline
 endfunction
 " }}}
 

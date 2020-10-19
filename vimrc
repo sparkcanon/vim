@@ -231,14 +231,12 @@ autocmd GeneralAutocmds VimLeavePre * call sessions#sessionSave()
 " Set path
 autocmd GeneralAutocmds BufEnter,BufAdd * call path_job#setProjectPath()
 
-" Run ctags as a job
-autocmd GeneralAutocmds BufWritePost * call ctags#runner()
-
 " Disable context
 autocmd GeneralAutocmds TerminalWinOpen * execute 'ContextDisableWindow'
 
-" Set up format prg
+" Set up format
 autocmd GeneralAutocmds FileType javascript,javascriptreact,typescript,typescriptreact,json,less,css call format#formatprg()
+autocmd GeneralAutocmds BufWritePre *.js,*.jsx,*.ts,*.tsx,*.json,*.less,*.css call format#buffer()
 
 " Make autocmds
 autocmd GeneralAutocmds QuickFixCmdPre  lmake wall
@@ -327,9 +325,6 @@ call utils#setupCommandAbbrs('gc','GitCheckout')
 " }}}
 
 " Section: Plugins && related setup {{{
-" Load external lugins
-packadd! vim-lsc
-
 " Load built-in optional plugins
 packadd! cfilter  " Filter results from qf lists
 packadd! matchit  " Jump to brackets
