@@ -209,45 +209,49 @@ colorscheme apprentice " Set color scheme after setting buffer colors
 
 " Section: Auto commands {{{
 " Preview window close
-autocmd GeneralAutocmds CompleteDone * silent! pclose
-autocmd GeneralAutocmds CursorMoved * silent! pclose
+autocmd! GeneralAutocmds CompleteDone * silent! pclose
+autocmd! GeneralAutocmds CursorMoved * silent! pclose
 
 " Opens fugitive, man, help vertically if space available
-autocmd GeneralAutocmds WinNew * au BufEnter * ++once
+autocmd! GeneralAutocmds WinNew * au BufEnter * ++once
 			\ if (&bt ==? 'help' || &ft ==? 'man' || &ft ==? 'fugitive')
 			\     && winwidth(winnr('#')) >= 180 |
 			\ exe 'wincmd ' . (&splitright ? 'L' : 'H') |
 			\ endif
 
 " Create a new dir if it doesnt exists
-autocmd GeneralAutocmds BufNewFile * call utils#mkdir(expand('<afile>:p:h'))
+autocmd! GeneralAutocmds BufNewFile * call utils#mkdir(expand('<afile>:p:h'))
 
 " Auto-resize splits when Vim gets resized.
-autocmd GeneralAutocmds VimResized * wincmd =
+autocmd! GeneralAutocmds VimResized * wincmd =
 
 " Save session on exit
-autocmd GeneralAutocmds VimLeavePre * call sessions#sessionSave()
+autocmd! GeneralAutocmds VimLeavePre * call sessions#sessionSave()
 
 " Set path
-autocmd GeneralAutocmds BufEnter,BufAdd * call path_job#setProjectPath()
+autocmd! GeneralAutocmds BufEnter,BufAdd * call path_job#setProjectPath()
 
 " Disable context
-autocmd GeneralAutocmds TerminalWinOpen * execute 'ContextDisableWindow'
+autocmd! GeneralAutocmds TerminalWinOpen * execute 'ContextDisableWindow'
 
 " Set up format
 autocmd GeneralAutocmds FileType javascript,javascriptreact,typescript,typescriptreact,json,less,css call format#formatprg()
-autocmd GeneralAutocmds BufWritePre *.js,*.jsx,*.ts,*.tsx,*.json,*.less,*.css call format#buffer()
+autocmd GeneralAutocmds FileType javascript,javascriptreact,typescript,typescriptreact,json,less,css
+        \ autocmd! GeneralAutocmds BufWritePre,FileReadPre <buffer> call format#buffer()
 
 " Make autocmds
-autocmd GeneralAutocmds QuickFixCmdPre  lmake wall
-autocmd GeneralAutocmds QuickFixCmdPost lmake call setloclist(
+autocmd! GeneralAutocmds QuickFixCmdPre  lmake wall
+autocmd! GeneralAutocmds QuickFixCmdPost lmake call setloclist(
 			\ bufnr(), 
 			\ filter(getloclist(bufnr()), 
 			\ "v:val['valid']"), 'r'
 			\ )
 
 " Auto Open quick fix list
-autocmd GeneralAutocmds QuickFixCmdPost cgetexpr botright cwindow
+autocmd! GeneralAutocmds QuickFixCmdPost cgetexpr botright cwindow
+
+" If swap exists, open read only mode
+autocmd! GeneralAutocmds SwapExists * :let v:swapchoice = 'o'
 " }}}
 
 " Section: Custom commands {{{
