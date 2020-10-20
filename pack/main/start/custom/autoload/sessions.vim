@@ -11,17 +11,11 @@ endfunction
 
 " Desc: Picker {{{
 function! sessions#picker() abort
-	let l:items = systemlist('fd . --base-directory ' . $HOME . '/.vim/tmp/dir_session/')
-	call quickpick#open({
-				\ 'items': l:items,
-				\ 'on_accept': function('s:on_accept'),
-				\ })
-endfunction
-
-" Desc: On color picker accept selection
-function! s:on_accept(data, ...) abort
-	call quickpick#close()
-	execute 'source ' . $HOME . '/.vim/tmp/dir_session/' . a:data['items'][0]
+	call fzf#run({
+				\  'source': 'fd .',
+				\  'sink': 'so',
+				\  'dir': '~/.vim/tmp/dir_session',
+				\  'window': { 'width': 1, 'height': 0.3, 'yoffset': 1 } })
 endfunction
 " }}}
 

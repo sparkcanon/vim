@@ -167,7 +167,7 @@ nnoremap [<C-F> :cpfile<CR>
 nnoremap <BS> <C-^>
 nnoremap ]b :bnext<CR>
 nnoremap [b :bprevious<CR>
-nnoremap <space>b :call buffer#picker()<CR>
+nnoremap <space>b :Buffers<CR>
 nnoremap gQ :call format#buffer()<CR>
 
 " Args
@@ -291,10 +291,12 @@ command! -nargs=* -bang -range Tabularize packadd tabular <bar> Tabularize <args
 command! -nargs=0 ColorsKitty call colors#Kitty()
 
 " Fuzzy pickers
-command! -nargs=0 Files    call files#picker()
-command! -nargs=0 Colors   call colors#picker()
 command! -nargs=0 JestList call jest#picker()
 command! -nargs=0 Npm      call npm#picker()
+
+" Git
+command! -nargs=0 GitStash call git#stash()
+command! -nargs=0 GitCheckout call git#checkout()
 " }}}
 
 " Section: Custom abbr {{{
@@ -339,4 +341,8 @@ packadd! matchit  " Jump to brackets
 
 " Disable netrw
 let g:loaded_netrwPlugin = 1
+
+" FZF
+let g:fzf_layout = { 'window': { 'width': 1, 'height': 0.3, 'yoffset': 1 } }
+set runtimepath+=/usr/local/opt/fzf
 " }}}

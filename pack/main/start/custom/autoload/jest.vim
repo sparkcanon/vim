@@ -4,23 +4,21 @@
 function! jest#picker() abort
 	if findfile('jest.config.js', '.;') =~ 'jest.config.js'
 		if utils#isProject('lego-web')
-			let l:items = systemlist('fd -g {"*.test.*,*-test.*"} -E "*.snap" --base-directory ~/Documents/work_projects/tesco/lego-web/web/')
+			let l:items = 'fd -g {"*.test.*,*-test.*"} -E "*.snap" --base-directory ~/Documents/work_projects/tesco/lego-web/web/'
+			call fzf#run({
+						\ 'source': l:items,
+						\ 'sink': 'term ./node_modules/.bin/jest --watch',
+						\ 'dir': '~/Documents/work_projects/tesco/lego-web/web/',
+						\ 'window': { 'width': 1, 'height': 0.3, 'yoffset': 1 } })
 		else
-			let l:items = systemlist('fd -g {"*.test.*,*-test.*"} -E "*.snap"')
+			let l:items = 'fd -g {"*.test.*,*-test.*"} -E "*.snap"')
+			call fzf#run({
+						\ 'source': l:items,
+						\ 'sink': 'term ./node_modules/.bin/jest --watch',
+						\ 'window': { 'width': 1, 'height': 0.3, 'yoffset': 1 } })
 		endif
-		call quickpick#open({
-					\ 'items': l:items,
-					\ 'on_accept': function('s:on_accept'),
-					\ })
 	else
 		echo "Error: Jest config not found"
 	endif
 endfunction
-
-" Desc: On accept event
-function! s:on_accept(data, ...) abort
-	call quickpick#close()
-	execute 'term fish -c "cd web && npx jest --watch ' . a:data['items'][0]
-endfunction
 " }}}
-
