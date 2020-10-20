@@ -9,6 +9,10 @@
 "             U  ||----w |
 "                ||     ||
 
+" Section: Load Custom {{{
+packadd! custom
+" }}}
+
 " Section: Reset augroup {{{
 augroup GeneralAutocmds
 	autocmd!
@@ -91,8 +95,8 @@ cmap <c-p> <Plug>CmdlineCompleteBackward
 cmap <c-n> <Plug>CmdlineCompleteForward
 set iminsert=1
 for mode in ['n', 'x']
-  execute mode . 'noremap  : ;'
-  execute mode . 'noremap  ; :'
+	execute mode . 'noremap  : ;'
+	execute mode . 'noremap  ; :'
 endfor
 
 " Using backtick for marks drops you on the exact column
