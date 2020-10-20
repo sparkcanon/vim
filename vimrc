@@ -36,6 +36,7 @@ setglobal wrap                                           " Wrap long lines
 setglobal autoindent                                     " Minimal auto indenting for any filetype
 setglobal clipboard^=unnamed                             " Set clipboard options
 set mouse=a                                              " Allow mouse interactions
+set cursorline
 
 " Splits
 setglobal splitbelow                                     " Split window opens below
@@ -204,6 +205,7 @@ autocmd GeneralAutocmds ColorScheme * match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+
 " For some color schemes set termguicolors and for some others set t_Co=256
 set termguicolors
 set background=dark
+packadd Apprentice
 colorscheme apprentice " Set color scheme after setting buffer colors
 " }}}
 
@@ -236,8 +238,6 @@ autocmd! GeneralAutocmds TerminalWinOpen * execute 'ContextDisableWindow'
 
 " Set up format
 autocmd GeneralAutocmds FileType javascript,javascriptreact,typescript,typescriptreact,json,less,css call format#formatprg()
-autocmd GeneralAutocmds FileType javascript,javascriptreact,typescript,typescriptreact,json,less,css
-        \ autocmd! GeneralAutocmds BufWritePre,FileReadPre <buffer> call format#buffer()
 
 " Make autocmds
 autocmd! GeneralAutocmds QuickFixCmdPre  lmake wall

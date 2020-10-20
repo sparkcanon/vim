@@ -55,9 +55,9 @@
 [submodule "pack/main/start/quickpick.vim"]
 	path = pack/main/start/quickpick.vim
 	url = https://github.com/sparkcanon/quickpick.vim
-[submodule "pack/main/start/Apprentice"]
-	path = pack/main/start/Apprentice
-	url = https://github.com/romainl/Apprentice
 [submodule "pack/main/start/vim-gutentags"]
 	path = pack/main/start/vim-gutentags
 	url = https://github.com/ludovicchabant/vim-gutentags
+[submodule "pack/main/opt/Apprentice"]
+	path = pack/main/opt/Apprentice
+	url = https://github.com/romainl/Apprentice
