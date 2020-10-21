@@ -10,11 +10,16 @@ endfunction
 " }}}
 
 " Desc: Picker {{{
+function! s:sessionActions(e) abort
+	let l:cmd = get({'enter': 'source', 'ctrl-d': '!rm'}, a:e[0])
+	execute l:cmd '~/.vim/tmp/dir_session/' . a:e[1]
+endfunction
+
 function! sessions#picker() abort
 	call fzf#run({
-				\  'source': 'fd .',
-				\  'sink': 'so',
-				\  'dir': '~/.vim/tmp/dir_session',
+				\  'source': 'fd . --base-directory ~/.vim/tmp/dir_session/',
+				\  'sink*': function('s:sessionActions'),
+				\  'options': '--expect=enter,ctrl-d',
 				\  'window': { 'width': 1, 'height': 0.3, 'yoffset': 1 } })
 endfunction
 " }}}
