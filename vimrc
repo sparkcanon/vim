@@ -203,7 +203,6 @@ autocmd GeneralAutocmds ColorScheme * match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+
 
 " For some color schemes set termguicolors and for some others set t_Co=256
 set termguicolors
-set background=dark
 packadd Apprentice
 colorscheme apprentice " Set color scheme after setting buffer colors
 " }}}
@@ -290,7 +289,7 @@ command! -nargs=0 JestList call jest#picker()
 command! -nargs=0 Npm      call npm#picker()
 
 " Git
-command! -nargs=0 GitStash call git#stash()
+command! -nargs=0 GitStash    call git#stash()
 command! -nargs=0 GitCheckout call git#checkout()
 " }}}
 
