@@ -203,8 +203,8 @@ autocmd GeneralAutocmds ColorScheme * match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+
 
 " For some color schemes set termguicolors and for some others set t_Co=256
 set termguicolors
-packadd Apprentice
-colorscheme apprentice " Set color scheme after setting buffer colors
+packadd warlock
+colorscheme warlock " Set color scheme after setting buffer colors
 " }}}
 
 " Section: Auto commands {{{

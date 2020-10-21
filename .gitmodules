@@ -52,9 +52,9 @@
 [submodule "pack/main/start/vim-gutentags"]
 	path = pack/main/start/vim-gutentags
 	url = https://github.com/ludovicchabant/vim-gutentags
-[submodule "pack/main/opt/Apprentice"]
-	path = pack/main/opt/Apprentice
-	url = https://github.com/romainl/Apprentice
 [submodule "pack/main/start/fzf.vim"]
 	path = pack/main/start/fzf.vim
 	url = https://github.com/junegunn/fzf.vim
+[submodule "pack/main/opt/warlock"]
+	path = pack/main/opt/warlock
+	url = https://github.com/hardselius/warlock
