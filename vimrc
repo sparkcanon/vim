@@ -19,11 +19,6 @@ augroup GeneralAutocmds
 augroup END
 " }}}
 
-" Section: Syntax {{{
-filetype plugin indent on
-syntax enable
-" }}}
-
 " Section: Completion {{{
 setglobal completeopt+=menuone,noinsert,longest  " Open menu and no insert
 set omnifunc=syntaxcomplete#Complete             " General purpose omnifunc
@@ -345,4 +340,13 @@ let g:loaded_netrwPlugin = 1
 " FZF
 let g:fzf_layout = { 'window': { 'width': 1, 'height': 0.3, 'yoffset': 1 } }
 set runtimepath+=/usr/local/opt/fzf
+" }}}
+
+" Section: Syntax {{{
+" Automatic, language-dependent indentation, syntax coloring and other
+" functionality.
+" Must come *after* the `:packadd!` calls above otherwise the contents of
+" package "ftdetect" directories won't be evaluated.
+filetype plugin indent on
+syntax enable
 " }}}
