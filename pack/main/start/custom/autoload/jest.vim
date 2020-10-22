@@ -1,4 +1,4 @@
-" Purpose: Jest utils
+" Purpose: Jest
 
 " Desc: List jest tests and run selected {{{
 function! jest#picker(A,L,P) abort

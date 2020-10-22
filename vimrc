@@ -184,10 +184,10 @@ nnoremap ]<space> o<C-c>
 nnoremap [<space> O<C-c>
 
 " Find
-nnoremap <space>f :find<space>
-nnoremap <space>s :sfind<space>
-nnoremap <space>v :vert sfind<space>
-nnoremap <space>t :tabfind<space>
+nnoremap <space>f :Files<space>
+nnoremap <space>s :split <bar> Files<space>
+nnoremap <space>v :vsp <bar> Files<space>
+nnoremap <space>t :tab <bar> Files<space>
 
 " Edit
 nnoremap <space>ee :e <C-R>='%:h/'<CR>
@@ -289,6 +289,7 @@ command! -nargs=0 ColorsKitty call colors#Kitty()
 " Fuzzy pickers
 command! -nargs=1 -complete=customlist,jest#picker Jest call jest#runner(<q-args>)
 command! -nargs=1 -bar -complete=customlist,npm#complete Npm call npm#runner(<q-args>)
+command! -nargs=1 -bar -complete=customlist,files#picker Files call files#runner(<q-args>)
 
 " Git
 command! -nargs=1 -complete=customlist,git#stash_picker GitStash call git#stash_runner(<q-args>)

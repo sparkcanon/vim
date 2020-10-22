@@ -1,4 +1,4 @@
-" Purpose: Run npm scripts from package json
+" Purpose: Npm scripts
 
 " Desc: Runner {{{
 function! npm#complete(A,L,P) abort

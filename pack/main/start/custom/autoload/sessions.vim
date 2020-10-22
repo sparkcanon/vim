@@ -1,4 +1,4 @@
-" Purpose: Session based logic
+" Purpose: Session
 
 " Desc: Save session {{{
 function! sessions#sessionSave() abort
