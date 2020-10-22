@@ -203,7 +203,7 @@ autocmd GeneralAutocmds ColorScheme * match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+
 
 " For some color schemes set termguicolors and for some others set t_Co=256
 set termguicolors
-packadd vim-habanight
+packadd! vim-habanight
 set background=dark
 colorscheme habanight " Set color scheme after setting buffer colors
 " }}}
