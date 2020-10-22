@@ -258,7 +258,6 @@ autocmd! GeneralAutocmds SwapExists * :let v:swapchoice = 'o'
 command! -nargs=+ -complete=file Grep call grep#any('any', <q-args>)
 command! -nargs=1 GrepExact           call grep#any('exact', <q-args>) " With word boundaries
 command! -nargs=1 GrepExclude         call grep#any('exclude', <q-args>) " Exclude tests/specs
-command! -nargs=1 GrepBuffer          call grep#any('buffer', <q-args>) " Buffer only
 
 " Save sessions (force)
 command! -nargs=0 SessionSave call sessions#sessionSave()
@@ -316,7 +315,6 @@ call utils#setupCommandAbbrs('sa','SessionSave')
 
 " Grep
 call utils#setupCommandAbbrs('sr','Grep')
-call utils#setupCommandAbbrs('sb','GrepBuffer' )
 call utils#setupCommandAbbrs('se','GrepExact')
 call utils#setupCommandAbbrs('st','GrepExclude')
 

@@ -15,9 +15,6 @@ function! grep#any(type, arg) abort
 	if a:type == 'exclude'
 		let l:query = '"\b( ' . a:arg . ')\b" -g !"{*spec.*,*test.*}"'
 	endif
-	if a:type == 'buffer'
-		let l:query = a:arg . ' ' . expand('%')
-	endif
 	if a:type == 'any'
 		let l:query = a:arg
 	endif
