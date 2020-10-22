@@ -55,6 +55,6 @@
 [submodule "pack/main/start/fzf.vim"]
 	path = pack/main/start/fzf.vim
 	url = https://github.com/junegunn/fzf.vim
-[submodule "pack/main/opt/warlock"]
-	path = pack/main/opt/warlock
-	url = https://github.com/hardselius/warlock
+[submodule "pack/main/opt/iceberg.vim"]
+	path = pack/main/opt/iceberg.vim
+	url = https://github.com/cocopon/iceberg.vim
