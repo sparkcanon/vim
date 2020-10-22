@@ -285,23 +285,18 @@ command! -nargs=* -bang -range Tabularize packadd tabular <bar> Tabularize <args
 command! -nargs=0 ColorsKitty call colors#Kitty()
 
 " Fuzzy pickers
-command! -nargs=1 -complete=customlist,jest#picker Jest call jest#runner(<q-args>)
-command! -nargs=1 -bar -complete=customlist,npm#complete Npm call npm#runner(<q-args>)
+command! -nargs=1 -complete=customlist,jest#picker Jest        call jest#runner(<q-args>)
+command! -nargs=1 -bar -complete=customlist,npm#complete Npm   call npm#runner(<q-args>)
 command! -nargs=1 -bar -complete=customlist,files#picker Files call files#runner(<q-args>)
 
 " Git
-command! -nargs=1 -complete=customlist,git#stash_picker GitStash call git#stash_runner(<q-args>)
+command! -nargs=1 -complete=customlist,git#stash_picker GitStash       call git#stash_runner(<q-args>)
 command! -nargs=1 -complete=customlist,git#checkout_picker GitCheckout call git#checkout_runner(<q-args>)
 " }}}
 
 " Section: Custom abbr {{{
 " Write
 call utils#setupCommandAbbrs('w','update')
-call utils#setupCommandAbbrs('nw','noautocmd update')
-call utils#setupCommandAbbrs('ngw','noautocmd Gw')
-
-" Source vimrc
-call utils#setupCommandAbbrs('sov','source $MYVIMRC')
 
 " Buffer list
 call utils#setupCommandAbbrs('lv','ls\<space>t\<CR>:vert\<space>sb')
