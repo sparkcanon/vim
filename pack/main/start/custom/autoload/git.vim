@@ -17,7 +17,7 @@ function! git#stash() abort
 endfunction
 " }}}
 
-" Desc: Checckout actions {{{
+" Desc: Checkout actions {{{
 function! s:GitCheckoutAction(e) abort
 	execute 'term git checkout ' . trim(a:e)
 endfunction

@@ -85,9 +85,10 @@ endif
 " }}}
 
 " Section: Mappings {{{
-" Enter Commands mode
+" Enter commands mode completion
 cmap <c-p> <Plug>CmdlineCompleteBackward
 cmap <c-n> <Plug>CmdlineCompleteForward
+
 set iminsert=1
 for mode in ['n', 'x']
 	execute mode . 'noremap  : ;'
