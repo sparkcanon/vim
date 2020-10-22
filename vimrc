@@ -311,8 +311,8 @@ call utils#setupCommandAbbrs('ld','ls\<space>t\<CR>:bd')
 call utils#setupCommandAbbrs('bD','bp\<bar>bd#')
 
 " Session
-call utils#setupCommandAbbrs('ssl','SessionLoad')
-call utils#setupCommandAbbrs('ssa','SessionSave')
+call utils#setupCommandAbbrs('sl','SessionLoad')
+call utils#setupCommandAbbrs('sa','SessionSave')
 
 " Grep
 call utils#setupCommandAbbrs('sr','Grep')
