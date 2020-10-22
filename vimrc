@@ -163,7 +163,6 @@ nnoremap [<C-F> :cpfile<CR>
 nnoremap <BS> <C-^>
 nnoremap ]b :bnext<CR>
 nnoremap [b :bprevious<CR>
-nnoremap <space>b :Buffers<CR>
 nnoremap gQ :call format#buffer()<CR>
 
 " Args
@@ -204,9 +203,9 @@ autocmd GeneralAutocmds ColorScheme * match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+
 
 " For some color schemes set termguicolors and for some others set t_Co=256
 set termguicolors
-packadd iceberg.vim
+packadd vim-habanight
 set background=dark
-colorscheme iceberg " Set color scheme after setting buffer colors
+colorscheme habanight " Set color scheme after setting buffer colors
 " }}}
 
 " Section: Auto commands {{{
