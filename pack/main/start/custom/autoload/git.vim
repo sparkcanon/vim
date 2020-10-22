@@ -1,33 +1,45 @@
 " Purpose: Git
 
 " Desc: Stash actions {{{
-function! s:GitStashActions(e) abort
-	let cmd = get({'ctrl-s': 'term git stash show', 'ctrl-d': 'term git stash drop', 'ctrl-a': 'term git stash apply'}, a:e[0])
-	execute cmd matchstr(a:e[1], '\d\+')
+function! git#stash_runner(arg) abort
+	let l:input = input('a: Apply stash, d: Drop stash, s: Show stash: ')
+	if l:input == "a"
+		exe 'term Git stash apply ' . matchstr(a:arg, '\d\+')
+	elseif l:input == "s"
+		exe 'term Git stash show ' . matchstr(a:arg, '\d\+')
+	else
+		exe 'term Git stash drop ' . matchstr(a:arg, '\d\+')
+	endif
 endfunction
 " }}}
 
 " Desc: Stash runner {{{
-function! git#stash() abort
-	call fzf#run({
-				\ 'source': 'git stash list',
-				\ 'sink*': function('s:GitStashActions'),
-				\ 'options': '--expect=ctrl-s,ctrl-d,ctrl-a',
-				\ 'window': { 'width': 1, 'height': 0.3, 'yoffset': 1 } })
+function! git#stash_picker(A,L,P) abort
+	let l:items = systemlist('git stash list')
+	if a:A->len() > 1
+		return matchfuzzy(l:items, a:A)
+	else
+		return l:items
+	endif
 endfunction
 " }}}
 
-" Desc: Checkout actions {{{
-function! s:GitCheckoutAction(e) abort
-	execute 'term git checkout ' . trim(a:e)
+" Desc: Checkout {{{
+" TODO: Check for current branch using *
+function! git#checkout_runner(arg) abort
+	execute 'term git checkout ' . a:arg->substitute('\*', '', '')->trim()
 endfunction
-" }}}
 
-" Desc: Checkout runner {{{
-function! git#checkout() abort
-	call fzf#run({
-				\ 'source': 'git branch --all | grep -v HEAD',
-				\ 'sink': function('s:GitCheckoutAction'),
-				\ 'window': { 'width': 1, 'height': 0.3, 'yoffset': 1 } })
+function! git#checkout_picker(A,L,P) abort
+	let l:raw_items = systemlist('git branch --all | grep -v HEAD')
+	let l:items = []
+	for l:branches in l:raw_items
+		call insert(l:items, trim(l:branches))
+	endfor
+	if a:A->len() > 1
+		return l:items->matchfuzzy(a:A)
+	else
+		return l:items
+	endif
 endfunction
 " }}}

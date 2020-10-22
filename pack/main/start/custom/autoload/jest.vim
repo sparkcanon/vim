@@ -1,24 +1,33 @@
 " Purpose: Jest utils
 
 " Desc: List jest tests and run selected {{{
-function! jest#picker() abort
+function! jest#picker(A,L,P) abort
 	if findfile('jest.config.js', '.;') =~ 'jest.config.js'
 		if utils#isProject('lego-web')
-			let l:items = 'fd -g {"*.test.*,*-test.*"} -E "*.snap" --base-directory ~/Documents/work_projects/tesco/lego-web/web/'
-			call fzf#run({
-						\ 'source': l:items,
-						\ 'sink': 'term ./node_modules/.bin/jest --watch',
-						\ 'dir': '~/Documents/work_projects/tesco/lego-web/web/',
-						\ 'window': { 'width': 1, 'height': 0.3, 'yoffset': 1 } })
+			let l:items = systemlist('fd -g {"*.test.*,*-test.*"} -E "*.snap" --base-directory ~/Documents/work_projects/tesco/lego-web/web/')
+			if a:A->len() > 1
+				return l:items->matchfuzzy(a:A)
+			else
+				return l:items
+			endif
 		else
-			let l:items = 'fd -g {"*.test.*,*-test.*"} -E "*.snap"')
-			call fzf#run({
-						\ 'source': l:items,
-						\ 'sink': 'term ./node_modules/.bin/jest --watch',
-						\ 'window': { 'width': 1, 'height': 0.3, 'yoffset': 1 } })
+			let l:items = systemlist('fd -g {"*.test.*,*-test.*"} -E "*.snap"')
+			if a:A->len() > 1
+				return l:items->matchfuzzy(a:A)
+			else
+				return l:items
+			endif
 		endif
 	else
 		echo "Error: Jest config not found"
+	endif
+endfunction
+
+function! jest#runner(args) abort
+	if utils#isProject('lego-web')
+		execute 'term fish -c "cd web && npx jest --watch ' .. a:args '"'
+	else
+		execute 'term npx jest --watch ' .. a:args
 	endif
 endfunction
 " }}}

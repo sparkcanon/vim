@@ -263,7 +263,7 @@ command! -nargs=1 GrepBuffer          call grep#any('buffer', <q-args>) " Buffer
 
 " Save sessions (force)
 command! -nargs=0 SessionSave call sessions#sessionSave()
-command! -nargs=0 SessionLoad call sessions#picker()
+command! -nargs=1 -complete=customlist,sessions#complete SessionLoad execute 'source $HOME/.vim/tmp/dir_session/<args>'
 
 " Yank paths
 " Relative path
@@ -287,12 +287,12 @@ command! -nargs=* -bang -range Tabularize packadd tabular <bar> Tabularize <args
 command! -nargs=0 ColorsKitty call colors#Kitty()
 
 " Fuzzy pickers
-command! -nargs=0 JestList call jest#picker()
-command! -nargs=0 Npm      call npm#picker()
+command! -nargs=1 -complete=customlist,jest#picker Jest call jest#runner(<q-args>)
+command! -nargs=1 -bar -complete=customlist,npm#complete Npm call npm#runner(<q-args>)
 
 " Git
-command! -nargs=0 GitStash    call git#stash()
-command! -nargs=0 GitCheckout call git#checkout()
+command! -nargs=1 -complete=customlist,git#stash_picker GitStash call git#stash_runner(<q-args>)
+command! -nargs=1 -complete=customlist,git#checkout_picker GitCheckout call git#checkout_runner(<q-args>)
 " }}}
 
 " Section: Custom abbr {{{
@@ -337,10 +337,6 @@ packadd! matchit  " Jump to brackets
 
 " Disable netrw
 let g:loaded_netrwPlugin = 1
-
-" FZF
-let g:fzf_layout = { 'window': { 'width': 1, 'height': 0.3, 'yoffset': 1 } }
-set runtimepath+=/usr/local/opt/fzf
 " }}}
 
 " Section: Syntax {{{

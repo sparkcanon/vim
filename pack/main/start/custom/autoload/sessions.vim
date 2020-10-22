@@ -7,20 +7,14 @@ function! sessions#sessionSave() abort
 		execute 'mks! ' . $HOME . '/.vim/tmp/dir_session/' . l:root . '.vim'
 	endif
 endfunction
-" }}}
 
-" Desc: Picker {{{
-function! s:sessionActions(e) abort
-	let l:cmd = get({'enter': 'source', 'ctrl-d': '!rm'}, a:e[0])
-	execute l:cmd '~/.vim/tmp/dir_session/' . a:e[1]
-endfunction
-
-function! sessions#picker() abort
-	call fzf#run({
-				\  'source': 'fd . --base-directory ~/.vim/tmp/dir_session/',
-				\  'sink*': function('s:sessionActions'),
-				\  'options': '--expect=enter,ctrl-d',
-				\  'window': { 'width': 1, 'height': 0.3, 'yoffset': 1 } })
+function! sessions#complete(A,L,P) abort
+	let l:items = systemlist('fd . --base-directory $HOME/.vim/tmp/dir_session/')
+	if a:A->len() > 1
+		return l:items->matchfuzzy(a:A)
+	else
+		return l:items
+	endif
 endfunction
 " }}}
 
