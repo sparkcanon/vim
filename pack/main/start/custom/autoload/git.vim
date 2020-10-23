@@ -11,12 +11,11 @@ function! git#stash_runner(arg) abort
 		exe 'term Git stash drop ' . matchstr(a:arg, '\d\+')
 	endif
 endfunction
-" }}}
 
-" Desc: Stash runner {{{
+" Desc: Stash runner
 function! git#stash_picker(A,L,P) abort
 	let l:items = systemlist('git stash list')
-	if a:A->len() > 1
+	if a:A->len() > 0
 		return matchfuzzy(l:items, a:A)
 	else
 		return l:items
@@ -36,7 +35,7 @@ function! git#checkout_picker(A,L,P) abort
 	for l:branches in l:raw_items
 		call insert(l:items, trim(l:branches))
 	endfor
-	if a:A->len() > 1
+	if a:A->len() > 0
 		return l:items->matchfuzzy(a:A)
 	else
 		return l:items

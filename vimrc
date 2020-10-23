@@ -9,7 +9,7 @@
 "             U  ||----w |
 "                ||     ||
 
-" Section: Load Custom {{{
+" Section: Load custom configuration {{{
 packadd! custom
 " }}}
 

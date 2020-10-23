@@ -6,7 +6,7 @@ function! npm#complete(A,L,P) abort
 		let l:root_raw = readfile("./package.json")
 		let l:root_decoded = json_decode(join(l:root_raw, " "))
 		if has_key(l:root_decoded, "scripts")
-			if a:A->len() > 1
+			if a:A->len() > 0
 				return keys(l:root_decoded.scripts)->matchfuzzy(a:A)
 			else
 				return keys(l:root_decoded.scripts)

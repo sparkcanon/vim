@@ -10,7 +10,7 @@ endfunction
 
 function! sessions#complete(A,L,P) abort
 	let l:items = systemlist('fd . --base-directory $HOME/.vim/tmp/dir_session/')
-	if a:A->len() > 1
+	if a:A->len() > 0
 		return l:items->matchfuzzy(a:A)
 	else
 		return l:items
