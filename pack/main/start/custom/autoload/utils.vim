@@ -32,3 +32,20 @@ function! utils#mkdir(path) abort
 endfunction
 " }}}
 
+" Desc: Js/ts mappings {{{
+function! utils#js_mappings() abort
+	" Mappings
+	" Template literals
+	inoremap [ []<Left>
+	inoremap ( ()<Left>
+	inoremap { {}<Left>
+
+	" Commands
+	" Console log command
+	command! -nargs=0 Log execute "normal oconsole.log('".expand('<cword>')
+				\ . "====> ', ".expand('<cword>').")"
+
+	" Add import statement
+	command! -nargs=0 ImportJs execute "normal ggOimport { ".expand('<cword>')." } from '';"
+endfunction
+" }}}
