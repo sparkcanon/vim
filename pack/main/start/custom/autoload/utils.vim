@@ -24,10 +24,10 @@ endfunction
 function! utils#mkdir(path) abort
 	if !isdirectory(a:path)
 		let b:path = a:path
-		autocmd MkdirAutocmd BufWritePre <buffer>
+		autocmd GeneralAutocmds BufWritePre <buffer>
 					\ call mkdir(b:path, 'p')
 					\ | unlet b:path
-					\ | autocmd! MkdirAutocmd  * <buffer>
+					\ | autocmd! GeneralAutocmds  * <buffer>
 	endif
 endfunction
 " }}}
