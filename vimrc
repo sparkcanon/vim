@@ -220,6 +220,11 @@ autocmd! GeneralAutocmds WinNew * au BufEnter * ++once
 			\ exe 'wincmd ' . (&splitright ? 'L' : 'H') |
 			\ endif
 
+autocmd! GeneralAutocmds TerminalOpen * au TerminalWinOpen * ++once
+			\ if winwidth(winnr('#')) >= 180 |
+			\ exe 'wincmd ' . (&splitright ? 'L' : 'H') |
+			\ endif
+
 " Create a new dir if it doesnt exists
 autocmd! GeneralAutocmds BufNewFile * call utils#mkdir(expand('<afile>:p:h'))
 

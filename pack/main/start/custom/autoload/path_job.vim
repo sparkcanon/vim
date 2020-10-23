@@ -2,14 +2,8 @@
 
 " Desc: Fd job to set dirsPath {{{
 function! path_job#setProjectPath() abort
-	if utils#isProject('lego-web')
-		let l:depth = '--exact-depth'
-	else
-		let l:depth = '--max-depth'
-	endif
-
 	let l:cmd = [ 'fd', '.',
-				\ l:depth, '2',
+				\ '--min-depth', '2',
 				\ '-t', 'd',
 				\ '-E', 'test/',
 				\ '-E', 'bin/',
