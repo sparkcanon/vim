@@ -243,6 +243,9 @@ autocmd! GeneralAutocmds TerminalWinOpen * execute 'ContextDisableWindow'
 " Set up format
 autocmd GeneralAutocmds FileType javascript,javascriptreact,typescript,typescriptreact,json,less,css call format#formatprg()
 
+" Fish shell
+autocmd! GeneralAutocmds BufRead,BufNewFile *.fish packadd! vim-fish | setfiletype fish
+
 " Make autocmds
 autocmd! GeneralAutocmds QuickFixCmdPre  lmake wall
 autocmd! GeneralAutocmds QuickFixCmdPost lmake call setloclist(

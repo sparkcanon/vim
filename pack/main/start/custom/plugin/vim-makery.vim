@@ -49,6 +49,17 @@ let g:makery_config = {
 			\        'errorformat': '%f:%l:%c: %m',
 			\      },
 			\     'Tags': { 'makeprg': 'ctags .' },
+			\   },
+			\ '~/Documents/playground/pack-cli/': {
+			\     'Lint': { 
+			\         'makeprg': 'npx eslint --format stylish',
+			\         'errorformat': s:eslint_efm, 
+			\     },
+			\     'Fix': {
+			\         'makeprg': 'npx eslint --fix',
+			\         'errorformat': s:eslint_efm, 
+			\     },
+			\     'Tags': { 'makeprg': 'ctags .' },
 			\   }
 			\ }
 " }}}
