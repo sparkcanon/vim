@@ -243,6 +243,10 @@ autocmd! GeneralAutocmds TerminalWinOpen * execute 'ContextDisableWindow'
 " Set up format
 autocmd GeneralAutocmds FileType javascript,javascriptreact,typescript,typescriptreact,json,less,css call format#formatprg()
 
+" TODO: This could be problematic
+autocmd! GeneralAutocmds BufRead,BufNewFile *.js setfiletype javascriptreact
+autocmd! GeneralAutocmds FileType javascript,javascriptreact packadd! vim-jsx-improve
+
 " Fish shell
 autocmd! GeneralAutocmds BufRead,BufNewFile *.fish packadd! vim-fish | setfiletype fish
 
