@@ -16,7 +16,7 @@ endfunction
 function! git#stash_picker(A,L,P) abort
 	let l:items = systemlist('git stash list')
 	if a:A->len() > 0
-		return matchfuzzy(l:items, a:A)
+		return l:items->matchfuzzy(a:A)
 	else
 		return l:items
 	endif

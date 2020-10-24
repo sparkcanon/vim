@@ -16,3 +16,7 @@ function! files#runner(args) abort
 	exe 'e ' .. a:args
 endfunction
 " }}}
+
+finish
+" Query that includes test folder in lego
+" fd . -t f -E bin/ -E eslint/ -E __mocks__/ -E tests_utils/ -E docs/ -E backstop_data/ -E __snapshots__ -E '*.req' -E '*.res'

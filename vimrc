@@ -279,9 +279,9 @@ command! -nargs=? -complete=dir Sexplore belowright split | silent Dirvish <args
 command! -nargs=? -complete=dir Vexplore leftabove vsplit | silent Dirvish <args>
 
 " Make commands
-command! -nargs=* -complete=file -bar Lint call make#runMakery('Lint', <f-args>)
-command! -nargs=* -complete=file -bar Fix  call make#runMakery('Fix', <f-args>)
-command! -nargs=* -complete=file -bar Test call make#runMakery('Test', <f-args>)
+command! -nargs=? -complete=file -bar Lint call make#runMakery('Lint', <f-args>)
+command! -nargs=? -complete=file -bar Fix  call make#runMakery('Fix', <f-args>)
+command! -nargs=? -complete=file -bar Test call make#runMakery('Test', <f-args>)
 
 " Load tabular and align
 command! -nargs=* -bang -range Tabularize packadd tabular <bar> Tabularize <args>
