@@ -2,6 +2,7 @@
 
 " Eslint stylish efm
 let s:eslint_efm = '%-P%f,%\\s%#%l:%c\ %#\ %trror\ \ %m,%\\s%#%l:%c\ %#\ %tarning\ \ %m,%-Q,%-G%.%#,'
+let s:xo_compact_efm = '%f: line %l\, col %c\, %trror - %m,%f: line %l\, col %c\, %tarning - %m,%-G%.%#'
 
 " Desc: Makery config global {{{
 let g:makery_config = {
@@ -52,12 +53,12 @@ let g:makery_config = {
 			\   },
 			\ '~/Documents/playground/pack-cli/': {
 			\     'Lint': { 
-			\         'makeprg': 'npx eslint --format stylish',
-			\         'errorformat': s:eslint_efm, 
+			\         'makeprg': 'npx xo --reporter compact',
+			\         'errorformat': s:xo_compact_efm, 
 			\     },
 			\     'Fix': {
-			\         'makeprg': 'npx eslint --fix',
-			\         'errorformat': s:eslint_efm, 
+			\         'makeprg': 'npx xo --fix',
+			\         'errorformat': s:xo_compact_efm, 
 			\     },
 			\     'Tags': { 'makeprg': 'ctags .' },
 			\   }
@@ -78,5 +79,8 @@ finish " {{{
 /Users/praborde/Documents/work_projects/tesco/lego-web/web/lib/requests/get-tesco-recommendations.js
 2:35  error  Replace `'../recommender-helpers'` with `'../recommender-helpers'`                                          prettier/prettier
 8:8   error  Replace `'./helpers/get-tesco-recommendations-helper'` with `'./helpers/get-tesco-recommendations-helper'`  prettier/prettier
+
+" XO compact error sample
+/Users/praborde/Documents/playground/pack-cli/source/cli.tsx: line 2, col 1, Error - Expected indentation of 0 spaces but found 1 tab. (@typescript-eslint/indent)
 " }}}
 
