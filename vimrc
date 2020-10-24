@@ -307,7 +307,7 @@ call utils#setupCommandAbbrs('w','update')
 call utils#setupCommandAbbrs('lv','ls\<space>t\<CR>:vert\<space>sb')
 call utils#setupCommandAbbrs('lt','ls\<space>t\<CR>:tab\<space>sb')
 call utils#setupCommandAbbrs('ld','ls\<space>t\<CR>:bd')
-call utils#setupCommandAbbrs('bD','bp\<bar>bd#')
+call utils#setupCommandAbbrs('br','bp\<bar>bd#')
 
 " Session
 call utils#setupCommandAbbrs('sl','SessionLoad')
