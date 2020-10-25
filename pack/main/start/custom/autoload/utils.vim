@@ -12,7 +12,7 @@ endfunction
 
 " Desc: Current project check {{{
 function! utils#isProject(match) abort
-	if fnamemodify(FugitiveWorkTree(), ':p:h:t') == a:match
+	if system('git rev-parse --show-toplevel')[:-2]->fnamemodify(':t') == a:match
 		return 1
 	else
 		return 0
