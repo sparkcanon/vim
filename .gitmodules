@@ -49,3 +49,9 @@
 [submodule "pack/main/opt/vim-jsx-improve"]
 	path = pack/main/opt/vim-jsx-improve
 	url = https://github.com/neoclide/vim-jsx-improve
+[submodule "pack/main/start/asyncdo.vim"]
+	path = pack/main/start/asyncdo.vim
+	url = https://github.com/hauleth/asyncdo.vim
+[submodule "pack/main/start/vim-markify"]
+	path = pack/main/start/vim-markify
+	url = https://github.com/dhruvasagar/vim-markify

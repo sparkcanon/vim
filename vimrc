@@ -251,7 +251,7 @@ autocmd! GeneralAutocmds FileType javascript,javascriptreact packadd! vim-jsx-im
 autocmd! GeneralAutocmds BufRead,BufNewFile *.fish packadd! vim-fish | setfiletype fish
 
 " Make autocmds
-autocmd! GeneralAutocmds QuickFixCmdPre  lmake wall
+autocmd! GeneralAutocmds QuickFixCmdPre  lmake update
 autocmd! GeneralAutocmds QuickFixCmdPost lmake call setloclist(
 			\ bufnr(), 
 			\ filter(getloclist(bufnr()), 
@@ -286,6 +286,8 @@ command! -nargs=? -complete=dir Sexplore belowright split | silent Dirvish <args
 command! -nargs=? -complete=dir Vexplore leftabove vsplit | silent Dirvish <args>
 
 " Make commands
+command! -bang -nargs=* Make call asyncdo#run(<bang>0, &makeprg, <f-args>)
+command! -bang -nargs=* LMake call asyncdo#lrun(<bang>0, &makeprg, <f-args>)
 command! -nargs=? -complete=file -bar Lint call make#runMakery('Lint', <f-args>)
 command! -nargs=? -complete=file -bar Fix  call make#runMakery('Fix', <f-args>)
 command! -nargs=? -complete=file -bar Test call make#runMakery('Test', <f-args>)

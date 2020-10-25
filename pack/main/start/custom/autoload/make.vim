@@ -4,9 +4,11 @@
 function! make#runMakery(...) abort
 	if filereadable('.makery.json')
 		if a:0 == 1
-			execute 'LM' . a:1 . '! ' . expand('%')
+			update
+			execute 'silent LM' . a:1 . '! ' . expand('%')
 		elseif a:0 > 1
-			execute 'LM' . a:1 . '! ' . expand(join(a:000[1:-1]))
+			update
+			execute 'silent LM' . a:1 . '! ' . expand(join(a:000[1:-1]))
 		endif
 	else
 		echom "Error: no makery.json"
