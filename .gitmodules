@@ -52,6 +52,6 @@
 [submodule "pack/main/start/asyncdo.vim"]
 	path = pack/main/start/asyncdo.vim
 	url = https://github.com/hauleth/asyncdo.vim
-[submodule "pack/main/start/vim-markify"]
-	path = pack/main/start/vim-markify
-	url = https://github.com/dhruvasagar/vim-markify
+[submodule "pack/main/start/vim-hier"]
+	path = pack/main/start/vim-hier
+	url = https://github.com/jceb/vim-hier
