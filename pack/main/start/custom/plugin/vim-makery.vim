@@ -1,8 +1,10 @@
 " Purpose: Makery set up
 
-" Eslint stylish efm
+" Desc: Errorformats {{{
 let s:eslint_efm = '%-P%f,%\\s%#%l:%c\ %#\ %trror\ \ %m,%\\s%#%l:%c\ %#\ %tarning\ \ %m,%-Q,%-G%.%#,'
 let s:xo_compact_efm = '%f: line %l\, col %c\, %trror - %m,%f: line %l\, col %c\, %tarning - %m,%-G%.%#'
+let s:jest_efm = '%-G%[%^\ ]%.%#,%-G%.%#Test\ suite\ failed\ to\ run,%E%.%#SyntaxError:\ %f:\ %m\ (%l:%c),%E%.%#●\ %m,%Z%.%#at\ %.%#\ (%f:%l:%c),%C%.%#,%-G%.%#'
+" }}}
 
 " Desc: Makery config global {{{
 let g:makery_config = {
@@ -18,7 +20,7 @@ let g:makery_config = {
 			\     'Tags': { 'makeprg': 'ctags .' },
 			\     'Test': {
 			\         'makeprg': './web/node_modules/.bin/jest',
-			\         'errorformat': '%-G%[%^\ ]%.%#,%-G%.%#Test\ suite\ failed\ to\ run,%E%.%#SyntaxError:\ %f:\ %m\ (%l:%c),%E%.%#●\ %m,%Z%.%#at\ %.%#\ (%f:%l:%c),%C%.%#,%-G%.%#',
+			\         'errorformat': s:jest_efm,
 			\     },
 			\     'Tsc': {
 			\         'makeprg': 'npx tsc --noEmit --jsx react',
@@ -41,7 +43,7 @@ let g:makery_config = {
 			\     'Tags': { 'makeprg': 'ctags .' },
 			\     'Test': {
 			\         'makeprg': 'npx jest',
-			\         'errorformat': '%-G%[%^\ ]%.%#,%-G%.%#Test\ suite\ failed\ to\ run,%E%.%#SyntaxError:\ %f:\ %m\ (%l:%c),%E%.%#●\ %m,%Z%.%#at\ %.%#\ (%f:%l:%c),%C%.%#,%-G%.%#' 
+			\         'errorformat': s:jest_efm 
 			\      },
 			\   },
 			\   '~/.vim/' : {
