@@ -36,12 +36,13 @@ endfunction
 function! utils#js_mappings() abort
 	" Mappings
 	" Template literals
-	iabbrev <buffer> { {}
-	iabbrev <buffer> ( ()
-	iabbrev <buffer> [ []
-	iabbrev <buffer> /* /*<CR><CR>/<UP><Esc>
-	iabbrev <buffer> scfu const  = () => {}<Esc>
-	iabbrev <buffer> sif if () {<CR><CR>}<Up><Esc>
+	iabbrev <buffer> s{ {}
+	iabbrev <buffer> s( ()
+	iabbrev <buffer> s[ []
+	iabbrev <buffer> /* /*<CR><CR>/<esc>kA
+	iabbrev <buffer> scfu const  = () => {}<esc>2F=2h
+	iabbrev <buffer> sif if () {<CR><CR>}<Up>
+	iabbrev <buffer> simp import {} from '';<esc>2ha
 
 	" Commands
 	" Console log command
