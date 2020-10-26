@@ -36,6 +36,8 @@ setglobal autoindent                                     " Minimal auto indentin
 setglobal clipboard^=unnamed                             " Set clipboard options
 set mouse=a                                              " Allow mouse interactions
 set cursorline
+set ttimeout
+set ttimeoutlen=100
 
 " Splits
 setglobal splitbelow                                     " Split window opens below

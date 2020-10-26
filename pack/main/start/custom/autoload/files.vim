@@ -12,6 +12,7 @@ function! files#picker(A,L,P) abort
 				\ '-E docs/ ' .
 				\ '-E backstop_data/ ' .
 				\ '-E __snapshots__/ ' .
+				\ '-E node_modules/ ' .
 				\ '-E "*.req" ' .
 				\ '-E "*.res"'
 
