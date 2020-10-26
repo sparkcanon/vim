@@ -36,9 +36,12 @@ endfunction
 function! utils#js_mappings() abort
 	" Mappings
 	" Template literals
-	inoremap [ []<Left>
-	inoremap ( ()<Left>
-	inoremap { {}<Left>
+	iabbrev <buffer> { {}
+	iabbrev <buffer> ( ()
+	iabbrev <buffer> [ []
+	iabbrev <buffer> /* /*<CR><CR>/<UP><Esc>
+	iabbrev <buffer> scfu const  = () => {}<Esc>
+	iabbrev <buffer> sif if () {<CR><CR>}<Up><Esc>
 
 	" Commands
 	" Console log command

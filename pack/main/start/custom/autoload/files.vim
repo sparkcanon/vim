@@ -2,7 +2,19 @@
 
 " Desc: Files picker {{{
 function! files#picker(A,L,P) abort
-	let l:cmd = 'fd . -t f -E test/ -E bin/ -E eslint/ -E __mocks__/ -E tests_utils/ -E docs/ -E backstop_data/ -E __snapshots__'
+	let l:cmd = 'fd . ' .
+				\ '-H ' .
+				\ '-t f ' .
+				\ '-E bin/ ' .
+				\ '-E eslint/ ' .
+				\ '-E __mocks__/ ' .
+				\ '-E tests_utils/ ' .
+				\ '-E docs/ ' .
+				\ '-E backstop_data/ ' .
+				\ '-E __snapshots__/ ' .
+				\ '-E "*.req" ' .
+				\ '-E "*.res"'
+
 	let l:items = systemlist(l:cmd)
 	if a:A->len() > 0
 		return l:items->matchfuzzy(a:A)
@@ -16,7 +28,3 @@ function! files#runner(args) abort
 	exe 'e ' .. a:args
 endfunction
 " }}}
-
-finish
-" Query that includes test folder in lego
-" fd . -t f -E bin/ -E eslint/ -E __mocks__/ -E tests_utils/ -E docs/ -E backstop_data/ -E __snapshots__ -E '*.req' -E '*.res'
