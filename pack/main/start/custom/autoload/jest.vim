@@ -22,7 +22,9 @@ function! jest#picker(A,L,P) abort
 		echo "Error: Jest config not found"
 	endif
 endfunction
+" }}}
 
+" Desc: jest runner {{{
 function! jest#runner(args) abort
 	if utils#isProject('lego-web')
 		execute 'term fish -c "cd web && npx jest --watch ' .. a:args '"'

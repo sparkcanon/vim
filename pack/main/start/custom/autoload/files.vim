@@ -23,8 +23,9 @@ function! files#picker(A,L,P) abort
 		return l:items
 	endif
 endfunction
+" }}}
 
-" Desc: Files runner
+" Desc: Files runner {{{
 function! files#runner(args) abort
 	exe 'e ' .. a:args
 endfunction

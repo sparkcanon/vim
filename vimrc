@@ -25,64 +25,71 @@ set omnifunc=syntaxcomplete#Complete             " General purpose omnifunc
 " }}}
 
 " Section: Basic Settings {{{
-setglobal backspace=indent,eol,start                     " Normal backspace behaviour
-setglobal hidden                                         " Display hidden buffers in list
-setglobal autoread                                       " Update file if changed outside
-setglobal incsearch                                      " Turn on incremental search
-setglobal hlsearch                                       " Highlight search term
-setglobal showmatch                                      " Highlight matching paranthesis
-setglobal wrap                                           " Wrap long lines
-setglobal autoindent                                     " Minimal auto indenting for any filetype
-setglobal clipboard^=unnamed                             " Set clipboard options
-set mouse=a                                              " Allow mouse interactions
-set cursorline
-set ttimeout
-set ttimeoutlen=100
+setglobal backspace=indent,eol,start               " Normal backspace behaviour
+setglobal hidden                                   " Display hidden buffers in list
+setglobal autoread                                 " Update file if changed outside
+setglobal incsearch                                " Turn on incremental search
+setglobal hlsearch                                 " Highlight search term
+setglobal showmatch                                " Highlight matching paranthesis
+setglobal wrap                                     " Wrap long lines
+setglobal autoindent                               " Minimal auto indenting for any filetype
+setglobal clipboard^=unnamed                       " Set clipboard options
+setglobal mouse=a                                  " Allow mouse interactions
+setglobal cursorline                               " Makes it easy to find the cursor
+setglobal ttimeout                                 " Terminal key code timeout
+setglobal ttimeoutlen=100                          " Define terminal key code timeout
+set number                                         " Display number column
+set signcolumn=number                              " Display signs in number column
 
 " Splits
-setglobal splitbelow                                     " Split window opens below
-setglobal splitright                                     " Split window opens right
+setglobal splitbelow                               " Split window opens below
+setglobal splitright                               " Split window opens right
 
 " Case
-setglobal smartcase                                      " To ignore case in certain cases, overrides ignorecase
-setglobal ignorecase                                     " Ignore case all together
+setglobal smartcase                                " To ignore case in certain cases, overrides ignorecase
+setglobal ignorecase                               " Ignore case all together
 
 " Wild menu options
-setglobal wildmenu                                       " Turn menu on for wild searches
-setglobal wildignorecase                                 " Ignore case for wildmenu
-setglobal wildignore=*.swp,*.bak                         " Ignore files
+setglobal wildmenu                                 " Turn menu on for wild searches
+setglobal wildignorecase                           " Ignore case for wildmenu
+setglobal wildignore=*.swp,*.bak                   " Ignore file patterns in wildmenu
 setglobal wildignore+=*.cache,*.min.*,**/dist/**
 setglobal wildignore+=**/.git/**/*
 setglobal wildignore+=*-lock.json,*.snap
 
 " Set fd error format
-set errorformat+=%f                                      " Efm for fd
+set errorformat+=%f                                " Efm for fd
 
 " Path options
-setglobal path=.,,**                                     " Standard path
+setglobal path=.,,**                               " Standard path
 
 " Backup settings
 setglobal sessionoptions-=options
 setglobal viewoptions-=options
-set undofile                                             " Set this option to have full undo power
-setglobal backup                                         " Set this option to enable backup
-setglobal writebackup                                    " Set this option to write back up
-setglobal backupdir=$HOME/.vim/tmp/dir_backup//          " Back up dir
-setglobal directory^=$HOME/.vim/tmp/dir_swap//           " Swap file dir
-setglobal undodir=$HOME/.vim/tmp/dir_undo                " Undo dir
+set undofile                                       " Set this option to have full undo power
+setglobal backup                                   " Set this option to enable backup
+setglobal writebackup                              " Set this option to write back up
+setglobal backupdir=$HOME/.vim/tmp/dir_backup//    " Back up dir
+setglobal directory^=$HOME/.vim/tmp/dir_swap//     " Swap file dir
+setglobal undodir=$HOME/.vim/tmp/dir_undo          " Undo dir
 
 " List chars
 set listchars=trail:·,eol:¬,tab:│\ 
 set list
 
 " Ruler
-set laststatus=0
+setglobal laststatus=2                             " Always show stausline
+let &statusline=" ❮ %f"
+let &statusline.=" %{statusline#quickfix()}"
+let &statusline.=" %{statusline#loclist()}"
+let &statusline.=" %{statusline#bg()}"
+let &statusline.="\%h%m%r%=%-14.(%l,%c%V%)\%P ❯ "
 set ruler
 
 " Grepprg & grepformat
 if executable('rg')
-	setglobal grepprg=rg\ --vimgrep
-	setglobal grepformat=%f:%l:%c:%m
+	setglobal grepprg=rg\ --vimgrep                  " Grep to use rg
+	setglobal grepformat=%f:%l:%c:%m                 " rg errorform
 endif
 " }}}
 
@@ -262,6 +269,7 @@ autocmd! GeneralAutocmds QuickFixCmdPost lmake call setloclist(
 
 " Auto Open quick fix list
 autocmd! GeneralAutocmds QuickFixCmdPost cgetexpr botright cwindow
+autocmd! GeneralAutocmds QuickFixCmdPost * lwindow
 
 " If swap exists, open read only mode
 autocmd! GeneralAutocmds SwapExists * :let v:swapchoice = 'o'
