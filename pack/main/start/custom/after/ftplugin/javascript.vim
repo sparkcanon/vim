@@ -21,6 +21,7 @@ let b:match_words = '\<function\>:\<return\>,'
 			\ . '\<do\>:\<while\>,'
 			\ . '\<try\>:\<catch\>:\<finally\>,'
 
+" Jsx
 let b:match_words .= '<:>,' .
 			\ '<\@<=[ou]l\>[^>]*\%(>\|$\):<\@<=li\>:<\@<=/[ou]l>,' .
 			\ '<\@<=dl\>[^>]*\%(>\|$\):<\@<=d[td]\>:<\@<=/dl>,' .

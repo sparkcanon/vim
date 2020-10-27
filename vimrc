@@ -286,11 +286,6 @@ command! -nargs=1 -complete=customlist,sessions#complete SessionLoad execute 'so
 command! -nargs=? -complete=dir YRelative :let @+ = expand("%")
 command! -nargs=? -complete=dir YFilename :let @+ = expand("%:t")
 
-" Dirvish commands
-command! -nargs=? -complete=dir Explore Dirvish <args>
-command! -nargs=? -complete=dir Sexplore belowright split | silent Dirvish <args>
-command! -nargs=? -complete=dir Vexplore leftabove vsplit | silent Dirvish <args>
-
 " Make commands
 command! -bang -nargs=* Make call asyncdo#run(<bang>0, &makeprg, <f-args>)
 command! -bang -nargs=* LMake call asyncdo#lrun(<bang>0, &makeprg, <f-args>)
@@ -347,9 +342,6 @@ call utils#setupCommandAbbrs('gc','GitCheckout')
 " Load built-in optional plugins
 packadd! cfilter  " Filter results from qf lists
 packadd! matchit  " Jump to brackets
-
-" Disable netrw
-let g:loaded_netrwPlugin = 1
 " }}}
 
 " Section: Syntax {{{

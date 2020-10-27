@@ -19,9 +19,6 @@
 [submodule "pack/main/start/vim-commentary"]
 	path = pack/main/start/vim-commentary
 	url = https://github.com/tpope/vim-commentary.git
-[submodule "pack/main/start/vim-dirvish"]
-	path = pack/main/start/vim-dirvish
-	url = https://github.com/justinmk/vim-dirvish.git
 [submodule "pack/main/start/vim-tmux-navigator"]
 	path = pack/main/start/vim-tmux-navigator
 	url = https://github.com/christoomey/vim-tmux-navigator
@@ -49,6 +46,6 @@
 [submodule "pack/main/start/asyncdo.vim"]
 	path = pack/main/start/asyncdo.vim
 	url = https://github.com/hauleth/asyncdo.vim
-[submodule "pack/main/start/vim-markify"]
-	path = pack/main/start/vim-markify
-	url = https://github.com/dhruvasagar/vim-markify
+[submodule "pack/main/start/vim-vinegar"]
+	path = pack/main/start/vim-vinegar
+	url = https://github.com/tpope/vim-vinegar
