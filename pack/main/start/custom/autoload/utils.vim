@@ -53,3 +53,9 @@ function! utils#js_mappings() abort
 	command! -nargs=0 ImportJs execute "normal ggOimport { ".expand('<cword>')." } from '';"
 endfunction
 " }}}
+
+" Desc: displays a flag if there is a currently running background job {{{
+function! utils#bg() abort
+	return exists('g:asyncdo') ? '[bg]' : ''
+endfunction
+" }}}

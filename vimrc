@@ -78,9 +78,7 @@ set list
 " Ruler
 setglobal laststatus=2                             " Always show stausline
 let &statusline=" ❮ %f"
-let &statusline.=" %{statusline#quickfix()}"
-let &statusline.=" %{statusline#loclist()}"
-let &statusline.=" %{statusline#bg()}"
+let &statusline.=" %{utils#bg()}"
 let &statusline.="\%h%m%r%=%-14.(%l,%c%V%)\%P ❯ "
 set ruler
 
@@ -296,6 +294,8 @@ autocmd! GeneralAutocmds BufRead,BufNewFile *.fish packadd! vim-fish | setfilety
 
 " Make autocmds
 autocmd! GeneralAutocmds QuickFixCmdPre  lmake update
+autocmd! GeneralAutocmds QuickFixCmdPost [^l]* cwindow
+autocmd! GeneralAutocmds QuickFixCmdPost l* lwindow
 autocmd! GeneralAutocmds QuickFixCmdPost lmake call setloclist(
 			\ bufnr(), 
 			\ filter(getloclist(bufnr()), 
