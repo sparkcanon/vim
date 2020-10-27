@@ -84,6 +84,13 @@ let &statusline.=" %{statusline#bg()}"
 let &statusline.="\%h%m%r%=%-14.(%l,%c%V%)\%P ❯ "
 set ruler
 
+" Show block cursor in Normal mode and line cursor in Insert mode
+let &t_ti.="\e[2 q"
+let &t_SI.="\e[6 q"
+let &t_SR.="\e[4 q"
+let &t_EI.="\e[2 q"
+let &t_te.="\e[0 q"
+
 " Grepprg & grepformat
 if executable('rg')
 	setglobal grepprg=rg\ --vimgrep                  " Grep to use rg
@@ -106,6 +113,9 @@ endfor
 if maparg('<C-L>', 'n') ==# ''
   nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 endif
+
+" Get more information from ctrl-g:
+nnoremap <c-g> 2<c-g>
 
 " Pane switching
 if exists('$TMUX_PANE')
