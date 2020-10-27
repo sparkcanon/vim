@@ -107,6 +107,18 @@ if maparg('<C-L>', 'n') ==# ''
   nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 endif
 
+if exists('$TMUX_PANE')
+	nnoremap <silent> <a-h> :<c-u>call tmux#navigate('h')<cr>
+	nnoremap <silent> <a-j> :<c-u>call tmux#navigate('j')<cr>
+	nnoremap <silent> <a-k> :<c-u>call tmux#navigate('k')<cr>
+	nnoremap <silent> <a-l> :<c-u>call tmux#navigate('l')<cr>
+else
+	nnoremap <a-l> <c-w>l
+	nnoremap <a-h> <c-w>h
+	nnoremap <a-j> <c-w>j
+	nnoremap <a-k> <c-w>k
+endif
+
 " Allow using alt in macOS without enabling “Use Option as Meta key”
 nmap ¬ <a-l>
 nmap ˙ <a-h>

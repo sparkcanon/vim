@@ -16,9 +16,6 @@
 [submodule "pack/main/start/vim-commentary"]
 	path = pack/main/start/vim-commentary
 	url = https://github.com/tpope/vim-commentary.git
-[submodule "pack/main/start/vim-tmux-navigator"]
-	path = pack/main/start/vim-tmux-navigator
-	url = https://github.com/christoomey/vim-tmux-navigator
 [submodule "pack/main/start/vim-makery"]
 	path = pack/main/start/vim-makery
 	url = https://github.com/igemnace/vim-makery
