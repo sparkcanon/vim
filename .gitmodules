@@ -37,9 +37,6 @@
 [submodule "pack/main/opt/vim-fish"]
 	path = pack/main/opt/vim-fish
 	url = https://github.com/dag/vim-fish
-[submodule "pack/main/start/context.vim"]
-	path = pack/main/start/context.vim
-	url = https://github.com/wellle/context.vim
 [submodule "pack/main/start/vim-gutentags"]
 	path = pack/main/start/vim-gutentags
 	url = https://github.com/ludovicchabant/vim-gutentags

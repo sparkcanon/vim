@@ -267,10 +267,6 @@ autocmd! GeneralAutocmds QuickFixCmdPost lmake call setloclist(
 			\ "v:val['valid']"), 'r'
 			\ )
 
-" Auto Open quick fix list
-autocmd! GeneralAutocmds QuickFixCmdPost cgetexpr botright cwindow
-autocmd! GeneralAutocmds QuickFixCmdPost * lwindow
-
 " If swap exists, open read only mode
 autocmd! GeneralAutocmds SwapExists * :let v:swapchoice = 'o'
 " }}}

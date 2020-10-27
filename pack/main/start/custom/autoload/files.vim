@@ -4,6 +4,7 @@
 function! files#picker(A,L,P) abort
 	let l:cmd = 'fd . ' .
 				\ '-H ' .
+				\ '--no-ignore ' .
 				\ '-t f ' .
 				\ '-E bin/ ' .
 				\ '-E eslint/ ' .
@@ -13,6 +14,13 @@ function! files#picker(A,L,P) abort
 				\ '-E backstop_data/ ' .
 				\ '-E __snapshots__/ ' .
 				\ '-E node_modules/ ' .
+				\ '-E .git/ ' .
+				\ '-E web/assets/ ' .
+				\ '-E web/public/ ' .
+				\ '-E web/.cache-loader/ ' .
+				\ '-E .github/ ' .
+				\ '-E ".gitattributes" ' .
+				\ '-E ".gitkeep" ' .
 				\ '-E "*.req" ' .
 				\ '-E "*.res"'
 
