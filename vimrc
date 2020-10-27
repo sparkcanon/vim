@@ -38,8 +38,6 @@ setglobal mouse=a                                  " Allow mouse interactions
 setglobal cursorline                               " Makes it easy to find the cursor
 setglobal ttimeout                                 " Terminal key code timeout
 setglobal ttimeoutlen=100                          " Define terminal key code timeout
-set number                                         " Display number column
-set signcolumn=number                              " Display signs in number column
 
 " Splits
 setglobal splitbelow                               " Split window opens below
@@ -245,9 +243,6 @@ autocmd! GeneralAutocmds VimLeavePre * call sessions#sessionSave()
 
 " Set path
 autocmd! GeneralAutocmds BufEnter,BufAdd * call path_job#setProjectPath()
-
-" Disable context
-autocmd! GeneralAutocmds TerminalWinOpen * execute 'ContextDisableWindow'
 
 " Set up format
 autocmd GeneralAutocmds FileType javascript,javascriptreact,typescript,typescriptreact,json,less,css call format#formatprg()
