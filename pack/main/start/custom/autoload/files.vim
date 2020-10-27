@@ -24,7 +24,7 @@ function! files#picker(A,L,P) abort
 				\ '-E "*.req" ' .
 				\ '-E "*.res"'
 
-	let l:items = systemlist(l:cmd)
+	let l:items = l:cmd->systemlist()
 	if a:A->len() > 0
 		return l:items->matchfuzzy(a:A)
 	else
