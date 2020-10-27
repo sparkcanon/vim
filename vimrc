@@ -107,6 +107,7 @@ if maparg('<C-L>', 'n') ==# ''
   nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 endif
 
+" Pane switching
 if exists('$TMUX_PANE')
 	nnoremap <silent> <a-h> :<c-u>call tmux#navigate('h')<cr>
 	nnoremap <silent> <a-j> :<c-u>call tmux#navigate('j')<cr>
@@ -118,6 +119,12 @@ else
 	nnoremap <a-j> <c-w>j
 	nnoremap <a-k> <c-w>k
 endif
+
+" Jump to another window directly from terminal mode
+tnoremap ¬ <c-w>l
+tnoremap ˙ <c-w>h
+tnoremap ∆ <c-w>j
+tnoremap ˚ <c-w>k
 
 " Allow using alt in macOS without enabling “Use Option as Meta key”
 nmap ¬ <a-l>
@@ -360,6 +367,15 @@ call utils#setupCommandAbbrs('gc','GitCheckout')
 " Load built-in optional plugins
 packadd! cfilter  " Filter results from qf lists
 packadd! matchit  " Jump to brackets
+
+" Disable vim plugins
+let g:loaded_getscriptPlugin = 1
+let g:loaded_gzip            = 1
+let g:loaded_logiPat         = 1
+let g:loaded_rrhelper        = 1
+let g:loaded_tarPlugin       = 1
+let g:loaded_vimballPlugin   = 1
+let g:loaded_zipPlugin       = 1
 " }}}
 
 " Section: Syntax {{{
