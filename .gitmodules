@@ -1,9 +1,6 @@
 [submodule "pack/main/start/vim-eunuch"]
 	path = pack/main/start/vim-eunuch
 	url = https://github.com/tpope/vim-eunuch.git
-[submodule "pack/main/start/vim-cool"]
-	path = pack/main/start/vim-cool
-	url = https://github.com/romainl/vim-cool.git
 [submodule "pack/main/start/vim-surround"]
 	path = pack/main/start/vim-surround
 	url = https://github.com/tpope/vim-surround.git

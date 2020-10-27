@@ -18,8 +18,10 @@ endfunction
 
 finish " {{{
 " Desc: Errorformats
+" Note: Eslint efm for stylish reporter, can be used for lesshint as well
 let s:eslint_efm = '%-P%f,%\\s%#%l:%c\ %#\ %trror\ \ %m,%\\s%#%l:%c\ %#\ %tarning\ \ %m,%-Q,%-G%.%#,'
-let s:xo_compact_efm = '%f: line %l\, col %c\, %trror - %m,%f: line %l\, col %c\, %tarning - %m,%-G%.%#'
+" Note: xo efm for compact reporter
+let s:xo_compact_efm = "%f: line %l\\, col %c\\, %trror - %m,%f: line %l\\, col %c\\, %tarning - %m,%-G%.%#"
 let s:jest_efm = '%-G%[%^\ ]%.%#,%-G%.%#Test\ suite\ failed\ to\ run,%E%.%#SyntaxError:\ %f:\ %m\ (%l:%c),%E%.%#●\ %m,%Z%.%#at\ %.%#\ (%f:%l:%c),%C%.%#,%-G%.%#'
 
 " Lesshint stylish error sample

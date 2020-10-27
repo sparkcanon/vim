@@ -102,6 +102,17 @@ for mode in ['n', 'x']
 	execute mode . 'noremap  ; :'
 endfor
 
+" Clear highlighting
+if maparg('<C-L>', 'n') ==# ''
+  nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
+endif
+
+" Allow using alt in macOS without enabling “Use Option as Meta key”
+nmap ¬ <a-l>
+nmap ˙ <a-h>
+nmap ∆ <a-j>
+nmap ˚ <a-k>
+
 " Using backtick for marks drops you on the exact column
 nnoremap ` '
 nnoremap ' `
@@ -282,8 +293,8 @@ command! -nargs=? -complete=dir YRelative :let @+ = expand("%")
 command! -nargs=? -complete=dir YFilename :let @+ = expand("%:t")
 
 " Make commands
-command! -bang -nargs=* Make call asyncdo#run(<bang>0, &makeprg, <f-args>)
-command! -bang -nargs=* LMake call asyncdo#lrun(<bang>0, &makeprg, <f-args>)
+command! -bang -nargs=* Make               call asyncdo#run(<bang>0, &makeprg, <f-args>)
+command! -bang -nargs=* LMake              call asyncdo#lrun(<bang>0, &makeprg, <f-args>)
 command! -nargs=? -complete=file -bar Lint call make#runMakery('Lint', <f-args>)
 command! -nargs=? -complete=file -bar Fix  call make#runMakery('Fix', <f-args>)
 command! -nargs=? -complete=file -bar Test call make#runMakery('Test', <f-args>)

@@ -4,12 +4,12 @@
 function! npm#complete(A,L,P) abort
 	if filereadable("./package.json")
 		let l:root_raw = readfile("./package.json")
-		let l:root_decoded = json_decode(join(l:root_raw, " "))
-		if has_key(l:root_decoded, "scripts")
+		let l:root_decoded = l:root_raw->join(" ")->json_decode()
+		if l:root_decoded->has_key("scripts")
 			if a:A->len() > 0
-				return keys(l:root_decoded.scripts)->matchfuzzy(a:A)
+				return l:root_decoded.scripts->keys()->matchfuzzy(a:A)
 			else
-				return keys(l:root_decoded.scripts)
+				return l:root_decoded.scripts->keys()
 			endif
 		endif
 	endif
