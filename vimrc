@@ -109,9 +109,7 @@ for mode in ['n', 'x']
 endfor
 
 " Clear highlighting
-if maparg('<C-L>', 'n') ==# ''
-  nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
-endif
+nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 
 " Get more information from ctrl-g:
 nnoremap <c-g> 2<c-g>
@@ -285,10 +283,6 @@ autocmd! GeneralAutocmds BufEnter,BufAdd * call path_job#setProjectPath()
 
 " Set up format
 autocmd GeneralAutocmds FileType javascript,javascriptreact,typescript,typescriptreact,json,less,css call format#formatprg()
-
-" TODO: This could be problematic
-autocmd! GeneralAutocmds BufRead,BufNewFile *.js setfiletype javascriptreact
-autocmd! GeneralAutocmds FileType javascript,javascriptreact packadd! vim-jsx-improve
 
 " Fish shell
 autocmd! GeneralAutocmds BufRead,BufNewFile *.fish packadd! vim-fish | setfiletype fish

@@ -19,6 +19,7 @@ function! files#picker(A,L,P) abort
 				\ '-E web/public/ ' .
 				\ '-E web/.cache-loader/ ' .
 				\ '-E .github/ ' .
+				\ '-E tmp/ ' .
 				\ '-E ".gitattributes" ' .
 				\ '-E ".gitkeep" ' .
 				\ '-E "*.req" ' .
