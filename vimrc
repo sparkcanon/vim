@@ -284,6 +284,9 @@ autocmd! GeneralAutocmds BufEnter,BufAdd * call path_job#setProjectPath()
 " Set up format
 autocmd GeneralAutocmds FileType javascript,javascriptreact,typescript,typescriptreact,json,less,css call format#formatprg()
 
+" Enable jsx syntax
+autocmd GeneralAutocmds FileType javascript,javascriptreact packadd! vim-jsx-pretty
+
 " Fish shell
 autocmd! GeneralAutocmds BufRead,BufNewFile *.fish packadd! vim-fish | setfiletype fish
 

@@ -40,3 +40,6 @@
 [submodule "pack/main/start/vim-vinegar"]
 	path = pack/main/start/vim-vinegar
 	url = https://github.com/tpope/vim-vinegar
+[submodule "pack/main/opt/vim-jsx-pretty"]
+	path = pack/main/opt/vim-jsx-pretty
+	url = https://github.com/MaxMEllon/vim-jsx-pretty
