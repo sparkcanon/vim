@@ -78,7 +78,8 @@ set list
 " Ruler
 setglobal laststatus=2                             " Always show stausline
 let &statusline=" ❮ %f"
-let &statusline.=" %{utils#bg()}"
+let &statusline.=" %{gutentags#statusline('[',']','T')}"
+let &statusline.=" %{utils#asyncjob()}"
 let &statusline.="\%h%m%r%=%-14.(%l,%c%V%)\%P ❯ "
 set ruler
 

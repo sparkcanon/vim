@@ -55,7 +55,7 @@ endfunction
 " }}}
 
 " Desc: displays a flag if there is a currently running background job {{{
-function! utils#bg() abort
-	return exists('g:asyncdo') ? '[bg]' : ''
+function! utils#asyncjob() abort
+	return exists('g:asyncdo') ? '[M]' : ''
 endfunction
 " }}}
