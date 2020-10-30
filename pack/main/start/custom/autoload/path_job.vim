@@ -12,6 +12,8 @@ function! path_job#setProjectPath() abort
 				\ '-E', 'tests_utils/',
 				\ '-E', 'docs/',
 				\ '-E', 'backstop_data/',
+				\ '-E', 'web/assets/',
+				\ '-E', 'web/public/',
 				\ ]
 	let l:opt = { 'close_cb': 'FdDirHandler' }
 	let l:jobStart = job_start(l:cmd, l:opt)
