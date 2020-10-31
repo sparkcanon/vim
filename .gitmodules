@@ -43,3 +43,6 @@
 [submodule "pack/main/opt/vim-jsx-pretty"]
 	path = pack/main/opt/vim-jsx-pretty
 	url = https://github.com/MaxMEllon/vim-jsx-pretty
+[submodule "pack/main/start/vim-matchup"]
+	path = pack/main/start/vim-matchup
+	url = https://github.com/andymass/vim-matchup
