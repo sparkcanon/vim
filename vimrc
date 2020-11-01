@@ -77,10 +77,7 @@ set list
 
 " Ruler
 setglobal laststatus=2                             " Always show stausline
-let &statusline=" ❮ %f"
-let &statusline.=" %{gutentags#statusline('[',']','T')}"
-let &statusline.=" %{utils#asyncjob()}"
-let &statusline.="\%h%m%r%=%-14.(%l,%c%V%)\%P ❯ "
+let &statusline = utils#statusline_expr()
 set ruler
 
 " Show block cursor in Normal mode and line cursor in Insert mode
@@ -176,6 +173,7 @@ nnoremap <S-Tab> gT
 
 " Terminal
 tnoremap <Esc> <C-\><C-n>
+tnoremap <space>t <c-w>:term<CR>
 
 " Center search result line in screen
 nnoremap n nzvzz
