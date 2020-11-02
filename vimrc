@@ -341,6 +341,11 @@ command! -nargs=1 -bar -complete=customlist,files#picker Files call files#runner
 " Git
 command! -nargs=1 -complete=customlist,git#stash_picker GitStash       call git#stash_runner(<q-args>)
 command! -nargs=1 -complete=customlist,git#checkout_picker GitCheckout call git#checkout_runner(<q-args>)
+
+" Dirvish
+command! -nargs=? -complete=dir Explore Dirvish <args>
+command! -nargs=? -complete=dir Sexplore belowright split | silent Dirvish <args>
+command! -nargs=? -complete=dir Vexplore leftabove vsplit | silent Dirvish <args>
 " }}}
 
 " Section: Custom abbr {{{
@@ -376,8 +381,8 @@ call utils#setupCommandAbbrs('gc','GitCheckout')
 " Load built-in optional plugins
 packadd! cfilter  " Filter results from qf lists
 
-" Tree style netrw
-let g:netrw_liststyle = 3
+" Dirvish
+let g:dirvish_mode = ':sort ,^\v(.*[\/])|\ze,'
 
 " Disable vim plugins
 let g:loaded_getscriptPlugin = 1
@@ -388,6 +393,7 @@ let g:loaded_tarPlugin       = 1
 let g:loaded_vimballPlugin   = 1
 let g:loaded_zipPlugin       = 1
 let g:loaded_matchit         = 1
+let g:loaded_netrwPlugin     = 1
 " }}}
 
 " Section: Syntax {{{
