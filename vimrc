@@ -300,6 +300,9 @@ autocmd! GeneralAutocmds QuickFixCmdPost lmake call setloclist(
 
 " If swap exists, open read only mode
 autocmd! GeneralAutocmds SwapExists * :let v:swapchoice = 'o'
+
+" Wipe netrw buffers
+autocmd GeneralAutocmds FileType netrw setlocal bufhidden=wipe
 " }}}
 
 " Section: Custom commands {{{
@@ -372,6 +375,9 @@ call utils#setupCommandAbbrs('gc','GitCheckout')
 " Section: Plugins && related setup {{{
 " Load built-in optional plugins
 packadd! cfilter  " Filter results from qf lists
+
+" Tree style netrw
+let g:netrw_liststyle = 3
 
 " Disable vim plugins
 let g:loaded_getscriptPlugin = 1
