@@ -341,6 +341,7 @@ command! -nargs=1 -bar -complete=customlist,buffers#picker Buffers     call buff
 command! -nargs=1 -bar -complete=customlist,buffers#picker VertBuffers call buffers#runner(<q-args>, 'vert sb')
 command! -nargs=1 -bar -complete=customlist,buffers#picker TabBuffers  call buffers#runner(<q-args>, 'tab sb')
 command! -nargs=1 -bar -complete=customlist,buffers#picker DBuffers    call buffers#runner(<q-args>, 'bd')
+command! -nargs=1 -bar -complete=customlist,buffers#picker SplitBuffer call buffers#runner(<q-args>, 'sb')
 
 " Git
 command! -nargs=1 -complete=customlist,git#stash_picker GitStash       call git#stash_runner(<q-args>)
@@ -361,6 +362,9 @@ call utils#setupCommandAbbrs('lv','ls\<space>t\<CR>:VertBuffers')
 call utils#setupCommandAbbrs('lt','ls\<space>t\<CR>:TabBuffers')
 call utils#setupCommandAbbrs('ld','ls\<space>t\<CR>:DBuffers')
 call utils#setupCommandAbbrs('br','bp\<bar>bd#')
+call utils#setupCommandAbbrs('vb','VertBuffers')
+call utils#setupCommandAbbrs('tb','TabBuffers')
+call utils#setupCommandAbbrs('sb','SplitBuffer')
 
 " Session
 call utils#setupCommandAbbrs('sl','SessionLoad')
