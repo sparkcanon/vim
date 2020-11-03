@@ -365,6 +365,7 @@ call utils#setupCommandAbbrs('br','bp\<bar>bd#')
 call utils#setupCommandAbbrs('vb','VertBuffers')
 call utils#setupCommandAbbrs('tb','TabBuffers')
 call utils#setupCommandAbbrs('sb','SplitBuffer')
+call utils#setupCommandAbbrs('b','Buffers')
 
 " Session
 call utils#setupCommandAbbrs('sl','SessionLoad')
