@@ -10,7 +10,7 @@ function! listcommands#CR() abort
 	endif
 	if l:cmdline =~ '\v\C^(ls|files|buffers)'
 		" like :ls but prompts for a buffer command
-		return "\<CR>:b\<space>"
+		return "\<CR>:Buffers\<space>"
 	elseif l:cmdline =~ '\v\C/(#|nu|num|numb|numbe|number)$'
 		" like :g//# but prompts for a command
 		return "\<CR>:"

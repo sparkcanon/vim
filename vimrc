@@ -228,7 +228,7 @@ nnoremap [<space> O<C-c>
 nnoremap <space>f :Files<space>
 nnoremap <space>s :split <bar> Files<space>
 nnoremap <space>v :vsp <bar> Files<space>
-nnoremap <space>t :tab <bar> Files<space>
+nnoremap <space>t :tabnew <bar> Files<space>
 
 " Edit
 nnoremap <space>ee :e <C-R>='%:h/'<CR>
@@ -334,9 +334,13 @@ command! -nargs=* -bang -range Tabularize packadd tabular <bar> Tabularize <args
 command! -nargs=0 ColorsKitty call colors#Kitty()
 
 " Fuzzy pickers
-command! -nargs=1 -complete=customlist,jest#picker Jest        call jest#runner(<q-args>)
-command! -nargs=1 -bar -complete=customlist,npm#complete Npm   call npm#runner(<q-args>)
-command! -nargs=1 -bar -complete=customlist,files#picker Files call files#runner(<q-args>)
+command! -nargs=1 -complete=customlist,jest#picker Jest                call jest#runner(<q-args>)
+command! -nargs=1 -bar -complete=customlist,npm#complete Npm           call npm#runner(<q-args>)
+command! -nargs=1 -bar -complete=customlist,files#picker Files         call files#runner(<q-args>)
+command! -nargs=1 -bar -complete=customlist,buffers#picker Buffers     call buffers#runner(<q-args>, 'b')
+command! -nargs=1 -bar -complete=customlist,buffers#picker VertBuffers call buffers#runner(<q-args>, 'vert sb')
+command! -nargs=1 -bar -complete=customlist,buffers#picker TabBuffers  call buffers#runner(<q-args>, 'tab sb')
+command! -nargs=1 -bar -complete=customlist,buffers#picker DBuffers    call buffers#runner(<q-args>, 'bd')
 
 " Git
 command! -nargs=1 -complete=customlist,git#stash_picker GitStash       call git#stash_runner(<q-args>)
@@ -353,9 +357,9 @@ command! -nargs=? -complete=dir Vexplore leftabove vsplit | silent Dirvish <args
 call utils#setupCommandAbbrs('w','update')
 
 " Buffer list
-call utils#setupCommandAbbrs('lv','ls\<space>t\<CR>:vert\<space>sb')
-call utils#setupCommandAbbrs('lt','ls\<space>t\<CR>:tab\<space>sb')
-call utils#setupCommandAbbrs('ld','ls\<space>t\<CR>:bd')
+call utils#setupCommandAbbrs('lv','ls\<space>t\<CR>:VertBuffers')
+call utils#setupCommandAbbrs('lt','ls\<space>t\<CR>:TabBuffers')
+call utils#setupCommandAbbrs('ld','ls\<space>t\<CR>:DBuffers')
 call utils#setupCommandAbbrs('br','bp\<bar>bd#')
 
 " Session
