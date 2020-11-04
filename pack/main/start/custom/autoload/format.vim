@@ -15,6 +15,7 @@ endfunction
 
 " Desc: Format buffer and restore view {{{
 function! format#buffer() abort
+	call format#formatprg()
 	let view = winsaveview()
 	normal gggqG
 	call winrestview(view)
