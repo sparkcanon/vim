@@ -173,7 +173,7 @@ nnoremap <S-Tab> gT
 
 " Terminal
 tnoremap <Esc> <C-\><C-n>
-tnoremap <space>t <c-w>:term<CR>
+tnoremap <Bslash>t <c-w>:term<CR>
 
 " Center search result line in screen
 nnoremap n nzvzz
@@ -374,8 +374,8 @@ call utils#setupCommandAbbrs('se','GrepExact')
 call utils#setupCommandAbbrs('st','GrepExclude')
 
 " Git
-call utils#setupCommandAbbrs('gf','!git fetch --all')
-call utils#setupCommandAbbrs('gp','!git push')
+call utils#setupCommandAbbrs('gf','ter git fetch --all')
+call utils#setupCommandAbbrs('gp','ter git push')
 call utils#setupCommandAbbrs('gl','Git pull')
 call utils#setupCommandAbbrs('gd','Git difftool')
 call utils#setupCommandAbbrs('gm','Git mergetool')
@@ -386,6 +386,9 @@ call utils#setupCommandAbbrs('gc','GitCheckout')
 " Section: Plugins && related setup {{{
 " Load built-in optional plugins
 packadd! cfilter  " Filter results from qf lists
+
+" Habanight transparent background
+let g:habanight_transp_bg = v:true
 
 " Dirvish
 let g:dirvish_mode = ':sort ,^\v(.*[\/])|\ze,'
