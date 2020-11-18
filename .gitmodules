@@ -28,15 +28,9 @@
 [submodule "pack/main/opt/vim-fish"]
 	path = pack/main/opt/vim-fish
 	url = https://github.com/dag/vim-fish
-[submodule "pack/main/start/vim-gutentags"]
-	path = pack/main/start/vim-gutentags
-	url = https://github.com/ludovicchabant/vim-gutentags
 [submodule "pack/main/opt/vim-habanight"]
 	path = pack/main/opt/vim-habanight
 	url = https://github.com/habamax/vim-habanight
-[submodule "pack/main/start/asyncdo.vim"]
-	path = pack/main/start/asyncdo.vim
-	url = https://github.com/hauleth/asyncdo.vim
 [submodule "pack/main/opt/vim-jsx-pretty"]
 	path = pack/main/opt/vim-jsx-pretty
 	url = https://github.com/MaxMEllon/vim-jsx-pretty
@@ -46,3 +40,9 @@
 [submodule "pack/main/start/vim-dirvish"]
 	path = pack/main/start/vim-dirvish
 	url = https://github.com/justinmk/vim-dirvish
+[submodule "pack/main/start/vim-lsc"]
+	path = pack/main/start/vim-lsc
+	url = https://github.com/natebosch/vim-lsc
+[submodule "pack/main/start/asyncdo.vim"]
+	path = pack/main/start/asyncdo.vim
+	url = https://github.com/hauleth/asyncdo.vim

@@ -157,16 +157,6 @@ inoremap <C-d> <C-x><C-s>
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-" Tags
-nnoremap ,p :ptjump<space><C-R><C-W><CR>
-nnoremap ,j :tjump<space><C-R><C-W><CR>
-nnoremap ,t :tab<space>tjump<space><C-R><C-W><CR>
-nnoremap ,v :vert stjump<space><C-R><C-W><CR>
-nnoremap [t :tNext<CR>
-nnoremap ]t :tprevious<CR>
-nnoremap ]T :tlast<CR>
-nnoremap [T :tfirst<CR>
-
 " Tabs
 nnoremap <Tab> gt
 nnoremap <S-Tab> gT
