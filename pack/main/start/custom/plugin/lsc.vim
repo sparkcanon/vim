@@ -9,22 +9,22 @@ let g:lsc_hover_popup = v:false  " Disable hover pop up
 " Section: Server configurations {{{
 let g:lsc_server_commands = {
 				\ 'javascript': {
-					\ 'command': 'javascript-typescript-stdio',
+					\ 'command': 'typescript-language-server --stdio',
 					\ 'log_level': -1,
 					\ 'supress_stderr': v:true,
 				\ },
 				\ 'jasmine.javascript': {
-					\ 'command': 'javascript-typescript-stdio',
+					\ 'command': 'typescript-language-server --stdio',
 					\ 'log_level': -1,
 					\ 'supress_stderr': v:true,
 				\ },
 				\ 'typescript': {
-					\ 'command': 'javascript-typescript-stdio',
+					\ 'command': 'typescript-language-server --stdio',
 					\ 'log_level': -1,
 					\ 'supress_stderr': v:true,
 				\ },
 				\ 'typescriptreact': {
-					\ 'command': 'javascript-typescript-stdio',
+					\ 'command': 'typescript-language-server --stdio',
 					\ 'log_level': -1,
 					\ 'supress_stderr': v:true,
 				\ },
@@ -46,18 +46,22 @@ let g:lsc_server_commands = {
 
 " Section: Remap default mappings {{{
 let g:lsc_auto_map = {
-			\ 'GoToDefinition'      : ',d',
-			\ 'GoToDefinitionSplit' : ',D',
+			\ 'GoToDefinition'      : ',j',
+			\ 'GoToDefinitionSplit' : ',sj',
 			\ 'FindReferences'      : ',r',
-			\ 'NextReference'       : ',nr',
-			\ 'PreviousReference'   : ',fr',
+			\ 'NextReference'       : ',fr',
+			\ 'PreviousReference'   : ',br',
 			\ 'FindImplementations' : ',i',
 			\ 'FindCodeActions'     : ',a',
 			\ 'Rename'              : ',R',
 			\ 'ShowHover'           : v:true,
 			\ 'DocumentSymbol'      : ',w',
 			\ 'WorkspaceSymbol'     : ',W',
-			\ 'SignatureHelp'       : ',s',
 			\ 'Completion'          : 'omnifunc',
 			\}
+
+" LSC
+nnoremap ,vj :vertical LSClientGoToDefinitionSplit<CR>
+nnoremap ,tj :tab LSClientGoToDefinitionSplit<CR>
+inoremap <silent> <C-h> <C-o>:LSClientSignatureHelp<CR>
 " }}}

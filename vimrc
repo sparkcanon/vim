@@ -35,9 +35,10 @@ setglobal wrap                                     " Wrap long lines
 setglobal autoindent                               " Minimal auto indenting for any filetype
 setglobal clipboard^=unnamed                       " Set clipboard options
 setglobal mouse=a                                  " Allow mouse interactions
-setglobal cursorline                               " Makes it easy to find the cursor
+set cursorline                                     " Makes it easy to find the cursor
 setglobal ttimeout                                 " Terminal key code timeout
 setglobal ttimeoutlen=100                          " Define terminal key code timeout
+set noshowmode                                     " Do not display mode in cmd
 
 " Splits
 setglobal splitbelow                               " Split window opens below

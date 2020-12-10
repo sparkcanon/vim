@@ -58,6 +58,7 @@ endfunction
 
 " Desc: Statusline {{{
 function! utils#statusline_expr() abort
+	let l:mode = "%{toupper(mode())}"
 	let l:mod = "%{&modified ? '[+] ' : !&modifiable ? '[x] ' : ''}"
 	let l:ro  = "%{&readonly ? '[RO] ' : ''}"
 	let l:ft  = "%{len(&filetype) ? '['.&filetype.'] ' : ''}"
@@ -70,6 +71,6 @@ function! utils#statusline_expr() abort
 	" Fugitive
 	" let l:fug = "%{exists('g:loaded_fugitive') ? fugitive#statusline() : ''}"
 
-	return ' ❮ [%n]'.l:fn.'%<'.l:mod.l:ro.l:ft.l:bg.l:sep.l:pos.'%*'.l:pct.' ❯ '
+	return ' ❮ ['.l:mode.'] [%n]'.l:fn.'%<'.l:mod.l:ro.l:ft.l:bg.l:sep.l:pos.'%*'.l:pct.' ❯ '
 endfunction
 " }}}
