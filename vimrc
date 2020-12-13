@@ -20,8 +20,8 @@ augroup END
 " }}}
 
 " Section: Completion {{{
-setglobal completeopt+=menuone,noinsert,longest  " Open menu and no insert
-set omnifunc=syntaxcomplete#Complete             " General purpose omnifunc
+setglobal completeopt=menuone,noinsert,longest,popup  " Open menu and no insert
+set omnifunc=syntaxcomplete#Complete                  " General purpose omnifunc
 " }}}
 
 " Section: Basic Settings {{{
@@ -73,8 +73,7 @@ setglobal directory^=$HOME/.vim/tmp/dir_swap//     " Swap file dir
 setglobal undodir=$HOME/.vim/tmp/dir_undo          " Undo dir
 
 " List chars
-set listchars=trail:·,eol:¬,tab:│\ 
-set list
+set list listchars=trail:·,eol:¬,tab:¦\ 
 
 " Ruler
 setglobal laststatus=2                             " Always show stausline
@@ -380,6 +379,7 @@ packadd! cfilter  " Filter results from qf lists
 
 " Habanight transparent background
 let g:habanight_transp_bg = v:true
+let g:Hexokinase_highlighters = ['backgroundfull']
 
 " Dirvish
 let g:dirvish_mode = ':sort ,^\v(.*[\/])|\ze,'

@@ -46,3 +46,6 @@
 [submodule "pack/main/start/asyncdo.vim"]
 	path = pack/main/start/asyncdo.vim
 	url = https://github.com/hauleth/asyncdo.vim
+[submodule "pack/main/start/vim-hexokinase"]
+	path = pack/main/start/vim-hexokinase
+	url = https://github.com/RRethy/vim-hexokinase
