@@ -34,9 +34,6 @@
 [submodule "pack/main/opt/vim-jsx-pretty"]
 	path = pack/main/opt/vim-jsx-pretty
 	url = https://github.com/MaxMEllon/vim-jsx-pretty
-[submodule "pack/main/start/vim-matchup"]
-	path = pack/main/start/vim-matchup
-	url = https://github.com/andymass/vim-matchup
 [submodule "pack/main/start/vim-dirvish"]
 	path = pack/main/start/vim-dirvish
 	url = https://github.com/justinmk/vim-dirvish
@@ -49,3 +46,9 @@
 [submodule "pack/main/start/vim-hexokinase"]
 	path = pack/main/start/vim-hexokinase
 	url = https://github.com/RRethy/vim-hexokinase
+[submodule "pack/main/start/vim-mucomplete"]
+	path = pack/main/start/vim-mucomplete
+	url = https://github.com/lifepillar/vim-mucomplete
+[submodule "pack/main/start/vim-matchup"]
+	path = pack/main/start/vim-matchup
+	url = https://github.com/andymass/vim-matchup

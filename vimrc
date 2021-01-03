@@ -20,7 +20,7 @@ augroup END
 " }}}
 
 " Section: Completion {{{
-setglobal completeopt=menuone,noinsert,longest,popup  " Open menu and no insert
+setglobal completeopt+=menuone,noinsert,popup         " Open menu and no insert
 set omnifunc=syntaxcomplete#Complete                  " General purpose omnifunc
 " }}}
 
@@ -154,8 +154,8 @@ inoremap <C-l> <C-x><C-l>
 " Spell completion
 inoremap <C-d> <C-x><C-s>
 " Tab movement in pum
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " Tabs
 nnoremap <Tab> gt
@@ -379,6 +379,11 @@ packadd! cfilter  " Filter results from qf lists
 
 " Habanight transparent background
 let g:habanight_transp_bg = v:true
+
+" Mucomplete
+let g:mucomplete#enable_auto_at_startup = 1
+
+" Hexokinase
 let g:Hexokinase_highlighters = ['backgroundfull']
 
 " Dirvish

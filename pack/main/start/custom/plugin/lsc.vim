@@ -3,12 +3,17 @@
 " Section: Settings {{{
 let g:lsc_enable_autocomplete = v:false  " Disable autocompletion
 let g:lsc_trace_level = 'off'    " Turn off tracing for servers
-let g:lsc_hover_popup = v:false  " Disable hover pop up
+let g:lsc_hover_popup = v:true  " Disable hover pop up
 " }}}
 
 " Section: Server configurations {{{
 let g:lsc_server_commands = {
 				\ 'javascript': {
+					\ 'command': 'typescript-language-server --stdio',
+					\ 'log_level': -1,
+					\ 'supress_stderr': v:true,
+				\ },
+				\ 'javascriptreact': {
 					\ 'command': 'typescript-language-server --stdio',
 					\ 'log_level': -1,
 					\ 'supress_stderr': v:true,
