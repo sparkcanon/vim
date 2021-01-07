@@ -37,12 +37,15 @@
 [submodule "pack/main/start/vim-hexokinase"]
 	path = pack/main/start/vim-hexokinase
 	url = https://github.com/RRethy/vim-hexokinase
-[submodule "pack/main/start/vim-mucomplete"]
-	path = pack/main/start/vim-mucomplete
-	url = https://github.com/lifepillar/vim-mucomplete
 [submodule "pack/main/start/vim-matchup"]
 	path = pack/main/start/vim-matchup
 	url = https://github.com/andymass/vim-matchup
 [submodule "pack/main/start/vim-lsp"]
 	path = pack/main/start/vim-lsp
 	url = https://github.com/prabirshrestha/vim-lsp
+[submodule "pack/main/start/asyncomplete.vim"]
+	path = pack/main/start/asyncomplete.vim
+	url = https://github.com/prabirshrestha/asyncomplete.vim
+[submodule "pack/main/start/asyncomplete-lsp.vim"]
+	path = pack/main/start/asyncomplete-lsp.vim
+	url = https://github.com/prabirshrestha/asyncomplete-lsp.vim

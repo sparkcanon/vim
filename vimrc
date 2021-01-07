@@ -154,8 +154,9 @@ inoremap <C-l> <C-x><C-l>
 " Spell completion
 inoremap <C-d> <C-x><C-s>
 " Tab movement in pum
-" inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
 
 " Tabs
 nnoremap <Tab> gt
@@ -242,7 +243,7 @@ colorscheme habanight " Set color scheme after setting buffer colors
 
 " Section: Auto commands {{{
 " Preview window close
-autocmd! GeneralAutocmds CompleteDone * silent! pclose
+autocmd! GeneralAutocmds CompleteDone * if pumvisible() == 0 | pclose | endif
 autocmd! GeneralAutocmds CursorMoved * silent! pclose
 
 " Opens fugitive, man, help vertically if space available
@@ -372,9 +373,6 @@ packadd! cfilter  " Filter results from qf lists
 
 " Habanight transparent background
 let g:habanight_transp_bg = v:true
-
-" Mucomplete
-let g:mucomplete#enable_auto_at_startup = 1
 
 " Hexokinase
 let g:Hexokinase_highlighters = ['backgroundfull']

@@ -86,7 +86,16 @@ endif
 function! s:on_lsp_buffer_enabled() abort
 	setlocal omnifunc=lsp#complete
 	setlocal signcolumn=no
+
+	" allow modifying the completeopt variable, or it will
+	" be overridden all the time
+	let g:asyncomplete_auto_completeopt = 0
+	set completeopt=menuone,noinsert,noselect,preview
+
+	" Tags
 	if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
+
+	" Mappings
 	nmap <buffer> ,j <plug>(lsp-definition)
 	nnoremap <buffer> ,vj :vertical LspDefinition<CR>
 	nnoremap <buffer> ,tj :tab LspDefinition<CR>
