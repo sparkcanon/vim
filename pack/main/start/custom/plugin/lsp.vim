@@ -88,13 +88,16 @@ function! s:on_lsp_buffer_enabled() abort
 	setlocal signcolumn=no
 	if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
 	nmap <buffer> ,j <plug>(lsp-definition)
+	nnoremap <buffer> ,vj :vertical LspDefinition<CR>
+	nnoremap <buffer> ,tj :tab LspDefinition<CR>
+	nnoremap <buffer> ,sj :belowright LspDefinition<CR>
 	nmap <buffer> ,r <plug>(lsp-references)
 	nmap <buffer> ,i <plug>(lsp-implementation)
-	nmap <buffer> ,t <plug>(lsp-type-definition)
+	nmap <buffer> ,d <plug>(lsp-type-definition)
 	nmap <buffer> ,R <plug>(lsp-rename)
 	nmap <buffer> [d <Plug>(lsp-previous-diagnostic)
 	nmap <buffer> ]d <Plug>(lsp-next-diagnostic)
-	nmap <buffer> K <plug>(lsp-hover)
+	nmap <buffer> K  <plug>(lsp-hover)
 	nmap <buffer> ,p <plug>(lsp-peek-definition)
 	nmap <buffer> ,a <plug>(lsp-code-action)
 	nmap <buffer> ,e <plug>(lsp-document-diagnostics)
