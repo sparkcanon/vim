@@ -46,6 +46,42 @@ if executable('typescript-language-server')
 endif
 " }}}
 
+" {{{ [x] CSS Language Server
+if executable('css-languageserver')
+	au User lsp_setup call lsp#register_server({
+				\ 'name': 'css-languageserver',
+				\ 'cmd': {server_info->[&shell, &shellcmdflag, 'css-languageserver --stdio']},
+				\ 'whitelist': ['css', 'less', 'sass'],
+				\ })
+endif
+" }}}
+
+" {{{ [x] HTML Language Server
+if executable('html-languageserver')
+	au User lsp_setup call lsp#register_server({
+				\ 'name': 'html-languageserver',
+				\ 'cmd': {server_info->[&shell, &shellcmdflag, 'html-languageserver --stdio']},
+				\ 'whitelist': ['html'],
+				\ })
+endif
+" }}}
+
+" {{{ [x] Vim Language Server
+if executable('vim-language-server')
+	augroup LspVim
+		autocmd!
+		autocmd User lsp_setup call lsp#register_server({
+					\ 'name': 'vim-language-server',
+					\ 'cmd': {server_info->['vim-language-server', '--stdio']},
+					\ 'whitelist': ['vim'],
+					\ 'initialization_options': {
+					\   'vimruntime': $VIMRUNTIME,
+					\   'runtimepath': &rtp,
+					\ }})
+	augroup END
+endif
+" }}}
+
 " {{{ [x] LSP Settings
 function! s:on_lsp_buffer_enabled() abort
 	setlocal omnifunc=lsp#complete
@@ -65,15 +101,13 @@ function! s:on_lsp_buffer_enabled() abort
 
 	" let g:lsp_format_sync_timeout = 1000
 	" autocmd! BufWritePre *.rs,*.go call execute('LspDocumentFormatSync')
-
-	" refer to doc to add more commands
 endfunction
 " }}}
 
 " {{{ [x] Enable LSP
+" call s:on_lsp_buffer_enabled only for languages that has the server registered.
 augroup lsp_install
 	au!
-	" call s:on_lsp_buffer_enabled only for languages that has the server registered.
 	autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 augroup END
 " }}}
