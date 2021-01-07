@@ -66,11 +66,10 @@ function! utils#statusline_expr() abort
 	let l:pos = ' %-12(%l:%c%V%) '
 	let l:pct = ' %P'
 	let l:fn  = ' %{pathshorten(expand("%"))} '
-	let l:bg  = " %{exists('g:asyncdo') ? '[B]' : ''} "
 
 	" Fugitive
 	" let l:fug = "%{exists('g:loaded_fugitive') ? fugitive#statusline() : ''}"
 
-	return ' ❮ ['.l:mode.'] [%n]'.l:fn.'%<'.l:mod.l:ro.l:ft.l:bg.l:sep.l:pos.'%*'.l:pct.' ❯ '
+	return ' ❮ ['.l:mode.'] [%n]'.l:fn.'%<'.l:mod.l:ro.l:ft.l:sep.l:pos.'%*'.l:pct.' ❯ '
 endfunction
 " }}}

@@ -307,13 +307,6 @@ command! -nargs=1 -complete=customlist,sessions#complete SessionLoad execute 'so
 command! -nargs=? -complete=dir YRelative :let @+ = expand("%")
 command! -nargs=? -complete=dir YFilename :let @+ = expand("%:t")
 
-" Make commands
-command! -bang -nargs=* Make               call asyncdo#run(<bang>0, &makeprg, <f-args>)
-command! -bang -nargs=* LMake              call asyncdo#lrun(<bang>0, &makeprg, <f-args>)
-command! -nargs=? -complete=file -bar Lint call make#runMakery('Lint', <f-args>)
-command! -nargs=? -complete=file -bar Fix  call make#runMakery('Fix', <f-args>)
-command! -nargs=? -complete=file -bar Test call make#runMakery('Test', <f-args>)
-
 " Load tabular and align
 command! -nargs=* -bang -range Tabularize packadd tabular <bar> Tabularize <args>
 

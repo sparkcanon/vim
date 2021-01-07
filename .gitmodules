@@ -16,9 +16,6 @@
 [submodule "pack/main/start/vim-commentary"]
 	path = pack/main/start/vim-commentary
 	url = https://github.com/tpope/vim-commentary.git
-[submodule "pack/main/start/vim-makery"]
-	path = pack/main/start/vim-makery
-	url = https://github.com/igemnace/vim-makery
 [submodule "pack/main/start/CommandlineComplete.vim"]
 	path = pack/main/start/CommandlineComplete.vim
 	url = https://github.com/j5shi/CommandlineComplete.vim
@@ -37,9 +34,6 @@
 [submodule "pack/main/start/vim-dirvish"]
 	path = pack/main/start/vim-dirvish
 	url = https://github.com/justinmk/vim-dirvish
-[submodule "pack/main/start/asyncdo.vim"]
-	path = pack/main/start/asyncdo.vim
-	url = https://github.com/hauleth/asyncdo.vim
 [submodule "pack/main/start/vim-hexokinase"]
 	path = pack/main/start/vim-hexokinase
 	url = https://github.com/RRethy/vim-hexokinase
@@ -49,6 +43,6 @@
 [submodule "pack/main/start/vim-matchup"]
 	path = pack/main/start/vim-matchup
 	url = https://github.com/andymass/vim-matchup
-[submodule "pack/main/start/vim-lsc"]
-	path = pack/main/start/vim-lsc
-	url = https://github.com/natebosch/vim-lsc
+[submodule "pack/main/start/vim-lsp"]
+	path = pack/main/start/vim-lsp
+	url = https://github.com/prabirshrestha/vim-lsp
