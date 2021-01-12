@@ -51,6 +51,7 @@ if executable('css-languageserver')
 	au User lsp_setup call lsp#register_server({
 				\ 'name': 'css-languageserver',
 				\ 'cmd': {server_info->[&shell, &shellcmdflag, 'css-languageserver --stdio']},
+				\ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'package.json'))},
 				\ 'whitelist': ['css', 'less', 'sass'],
 				\ })
 endif
@@ -61,6 +62,7 @@ if executable('html-languageserver')
 	au User lsp_setup call lsp#register_server({
 				\ 'name': 'html-languageserver',
 				\ 'cmd': {server_info->[&shell, &shellcmdflag, 'html-languageserver --stdio']},
+				\ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'package.json'))},
 				\ 'whitelist': ['html'],
 				\ })
 endif

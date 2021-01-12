@@ -49,3 +49,6 @@
 [submodule "pack/main/start/asyncomplete-lsp.vim"]
 	path = pack/main/start/asyncomplete-lsp.vim
 	url = https://github.com/prabirshrestha/asyncomplete-lsp.vim
+[submodule "pack/main/opt/vim-backslash"]
+	path = pack/main/opt/vim-backslash
+	url = https://github.com/lambdalisue/vim-backslash
