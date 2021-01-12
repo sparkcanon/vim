@@ -1,88 +1,9 @@
 " LSP Configuration
 
-" {{{ [x] ESLint Language Server
-if executable('eslint-language-server')
-	au User lsp_setup call lsp#register_server({
-				\ 'name': 'eslint-language-server',
-				\ 'cmd': {server_info->[&shell, &shellcmdflag, 'eslint-language-server --stdio']},
-				\ 'whitelist': ['javascript', 'javascript.jsx', 'typescript', 'typescript.jsx', 'typescriptreact', 'javascriptreact'],
-				\ 'initialization_options': { 'diagnostic': 'true' },
-				\ 'workspace_config': {
-				\   'validate': 'probe',
-				\   'packageManager': 'npm',
-				\   'codeActionOnSave': {
-				\     'enable': v:true,
-				\     'mode': 'all',
-				\   },
-				\   'codeAction': {
-				\     'disableRuleComment': {
-				\       'enable': v:true,
-				\       'location': 'separateLine',
-				\     },
-				\     'showDocumentation': {
-				\       'enable': v:true,
-				\     },
-				\   },
-				\   'format': v:false,
-				\   'quiet': v:false,
-				\   'onIgnoredFiles': 'off',
-				\   'options': {},
-				\   'run': 'onType',
-				\   'nodePath': v:null,
-				\ },
-				\ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'package.json'))},
-				\ })
-endif
-" }}}
-
-" {{{ [x] TypeScript Language Server
-if executable('typescript-language-server')
-	au User lsp_setup call lsp#register_server({
-				\ 'name': 'typescript-language-server',
-				\ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
-				\ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'package.json'))},
-				\ 'whitelist': ['javascript', 'javascript.jsx', 'typescript', 'typescript.jsx', 'typescriptreact', 'javascriptreact'],
-				\ })
-endif
-" }}}
-
-" {{{ [x] CSS Language Server
-if executable('css-languageserver')
-	au User lsp_setup call lsp#register_server({
-				\ 'name': 'css-languageserver',
-				\ 'cmd': {server_info->[&shell, &shellcmdflag, 'css-languageserver --stdio']},
-				\ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'package.json'))},
-				\ 'whitelist': ['css', 'less', 'sass'],
-				\ })
-endif
-" }}}
-
-" {{{ [x] HTML Language Server
-if executable('html-languageserver')
-	au User lsp_setup call lsp#register_server({
-				\ 'name': 'html-languageserver',
-				\ 'cmd': {server_info->[&shell, &shellcmdflag, 'html-languageserver --stdio']},
-				\ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'package.json'))},
-				\ 'whitelist': ['html'],
-				\ })
-endif
-" }}}
-
-" {{{ [x] Vim Language Server
-if executable('vim-language-server')
-	augroup LspVim
-		autocmd!
-		autocmd User lsp_setup call lsp#register_server({
-					\ 'name': 'vim-language-server',
-					\ 'cmd': {server_info->['vim-language-server', '--stdio']},
-					\ 'whitelist': ['vim'],
-					\ 'initialization_options': {
-					\   'vimruntime': $VIMRUNTIME,
-					\   'runtimepath': &rtp,
-					\ }})
-	augroup END
-endif
-" }}}
+let g:lsp_settings_filetype_javascript = ['typescript-language-server', 'eslint-language-server']
+let g:lsp_settings_filetype_typescript = ['typescript-language-server', 'eslint-language-server']
+let g:lsp_settings_filetype_typescriptreact = ['typescript-language-server', 'eslint-language-server']
+let g:lsp_settings_filetype_javascriptreact = ['typescript-language-server', 'eslint-language-server']
 
 " {{{ [x] LSP Settings
 function! s:on_lsp_buffer_enabled() abort
