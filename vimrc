@@ -270,14 +270,8 @@ autocmd! GeneralAutocmds VimLeavePre * call sessions#sessionSave()
 " Set path
 autocmd! GeneralAutocmds BufEnter,BufAdd * call path_job#setProjectPath()
 
-" Enable jsx syntax
-autocmd GeneralAutocmds FileType javascript,javascriptreact packadd! vim-jsx-pretty
-
 " Auto backslash
 autocmd GeneralAutocmds FileType vim packadd! vim-backslash
-
-" Fish shell
-autocmd! GeneralAutocmds BufRead,BufNewFile *.fish packadd! vim-fish | setfiletype fish
 
 " Make autocmds
 autocmd! GeneralAutocmds QuickFixCmdPre  lmake update
