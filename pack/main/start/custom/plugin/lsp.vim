@@ -5,6 +5,8 @@ let g:lsp_settings_filetype_typescript = ['typescript-language-server', 'eslint-
 let g:lsp_settings_filetype_typescriptreact = ['typescript-language-server', 'eslint-language-server']
 let g:lsp_settings_filetype_javascriptreact = ['typescript-language-server', 'eslint-language-server']
 
+let g:lsp_diagnostics_echo_cursor = 1
+
 " {{{ [x] LSP Settings
 function! s:on_lsp_buffer_enabled() abort
 	setlocal omnifunc=lsp#complete

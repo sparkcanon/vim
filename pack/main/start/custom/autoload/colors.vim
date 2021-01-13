@@ -4,13 +4,14 @@
 function! colors#modifyBufferColors() abort
 	" Editor colors
 	highlight! VertSplit cterm=NONE ctermbg=NONE gui=NONE guibg=NONE
+	highlight! Normal cterm=NONE ctermbg=NONE gui=NONE guibg=NONE
 
 	" `LspErrorHighlight`, `LspWarningHighlight`, `LspInformationHighlight` and
 	" `LspHintHighlight` highlight groups.
-	highlight LspErrorHighlight guifg=white guibg=#D77575 gui=underline cterm=underline
-	highlight LspWarningHighlight guifg=white guibg=#6A96B0 gui=underline cterm=underline
-	highlight link LspInformationHighlight LspWarningHighlight
-	highlight link LspHintHighlight LspWarningHighlight
+	highlight link LspErrorHighlight LspDiagnosticsSignError
+	highlight link LspWarningHighlight LspDiagnosticsSignWarning 
+	highlight link LspInformationHighlight LspDiagnosticsSignInformation
+	highlight link LspHintHighlight LspDiagnosticsSignHint
 
 	" Hint: This below makes the background transparent
 	" highlight! Normal ctermbg=NONE guibg=NONE

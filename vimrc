@@ -236,9 +236,9 @@ autocmd GeneralAutocmds ColorScheme * match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+
 
 " For some color schemes set termguicolors and for some others set t_Co=256
 set termguicolors
-packadd! vim-habanight
+packadd! vim-moonfly-colors
 set background=dark
-colorscheme habanight " Set color scheme after setting buffer colors
+colorscheme moonfly " Set color scheme after setting buffer colors
 " }}}
 
 " Section: Auto commands {{{
@@ -272,6 +272,12 @@ autocmd! GeneralAutocmds BufEnter,BufAdd * call path_job#setProjectPath()
 
 " Auto backslash
 autocmd GeneralAutocmds FileType vim packadd! vim-backslash
+
+" Fish
+autocmd! GeneralAutocmds BufRead,BufNewFile *.fish packadd! vim-fish | setfiletype fish
+
+" Js syntax
+autocmd GeneralAutocmds FileType javascript,javascriptreact packadd! vim-javascript | packadd! vim-jsx-pretty
 
 " Make autocmds
 autocmd! GeneralAutocmds QuickFixCmdPre  lmake update
