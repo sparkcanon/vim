@@ -24,6 +24,7 @@ function! files#picker(A,L,P) abort
 				\ '-E ".gitattributes" ' .
 				\ '-E ".gitkeep" ' .
 				\ '-E "*.req" ' .
+				\ '-E ".DS_Store" ' .
 				\ '-E "*.res"'
 
 	let l:items = l:cmd->systemlist()
