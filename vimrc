@@ -236,9 +236,9 @@ autocmd GeneralAutocmds ColorScheme * match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+
 
 " For some color schemes set termguicolors and for some others set t_Co=256
 set termguicolors
-packadd! vim-moonfly-colors
+packadd! vim-habanight
 set background=dark
-colorscheme moonfly " Set color scheme after setting buffer colors
+colorscheme habanight " Set color scheme after setting buffer colors
 " }}}
 
 " Section: Auto commands {{{

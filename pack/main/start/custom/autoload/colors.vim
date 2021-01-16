@@ -4,7 +4,6 @@
 function! colors#modifyBufferColors() abort
 	" Editor colors
 	highlight! VertSplit cterm=NONE ctermbg=NONE gui=NONE guibg=NONE
-	highlight! Normal cterm=NONE ctermbg=NONE gui=NONE guibg=NONE
 
 	" `LspErrorHighlight`, `LspWarningHighlight`, `LspInformationHighlight` and
 	" `LspHintHighlight` highlight groups.
