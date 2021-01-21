@@ -297,11 +297,6 @@ autocmd GeneralAutocmds FileType netrw setlocal bufhidden=wipe
 " }}}
 
 " Section: Custom commands {{{
-" Grep for quickfix list
-command! -nargs=+ -complete=file Grep call grep#any('any', <q-args>)
-command! -nargs=1 GrepExact           call grep#any('exact', <q-args>) " With word boundaries
-command! -nargs=1 GrepExclude         call grep#any('exclude', <q-args>) " Exclude tests/specs
-
 " Save sessions (force)
 command! -nargs=0 SessionSave call sessions#sessionSave()
 command! -nargs=1 -complete=customlist,sessions#complete SessionLoad execute 'source $HOME/.vim/tmp/dir_session/<args>'
@@ -356,9 +351,7 @@ call utils#setupCommandAbbrs('sl','SessionLoad')
 call utils#setupCommandAbbrs('sa','SessionSave')
 
 " Grep
-call utils#setupCommandAbbrs('sr','Grep')
-call utils#setupCommandAbbrs('se','GrepExact')
-call utils#setupCommandAbbrs('st','GrepExclude')
+call utils#setupCommandAbbrs('sr','grep!')
 
 " Git
 call utils#setupCommandAbbrs('gf','ter git fetch --all')
