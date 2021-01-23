@@ -39,6 +39,7 @@ set cursorline                                     " Makes it easy to find the c
 setglobal ttimeout                                 " Terminal key code timeout
 setglobal ttimeoutlen=100                          " Define terminal key code timeout
 set noshowmode                                     " Do not display mode in cmd
+set number                                         " Display number column
 
 " Splits
 setglobal splitbelow                               " Split window opens below

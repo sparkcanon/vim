@@ -7,10 +7,10 @@ function! colors#modifyBufferColors() abort
 
 	" `LspErrorHighlight`, `LspWarningHighlight`, `LspInformationHighlight` and
 	" `LspHintHighlight` highlight groups.
-	highlight LspErrorHighlight guifg=white guibg=#D77575 gui=underline cterm=underline
-	highlight LspWarningHighlight guifg=white guibg=#6A96B0 gui=underline cterm=underline
-	highlight link LspInformationHighlight LspWarningHighlight
-	highlight link LspHintHighlight LspWarningHighlight
+	highlight LspErrorHighlight gui=strikethrough cterm=strikethrough guifg=red
+	highlight LspWarningHighlight gui=underline cterm=underline
+	highlight LspInformationHighlight gui=underline cterm=underline
+	highlight LspHintHighlight gui=underline cterm=underline
 
 	" Hint: This below makes the background transparent
 	" highlight! Normal ctermbg=NONE guibg=NONE
