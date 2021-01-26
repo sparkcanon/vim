@@ -236,10 +236,14 @@ autocmd GeneralAutocmds ColorScheme * call colors#modifyBufferColors()
 autocmd GeneralAutocmds ColorScheme * match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
 " For some color schemes set termguicolors and for some others set t_Co=256
-set termguicolors
-packadd! vim-habanight
+if exists('+termguicolors')
+	let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+	let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+	set termguicolors
+endif
+packadd! spaceduck
 set background=dark
-colorscheme habanight " Set color scheme after setting buffer colors
+colorscheme spaceduck " Set color scheme after setting buffer colors
 " }}}
 
 " Section: Auto commands {{{
@@ -326,11 +330,6 @@ command! -nargs=1 -bar -complete=customlist,buffers#picker SplitBuffer call buff
 " Git
 command! -nargs=1 -complete=customlist,git#stash_picker GitStash       call git#stash_runner(<q-args>)
 command! -nargs=1 -complete=customlist,git#checkout_picker GitCheckout call git#checkout_runner(<q-args>)
-
-" Dirvish
-command! -nargs=? -complete=dir Explore Dirvish <args>
-command! -nargs=? -complete=dir Sexplore belowright split | silent Dirvish <args>
-command! -nargs=? -complete=dir Vexplore leftabove vsplit | silent Dirvish <args>
 " }}}
 
 " Section: Custom abbr {{{
@@ -367,15 +366,10 @@ call utils#setupCommandAbbrs('gc','GitCheckout')
 " Section: Plugins && related setup {{{
 " Load built-in optional plugins
 packadd! cfilter  " Filter results from qf lists
-
-" Habanight transparent background
-let g:habanight_transp_bg = v:true
+packadd! matchit  " Match matching symbols
 
 " Hexokinase
 let g:Hexokinase_highlighters = ['backgroundfull']
-
-" Dirvish
-let g:dirvish_mode = ':sort ,^\v(.*[\/])|\ze,'
 
 " Disable vim plugins
 let g:loaded_getscriptPlugin = 1
@@ -385,8 +379,6 @@ let g:loaded_rrhelper        = 1
 let g:loaded_tarPlugin       = 1
 let g:loaded_vimballPlugin   = 1
 let g:loaded_zipPlugin       = 1
-let g:loaded_matchit         = 1
-let g:loaded_netrwPlugin     = 1
 " }}}
 
 " Section: Syntax {{{

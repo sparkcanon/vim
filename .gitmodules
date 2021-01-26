@@ -19,9 +19,6 @@
 [submodule "pack/main/start/CommandlineComplete.vim"]
 	path = pack/main/start/CommandlineComplete.vim
 	url = https://github.com/j5shi/CommandlineComplete.vim
-[submodule "pack/main/start/vim-dirvish"]
-	path = pack/main/start/vim-dirvish
-	url = https://github.com/justinmk/vim-dirvish
 [submodule "pack/main/start/vim-lsp"]
 	path = pack/main/start/vim-lsp
 	url = https://github.com/prabirshrestha/vim-lsp
@@ -46,12 +43,15 @@
 [submodule "pack/main/opt/vim-fish"]
 	path = pack/main/opt/vim-fish
 	url = https://github.com/dag/vim-fish
-[submodule "pack/main/opt/vim-habanight"]
-	path = pack/main/opt/vim-habanight
-	url = https://github.com/habamax/vim-habanight
+[submodule "pack/main/opt/spaceduck"]
+	path = pack/main/opt/spaceduck
+	url = https://github.com/pineapplegiant/spaceduck
+[submodule "pack/main/start/lightline.vim"]
+	path = pack/main/start/lightline.vim
+	url = https://github.com/itchyny/lightline.vim
+[submodule "pack/main/start/vim-vinegar"]
+	path = pack/main/start/vim-vinegar
+	url = https://github.com/tpope/vim-vinegar
 [submodule "pack/main/start/vim-hexokinase"]
 	path = pack/main/start/vim-hexokinase
 	url = https://github.com/RRethy/vim-hexokinase
-[submodule "pack/main/start/vim-matchup"]
-	path = pack/main/start/vim-matchup
-	url = https://github.com/andymass/vim-matchup
