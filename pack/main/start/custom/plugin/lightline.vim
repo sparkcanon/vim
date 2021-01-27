@@ -2,7 +2,7 @@
 
 " Section: Set up {{{
 let g:lightline = {
-			\ 'colorscheme': 'spaceduck',
+			\ 'colorscheme': 'falcon',
 			\ 'mode_map': {
 				\ 'n' : 'N',
 				\ 'i' : 'I',

@@ -43,9 +43,6 @@
 [submodule "pack/main/opt/vim-fish"]
 	path = pack/main/opt/vim-fish
 	url = https://github.com/dag/vim-fish
-[submodule "pack/main/opt/spaceduck"]
-	path = pack/main/opt/spaceduck
-	url = https://github.com/pineapplegiant/spaceduck
 [submodule "pack/main/start/lightline.vim"]
 	path = pack/main/start/lightline.vim
 	url = https://github.com/itchyny/lightline.vim
@@ -55,3 +52,6 @@
 [submodule "pack/main/start/vim-hexokinase"]
 	path = pack/main/start/vim-hexokinase
 	url = https://github.com/RRethy/vim-hexokinase
+[submodule "pack/main/opt/falcon"]
+	path = pack/main/opt/falcon
+	url = https://github.com/fenetikm/falcon
