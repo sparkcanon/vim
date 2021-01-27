@@ -60,21 +60,3 @@ function! utils#js_mappings() abort
 	command! -nargs=0 ImportJs execute "normal ggOimport { ".expand('<cword>')." } from '';"
 endfunction
 " }}}
-
-" Desc: Statusline {{{
-function! utils#statusline_expr() abort
-	let l:mode = "%{toupper(mode())}"
-	let l:mod = "%{&modified ? '[+] ' : !&modifiable ? '[x] ' : ''}"
-	let l:ro  = "%{&readonly ? '[RO] ' : ''}"
-	let l:ft  = "%{len(&filetype) ? '['.&filetype.'] ' : ''}"
-	let l:sep = ' %= '
-	let l:pos = ' %-12(%l:%c%V%) '
-	let l:pct = ' %P'
-	let l:fn  = ' %{pathshorten(expand("%"))} '
-
-	" Fugitive
-	" let l:fug = "%{exists('g:loaded_fugitive') ? fugitive#statusline() : ''}"
-
-	return ' ❮ ['.l:mode.'] [%n]'.l:fn.'%<'.l:mod.l:ro.l:ft.l:sep.l:pos.'%*'.l:pct.' ❯ '
-endfunction
-" }}}
