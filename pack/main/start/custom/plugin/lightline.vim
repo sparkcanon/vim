@@ -32,16 +32,16 @@ let g:lightline = {
 			\ }
 
 function! IsDiff()
-	let fullname = expand('%')
-	let gitversion = ''
-	if fullname =~? 'fugitive://.*/\.git//0/.*'
-		let gitversion = 'Index'
-	elseif fullname =~? 'fugitive://.*/\.git//2/.*'
-		let gitversion = 'Target'
-	elseif fullname =~? 'fugitive://.*/\.git//3/.*'
-		let gitversion = 'Merge'
+	let l:fullname = buffer_name()
+	let l:diffname = ''
+	if l:fullname =~? 'fugitive://.*/\.git//0/.*'
+		let l:diffname = 'Index'
+	elseif l:fullname =~? 'fugitive://.*/\.git//2/.*'
+		let l:diffname = 'Target'
+	elseif l:fullname =~? 'fugitive://.*/\.git//3/.*'
+		let l:diffname = 'Merge'
 	elseif &diff == 1
-		let gitversion = 'Working copy'
+		let l:diffname = 'Working copy'
 	endif
-	return gitversion
+	return l:diffname
 endfunction
