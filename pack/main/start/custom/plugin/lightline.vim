@@ -1,5 +1,6 @@
-" Purpose: Lightline set up
+" Purpose: Lightline configuration
 
+" Section: Set up {{{
 let g:lightline = {
 			\ 'colorscheme': 'spaceduck',
 			\ 'mode_map': {
@@ -30,7 +31,9 @@ let g:lightline = {
 				\ 'IsDiff': 'IsDiff',
 			\ },
 			\ }
+" }}}
 
+" Section: Show diff in lightline {{{
 function! IsDiff()
 	let l:fullname = buffer_name()
 	let l:diffname = ''
@@ -47,3 +50,4 @@ function! IsDiff()
 	endif
 	return l:diffname
 endfunction
+" }}}
