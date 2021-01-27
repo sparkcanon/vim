@@ -40,6 +40,8 @@ function! IsDiff()
 		let l:diffname = 'Target'
 	elseif l:fullname =~? 'fugitive://.*/\.git//3/.*'
 		let l:diffname = 'Merge'
+	elseif l:fullname =~? 'fugitive://.*/0/.*'
+		let l:diffname = 'Index'
 	elseif &diff == 1
 		let l:diffname = 'Working copy'
 	endif
