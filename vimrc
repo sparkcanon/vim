@@ -240,9 +240,9 @@ if exists('+termguicolors')
 	let &t_ZR="\e[23m"
 	set termguicolors
 endif
-packadd! falcon
+packadd! spaceduck
 set background=dark
-colorscheme falcon " Set color scheme after setting buffer colors
+colorscheme spaceduck " Set color scheme after setting buffer colors
 " }}}
 
 " Section: Auto commands {{{

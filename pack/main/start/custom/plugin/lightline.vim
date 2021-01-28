@@ -2,7 +2,7 @@
 
 " Section: Set up {{{
 let g:lightline = {
-			\ 'colorscheme': 'falcon',
+			\ 'colorscheme': 'spaceduck',
 			\ 'mode_map': {
 				\ 'n' : 'N',
 				\ 'i' : 'I',
@@ -18,7 +18,9 @@ let g:lightline = {
 			\ },
 			\ 'active': {
 				\ 'left': [ [ 'mode', 'paste' ],
-				\         [ 'IsDiff', 'readonly', 'filename', 'modified' ] ]
+				\           [ 'IsDiff', 'readonly', 'FileNameWithIcon', 'modified' ] ],
+				\ 'right': [ [ 'lineinfo' ],
+				\            [ 'percent' ] ]
 			\ },
 			\ 'inactive': {
 				\   'left': [ [ 'IsDiff', 'filename'  ] ],
@@ -29,12 +31,19 @@ let g:lightline = {
 			\ },
 			\ 'component_function': {
 				\ 'IsDiff': 'IsDiff',
+				\ 'FileNameWithIcon': 'FileNameWithIcon'
 			\ },
 			\ }
 " }}}
 
+" Section: Icon {{{
+function! FileNameWithIcon() abort
+	return  WebDevIconsGetFileTypeSymbol() . ' ' . pathshorten(expand('%'))
+endfunction
+" }}}
+
 " Section: Show diff in lightline {{{
-function! IsDiff()
+function! IsDiff() abort
 	let l:fullname = buffer_name()
 	let l:diffname = ''
 	if l:fullname =~? 'fugitive://.*/\.git//0/.*'

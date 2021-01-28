@@ -43,9 +43,12 @@
 [submodule "pack/main/start/vim-vinegar"]
 	path = pack/main/start/vim-vinegar
 	url = https://github.com/tpope/vim-vinegar
+[submodule "pack/main/opt/spaceduck"]
+	path = pack/main/opt/spaceduck
+	url = https://github.com/pineapplegiant/spaceduck
+[submodule "pack/main/start/vim-devicons"]
+	path = pack/main/start/vim-devicons
+	url = https://github.com/ryanoasis/vim-devicons
 [submodule "pack/main/start/vim-hexokinase"]
 	path = pack/main/start/vim-hexokinase
 	url = https://github.com/RRethy/vim-hexokinase
-[submodule "pack/main/opt/falcon"]
-	path = pack/main/opt/falcon
-	url = https://github.com/fenetikm/falcon
