@@ -237,13 +237,13 @@ autocmd GeneralAutocmds ColorScheme * match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+
 
 " For some color schemes set termguicolors and for some others set t_Co=256
 if exists('+termguicolors')
-	let &t_ZH="\e[3m"
-	let &t_ZR="\e[23m"
+	let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+	let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 	set termguicolors
 endif
-packadd! spaceduck
+packadd! vim-moonfly-colors
 set background=dark
-colorscheme spaceduck " Set color scheme after setting buffer colors
+colorscheme moonfly " Set color scheme after setting buffer colors
 " }}}
 
 " Section: Auto commands {{{
