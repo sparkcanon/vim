@@ -235,7 +235,20 @@ autocmd GeneralAutocmds ColorScheme * call colors#modifyBufferColors()
 " Highlights git diff markers
 autocmd GeneralAutocmds ColorScheme * match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
-" For some color schemes set termguicolors and for some others set t_Co=256
+" Tip: Fixes for colorschemes {{{
+" set termguicolors " For 24-bit colours
+" set t_Co=256 " For 256 colours
+"
+" Use the below when comments using some colourschemes look bad (look up what
+" these mean)
+" let &t_ZH="\e[3m"
+" let &t_ZR="\e[23m"
+"
+" Use the below for some colourschemes (Look up what these mean)
+" let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
+" let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
+" }}}
+
 if exists('+termguicolors')
 	let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 	let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
