@@ -100,6 +100,9 @@ endif
 cmap <c-p> <Plug>CmdlineCompleteBackward
 cmap <c-n> <Plug>CmdlineCompleteForward
 
+" Netrw has a bug that doesnt open url in browser
+nnoremap gx :call utils#OpenURLUnderCursor()<CR>
+
 set iminsert=1
 for mode in ['n', 'x']
 	execute mode . 'noremap  : ;'

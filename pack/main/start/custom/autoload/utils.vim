@@ -78,3 +78,15 @@ function! utils#statusline_expr() abort
 	return ' ❮'.l:fn.'%<'.l:mod.l:ro.l:ft.l:bg.l:sep.l:pos.'%*'.l:pct.' ❯ '
 endfunction
 " }}}
+
+" Desc: Open files using open {{{
+" Source: https://github.com/vim/vim/issues/4738#issuecomment-714609892
+function! utils#OpenURLUnderCursor()
+	let s:uri = matchstr(getline('.'), '[a-z]*:\/\/[^ >,;()]*')
+	let s:uri = shellescape(s:uri, 1)
+	if s:uri != ''
+		silent exec "!open '".s:uri."'"
+		:redraw!
+	endif
+endfunction
+" }}}
