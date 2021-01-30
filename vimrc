@@ -78,7 +78,7 @@ set list listchars=trail:·,eol:¬,tab:¦\
 
 " Ruler
 setglobal laststatus=2                             " Always show tausline
-let &statusline=utils#statusline_expr()
+set statusline=%!utils#statusline_expr()
 set ruler
 
 " Show block cursor in Normal mode and line cursor in Insert mode
