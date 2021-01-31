@@ -49,7 +49,7 @@ function! s:extract(hi, type) abort
 endfunction
 
 " Desc: insert in colors list
-function! s:KeyValue(key,val)
+function! s:KeyValue(key,val) abort
 	call insert(s:colors, 'color' . a:key . ' ' . a:val)
 endfunction
 " }}}

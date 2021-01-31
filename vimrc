@@ -347,6 +347,7 @@ command! -nargs=1 -bar -complete=customlist,buffers#picker SplitBuffer call buff
 " Git
 command! -nargs=1 -complete=customlist,git#stash_picker GitStash       call git#stash_runner(<q-args>)
 command! -nargs=1 -complete=customlist,git#checkout_picker GitCheckout call git#checkout_runner(<q-args>)
+command! -nargs=? Diff call utils#Diff(<q-args>)
 " }}}
 
 " Section: Custom abbr {{{

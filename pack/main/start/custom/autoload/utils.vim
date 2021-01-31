@@ -81,12 +81,29 @@ endfunction
 
 " Desc: Open files using open {{{
 " Source: https://github.com/vim/vim/issues/4738#issuecomment-714609892
-function! utils#OpenURLUnderCursor()
+function! utils#OpenURLUnderCursor() abort
 	let s:uri = matchstr(getline('.'), '[a-z]*:\/\/[^ >,;()]*')
 	let s:uri = shellescape(s:uri, 1)
 	if s:uri != ''
 		silent exec "!open '".s:uri."'"
 		:redraw!
 	endif
+endfunction
+" }}}
+
+" Desc: diff arbitrary revisions {{{
+" Source: https://gist.github.com/romainl/7198a63faffdadd741e4ae81ae6dd9e6
+function! utils#Diff(spec) abort
+	vertical new
+	setlocal bufhidden=wipe buftype=nofile nobuflisted noswapfile
+	let cmd = "++edit #"
+	if len(a:spec)
+		let cmd = "!git -C " . shellescape(fnamemodify(finddir('.git', '.;'), ':p:h:h')) . " show " . a:spec . ":#"
+	endif
+	execute "read " . cmd
+	silent 0d_
+	diffthis
+	wincmd p
+	diffthis
 endfunction
 " }}}
