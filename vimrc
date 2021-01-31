@@ -274,6 +274,7 @@ autocmd! GeneralAutocmds WinNew * au BufEnter * ++once
 			\ exe 'wincmd ' . (&splitright ? 'L' : 'H') |
 			\ endif
 
+" Opens terminal vertically if space available
 autocmd! GeneralAutocmds TerminalOpen * au TerminalWinOpen * ++once
 			\ if winwidth(winnr('#')) >= 180 |
 			\ exe 'wincmd ' . (&splitright ? 'L' : 'H') |
