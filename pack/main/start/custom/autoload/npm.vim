@@ -23,4 +23,3 @@ function! npm#runner(args) abort
 	endif
 endfunction
 " }}}
-
