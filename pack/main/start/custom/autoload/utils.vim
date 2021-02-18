@@ -36,15 +36,9 @@ endfunction
 function! utils#js_mappings() abort
 	" Mappings
 	" Template literals
-	iabbrev <buffer> (; (<CR>);<C-c>O
-	iabbrev <buffer> ( ()<left>
-	iabbrev <buffer> (, (<CR>),<C-c>O
-	iabbrev <buffer> {; {<CR>};<C-c>O
-	iabbrev <buffer> { {}<left>
-	iabbrev <buffer> {, {<CR>},<C-c>O
-	iabbrev <buffer> [; [<CR>];<C-c>O
-	iabbrev <buffer> [ []<left>
-	iabbrev <buffer> [, [<CR>],<C-c>O
+	inoremap {<CR> {<CR>}<esc>O
+	inoremap (<CR> (<CR>)<esc>O
+	inoremap [<CR> [<CR>]<esc>O
 	iabbrev <buffer> scfu const  = () => {}<esc>2F=2h
 	iabbrev <buffer> sif if () {<CR><CR>}<Up>
 	iabbrev <buffer> simp import {} from '';<esc>2ha
