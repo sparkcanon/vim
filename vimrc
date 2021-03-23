@@ -251,14 +251,10 @@ autocmd GeneralAutocmds ColorScheme * match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+
 " let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
 " }}}
 
-if exists('+termguicolors')
-	let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-	let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-	set termguicolors
-endif
-packadd! vim-moonfly-colors
+set termguicolors
+packadd! vim-gotham
 set background=dark
-colorscheme moonfly " Set color scheme after setting buffer colors
+colorscheme gotham256 " Set color scheme after setting buffer colors
 " }}}
 
 " Section: Auto commands {{{
