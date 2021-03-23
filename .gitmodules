@@ -49,3 +49,6 @@
 [submodule "pack/main/start/vim-gotham"]
 	path = pack/main/start/vim-gotham
 	url = https://github.com/whatyouhide/vim-gotham
+[submodule "pack/main/start/vimspector"]
+	path = pack/main/start/vimspector
+	url = https://github.com/puremourning/vimspector

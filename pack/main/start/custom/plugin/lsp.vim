@@ -10,7 +10,8 @@ let g:lsp_diagnostics_echo_cursor = 1
 " {{{ [x] LSP Settings
 function! s:on_lsp_buffer_enabled() abort
 	setlocal omnifunc=lsp#complete
-	setlocal signcolumn=no
+	let g:lsp_diagnostics_signs_enabled = 0
+	let g:lsp_diagnostics_signs_insert_mode_enabled = 0
 
 	" allow modifying the completeopt variable, or it will
 	" be overridden all the time
