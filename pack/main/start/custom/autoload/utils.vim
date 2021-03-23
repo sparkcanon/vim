@@ -59,11 +59,11 @@ endfunction
 function! utils#statusline_expr() abort
 	let l:mod = "%{&modified ? '[+] ' : !&modifiable ? '[x] ' : ''}"
 	let l:ro  = "%{&readonly ? '[RO] ' : ''}"
-	let l:ft  = "%{len(&filetype) ? '['.&filetype.'] ' : ''}"
+	let l:ft  = "[ %{WebDevIconsGetFileTypeSymbol()} ] "
 	let l:sep = ' %= '
 	let l:pos = ' %-12(%l:%c%V%) '
 	let l:pct = ' %P'
-	let l:fn  = ' %{WebDevIconsGetFileTypeSymbol()} %{pathshorten(expand("%"))} '
+	let l:fn  = ' %{pathshorten(expand("%"))} '
 
 	" Fugitive
 	" let l:fug = "%{exists('g:loaded_fugitive') ? fugitive#statusline() : ''}"
