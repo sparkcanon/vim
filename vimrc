@@ -206,7 +206,7 @@ nnoremap ]a :next<CR>
 nnoremap [a :previous<CR>
 
 " Substitute
-nnoremap <Bslash>s :%s//
+nnoremap <Bslash>s :%s//<Left><Left>
 
 " Global
 nnoremap <Bslash>g :g//#<Left><Left>
