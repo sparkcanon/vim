@@ -39,7 +39,6 @@ set cursorline                                     " Makes it easy to find the c
 setglobal ttimeout                                 " Terminal key code timeout
 setglobal ttimeoutlen=100                          " Define terminal key code timeout
 set number                                         " Display number column
-setlocal signcolumn=yes                            " Default no signcolumn
 
 " Splits
 setglobal splitbelow                               " Split window opens below
@@ -381,6 +380,9 @@ call utils#setupCommandAbbrs('gc','GitCheckout')
 " Load built-in optional plugins
 packadd! cfilter  " Filter results from qf lists
 packadd! matchit  " Match matching symbols
+
+" LSP
+let g:lsp_document_code_action_signs_enabled = 0
 
 " Hexokinase
 let g:Hexokinase_highlighters = ['backgroundfull']
