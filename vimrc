@@ -206,7 +206,7 @@ nnoremap ]a :next<CR>
 nnoremap [a :previous<CR>
 
 " Substitute
-nnoremap <Bslash>s :%s//<Left><Left>
+nnoremap <Bslash>s :%s//<Left>
 
 " Global
 nnoremap <Bslash>g :g//#<Left><Left>
@@ -331,6 +331,7 @@ command! -nargs=0 ColorsKitty call colors#Kitty()
 
 " Fuzzy pickers
 command! -nargs=1 -complete=customlist,jest#picker Jest                call jest#runner(<q-args>)
+command! -nargs=0 JestCurrent                                          call jest#runner(expand('%'))
 command! -nargs=1 -bar -complete=customlist,npm#complete Npm           call npm#runner(<q-args>)
 command! -nargs=1 -bar -complete=customlist,files#picker Files         call files#runner(<q-args>)
 command! -nargs=1 -bar -complete=customlist,buffers#picker Buffers     call buffers#runner(<q-args>, 'b')
@@ -380,9 +381,6 @@ call utils#setupCommandAbbrs('gc','GitCheckout')
 " Load built-in optional plugins
 packadd! cfilter  " Filter results from qf lists
 packadd! matchit  " Match matching symbols
-
-" LSP
-let g:lsp_document_code_action_signs_enabled = 0
 
 " Hexokinase
 let g:Hexokinase_highlighters = ['backgroundfull']

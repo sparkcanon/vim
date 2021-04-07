@@ -6,12 +6,13 @@ let g:lsp_settings_filetype_typescriptreact = ['typescript-language-server', 'es
 let g:lsp_settings_filetype_javascriptreact = ['typescript-language-server', 'eslint-language-server']
 
 let g:lsp_diagnostics_echo_cursor = 1
+let g:lsp_diagnostics_signs_enabled = 0
+let g:lsp_diagnostics_signs_insert_mode_enabled = 0
+let g:lsp_document_code_action_signs_enabled = 0
 
 " {{{ [x] LSP Settings
 function! s:on_lsp_buffer_enabled() abort
 	setlocal omnifunc=lsp#complete
-	let g:lsp_diagnostics_signs_enabled = 0
-	let g:lsp_diagnostics_signs_insert_mode_enabled = 0
 
 	" allow modifying the completeopt variable, or it will
 	" be overridden all the time
