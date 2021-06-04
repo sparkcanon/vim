@@ -252,9 +252,9 @@ autocmd GeneralAutocmds ColorScheme * match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+
 " }}}
 
 set termguicolors
-packadd! vim-gotham
+packadd! vim-substrata
 set background=dark
-colorscheme gotham256 " Set color scheme after setting buffer colors
+colorscheme substrata " Set color scheme after setting buffer colors
 " }}}
 
 " Section: Auto commands {{{
