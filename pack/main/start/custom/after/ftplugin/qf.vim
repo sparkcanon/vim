@@ -4,5 +4,7 @@
 " Clear list
 command! -nargs=0 Cclear call setqflist([]) | cclose
 command! -nargs=0 Lclear call setloclist(winnr(),[]) | lclose
+
+nmap <buffer> p <plug>(qf-preview-open)
 " }}}
 

@@ -52,3 +52,6 @@
 [submodule "pack/main/opt/vim-substrata"]
 	path = pack/main/opt/vim-substrata
 	url = https://github.com/arzg/vim-substrata
+[submodule "pack/main/start/vim-qf-preview"]
+	path = pack/main/start/vim-qf-preview
+	url = https://github.com/bfrg/vim-qf-preview
