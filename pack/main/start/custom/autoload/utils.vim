@@ -36,14 +36,14 @@ endfunction
 function! utils#js_mappings() abort
 	" Mappings
 	" Template literals
-	inoremap {<CR> {<CR>}<esc>O
-	inoremap (<CR> (<CR>)<esc>O
-	inoremap [<CR> [<CR>]<esc>O
-	iabbrev <buffer> scfu const  = () => {}<esc>2F=2h
-	iabbrev <buffer> sif if () {<CR><CR>}<Up>
-	iabbrev <buffer> simp import {} from '';<esc>2ha
-	iabbrev <buffer> srnc import React from 'react';<CR>import { View } from 'react-native';<CR><CR>export const CustomComponent = () => {<CR>return <View></View><CR>}<esc>
-	iabbrev <buffer> srss const styles = StylesSheet.create({<CR>container: {},<CR>})<esc>
+	" inoremap {<CR> {<CR>}<esc>O
+	" inoremap (<CR> (<CR>)<esc>O
+	" inoremap [<CR> [<CR>]<esc>O
+	" iabbrev <buffer> scfu const  = () => {}<esc>2F=2h
+	" iabbrev <buffer> sif if () {<CR><CR>}<Up>
+	" iabbrev <buffer> simp import {} from '';<esc>2ha
+	" iabbrev <buffer> srnc import React from 'react';<CR>import { View } from 'react-native';<CR><CR>export const CustomComponent = () => {<CR>return <View></View><CR>}<esc>
+	" iabbrev <buffer> srss const styles = StylesSheet.create({<CR>container: {},<CR>})<esc>
 
 	" Commands
 	" Console log command
@@ -64,11 +64,12 @@ function! utils#statusline_expr() abort
 	let l:pos = ' %-12(%l:%c%V%) '
 	let l:pct = ' %P'
 	let l:fn  = ' %{pathshorten(expand("%"))} '
+	let l:coc = ' [ %{coc#status()} ] '
 
 	" Fugitive
 	" let l:fug = "%{exists('g:loaded_fugitive') ? fugitive#statusline() : ''}"
 
-	return ' ❮'.l:fn.'%<'.l:mod.l:ro.l:sep.l:ft.l:pos.'%*'.l:pct.' ❯ '
+	return ' ❮'.l:fn.l:coc.'%<'.l:mod.l:ro.l:sep.l:ft.l:pos.'%*'.l:pct.' ❯ '
 endfunction
 " }}}
 
