@@ -258,10 +258,6 @@ colorscheme substrata " Set color scheme after setting buffer colors
 " }}}
 
 " Section: Auto commands {{{
-" Preview window close
-autocmd! GeneralAutocmds CompleteDone * if pumvisible() == 0 | pclose | endif
-autocmd! GeneralAutocmds CursorMoved * silent! pclose
-
 " Opens fugitive, man, help vertically if space available
 autocmd! GeneralAutocmds WinNew * au BufEnter * ++once
 			\ if (&bt ==? 'help' || &ft ==? 'man' || &ft ==? 'fugitive')
