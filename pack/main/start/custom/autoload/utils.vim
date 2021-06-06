@@ -69,7 +69,7 @@ function! utils#statusline_expr() abort
 	" Fugitive
 	" let l:fug = "%{exists('g:loaded_fugitive') ? fugitive#statusline() : ''}"
 
-	return ' ❮'.l:fn.l:coc.'%<'.l:mod.l:ro.l:sep.l:ft.l:pos.'%*'.l:pct.' ❯ '
+	return ' ❮'.l:fn.'%<'.l:mod.l:ro.l:coc..l:sep.l:ft.l:pos.'%*'.l:pct.' ❯ '
 endfunction
 " }}}
 
