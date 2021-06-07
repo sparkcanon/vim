@@ -25,7 +25,8 @@ function! files#picker(A,L,P) abort
 				\ '-E ".gitkeep" ' .
 				\ '-E "*.req" ' .
 				\ '-E ".DS_Store" ' .
-				\ '-E "*.res"'
+				\ '-E "*.res" ' .
+				\ '-E "coverage/"'
 
 	let l:items = l:cmd->systemlist()
 	if a:A->len() > 0

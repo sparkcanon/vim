@@ -1,0 +1,5 @@
+{
+  "list.source.files.command": "fd",
+  "list.previewSplitRight": true,
+  "list.source.grep.maxColumns": 300
+}

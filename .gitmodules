@@ -46,3 +46,6 @@
 [submodule "pack/main/start/coc.nvim"]
 	path = pack/main/start/coc.nvim
 	url = https://github.com/neoclide/coc.nvim
+[submodule "pack/main/start/lightline.vim"]
+	path = pack/main/start/lightline.vim
+	url = https://github.com/itchyny/lightline.vim

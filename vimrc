@@ -39,6 +39,7 @@ set cursorline                                     " Makes it easy to find the c
 setglobal ttimeout                                 " Terminal key code timeout
 setglobal ttimeoutlen=100                          " Define terminal key code timeout
 set number                                         " Display number column
+set noshowmode                                     " Do not show mode in cmd line
 
 " Splits
 setglobal splitbelow                               " Split window opens below
@@ -77,7 +78,6 @@ set list listchars=trail:·,eol:¬,tab:¦\
 
 " Ruler
 setglobal laststatus=2                             " Always show tausline
-set statusline=%!utils#statusline_expr()
 set ruler
 
 " Show block cursor in Normal mode and line cursor in Insert mode
@@ -280,8 +280,8 @@ autocmd! GeneralAutocmds VimResized * wincmd =
 " Save session on exit
 autocmd! GeneralAutocmds VimLeavePre * call sessions#sessionSave()
 
-" Set path
-autocmd! GeneralAutocmds BufEnter,BufAdd * call path_job#setProjectPath()
+" Note: This causes problems on larger projects, perhaps move this to jobs api
+" autocmd! GeneralAutocmds BufEnter,BufAdd * call path_job#setProjectPath()
 
 " Auto backslash
 autocmd GeneralAutocmds FileType vim packadd! vim-backslash
