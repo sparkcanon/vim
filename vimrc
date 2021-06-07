@@ -99,6 +99,18 @@ endif
 cmap <c-p> <Plug>CmdlineCompleteBackward
 cmap <c-n> <Plug>CmdlineCompleteForward
 
+" floaterm
+nnoremap <silent> <space>tt <cmd>FloatermToggle<cr>
+nnoremap <silent> <space>tn <cmd>FloatermNew<cr>
+nnoremap <silent> <space>tk <cmd>FloatermKill<cr>
+nnoremap <silent> <space>tp <cmd>FloatermNext<cr>
+nnoremap <silent> <space>th <cmd>FloatermHide<cr>
+tnoremap <silent> <space>tt <C-\><C-n>:FloatermToggle<CR>
+tnoremap <silent> <space>tk <C-\><C-n>:FloatermKill<CR>
+tnoremap <silent> <space>tn <C-\><C-n>:FloatermNew<CR>
+tnoremap <silent> <space>tp <C-\><C-n>:FloatermNext<CR>
+tnoremap <silent> <space>th <C-\><C-n>:FloatermHide<CR>
+
 " Netrw has a bug that doesnt open url in browser
 nnoremap gx :call utils#OpenURLUnderCursor()<CR>
 

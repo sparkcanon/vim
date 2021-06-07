@@ -49,3 +49,6 @@
 [submodule "pack/main/start/lightline.vim"]
 	path = pack/main/start/lightline.vim
 	url = https://github.com/itchyny/lightline.vim
+[submodule "pack/main/start/vim-floaterm"]
+	path = pack/main/start/vim-floaterm
+	url = https://github.com/voldikss/vim-floaterm
