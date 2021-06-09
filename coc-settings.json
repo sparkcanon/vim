@@ -1,5 +1,7 @@
 {
   "list.source.files.command": "fd",
   "list.previewSplitRight": true,
-  "list.source.grep.maxColumns": 300
+  "list.source.grep.maxColumns": 300,
+  "javascript.suggestionActions.enabled": false,
+  "typescript.suggestionActions.enabled": false
 }

@@ -141,4 +141,4 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 nnoremap <silent><nowait> ,s  :<C-u>CocList diagnostics<cr>
 
 " Global Extentions
-let g:coc_global_extensions = ['coc-json', 'coc-vimlsp', 'coc-marketplace', 'coc-tsserver', 'coc-css', 'coc-eslint', 'coc-git', 'coc-html', 'coc-prettier', 'coc-lists', 'coc-styled-components', 'coc-pairs', 'coc-jest', 'coc-format-json', 'coc-floaterm']
+let g:coc_global_extensions = ['coc-json', 'coc-vimlsp', 'coc-marketplace', 'coc-tsserver', 'coc-css', 'coc-eslint', 'coc-git', 'coc-html', 'coc-prettier', 'coc-lists', 'coc-styled-components', 'coc-pairs', 'coc-jest', 'coc-format-json', 'coc-floaterm', 'coc-highlight']

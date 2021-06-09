@@ -31,9 +31,6 @@
 [submodule "pack/main/start/vim-devicons"]
 	path = pack/main/start/vim-devicons
 	url = https://github.com/ryanoasis/vim-devicons
-[submodule "pack/main/start/vim-hexokinase"]
-	path = pack/main/start/vim-hexokinase
-	url = https://github.com/RRethy/vim-hexokinase
 [submodule "pack/main/start/vimspector"]
 	path = pack/main/start/vimspector
 	url = https://github.com/puremourning/vimspector
