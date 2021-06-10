@@ -49,3 +49,6 @@
 [submodule "pack/main/start/vim-floaterm"]
 	path = pack/main/start/vim-floaterm
 	url = https://github.com/voldikss/vim-floaterm
+[submodule "pack/main/start/vim-hexokinase"]
+	path = pack/main/start/vim-hexokinase
+	url = https://github.com/RRethy/vim-hexokinase
