@@ -57,13 +57,13 @@ endfunction
 
 " Desc: Statusline {{{
 function! utils#statusline_expr() abort
-	let l:mod = "%{&modified ? '[+] ' : !&modifiable ? '[x] ' : ''}"
+	let l:mod = " %m"
 	let l:ro  = "%{&readonly ? '[RO] ' : ''}"
 	let l:ft  = " %y "
 	let l:sep = ' %= '
-	let l:pos = ' %-12(%L/%c%) '
+	let l:pos = ' %-12(%l/%c%) '
 	let l:pct = ' %P'
-	let l:fn  = ' %{pathshorten(expand("%"))} '
+	let l:fn  = ' %{pathshorten(expand("%"))}'
 	let l:coc = " %{exists(coc#status()) ? [coc#status] : ''} "
 
 	" Fugitive
