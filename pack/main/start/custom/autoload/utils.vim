@@ -59,17 +59,17 @@ endfunction
 function! utils#statusline_expr() abort
 	let l:mod = "%{&modified ? '[+] ' : !&modifiable ? '[x] ' : ''}"
 	let l:ro  = "%{&readonly ? '[RO] ' : ''}"
-	let l:ft  = "[ %{WebDevIconsGetFileTypeSymbol()} ] "
+	let l:ft  = " %y "
 	let l:sep = ' %= '
-	let l:pos = ' %-12(%l:%c%V%) '
+	let l:pos = ' %-12(%L/%c%) '
 	let l:pct = ' %P'
 	let l:fn  = ' %{pathshorten(expand("%"))} '
-	let l:coc = ' [ %{coc#status()} ] '
+	let l:coc = " %{exists(coc#status()) ? [coc#status] : ''} "
 
 	" Fugitive
 	" let l:fug = "%{exists('g:loaded_fugitive') ? fugitive#statusline() : ''}"
 
-	return ' ❮'.l:fn.'%<'.l:mod.l:ro.l:coc..l:sep.l:ft.l:pos.'%*'.l:pct.' ❯ '
+	return l:fn.'%<'.l:mod.l:ro.l:ft.l:coc.l:sep.l:pos.'%*'.l:pct.' '
 endfunction
 " }}}
 
