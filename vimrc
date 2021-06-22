@@ -36,8 +36,7 @@ setglobal autoindent                               " Minimal auto indenting for 
 setglobal clipboard^=unnamed                       " Set clipboard options
 setglobal mouse=a                                  " Allow mouse interactions
 set cursorline                                     " Makes it easy to find the cursor
-setglobal ttimeout                                 " Terminal key code timeout
-setglobal ttimeoutlen=100                          " Define terminal key code timeout
+setglobal ttimeout ttimeoutlen=100                 " Define terminal key code timeout
 set number                                         " Display number column
 set noshowmode                                     " Do not show mode in cmd line
 
@@ -179,7 +178,9 @@ nnoremap <Tab> gt
 nnoremap <S-Tab> gT
 
 " Terminal
-tnoremap <Esc> <C-\><C-n>
+tnoremap <Esc> <C-W>N
+" NOTE: mapping esc twice lets you use arrow keys in terminal mode
+tnoremap <Esc><Esc> <C-W>N
 tnoremap <Bslash>t <c-w>:term<CR>
 
 " Center search result line in screen
