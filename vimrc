@@ -233,10 +233,10 @@ nnoremap ]<space> o<C-c>
 nnoremap [<space> O<C-c>
 
 " Find
-nnoremap <space>f :Files<space>
-nnoremap <space>s :split <bar> Files<space>
-nnoremap <space>v :vsp <bar> Files<space>
-nnoremap <space>t :tabnew <bar> Files<space>
+nnoremap <space>f :Files<cr>
+" nnoremap <space>s :split <bar> Files<space>
+" nnoremap <space>v :vsp <bar> Files<space>
+" nnoremap <space>t :tabnew <bar> Files<space>
 
 " Edit
 nnoremap <space>ee :e <C-R>='%:h/'<CR>
@@ -280,10 +280,10 @@ autocmd! GeneralAutocmds WinNew * au BufEnter * ++once
 			\ endif
 
 " Opens terminal vertically if space available
-autocmd! GeneralAutocmds TerminalOpen * au TerminalWinOpen * ++once
-			\ if winwidth(winnr('#')) >= 180 |
-			\ exe 'wincmd ' . (&splitright ? 'L' : 'H') |
-			\ endif
+" autocmd! GeneralAutocmds TerminalOpen * au TerminalWinOpen * ++once
+" 			\ if winwidth(winnr('#')) >= 180 |
+" 			\ exe 'wincmd ' . (&splitright ? 'L' : 'H') |
+" 			\ endif
 
 " Create a new dir if it doesnt exists
 autocmd! GeneralAutocmds BufNewFile * call utils#mkdir(expand('<afile>:p:h'))
@@ -343,8 +343,8 @@ command! -nargs=0 ColorsKitty call colors#Kitty()
 command! -nargs=1 -complete=customlist,jest#picker Jest                call jest#runner(<q-args>)
 command! -nargs=0 JestCurrent                                          call jest#runner(expand('%'))
 command! -nargs=1 -bar -complete=customlist,npm#complete Npm           call npm#runner(<q-args>)
-command! -nargs=1 -bar -complete=customlist,files#picker Files         call files#runner(<q-args>)
-command! -nargs=1 -bar -complete=customlist,buffers#picker Buffers     call buffers#runner(<q-args>, 'b')
+" command! -nargs=1 -bar -complete=customlist,files#picker Files         call files#runner(<q-args>)
+" command! -nargs=1 -bar -complete=customlist,buffers#picker Buffers     call buffers#runner(<q-args>, 'b')
 command! -nargs=1 -bar -complete=customlist,buffers#picker VertBuffers call buffers#runner(<q-args>, 'vert sb')
 command! -nargs=1 -bar -complete=customlist,buffers#picker TabBuffers  call buffers#runner(<q-args>, 'tab sb')
 command! -nargs=1 -bar -complete=customlist,buffers#picker DBuffers    call buffers#runner(<q-args>, 'bd')
@@ -391,6 +391,10 @@ call utils#setupCommandAbbrs('gc','GitCheckout')
 " Load built-in optional plugins
 packadd! cfilter  " Filter results from qf lists
 packadd! matchit  " Match matching symbols
+
+" FZF
+let g:fzf_layout = { 'window': { 'width': 1, 'height': 0.3, 'yoffset': 1 } }
+set runtimepath+=/usr/local/opt/fzf
 
 " Hexokinase
 let g:Hexokinase_highlighters = ['backgroundfull']

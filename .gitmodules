@@ -49,3 +49,9 @@
 [submodule "pack/main/start/vim-hexokinase"]
 	path = pack/main/start/vim-hexokinase
 	url = https://github.com/RRethy/vim-hexokinase
+[submodule "pack/main/start/editorconfig-vim"]
+	path = pack/main/start/editorconfig-vim
+	url = https://github.com/editorconfig/editorconfig-vim
+[submodule "pack/main/start/fzf.vim"]
+	path = pack/main/start/fzf.vim
+	url = https://github.com/junegunn/fzf.vim
