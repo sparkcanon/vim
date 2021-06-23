@@ -395,6 +395,7 @@ packadd! matchit  " Match matching symbols
 " FZF
 let g:fzf_layout = { 'window': { 'width': 1, 'height': 0.3, 'yoffset': 1 } }
 set runtimepath+=/usr/local/opt/fzf
+set rtp+=/opt/homebrew/opt/fzf
 
 " Hexokinase
 let g:Hexokinase_highlighters = ['backgroundfull']
