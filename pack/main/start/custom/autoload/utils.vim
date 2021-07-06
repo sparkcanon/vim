@@ -59,7 +59,7 @@ endfunction
 function! utils#statusline_expr() abort
 	let l:mod = " %m"
 	let l:ro  = "%{&readonly ? '[RO] ' : ''}"
-	let l:ft  = " %y "
+	let l:ft  = "%y "
 	let l:sep = ' %= '
 	let l:pos = ' %-12(%l/%c%) '
 	let l:pct = ' %P'
