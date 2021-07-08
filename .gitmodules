@@ -58,3 +58,6 @@
 [submodule "pack/main/start/conflict-marker.vim"]
 	path = pack/main/start/conflict-marker.vim
 	url = https://github.com/rhysd/conflict-marker.vim
+[submodule "pack/main/start/indentLine"]
+	path = pack/main/start/indentLine
+	url = https://github.com/Yggdroot/indentLine
