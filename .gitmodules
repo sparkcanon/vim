@@ -34,21 +34,12 @@
 [submodule "pack/main/start/vimspector"]
 	path = pack/main/start/vimspector
 	url = https://github.com/puremourning/vimspector
-[submodule "pack/main/opt/vim-substrata"]
-	path = pack/main/opt/vim-substrata
-	url = https://github.com/arzg/vim-substrata
 [submodule "pack/main/start/vim-qf-preview"]
 	path = pack/main/start/vim-qf-preview
 	url = https://github.com/bfrg/vim-qf-preview
-[submodule "pack/main/start/coc.nvim"]
-	path = pack/main/start/coc.nvim
-	url = https://github.com/neoclide/coc.nvim
 [submodule "pack/main/start/vim-floaterm"]
 	path = pack/main/start/vim-floaterm
 	url = https://github.com/voldikss/vim-floaterm
-[submodule "pack/main/start/vim-hexokinase"]
-	path = pack/main/start/vim-hexokinase
-	url = https://github.com/RRethy/vim-hexokinase
 [submodule "pack/main/start/editorconfig-vim"]
 	path = pack/main/start/editorconfig-vim
 	url = https://github.com/editorconfig/editorconfig-vim
@@ -61,3 +52,15 @@
 [submodule "pack/main/start/indentLine"]
 	path = pack/main/start/indentLine
 	url = https://github.com/Yggdroot/indentLine
+[submodule "pack/main/start/vim-mustache-handlebars"]
+	path = pack/main/start/vim-mustache-handlebars
+	url = https://github.com/mustache/vim-mustache-handlebars
+[submodule "pack/main/start/vim-hexokinase"]
+	path = pack/main/start/vim-hexokinase
+	url = https://github.com/RRethy/vim-hexokinase
+[submodule "pack/main/opt/vim-substrata"]
+	path = pack/main/opt/vim-substrata
+	url = https://github.com/arzg/vim-substrata
+[submodule "pack/main/start/coc.nvim"]
+	path = pack/main/start/coc.nvim
+	url = https://github.com/neoclide/coc.nvim
