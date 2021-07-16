@@ -64,3 +64,6 @@
 [submodule "pack/main/start/coc.nvim"]
 	path = pack/main/start/coc.nvim
 	url = https://github.com/neoclide/coc.nvim
+[submodule "pack/main/start/vim-matchup"]
+	path = pack/main/start/vim-matchup
+	url = https://github.com/andymass/vim-matchup

@@ -390,7 +390,6 @@ call utils#setupCommandAbbrs('gc','GitCheckout')
 " Section: Plugins && related setup {{{
 " Load built-in optional plugins
 packadd! cfilter  " Filter results from qf lists
-packadd! matchit  " Match matching symbols
 
 " FZF
 let g:fzf_layout = { 'window': { 'width': 1, 'height': 0.3, 'yoffset': 1 } }
@@ -408,6 +407,7 @@ let g:loaded_rrhelper        = 1
 let g:loaded_tarPlugin       = 1
 let g:loaded_vimballPlugin   = 1
 let g:loaded_zipPlugin       = 1
+let g:loaded_matchit         = 1
 " }}}
 
 " Section: Syntax {{{
