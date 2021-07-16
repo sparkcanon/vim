@@ -5,5 +5,27 @@
   "javascript.suggestionActions.enabled": false,
   "typescript.suggestionActions.enabled": false,
   "prettier.eslintIntegration": true,
-  "prettier.onlyUseLocalVersion": true
+  "prettier.onlyUseLocalVersion": true,
+  "html.format.wrapLineLength": 0,
+  "html.format.indentHandlebars": true,
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
+  "wxss.validate": false,
+  "stylelint.filetypes": [
+  	"css",
+  	"wxss",
+  	"scss",
+  	"less",
+  	"postcss",
+  	"sugarss"
+  ],
+  "stylelintplus.filetypes": [
+  	"css",
+  	"less",
+  	"postcss",
+  	"scss",
+  	"sugarss",
+  	"wxss"
+  ]
 }
