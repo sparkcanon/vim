@@ -224,9 +224,6 @@ nnoremap <space>es :sp <C-R>='%:h/'<CR>
 " Modify buffer colors
 autocmd GeneralAutocmds ColorScheme * call colors#modifyBufferColors()
 
-" Highlights git diff markers
-autocmd GeneralAutocmds ColorScheme * match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
-
 " Tip: Fixes for colorschemes {{{
 " set termguicolors " For 24-bit colours
 " set t_Co=256 " For 256 colours
@@ -275,12 +272,6 @@ autocmd! GeneralAutocmds VimLeavePre * call sessions#sessionSave()
 
 " Auto backslash
 autocmd GeneralAutocmds FileType vim packadd! vim-backslash
-
-" Fish
-autocmd! GeneralAutocmds BufRead,BufNewFile *.fish packadd! vim-fish | setfiletype fish
-
-" Js syntax
-autocmd GeneralAutocmds FileType javascript,javascriptreact packadd! vim-javascript | packadd! vim-jsx-pretty
 
 " Make autocmds
 autocmd! GeneralAutocmds QuickFixCmdPre  lmake update

@@ -16,15 +16,6 @@
 [submodule "pack/main/opt/vim-backslash"]
 	path = pack/main/opt/vim-backslash
 	url = https://github.com/lambdalisue/vim-backslash
-[submodule "pack/main/opt/vim-javascript"]
-	path = pack/main/opt/vim-javascript
-	url = https://github.com/pangloss/vim-javascript
-[submodule "pack/main/opt/vim-jsx-pretty"]
-	path = pack/main/opt/vim-jsx-pretty
-	url = https://github.com/MaxMEllon/vim-jsx-pretty
-[submodule "pack/main/opt/vim-fish"]
-	path = pack/main/opt/vim-fish
-	url = https://github.com/dag/vim-fish
 [submodule "pack/main/start/vim-vinegar"]
 	path = pack/main/start/vim-vinegar
 	url = https://github.com/tpope/vim-vinegar
@@ -49,9 +40,6 @@
 [submodule "pack/main/start/indentLine"]
 	path = pack/main/start/indentLine
 	url = https://github.com/Yggdroot/indentLine
-[submodule "pack/main/start/vim-mustache-handlebars"]
-	path = pack/main/start/vim-mustache-handlebars
-	url = https://github.com/mustache/vim-mustache-handlebars
 [submodule "pack/main/start/vim-hexokinase"]
 	path = pack/main/start/vim-hexokinase
 	url = https://github.com/RRethy/vim-hexokinase
@@ -67,3 +55,6 @@
 [submodule "pack/main/start/vim-tmux-navigator"]
 	path = pack/main/start/vim-tmux-navigator
 	url = https://github.com/christoomey/vim-tmux-navigator
+[submodule "pack/main/start/vim-polyglot"]
+	path = pack/main/start/vim-polyglot
+	url = https://github.com/sheerun/vim-polyglot
