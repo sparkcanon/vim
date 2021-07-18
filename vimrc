@@ -121,35 +121,10 @@ for mode in ['n', 'x']
 endfor
 
 " Clear highlighting
-nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
+nnoremap <silent> /// :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 
 " Get more information from ctrl-g:
 nnoremap <c-g> 2<c-g>
-
-" Pane switching
-if exists('$TMUX_PANE')
-	nnoremap <silent> <a-h> :<c-u>call tmux#navigate('h')<cr>
-	nnoremap <silent> <a-j> :<c-u>call tmux#navigate('j')<cr>
-	nnoremap <silent> <a-k> :<c-u>call tmux#navigate('k')<cr>
-	nnoremap <silent> <a-l> :<c-u>call tmux#navigate('l')<cr>
-else
-	nnoremap <a-l> <c-w>l
-	nnoremap <a-h> <c-w>h
-	nnoremap <a-j> <c-w>j
-	nnoremap <a-k> <c-w>k
-endif
-
-" Jump to another window directly from terminal mode
-tnoremap ¬ <c-w>l
-tnoremap ˙ <c-w>h
-tnoremap ∆ <c-w>j
-tnoremap ˚ <c-w>k
-
-" Allow using alt in macOS without enabling “Use Option as Meta key”
-nmap ¬ <a-l>
-nmap ˙ <a-h>
-nmap ∆ <a-j>
-nmap ˚ <a-k>
 
 " Using backtick for marks drops you on the exact column
 nnoremap ` '
@@ -214,6 +189,7 @@ nnoremap <BS> <C-^>
 nnoremap ]b :bnext<CR>
 nnoremap [b :bprevious<CR>
 nnoremap gQ :call format#buffer()<CR>
+nnoremap <space>b :CocList buffers<cr>
 
 " Args
 nnoremap ]a :next<CR>
@@ -233,7 +209,7 @@ nnoremap ]<space> o<C-c>
 nnoremap [<space> O<C-c>
 
 " Find
-nnoremap <space>f :Files<cr>
+nnoremap <space>f :CocList files<cr>
 " nnoremap <space>s :split <bar> Files<space>
 " nnoremap <space>v :vsp <bar> Files<space>
 " nnoremap <space>t :tabnew <bar> Files<space>

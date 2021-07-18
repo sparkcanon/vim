@@ -43,9 +43,6 @@
 [submodule "pack/main/start/editorconfig-vim"]
 	path = pack/main/start/editorconfig-vim
 	url = https://github.com/editorconfig/editorconfig-vim
-[submodule "pack/main/start/fzf.vim"]
-	path = pack/main/start/fzf.vim
-	url = https://github.com/junegunn/fzf.vim
 [submodule "pack/main/start/conflict-marker.vim"]
 	path = pack/main/start/conflict-marker.vim
 	url = https://github.com/rhysd/conflict-marker.vim
@@ -67,3 +64,6 @@
 [submodule "pack/main/start/vim-matchup"]
 	path = pack/main/start/vim-matchup
 	url = https://github.com/andymass/vim-matchup
+[submodule "pack/main/start/vim-tmux-navigator"]
+	path = pack/main/start/vim-tmux-navigator
+	url = https://github.com/christoomey/vim-tmux-navigator
