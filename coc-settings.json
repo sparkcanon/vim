@@ -41,5 +41,7 @@
 		"scss",
 		"sugarss",
 		"wxss"
-	]
+	],
+	"session.directory": "~/.vim/tmp/dir_session",
+	"session.saveOnVimLeave": true
 }
