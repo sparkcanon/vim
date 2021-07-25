@@ -9,6 +9,15 @@
 "             U  ||----w |
 "                ||     ||
 
+" Section: Syntax {{{
+" Automatic, language-dependent indentation, syntax coloring and other
+" functionality.
+" Must come *after* the `:packadd!` calls above otherwise the contents of
+" package "ftdetect" directories won't be evaluated.
+filetype plugin indent on
+syntax enable
+" }}}
+
 " Section: Load custom configuration {{{
 packadd! custom
 " }}}
@@ -238,10 +247,8 @@ autocmd GeneralAutocmds ColorScheme * call colors#modifyBufferColors()
 " let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
 " }}}
 
-set termguicolors
-packadd! vim-substrata
 set background=dark
-colorscheme substrata " Set color scheme after setting buffer colors
+colorscheme bruin " Set color scheme after setting buffer colors
 " }}}
 
 " Section: Auto commands {{{
@@ -310,8 +317,8 @@ command! -nargs=0 ColorsKitty call colors#Kitty()
 command! -nargs=1 -complete=customlist,jest#picker Jest                call jest#runner(<q-args>)
 command! -nargs=0 JestCurrent                                          call jest#runner(expand('%'))
 command! -nargs=1 -bar -complete=customlist,npm#complete Npm           call npm#runner(<q-args>)
-command! -nargs=1 -bar -complete=customlist,files#picker FFiles         call files#runner(<q-args>)
-command! -nargs=1 -bar -complete=customlist,buffers#picker BBuffers     call buffers#runner(<q-args>, 'b')
+command! -nargs=1 -bar -complete=customlist,files#picker FFiles        call files#runner(<q-args>)
+command! -nargs=1 -bar -complete=customlist,buffers#picker BBuffers    call buffers#runner(<q-args>, 'b')
 command! -nargs=1 -bar -complete=customlist,buffers#picker VertBuffers call buffers#runner(<q-args>, 'vert sb')
 command! -nargs=1 -bar -complete=customlist,buffers#picker TabBuffers  call buffers#runner(<q-args>, 'tab sb')
 command! -nargs=1 -bar -complete=customlist,buffers#picker DBuffers    call buffers#runner(<q-args>, 'bd')
@@ -375,13 +382,4 @@ let g:loaded_tarPlugin       = 1
 let g:loaded_vimballPlugin   = 1
 let g:loaded_zipPlugin       = 1
 let g:loaded_matchit         = 1
-" }}}
-
-" Section: Syntax {{{
-" Automatic, language-dependent indentation, syntax coloring and other
-" functionality.
-" Must come *after* the `:packadd!` calls above otherwise the contents of
-" package "ftdetect" directories won't be evaluated.
-filetype plugin indent on
-syntax enable
 " }}}
