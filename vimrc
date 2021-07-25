@@ -236,7 +236,7 @@ autocmd GeneralAutocmds ColorScheme * call colors#modifyBufferColors()
 " Tip: Fixes for colorschemes {{{
 " set termguicolors " For 24-bit colours
 " set t_Co=256 " For 256 colours
-"
+
 " Use the below when comments using some colourschemes look bad (look up what
 " these mean)
 " let &t_ZH="\e[3m"
@@ -248,7 +248,7 @@ autocmd GeneralAutocmds ColorScheme * call colors#modifyBufferColors()
 " }}}
 
 set background=dark
-colorscheme bruin " Set color scheme after setting buffer colors
+colorscheme warlock " Set color scheme after setting buffer colors
 " }}}
 
 " Section: Auto commands {{{

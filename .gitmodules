@@ -52,3 +52,6 @@
 [submodule "pack/main/start/vim-tmux-navigator"]
 	path = pack/main/start/vim-tmux-navigator
 	url = https://github.com/christoomey/vim-tmux-navigator
+[submodule "pack/main/opt/warlock"]
+	path = pack/main/opt/warlock
+	url = https://github.com/hardselius/warlock
