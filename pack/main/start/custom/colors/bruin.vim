@@ -41,19 +41,18 @@ if ($TERM =~ '256' || &t_Co >= 256) || has("gui_running")
 	hi helpNormal ctermbg=NONE ctermfg=NONE cterm=NONE guibg=NONE guifg=NONE gui=NONE
 	hi Visual ctermbg=NONE ctermfg=darkcyan cterm=reverse,bold guibg=NONE guifg=darkcyan gui=reverse,bold
 	hi VisualNOS ctermbg=NONE ctermfg=NONE cterm=NONE guibg=NONE guifg=NONE gui=NONE
-	hi Pmenu ctermbg=NONE ctermfg=NONE cterm=NONE guibg=NONE guifg=NONE gui=NONE
+	hi Pmenu ctermbg=15 ctermfg=0 cterm=NONE guibg=NONE guifg=NONE gui=NONE
 	hi PmenuSbar ctermbg=NONE ctermfg=NONE cterm=NONE guibg=NONE guifg=NONE gui=NONE
-	hi PmenuSel ctermbg=NONE ctermfg=NONE cterm=NONE guibg=NONE guifg=NONE gui=NONE
+	hi PmenuSel ctermfg=15 ctermbg=NONE cterm=NONE guibg=NONE guifg=NONE gui=NONE
 	hi PmenuThumb ctermbg=NONE ctermfg=NONE cterm=NONE guibg=NONE guifg=NONE gui=NONE
 	hi FoldColumn ctermbg=NONE ctermfg=NONE cterm=NONE guibg=NONE guifg=NONE gui=NONE
 	hi Folded ctermbg=NONE ctermfg=NONE cterm=NONE guibg=NONE guifg=NONE gui=NONE
 	hi WildMenu ctermbg=NONE ctermfg=NONE cterm=NONE guibg=NONE guifg=NONE gui=NONE
 	hi SpecialKey ctermbg=NONE ctermfg=NONE cterm=NONE guibg=NONE guifg=NONE gui=NONE
-	hi DiffAdd ctermfg=2 ctermbg=NONE cterm=reverse
-	hi DiffChange ctermfg=6 ctermbg=NONE cterm=reverse
-	hi DiffDelete ctermfg=1 ctermbg=NONE cterm=reverse
-	hi DiffText ctermfg=14 ctermbg=NONE cterm=reverse
-
+	hi DiffAdd ctermfg=2 ctermbg=NONE cterm=reverse guibg=NONE guifg=NONE gui=NONE
+	hi DiffChange ctermfg=6 ctermbg=NONE cterm=reverse guibg=NONE guifg=NONE gui=NONE
+	hi DiffDelete ctermfg=1 ctermbg=NONE cterm=reverse guibg=NONE guifg=NONE gui=NONE
+	hi DiffText ctermfg=14 ctermbg=NONE cterm=reverse guibg=NONE guifg=NONE gui=NONE
 	hi IncSearch ctermbg=10 ctermfg=0 cterm=NONE guibg=#00ff00 guifg=#000000 gui=NONE
 	hi Search ctermbg=11 ctermfg=0 cterm=NONE guibg=#ffff00 guifg=#000000 gui=NONE
 	hi Directory ctermbg=NONE ctermfg=NONE cterm=bold guibg=NONE guifg=NONE gui=bold
