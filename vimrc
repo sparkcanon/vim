@@ -15,7 +15,7 @@
 " Must come *after* the `:packadd!` calls above otherwise the contents of
 " package "ftdetect" directories won't be evaluated.
 filetype plugin indent on
-syntax enable
+syntax off
 " }}}
 
 " Section: Load custom configuration {{{
@@ -364,6 +364,7 @@ call utils#setupCommandAbbrs('gc','GitCheckout')
 " Section: Plugins && related setup {{{
 " Load built-in optional plugins
 packadd! cfilter  " Filter results from qf lists
+packadd! matchit
 
 " FZF
 let g:fzf_layout = { 'window': { 'width': 1, 'height': 0.3, 'yoffset': 1 } }
@@ -381,5 +382,4 @@ let g:loaded_rrhelper        = 1
 let g:loaded_tarPlugin       = 1
 let g:loaded_vimballPlugin   = 1
 let g:loaded_zipPlugin       = 1
-let g:loaded_matchit         = 1
 " }}}
