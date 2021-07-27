@@ -9,15 +9,6 @@
 "             U  ||----w |
 "                ||     ||
 
-" Section: Syntax {{{
-" Automatic, language-dependent indentation, syntax coloring and other
-" functionality.
-" Must come *after* the `:packadd!` calls above otherwise the contents of
-" package "ftdetect" directories won't be evaluated.
-filetype plugin indent on
-syntax off
-" }}}
-
 " Section: Load custom configuration {{{
 packadd! custom
 " }}}
@@ -382,4 +373,13 @@ let g:loaded_rrhelper        = 1
 let g:loaded_tarPlugin       = 1
 let g:loaded_vimballPlugin   = 1
 let g:loaded_zipPlugin       = 1
+" }}}
+
+" Section: Syntax {{{
+" Automatic, language-dependent indentation, syntax coloring and other
+" functionality.
+" Must come *after* the `:packadd!` calls above otherwise the contents of
+" package "ftdetect" directories won't be evaluated.
+filetype plugin indent on
+syntax off
 " }}}
