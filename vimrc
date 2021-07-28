@@ -309,7 +309,7 @@ command! -nargs=1 -bar -complete=customlist,buffers#picker TabBuffers  call buff
 command! -nargs=1 -bar -complete=customlist,buffers#picker DBuffers    call buffers#runner(<q-args>, 'bd')
 command! -nargs=1 -bar -complete=customlist,buffers#picker SplitBuffer call buffers#runner(<q-args>, 'sb')
 command! -nargs=0 Fzf                                                  call files#fzf()
-command! -nargs=? Rg                                                   call files#rg(<q-args>)
+command! -nargs=+ Rg                                                   call files#rg(<q-args>)
 
 " Git
 command! -nargs=1 -complete=customlist,git#stash_picker GitStash       call git#stash_runner(<q-args>)
