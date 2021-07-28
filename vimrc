@@ -298,12 +298,6 @@ command! -nargs=1 -complete=customlist,sessions#complete SessionLoad execute 'so
 command! -nargs=? -complete=dir YRelative :let @+ = expand("%")
 command! -nargs=? -complete=dir YFilename :let @+ = expand("%:t")
 
-" Load tabular and align
-command! -nargs=* -bang -range Tabularize packadd tabular <bar> Tabularize <args>
-
-" Colors
-command! -nargs=0 ColorsKitty call colors#Kitty()
-
 " Fuzzy pickers
 command! -nargs=1 -complete=customlist,jest#picker Jest                call jest#runner(<q-args>)
 command! -nargs=0 JestCurrent                                          call jest#runner(expand('%'))
@@ -314,6 +308,8 @@ command! -nargs=1 -bar -complete=customlist,buffers#picker VertBuffers call buff
 command! -nargs=1 -bar -complete=customlist,buffers#picker TabBuffers  call buffers#runner(<q-args>, 'tab sb')
 command! -nargs=1 -bar -complete=customlist,buffers#picker DBuffers    call buffers#runner(<q-args>, 'bd')
 command! -nargs=1 -bar -complete=customlist,buffers#picker SplitBuffer call buffers#runner(<q-args>, 'sb')
+command! -nargs=0 Fzf                                                  call files#fzf()
+command! -nargs=? Rg                                                   call files#rg(<q-args>)
 
 " Git
 command! -nargs=1 -complete=customlist,git#stash_picker GitStash       call git#stash_runner(<q-args>)
