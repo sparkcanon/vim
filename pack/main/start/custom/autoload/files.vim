@@ -1,6 +1,6 @@
 " Purpose: Files
 
-" Desc: Files picker {{{
+" Section: Files picker {{{
 function! files#picker(A,L,P) abort
 	let l:cmd = 'fd . ' .
 				\ '-H ' .
@@ -37,8 +37,40 @@ function! files#picker(A,L,P) abort
 endfunction
 " }}}
 
-" Desc: Files runner {{{
+" Section: Files runner {{{
 function! files#runner(args) abort
 	exe 'e ' .. a:args
+endfunction
+" }}}
+
+" Section: Fzf {{{
+function! files#fzf() abort
+	let l:tempname = tempname()
+	" fzf | awk '{ print $1":1:0" }' > file
+	execute 'silent !fzf --multi ' . '| awk ''{ print $1":1:0" }'' > ' . fnameescape(l:tempname)
+	try
+		execute 'cfile ' . l:tempname
+		redraw!
+	finally
+		call delete(l:tempname)
+	endtry
+endfunction
+" }}}
+
+" Section: Rg {{{
+function! files#rg(args) abort
+	let l:tempname = tempname()
+	let l:pattern = '.'
+	if len(a:args) > 0
+		let l:pattern = a:args
+	endif
+	" rg --vimgrep <pattern> | fzf -m > file
+	execute 'silent !rg --vimgrep ''' . l:pattern . ''' | fzf -m > ' . fnameescape(l:tempname)
+	try
+		execute 'cfile ' . l:tempname
+		redraw!
+	finally
+		call delete(l:tempname)
+	endtry
 endfunction
 " }}}
