@@ -26,6 +26,9 @@ function! files#picker(A,L,P) abort
 				\ '-E "*.req" ' .
 				\ '-E ".DS_Store" ' .
 				\ '-E "*.res" ' .
+				\ '-E "*.jpg" ' .
+				\ '-E "*.png" ' .
+				\ '-E "*.svg" ' .
 				\ '-E "coverage/"'
 
 	let l:items = l:cmd->systemlist()

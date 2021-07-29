@@ -60,7 +60,7 @@ setglobal wildignore+=*-lock.json,*.snap
 set errorformat+=%f                                " Efm for fd
 
 " Path options
-setglobal path=.,,**                               " Standard path
+setglobal path=.,**5                               " Standard path
 
 " Backup settings
 setglobal sessionoptions-=options
@@ -301,13 +301,13 @@ command! -nargs=? -complete=dir YFilename :let @+ = expand("%:t")
 " Fuzzy pickers
 command! -nargs=1 -complete=customlist,jest#picker Jest                call jest#runner(<q-args>)
 command! -nargs=0 JestCurrent                                          call jest#runner(expand('%'))
-command! -nargs=1 -bar -complete=customlist,npm#complete Npm           call npm#runner(<q-args>)
-command! -nargs=1 -bar -complete=customlist,files#picker FFiles        call files#runner(<q-args>)
-command! -nargs=1 -bar -complete=customlist,buffers#picker BBuffers    call buffers#runner(<q-args>, 'b')
-command! -nargs=1 -bar -complete=customlist,buffers#picker VertBuffers call buffers#runner(<q-args>, 'vert sb')
-command! -nargs=1 -bar -complete=customlist,buffers#picker TabBuffers  call buffers#runner(<q-args>, 'tab sb')
-command! -nargs=1 -bar -complete=customlist,buffers#picker DBuffers    call buffers#runner(<q-args>, 'bd')
-command! -nargs=1 -bar -complete=customlist,buffers#picker SplitBuffer call buffers#runner(<q-args>, 'sb')
+command! -nargs=1 -complete=customlist,npm#complete Npm                call npm#runner(<q-args>)
+command! -nargs=1 -complete=customlist,files#picker FFiles             call files#runner(<q-args>)
+command! -nargs=1 -complete=customlist,buffers#picker BBuffers         call buffers#runner(<q-args>, 'b')
+command! -nargs=1 -complete=customlist,buffers#picker VertBuffers      call buffers#runner(<q-args>, 'vert sb')
+command! -nargs=1 -complete=customlist,buffers#picker TabBuffers       call buffers#runner(<q-args>, 'tab sb')
+command! -nargs=1 -complete=customlist,buffers#picker DBuffers         call buffers#runner(<q-args>, 'bd')
+command! -nargs=1 -complete=customlist,buffers#picker SplitBuffer      call buffers#runner(<q-args>, 'sb')
 command! -nargs=0 Fzf                                                  call files#fzf()
 command! -nargs=+ Rg                                                   call files#rg(<q-args>)
 
