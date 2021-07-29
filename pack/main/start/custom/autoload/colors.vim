@@ -10,5 +10,6 @@ function! colors#modifyBufferColors() abort
 
 	" Hint: This below makes the background transparent
 	" highlight! Normal ctermbg=NONE guibg=NONE
+	hi Normal ctermbg=233 ctermfg=250 cterm=NONE guibg=#262626 guifg=#bcbcbc gui=NONE
 endfunction
 " }}}
