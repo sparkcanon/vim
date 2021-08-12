@@ -186,27 +186,21 @@ nnoremap [<C-F> :cpfile<CR>
 " Buffers
 " previously used buffer
 nnoremap <BS> <C-^>
-nnoremap ]b :bnext<CR>
-nnoremap [b :bprevious<CR>
 nnoremap gQ :call format#buffer()<CR>
 nnoremap <space>b :CocList buffers<cr>
 
-" Args
-nnoremap ]a :next<CR>
-nnoremap [a :previous<CR>
-
 " Substitute
-nnoremap <Bslash>s :%s//<Left>
+nnoremap <Bslash>s :%s;\%V
 
 " Global
-nnoremap <Bslash>g :g//#<Left><Left>
+nnoremap <Bslash>g :g;;#<Left><Left>
 
 " Lists
 cnoremap <expr> <CR> listcommands#CR()
 
 " New lines
-nnoremap ]<space> o<C-c>
-nnoremap [<space> O<C-c>
+nnoremap o o<C-c>
+nnoremap O O<C-c>
 
 " Find
 nnoremap <space>f :CocList files<cr>
