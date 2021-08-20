@@ -12,7 +12,7 @@ endfunction
 " }}}
 
 " Desc: Buffers runner {{{
-function! buffers#runner(args, mod) abort
-	exe a:mod a:args
+function! buffers#runner(args) abort
+	exe 'b ' . a:args
 endfunction
 " }}}

@@ -198,10 +198,6 @@ nnoremap <Bslash>g :g;;#<Left><Left>
 " Lists
 cnoremap <expr> <CR> listcommands#CR()
 
-" New lines
-nnoremap o o<C-c>
-nnoremap O O<C-c>
-
 " Find
 nnoremap <space>f :CocList files<cr>
 " nnoremap <space>s :split <bar> Files<space>
@@ -296,12 +292,8 @@ command! -nargs=? -complete=dir YFilename :let @+ = expand("%:t")
 command! -nargs=1 -complete=customlist,jest#picker Jest                call jest#runner(<q-args>)
 command! -nargs=0 JestCurrent                                          call jest#runner(expand('%'))
 command! -nargs=1 -complete=customlist,npm#complete Npm                call npm#runner(<q-args>)
-command! -nargs=1 -complete=customlist,files#picker FFiles             call files#runner(<q-args>)
-command! -nargs=1 -complete=customlist,buffers#picker BBuffers         call buffers#runner(<q-args>, 'b')
-command! -nargs=1 -complete=customlist,buffers#picker VertBuffers      call buffers#runner(<q-args>, 'vert sb')
-command! -nargs=1 -complete=customlist,buffers#picker TabBuffers       call buffers#runner(<q-args>, 'tab sb')
-command! -nargs=1 -complete=customlist,buffers#picker DBuffers         call buffers#runner(<q-args>, 'bd')
-command! -nargs=1 -complete=customlist,buffers#picker SplitBuffer      call buffers#runner(<q-args>, 'sb')
+command! -nargs=1 -complete=customlist,files#picker Files              call files#runner(<q-args>)
+command! -nargs=1 -complete=customlist,buffers#picker Buffers          call buffers#runner(<q-args>)
 command! -nargs=0 Fzf                                                  call files#fzf()
 command! -nargs=+ Rg                                                   call files#rg(<q-args>)
 
@@ -315,14 +307,17 @@ command! -nargs=? Diff call utils#Diff(<q-args>)
 " Write
 call utils#setupCommandAbbrs('w','update')
 
+" Files
+call utils#setupCommandAbbrs('ff','Files')
+call utils#setupCommandAbbrs('fv','vsplit \| Files')
+call utils#setupCommandAbbrs('fs','split \| Files')
+call utils#setupCommandAbbrs('ft','tabe \| Files')
+
 " Buffer list
-call utils#setupCommandAbbrs('lv','ls\<space>t\<CR>:VertBuffers')
-call utils#setupCommandAbbrs('lt','ls\<space>t\<CR>:TabBuffers')
-call utils#setupCommandAbbrs('ld','ls\<space>t\<CR>:DBuffers')
+call utils#setupCommandAbbrs('lv','ls\<space>t\<CR>:vert sb \| Buffers')
+call utils#setupCommandAbbrs('lt','ls\<space>t\<CR>:tab sb \| Buffers')
 call utils#setupCommandAbbrs('br','bp\<bar>bd#')
-call utils#setupCommandAbbrs('vb','VertBuffers')
-call utils#setupCommandAbbrs('tb','TabBuffers')
-call utils#setupCommandAbbrs('sb','SplitBuffer')
+call utils#setupCommandAbbrs('sb','sb \| Buffers')
 call utils#setupCommandAbbrs('b','Buffers')
 
 " Session
@@ -333,8 +328,8 @@ call utils#setupCommandAbbrs('sa','SessionSave')
 call utils#setupCommandAbbrs('sr','grep!')
 
 " Git
-call utils#setupCommandAbbrs('gf','ter git fetch --all')
-call utils#setupCommandAbbrs('gp','ter git push')
+call utils#setupCommandAbbrs('gf','FloatermNew git fetch --all')
+call utils#setupCommandAbbrs('gp','FloatermNew git push')
 call utils#setupCommandAbbrs('gl','Git pull')
 call utils#setupCommandAbbrs('gd','Git difftool')
 call utils#setupCommandAbbrs('gm','Git mergetool')
