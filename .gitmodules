@@ -52,9 +52,6 @@
 [submodule "pack/main/opt/warlock"]
 	path = pack/main/opt/warlock
 	url = https://github.com/hardselius/warlock
-[submodule "pack/main/start/vim-mustache-handlebars"]
-	path = pack/main/start/vim-mustache-handlebars
-	url = https://github.com/mustache/vim-mustache-handlebars
 [submodule "pack/main/start/traces.vim"]
 	path = pack/main/start/traces.vim
 	url = https://github.com/markonm/traces.vim
