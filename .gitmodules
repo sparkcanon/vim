@@ -49,12 +49,15 @@
 [submodule "pack/main/start/vim-tmux-navigator"]
 	path = pack/main/start/vim-tmux-navigator
 	url = https://github.com/christoomey/vim-tmux-navigator
-[submodule "pack/main/opt/warlock"]
-	path = pack/main/opt/warlock
-	url = https://github.com/hardselius/warlock
 [submodule "pack/main/start/traces.vim"]
 	path = pack/main/start/traces.vim
 	url = https://github.com/markonm/traces.vim
 [submodule "pack/main/start/vim-eunuch"]
 	path = pack/main/start/vim-eunuch
 	url = https://github.com/tpope/vim-eunuch
+[submodule "pack/main/start/vim-habanight"]
+	path = pack/main/start/vim-habanight
+	url = https://github.com/habamax/vim-habanight
+[submodule "pack/main/start/vim-signify"]
+	path = pack/main/start/vim-signify
+	url = https://github.com/mhinz/vim-signify

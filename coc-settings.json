@@ -43,5 +43,6 @@
 		"wxss"
 	],
 	"session.directory": "~/.vim/tmp/dir_session",
-	"session.saveOnVimLeave": true
+	"session.saveOnVimLeave": true,
+	"git.enableGutters": false
 }

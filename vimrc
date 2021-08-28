@@ -215,7 +215,7 @@ nnoremap <space>es :sp <C-R>='%:h/'<CR>
 autocmd GeneralAutocmds ColorScheme * call colors#modifyBufferColors()
 
 " Tip: Fixes for colorschemes {{{
-" set termguicolors " For 24-bit colours
+set termguicolors " For 24-bit colours
 " set t_Co=256 " For 256 colours
 
 " Use the below when comments using some colourschemes look bad (look up what
@@ -229,7 +229,7 @@ autocmd GeneralAutocmds ColorScheme * call colors#modifyBufferColors()
 " }}}
 
 set background=dark
-colorscheme warlock " Set color scheme after setting buffer colors
+colorscheme habanight " Set color scheme after setting buffer colors
 " }}}
 
 " Section: Auto commands {{{
@@ -366,5 +366,5 @@ let g:loaded_zipPlugin       = 1
 " Must come *after* the `:packadd!` calls above otherwise the contents of
 " package "ftdetect" directories won't be evaluated.
 filetype plugin indent on
-syntax off
+syntax enable
 " }}}
