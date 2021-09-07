@@ -37,9 +37,6 @@
 [submodule "pack/main/start/conflict-marker.vim"]
 	path = pack/main/start/conflict-marker.vim
 	url = https://github.com/rhysd/conflict-marker.vim
-[submodule "pack/main/start/indentLine"]
-	path = pack/main/start/indentLine
-	url = https://github.com/Yggdroot/indentLine
 [submodule "pack/main/start/vim-hexokinase"]
 	path = pack/main/start/vim-hexokinase
 	url = https://github.com/RRethy/vim-hexokinase
@@ -61,3 +58,6 @@
 [submodule "pack/main/start/vim-signify"]
 	path = pack/main/start/vim-signify
 	url = https://github.com/mhinz/vim-signify
+[submodule "pack/main/start/vim-mustache-handlebars"]
+	path = pack/main/start/vim-mustache-handlebars
+	url = https://github.com/mustache/vim-mustache-handlebars

@@ -80,13 +80,6 @@ setglobal laststatus=2                             " Always show tausline
 set statusline=%{%utils#statusline_expr()%}
 set ruler
 
-" Show block cursor in Normal mode and line cursor in Insert mode
-let &t_ti.="\e[2 q"
-let &t_SI.="\e[6 q"
-let &t_SR.="\e[4 q"
-let &t_EI.="\e[2 q"
-let &t_te.="\e[0 q"
-
 " Grepprg & grepformat
 if executable('rg')
 	setglobal grepprg=rg\ --vimgrep                  " Grep to use rg
