@@ -20,7 +20,11 @@ function! npm#runner(args) abort
 	let l:filePath = findfile('package.json')
 	if filereadable(l:filePath)
 		let l:cd = l:filePath->split('/')[0:-2]->join('/')
-		execute 'FloatermNew --cwd=' . l:cd . ' npm run ' . a:args
+		if l:cd->len() == 0
+			execute 'FloatermNew ' . ' npm run ' . a:args
+		else
+			execute 'FloatermNew --cwd=' . l:cd . ' npm run ' . a:args
+		endif
 	else
 		echom "Error: Package.json not found"
 	endif
