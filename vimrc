@@ -256,7 +256,7 @@ autocmd GeneralAutocmds FileType vim packadd! vim-backslash
 
 " Make autocmds
 autocmd! GeneralAutocmds QuickFixCmdPre  lmake update
-autocmd! GeneralAutocmds QuickFixCmdPost [^l]* cwindow
+autocmd! GeneralAutocmds QuickFixCmdPost [^l]* botright cwindow
 autocmd! GeneralAutocmds QuickFixCmdPost l* lwindow
 autocmd! GeneralAutocmds QuickFixCmdPost lmake call setloclist(
 			\ bufnr(), 
