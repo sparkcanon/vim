@@ -44,5 +44,5 @@
 	],
 	"session.directory": "~/.vim/tmp/dir_session",
 	"session.saveOnVimLeave": true,
-	"git.enableGutters": false
+	"git.enableGutters": true
 }

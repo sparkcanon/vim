@@ -55,9 +55,6 @@
 [submodule "pack/main/start/vim-habanight"]
 	path = pack/main/start/vim-habanight
 	url = https://github.com/habamax/vim-habanight
-[submodule "pack/main/start/vim-signify"]
-	path = pack/main/start/vim-signify
-	url = https://github.com/mhinz/vim-signify
 [submodule "pack/main/start/vim-mustache-handlebars"]
 	path = pack/main/start/vim-mustache-handlebars
 	url = https://github.com/mustache/vim-mustache-handlebars
