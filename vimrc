@@ -335,10 +335,14 @@ call utils#setupCommandAbbrs('gc','GitCheckout')
 packadd! cfilter  " Filter results from qf lists
 packadd! matchit
 
-" FZF
+" fzf
 let g:fzf_layout = { 'window': { 'width': 1, 'height': 0.3, 'yoffset': 1 } }
 set runtimepath+=/usr/local/opt/fzf
 set rtp+=/opt/homebrew/opt/fzf
+
+" bookmarks
+let g:bookmark_save_per_working_dir = 1
+let g:bookmark_auto_save = 1
 
 " Hexokinase
 let g:Hexokinase_highlighters = ['backgroundfull']
