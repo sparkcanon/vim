@@ -49,18 +49,20 @@ setglobal smartcase                                " To ignore case in certain c
 setglobal ignorecase                               " Ignore case all together
 
 " Wild menu options
+set wildmode=longest,full
 setglobal wildmenu                                 " Turn menu on for wild searches
 setglobal wildignorecase                           " Ignore case for wildmenu
 setglobal wildignore=*.swp,*.bak                   " Ignore file patterns in wildmenu
 setglobal wildignore+=*.cache,*.min.*,**/dist/**
 setglobal wildignore+=**/.git/**/*
 setglobal wildignore+=*-lock.json,*.snap
+setglobal wildignore+=**/node_modules/**
 
 " Set fd error format
 set errorformat+=%f                                " Efm for fd
 
 " Path options
-setglobal path=.,**5                               " Standard path
+setglobal path=.,src/,packages/,**5                               " Standard path
 
 " Backup settings
 setglobal sessionoptions-=options
