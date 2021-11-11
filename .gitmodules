@@ -52,15 +52,21 @@
 [submodule "pack/main/start/vim-habanight"]
 	path = pack/main/start/vim-habanight
 	url = https://github.com/habamax/vim-habanight
-[submodule "pack/main/start/vim-mustache-handlebars"]
-	path = pack/main/start/vim-mustache-handlebars
-	url = https://github.com/mustache/vim-mustache-handlebars
 [submodule "pack/main/start/vim-signify"]
 	path = pack/main/start/vim-signify
 	url = https://github.com/mhinz/vim-signify
-[submodule "pack/main/start/vim-bookmarks"]
-	path = pack/main/start/vim-bookmarks
-	url = https://github.com/MattesGroeger/vim-bookmarks
 [submodule "pack/main/start/vim-hexokinase"]
 	path = pack/main/start/vim-hexokinase
 	url = https://github.com/RRethy/vim-hexokinase
+[submodule "pack/main/start/vim-polyglot"]
+	path = pack/main/start/vim-polyglot
+	url = https://github.com/sheerun/vim-polyglot
+[submodule "pack/main/start/wilder.nvim"]
+	path = pack/main/start/wilder.nvim
+	url = https://github.com/gelguy/wilder.nvim
+[submodule "pack/main/start/nvim-yarp"]
+	path = pack/main/start/nvim-yarp
+	url = https://github.com/roxma/nvim-yarp
+[submodule "pack/main/start/vim-hug-neovim-rpc"]
+	path = pack/main/start/vim-hug-neovim-rpc
+	url = https://github.com/roxma/vim-hug-neovim-rpc
