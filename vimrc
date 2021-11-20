@@ -194,7 +194,6 @@ nnoremap <Bslash>g :g;;#<Left><Left>
 cnoremap <expr> <CR> listcommands#CR()
 
 " Find
-nnoremap <space>f :CocList files<cr>
 " nnoremap <space>s :split <bar> Files<space>
 " nnoremap <space>v :vsp <bar> Files<space>
 " nnoremap <space>t :tabnew <bar> Files<space>
