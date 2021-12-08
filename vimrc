@@ -1,16 +1,52 @@
 " Desc: Personal Vim configuration
 " Author: Pratik Borde
-"  _______ 
+"  _______
 " < VIMRC >
-"  ------- 
+"  -------
 "        \   ^__^
 "         \  (**)\_______
 "            (__)\       )\/\
 "             U  ||----w |
 "                ||     ||
 
-" Section: Load custom configuration {{{
-packadd! custom
+" Section: Load plug {{{
+" Install vim-plug if not found
+if empty(glob('~/.vim/autoload/plug.vim'))
+	silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+				\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+endif
+
+" Run PlugInstall if there are missing plugins
+autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+			\| PlugInstall --sync | source $MYVIMRC
+			\| endif
+
+call plug#begin('~/.vim/plugged')
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-commentary'
+Plug 'j5shi/CommandlineComplete.vim'
+Plug 'lambdalisue/vim-backslash', { 'for': 'vim' }
+Plug 'tpope/vim-vinegar'
+Plug 'ryanoasis/vim-devicons'
+Plug 'puremourning/vimspector'
+Plug 'bfrg/vim-qf-preview'
+Plug 'voldikss/vim-floaterm'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'rhysd/conflict-marker.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'markonm/traces.vim'
+Plug 'tpope/vim-eunuch'
+Plug 'habamax/vim-habanight'
+Plug 'mhinz/vim-signify'
+Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
+Plug 'sheerun/vim-polyglot'
+Plug 'gelguy/wilder.nvim'
+Plug 'roxma/nvim-yarp'
+Plug 'roxma/vim-hug-neovim-rpc'
+call plug#end()
 " }}}
 
 " Section: Reset augroup {{{
@@ -75,7 +111,7 @@ setglobal directory^=$HOME/.vim/tmp/dir_swap//     " Swap file dir
 setglobal undodir=$HOME/.vim/tmp/dir_undo          " Undo dir
 
 " List chars
-set list listchars=trail:·,eol:¬,tab:¦\ 
+set list listchars=trail:·,eol:¬,tab:¦\
 
 " Ruler
 setglobal laststatus=2                             " Always show tausline
@@ -252,16 +288,13 @@ autocmd! GeneralAutocmds VimLeavePre * call sessions#sessionSave()
 " Note: This causes problems on larger projects, perhaps move this to jobs api
 " autocmd! GeneralAutocmds BufEnter,BufAdd * call path_job#setProjectPath()
 
-" Auto backslash
-autocmd GeneralAutocmds FileType vim packadd! vim-backslash
-
 " Make autocmds
 autocmd! GeneralAutocmds QuickFixCmdPre  lmake update
 autocmd! GeneralAutocmds QuickFixCmdPost [^l]* botright cwindow
 autocmd! GeneralAutocmds QuickFixCmdPost l* lwindow
 autocmd! GeneralAutocmds QuickFixCmdPost lmake call setloclist(
-			\ bufnr(), 
-			\ filter(getloclist(bufnr()), 
+			\ bufnr(),
+			\ filter(getloclist(bufnr()),
 			\ "v:val['valid']"), 'r'
 			\ )
 
