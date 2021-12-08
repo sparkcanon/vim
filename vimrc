@@ -74,7 +74,7 @@ setglobal mouse=a                                  " Allow mouse interactions
 set cursorline                                     " Makes it easy to find the cursor
 setglobal ttimeout ttimeoutlen=100                 " Define terminal key code timeout
 set number                                         " Display number column
-set noshowmode                                     " Do not show mode in cmd line
+set signcolumn=yes
 
 " Splits
 setglobal splitbelow                               " Split window opens below
@@ -112,8 +112,9 @@ setglobal undodir=$HOME/.vim/tmp/dir_undo          " Undo dir
 
 " List chars
 set list listchars=trail:·,tab:¦\ ,eol:¬
+
 " Ruler
-setglobal laststatus=2                             " Always show tausline
+setglobal laststatus=1                             " Always show tausline
 set statusline=%{%utils#statusline_expr()%}
 set ruler
 
