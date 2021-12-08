@@ -9,6 +9,12 @@
 "             U  ||----w |
 "                ||     ||
 
+" Section: Reset augroup {{{
+augroup GeneralAutocmds
+	autocmd!
+augroup END
+" }}}
+
 " Section: Load plug {{{
 " Install vim-plug if not found
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -26,9 +32,10 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-vinegar'
 Plug 'j5shi/CommandlineComplete.vim'
 Plug 'lambdalisue/vim-backslash', { 'for': 'vim' }
-Plug 'tpope/vim-vinegar'
 Plug 'ryanoasis/vim-devicons'
 Plug 'puremourning/vimspector'
 Plug 'bfrg/vim-qf-preview'
@@ -38,8 +45,7 @@ Plug 'rhysd/conflict-marker.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'markonm/traces.vim'
-Plug 'tpope/vim-eunuch'
-Plug 'habamax/vim-habanight'
+Plug 'habamax/vim-bronzage'
 Plug 'mhinz/vim-signify'
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plug 'sheerun/vim-polyglot'
@@ -47,12 +53,6 @@ Plug 'gelguy/wilder.nvim'
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
 call plug#end()
-" }}}
-
-" Section: Reset augroup {{{
-augroup GeneralAutocmds
-	autocmd!
-augroup END
 " }}}
 
 " Section: Completion {{{
@@ -111,8 +111,7 @@ setglobal directory^=$HOME/.vim/tmp/dir_swap//     " Swap file dir
 setglobal undodir=$HOME/.vim/tmp/dir_undo          " Undo dir
 
 " List chars
-set list listchars=trail:·,eol:¬,tab:¦\
-
+set list listchars=trail:·,tab:¦\ ,eol:¬
 " Ruler
 setglobal laststatus=2                             " Always show tausline
 set statusline=%{%utils#statusline_expr()%}
@@ -259,7 +258,7 @@ set termguicolors " For 24-bit colours
 " }}}
 
 set background=dark
-colorscheme habanight " Set color scheme after setting buffer colors
+colorscheme bronzage " Set color scheme after setting buffer colors
 " }}}
 
 " Section: Auto commands {{{
