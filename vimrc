@@ -123,6 +123,10 @@ if executable('rg')
 	setglobal grepprg=rg\ --vimgrep                  " Grep to use rg
 	setglobal grepformat=%f:%l:%c:%m                 " rg errorform
 endif
+
+" Viminfo
+call system('touch ' . $PWD . '/.viminfo')
+let &viminfofile=findfile('.viminfo','.;')
 " }}}
 
 " Section: Mappings {{{
