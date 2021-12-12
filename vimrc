@@ -45,7 +45,7 @@ Plug 'rhysd/conflict-marker.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'markonm/traces.vim'
-Plug 'habamax/vim-bronzage'
+Plug 'habamax/vim-habanight'
 Plug 'mhinz/vim-signify'
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plug 'sheerun/vim-polyglot'
@@ -259,7 +259,7 @@ set termguicolors " For 24-bit colours
 " }}}
 
 set background=dark
-colorscheme bronzage " Set color scheme after setting buffer colors
+colorscheme habanight " Set color scheme after setting buffer colors
 " }}}
 
 " Section: Auto commands {{{

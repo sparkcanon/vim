@@ -7,9 +7,6 @@ function! colors#modifyBufferColors() abort
 	highlight! DiffAdd guifg=#87af87 guibg=NONE
 	highlight! DiffDelete guifg=#444444 guibg=NONE
 
-	" `LspErrorHighlight`, `LspWarningHighlight`, `LspInformationHighlight` and
-	" `LspHintHighlight` highlight groups.
-
 	" Hint: This below makes the background transparent
 	" highlight! Normal ctermbg=NONE guibg=NONE
 	" hi Normal ctermbg=233 ctermfg=250 cterm=NONE guibg=#262626 guifg=#bcbcbc gui=NONE
