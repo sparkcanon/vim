@@ -49,9 +49,9 @@ Plug 'habamax/vim-habanight'
 Plug 'mhinz/vim-signify'
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plug 'sheerun/vim-polyglot'
-Plug 'gelguy/wilder.nvim'
-Plug 'roxma/nvim-yarp'
-Plug 'roxma/vim-hug-neovim-rpc'
+" Plug 'gelguy/wilder.nvim'
+" Plug 'roxma/nvim-yarp'
+" Plug 'roxma/vim-hug-neovim-rpc'
 call plug#end()
 " }}}
 
@@ -88,17 +88,16 @@ setglobal ignorecase                               " Ignore case all together
 set wildmode=longest,full
 setglobal wildmenu                                 " Turn menu on for wild searches
 setglobal wildignorecase                           " Ignore case for wildmenu
-setglobal wildignore=*.swp,*.bak                   " Ignore file patterns in wildmenu
-setglobal wildignore+=*.cache,*.min.*,**/dist/**
-setglobal wildignore+=**/.git/**/*
-setglobal wildignore+=*-lock.json,*.snap
-setglobal wildignore+=**/node_modules/**
+setglobal wildignore+=*/node_modules/*
+setglobal wildignore+=package-lock.json,yarn.lock
 
 " Set fd error format
 set errorformat+=%f                                " Efm for fd
 
 " Path options
-setglobal path=.,src/,packages/,**5                               " Standard path
+setglobal path+=src/**
+setglobal path+=packages/aphrodite-uk/src/**,packages/aphrodite-de/src/**,
+setglobal path+=packages/aphrodite-uk/,packages/aphrodite-de/
 
 " Backup settings
 setglobal sessionoptions-=options
@@ -233,11 +232,6 @@ nnoremap <Bslash>g :g;;#<Left><Left>
 " Lists
 cnoremap <expr> <CR> listcommands#CR()
 
-" Find
-" nnoremap <space>s :split <bar> Files<space>
-" nnoremap <space>v :vsp <bar> Files<space>
-" nnoremap <space>t :tabnew <bar> Files<space>
-
 " Edit
 nnoremap <space>ee :e <C-R>='%:h/'<CR>
 nnoremap <space>ev :vsp <C-R>='%:h/'<CR>
@@ -347,9 +341,9 @@ call utils#setupCommandAbbrs('ft','tabe \| Files')
 " Buffer list
 call utils#setupCommandAbbrs('lv','ls\<space>t\<CR>:vert sb \| Buffers')
 call utils#setupCommandAbbrs('lt','ls\<space>t\<CR>:tab sb \| Buffers')
+call utils#setupCommandAbbrs('dm','marks\<CR>:delmarks')
 call utils#setupCommandAbbrs('br','bp\<bar>bd#')
 call utils#setupCommandAbbrs('sb','sb \| Buffers')
-call utils#setupCommandAbbrs('b','Buffers')
 
 " Session
 call utils#setupCommandAbbrs('sl','SessionLoad')
