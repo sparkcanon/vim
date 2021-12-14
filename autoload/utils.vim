@@ -64,12 +64,11 @@ function! utils#statusline_expr() abort
 	let l:pos = ' %-12(%l/%c%) '
 	let l:pct = ' %P'
 	let l:fn  = ' %{pathshorten(expand("%"))}'
-	let l:coc = " %{exists(coc#status()) ? [coc#status] : ''} "
 
 	" Fugitive
 	" let l:fug = "%{exists('g:loaded_fugitive') ? fugitive#statusline() : ''}"
 
-	return l:fn.'%<'.l:mod.l:ro.l:ft.l:coc.l:sep.l:pos.'%*'.l:pct.' '
+	return l:fn.'%<'.l:mod.l:ro.l:ft.l:sep.l:pos.'%*'.l:pct.' '
 endfunction
 " }}}
 

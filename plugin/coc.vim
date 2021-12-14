@@ -63,7 +63,7 @@ endfunction
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Symbol renaming.
-nmap ,rn <Plug>(coc-rename)
+nmap ,R <Plug>(coc-rename)
 
 " Formatting selected code.
 xmap ,f  <Plug>(coc-format-selected)
@@ -83,9 +83,9 @@ xmap ,a  <Plug>(coc-codeaction-selected)
 nmap ,a  <Plug>(coc-codeaction-selected)
 
 " Remap keys for applying codeAction to the current buffer.
-nmap ,ac  <Plug>(coc-codeaction)
+nmap ,A  <Plug>(coc-codeaction)
 " Apply AutoFix to problem on the current line.
-nmap ,qf  <Plug>(coc-fix-current)
+nmap ,q  <Plug>(coc-fix-current)
 
 " Map function and class text objects
 " NOTE: Requires 'textDocument.documentSymbol' support from the language server.
@@ -115,7 +115,7 @@ xmap <silent> <C-s> <Plug>(coc-range-select)
 
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
-nnoremap ,f :Format<CR>
+nnoremap gq :Format<CR>
 
 " Add `:Fold` command to fold current buffer.
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
@@ -130,7 +130,7 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 
 " Mappings for CoCList
 " Show all diagnostics.
-nnoremap <silent><nowait> ,s  :<C-u>CocList diagnostics<cr>
+nnoremap ,s :CocDiagnostics<cr>
 
 " Global Extentions
 let g:coc_global_extensions = [

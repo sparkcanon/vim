@@ -216,7 +216,7 @@ nnoremap [<C-F> :cpfile<CR>
 " Buffers
 " previously used buffer
 nnoremap <BS> <C-^>
-nnoremap gQ :call format#buffer()<CR>
+" nnoremap gQ :call format#buffer()<CR>
 nnoremap <space>b :CocList buffers<cr>
 
 " Substitute

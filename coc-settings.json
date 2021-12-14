@@ -22,10 +22,10 @@
 	"prettier.onlyUseLocalVersion": true,
 	"html.format.wrapLineLength": 0,
 	"html.format.indentHandlebars": true,
-	"css.validate": false,
-	"less.validate": false,
-	"scss.validate": false,
-	"wxss.validate": false,
+	// "css.validate": false,
+	// "less.validate": false,
+	// "scss.validate": false,
+	// "wxss.validate": false,
 	"stylelint.filetypes": [
 		"css",
 		"wxss",
@@ -43,6 +43,6 @@
 		"wxss"
 	],
 	"session.directory": "~/.vim/tmp/dir_session",
-	"session.saveOnVimLeave": true,
+	"session.saveOnVimLeave": false,
 	"git.enableGutters": true
 }
