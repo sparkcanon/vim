@@ -149,5 +149,8 @@ let g:coc_global_extensions = [
       \ 'coc-format-json',
       \ 'coc-vetur',
       \ 'coc-stylelintplus',
-      \ 'coc-stylelint'
+      \ 'coc-stylelint',
+      \ 'coc-highlight',
+      \ 'coc-docthis',
+      \ 'coc-lists'
       \ ]
