@@ -50,6 +50,9 @@ Plug 'mhinz/vim-signify'
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plug 'sheerun/vim-polyglot'
 Plug 'ludovicchabant/vim-gutentags'
+
+" vim9 plugins
+" Plug 'yegappan/lsp'
 call plug#end()
 " }}}
 
