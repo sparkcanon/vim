@@ -101,3 +101,19 @@ function! utils#Diff(spec) abort
 	diffthis
 endfunction
 " }}}
+
+" Desc: Set path {{{
+function! utils#SetPath() abort
+	setglobal path-=/usr/include
+	let l:vimPath = 'after/**,' .
+				\ 'autoload/**,' .
+				\ 'plugin/**,' .
+				\ 'plugged/**,' .
+				\ 'tmp/**,'
+	let l:jsPath = "src/**," .
+				\ "packages/aphrodite-uk/src/**,packages/aphrodite-de/src/**," .
+				\ "packages/aphrodite-uk/,packages/aphrodite-de/," .
+				\ "packages/"
+	return &path . l:vimPath . l:jsPath
+endfunction
+" }}}

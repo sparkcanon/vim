@@ -49,9 +49,7 @@ Plug 'habamax/vim-habanight'
 Plug 'mhinz/vim-signify'
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plug 'sheerun/vim-polyglot'
-" Plug 'gelguy/wilder.nvim'
-" Plug 'roxma/nvim-yarp'
-" Plug 'roxma/vim-hug-neovim-rpc'
+Plug 'ludovicchabant/vim-gutentags'
 call plug#end()
 " }}}
 
@@ -95,9 +93,7 @@ setglobal wildignore+=package-lock.json,yarn.lock
 set errorformat+=%f                                " Efm for fd
 
 " Path options
-setglobal path+=src/**
-setglobal path+=packages/aphrodite-uk/src/**,packages/aphrodite-de/src/**,
-setglobal path+=packages/aphrodite-uk/,packages/aphrodite-de/
+let &path = utils#SetPath()
 
 " Backup settings
 setglobal sessionoptions-=options
@@ -269,10 +265,10 @@ autocmd! GeneralAutocmds WinNew * au BufEnter * ++once
 			\ endif
 
 " Opens terminal vertically if space available
-" autocmd! GeneralAutocmds TerminalOpen * au TerminalWinOpen * ++once
-" 			\ if winwidth(winnr('#')) >= 180 |
-" 			\ exe 'wincmd ' . (&splitright ? 'L' : 'H') |
-" 			\ endif
+autocmd! GeneralAutocmds TerminalOpen * au TerminalWinOpen * ++once
+			\ if winwidth(winnr('#')) >= 165 |
+			\ exe 'wincmd ' . (&splitright ? 'L' : 'H') |
+			\ endif
 
 " Create a new dir if it doesnt exists
 autocmd! GeneralAutocmds BufNewFile * call utils#mkdir(expand('<afile>:p:h'))
@@ -282,9 +278,6 @@ autocmd! GeneralAutocmds VimResized * wincmd =
 
 " Save session on exit
 autocmd! GeneralAutocmds VimLeavePre * call sessions#sessionSave()
-
-" Note: This causes problems on larger projects, perhaps move this to jobs api
-" autocmd! GeneralAutocmds BufEnter,BufAdd * call path_job#setProjectPath()
 
 " Make autocmds
 autocmd! GeneralAutocmds QuickFixCmdPre  lmake update
@@ -366,6 +359,8 @@ call utils#setupCommandAbbrs('gc','GitCheckout')
 " Load built-in optional plugins
 packadd! cfilter  " Filter results from qf lists
 packadd! matchit
+
+let g:gutentags_file_list_command = 'fd -t f'
 
 " fzf
 let g:fzf_layout = { 'window': { 'width': 1, 'height': 0.3, 'yoffset': 1 } }
