@@ -83,7 +83,7 @@ setglobal smartcase                                " To ignore case in certain c
 setglobal ignorecase                               " Ignore case all together
 
 " Wild menu options
-set wildmode=longest:full,full
+set wildmode=list:longest,full
 setglobal wildmenu                                 " Turn menu on for wild searches
 setglobal wildignorecase                           " Ignore case for wildmenu
 setglobal wildignore+=*/node_modules/*
