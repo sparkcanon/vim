@@ -312,8 +312,8 @@ command! -nargs=? -complete=dir YRelative :let @+ = expand("%")
 command! -nargs=? -complete=dir YFilename :let @+ = expand("%:t")
 
 " Fuzzy pickers
-command! -nargs=1 -complete=customlist,jest#picker Jest                call jest#runner(<q-args>)
-command! -nargs=0 JestCurrent                                          call jest#runner(expand('%'))
+" command! -nargs=1 -complete=customlist,jest#picker Jest                call jest#runner(<q-args>)
+" command! -nargs=0 JestCurrent                                          call jest#runner(expand('%'))
 command! -nargs=1 -complete=customlist,npm#complete Npm                call npm#runner(<q-args>)
 command! -nargs=1 -complete=customlist,files#picker Files              call files#runner(<q-args>)
 command! -nargs=1 -complete=customlist,buffers#picker Buffers          call buffers#runner(<q-args>)

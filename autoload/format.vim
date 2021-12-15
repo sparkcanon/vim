@@ -1,6 +1,5 @@
 " Purpose: Format prg
 
-finish
 " Desc: Set format options {{{
 function! format#formatprg() abort
 

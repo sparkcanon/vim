@@ -30,6 +30,3 @@ function! npm#runner(args) abort
 	endif
 endfunction
 " }}}
-
-finish
-frontend/package.json
