@@ -152,5 +152,7 @@ let g:coc_global_extensions = [
       \ 'coc-stylelint',
       \ 'coc-highlight',
       \ 'coc-docthis',
-      \ 'coc-lists'
+      \ 'coc-lists',
+      \ 'coc-scssmodules',
+      \ 'coc-cssmodules'
       \ ]
