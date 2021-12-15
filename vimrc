@@ -37,7 +37,6 @@ Plug 'tpope/vim-vinegar'
 Plug 'wellle/targets.vim'
 Plug 'j5shi/CommandlineComplete.vim'
 Plug 'lambdalisue/vim-backslash', { 'for': 'vim' }
-Plug 'ryanoasis/vim-devicons'
 Plug 'puremourning/vimspector'
 Plug 'bfrg/vim-qf-preview'
 Plug 'voldikss/vim-floaterm'
