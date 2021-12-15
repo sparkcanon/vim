@@ -218,6 +218,8 @@ nnoremap [<C-F> :cpfile<CR>
 
 " Buffers
 " previously used buffer
+nnoremap ]b :bnext<CR>
+nnoremap [b :bprev<CR>
 nnoremap <BS> <C-^>
 " nnoremap gQ :call format#buffer()<CR>
 nnoremap <space>b :CocList buffers<cr>
@@ -329,17 +331,17 @@ command! -nargs=? Diff call utils#Diff(<q-args>)
 call utils#setupCommandAbbrs('w','update')
 
 " Files
-call utils#setupCommandAbbrs('ff','Files')
-call utils#setupCommandAbbrs('fv','vsplit \| Files')
-call utils#setupCommandAbbrs('fs','split \| Files')
-call utils#setupCommandAbbrs('ft','tabe \| Files')
+call utils#setupCommandAbbrs('ff','find')
+call utils#setupCommandAbbrs('fv','vsplit \| sfind')
+call utils#setupCommandAbbrs('fs','sfind')
+call utils#setupCommandAbbrs('ft','tabfind')
 
 " Buffer list
-call utils#setupCommandAbbrs('lv','ls\<space>t\<CR>:vert sb \| Buffers')
-call utils#setupCommandAbbrs('lt','ls\<space>t\<CR>:tab sb \| Buffers')
+call utils#setupCommandAbbrs('bv','ls\<space>t\<CR>:vert sb \| b')
+call utils#setupCommandAbbrs('bt','ls\<space>t\<CR>:tab sb \| b')
+call utils#setupCommandAbbrs('bs','sb \| b')
 call utils#setupCommandAbbrs('dm','marks\<CR>:delmarks')
 call utils#setupCommandAbbrs('br','bp\<bar>bd#')
-call utils#setupCommandAbbrs('sb','sb \| Buffers')
 
 " Session
 call utils#setupCommandAbbrs('sl','SessionLoad')
