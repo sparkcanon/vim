@@ -49,48 +49,44 @@ Plug 'habamax/vim-habanight'
 Plug 'mhinz/vim-signify'
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plug 'sheerun/vim-polyglot'
-Plug 'ludovicchabant/vim-gutentags'
 
-" vim9 plugins
+" may be?
+" Plug 'ludovicchabant/vim-gutentags'
 " Plug 'yegappan/lsp'
 call plug#end()
 " }}}
 
 " Section: Completion {{{
-setglobal completeopt+=menuone,noinsert,popup         " Open menu and no insert
+set completeopt+=menuone,noinsert,popup         " Open menu and no insert
 set omnifunc=syntaxcomplete#Complete                  " General purpose omnifunc
 " }}}
 
 " Section: Basic Settings {{{
-setglobal backspace=indent,eol,start               " Normal backspace behaviour
-setglobal hidden                                   " Display hidden buffers in list
-setglobal autoread                                 " Update file if changed outside
-setglobal incsearch                                " Turn on incremental search
-setglobal hlsearch                                 " Highlight search term
-setglobal showmatch                                " Highlight matching paranthesis
-setglobal wrap                                     " Wrap long lines
-setglobal autoindent                               " Minimal auto indenting for any filetype
-setglobal clipboard^=unnamed                       " Set clipboard options
-setglobal mouse=a                                  " Allow mouse interactions
+source $VIMRUNTIME/defaults.vim
+set hidden                                   " Display hidden buffers in list
+set autoread                                 " Update file if changed outside
+set hlsearch                                 " Highlight search term
+set showmatch                                " Highlight matching paranthesis
+set wrap                                     " Wrap long lines
+set autoindent                               " Minimal auto indenting for any filetype
+set clipboard^=unnamed                       " Set clipboard options
 set cursorline                                     " Makes it easy to find the cursor
-setglobal ttimeout ttimeoutlen=100                 " Define terminal key code timeout
 set number                                         " Display number column
 set signcolumn=yes
 
 " Splits
-setglobal splitbelow                               " Split window opens below
-setglobal splitright                               " Split window opens right
+set splitbelow                               " Split window opens below
+set splitright                               " Split window opens right
 
 " Case
-setglobal smartcase                                " To ignore case in certain cases, overrides ignorecase
-setglobal ignorecase                               " Ignore case all together
+set smartcase                                " To ignore case in certain cases, overrides ignorecase
+set ignorecase                               " Ignore case all together
 
 " Wild menu options
 set wildmode=list:longest,full
-setglobal wildmenu                                 " Turn menu on for wild searches
-setglobal wildignorecase                           " Ignore case for wildmenu
-setglobal wildignore+=*/node_modules/*
-setglobal wildignore+=package-lock.json,yarn.lock
+set wildignorecase                           " Ignore case for wildmenu
+set wildignore+=*/node_modules/*
+set wildignore+=package-lock.json,yarn.lock
 
 " Set fd error format
 set errorformat+=%f                                " Efm for fd
@@ -99,27 +95,26 @@ set errorformat+=%f                                " Efm for fd
 let &path = utils#SetPath()
 
 " Backup settings
-setglobal sessionoptions-=options
-setglobal viewoptions-=options
+set sessionoptions-=options
+set viewoptions-=options
 set undofile                                       " Set this option to have full undo power
-setglobal backup                                   " Set this option to enable backup
-setglobal writebackup                              " Set this option to write back up
-setglobal backupdir=$HOME/.vim/tmp/dir_backup//    " Back up dir
-setglobal directory^=$HOME/.vim/tmp/dir_swap//     " Swap file dir
-setglobal undodir=$HOME/.vim/tmp/dir_undo          " Undo dir
+set backup                                   " Set this option to enable backup
+set writebackup                              " Set this option to write back up
+set backupdir=$HOME/.vim/tmp/dir_backup//    " Back up dir
+set directory^=$HOME/.vim/tmp/dir_swap//     " Swap file dir
+set undodir=$HOME/.vim/tmp/dir_undo          " Undo dir
 
 " List chars
 set list listchars=trail:·,tab:¦\ ,eol:¬
 
 " Ruler
-setglobal laststatus=1                             " Always show tausline
+set laststatus=1                             " Always show tausline
 set statusline=%{%utils#statusline_expr()%}
-set ruler
 
 " Grepprg & grepformat
 if executable('rg')
-	setglobal grepprg=rg\ --vimgrep                  " Grep to use rg
-	setglobal grepformat=%f:%l:%c:%m                 " rg errorform
+	set grepprg=rg\ --vimgrep                  " Grep to use rg
+	set grepformat=%f:%l:%c:%m                 " rg errorform
 endif
 
 " Viminfo
@@ -154,7 +149,7 @@ for mode in ['n', 'x']
 endfor
 
 " Clear highlighting
-nnoremap <silent> /// :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
+nnoremap <silent> <C-x> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 
 " Get more information from ctrl-g:
 nnoremap <c-g> 2<c-g>
@@ -222,7 +217,6 @@ nnoremap ]b :bnext<CR>
 nnoremap [b :bprev<CR>
 nnoremap <BS> <C-^>
 " nnoremap gQ :call format#buffer()<CR>
-nnoremap <space>b :CocList buffers<cr>
 
 " Substitute
 nnoremap <Bslash>s :%s;\%V
@@ -383,13 +377,4 @@ let g:loaded_rrhelper        = 1
 let g:loaded_tarPlugin       = 1
 let g:loaded_vimballPlugin   = 1
 let g:loaded_zipPlugin       = 1
-" }}}
-
-" Section: Syntax {{{
-" Automatic, language-dependent indentation, syntax coloring and other
-" functionality.
-" Must come *after* the `:packadd!` calls above otherwise the contents of
-" package "ftdetect" directories won't be evaluated.
-filetype plugin indent on
-syntax enable
 " }}}
