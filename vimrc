@@ -57,39 +57,39 @@ call plug#end()
 " }}}
 
 " Section: Completion {{{
-set completeopt+=menuone,noinsert,popup         " Open menu and no insert
-set omnifunc=syntaxcomplete#Complete                  " General purpose omnifunc
+set completeopt+=menuone,noinsert,popup
+set omnifunc=syntaxcomplete#Complete
 " }}}
 
 " Section: Basic Settings {{{
 source $VIMRUNTIME/defaults.vim
-set hidden                                   " Display hidden buffers in list
-set autoread                                 " Update file if changed outside
-set hlsearch                                 " Highlight search term
-set showmatch                                " Highlight matching paranthesis
-set wrap                                     " Wrap long lines
-set autoindent                               " Minimal auto indenting for any filetype
-set clipboard^=unnamed                       " Set clipboard options
-set cursorline                                     " Makes it easy to find the cursor
-set number                                         " Display number column
+set hidden
+set autoread
+set hlsearch
+set showmatch
+set wrap
+set autoindent
+set clipboard
+set cursorline
+set number
 set signcolumn=yes
 
 " Splits
-set splitbelow                               " Split window opens below
-set splitright                               " Split window opens right
+set splitbelow
+set splitright
 
 " Case
-set smartcase                                " To ignore case in certain cases, overrides ignorecase
-set ignorecase                               " Ignore case all together
+set smartcase
+set ignorecase
 
 " Wild menu options
 set wildmode=list:longest,full
-set wildignorecase                           " Ignore case for wildmenu
+set wildignorecase
 set wildignore+=*/node_modules/*
 set wildignore+=package-lock.json,yarn.lock
 
 " Set fd error format
-set errorformat+=%f                                " Efm for fd
+set errorformat
 
 " Path options
 let &path = utils#SetPath()
@@ -97,24 +97,24 @@ let &path = utils#SetPath()
 " Backup settings
 set sessionoptions-=options
 set viewoptions-=options
-set undofile                                       " Set this option to have full undo power
-set backup                                   " Set this option to enable backup
-set writebackup                              " Set this option to write back up
-set backupdir=$HOME/.vim/tmp/dir_backup//    " Back up dir
-set directory^=$HOME/.vim/tmp/dir_swap//     " Swap file dir
-set undodir=$HOME/.vim/tmp/dir_undo          " Undo dir
+set undofile
+set backup
+set writebackup
+set backupdir=$HOME/.vim/tmp/dir_backup//
+set directory^=$HOME/.vim/tmp/dir_swap//
+set undodir=$HOME/.vim/tmp/dir_undo
 
 " List chars
 set list listchars=trail:·,tab:¦\ ,eol:¬
 
 " Ruler
-set laststatus=1                             " Always show tausline
+set laststatus=1
 set statusline=%{%utils#statusline_expr()%}
 
 " Grepprg & grepformat
 if executable('rg')
-	set grepprg=rg\ --vimgrep                  " Grep to use rg
-	set grepformat=%f:%l:%c:%m                 " rg errorform
+	set grepprg=rg\ --vimgrep
+	set grepformat=%f:%l:%c:%m
 endif
 
 " Viminfo
@@ -238,7 +238,7 @@ nnoremap <space>es :sp <C-R>='%:h/'<CR>
 autocmd GeneralAutocmds ColorScheme * call colors#modifyBufferColors()
 
 " Tip: Fixes for colorschemes {{{
-set termguicolors " For 24-bit colours
+set termguicolors
 " set t_Co=256 " For 256 colours
 
 " Use the below when comments using some colourschemes look bad (look up what
@@ -252,7 +252,7 @@ set termguicolors " For 24-bit colours
 " }}}
 
 set background=dark
-colorscheme habanight " Set color scheme after setting buffer colors
+colorscheme habanight
 " }}}
 
 " Section: Auto commands {{{
@@ -356,10 +356,11 @@ call utils#setupCommandAbbrs('gc','GitCheckout')
 
 " Section: Plugins && related setup {{{
 " Load built-in optional plugins
-packadd! cfilter  " Filter results from qf lists
+packadd! cfilter
 packadd! matchit
 
-let g:gutentags_file_list_command = 'fd -t f'
+" Gutentag files to tag
+" let g:gutentags_file_list_command = 'fd -t f'
 
 " fzf
 let g:fzf_layout = { 'window': { 'width': 1, 'height': 0.3, 'yoffset': 1 } }
