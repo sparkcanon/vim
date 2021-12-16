@@ -107,8 +107,7 @@ function! utils#SetPath() abort
 	let l:vimPath = 'after/**,' .
 				\ 'autoload/**,' .
 				\ 'plugin/**,' .
-				\ 'plugged/**,' .
-				\ 'tmp/**,'
+				\ 'plugged/**,'
 	let l:jsPath = "src/**," .
 				\ "packages/aphrodite-uk/src/**,packages/aphrodite-de/src/**," .
 				\ "packages/aphrodite-uk/,packages/aphrodite-de/," .
