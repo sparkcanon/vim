@@ -34,18 +34,6 @@ endfunction
 
 " Desc: Js/ts mappings {{{
 function! utils#js_mappings() abort
-	" Mappings
-	" Template literals
-	" inoremap {<CR> {<CR>}<esc>O
-	" inoremap (<CR> (<CR>)<esc>O
-	" inoremap [<CR> [<CR>]<esc>O
-	" iabbrev <buffer> scfu const  = () => {}<esc>2F=2h
-	" iabbrev <buffer> sif if () {<CR><CR>}<Up>
-	" iabbrev <buffer> simp import {} from '';<esc>2ha
-	" iabbrev <buffer> srnc import React from 'react';<CR>import { View } from 'react-native';<CR><CR>export const CustomComponent = () => {<CR>return <View></View><CR>}<esc>
-	" iabbrev <buffer> srss const styles = StylesSheet.create({<CR>container: {},<CR>})<esc>
-
-	" Commands
 	" Console log command
 	command! -nargs=0 Log execute "normal oconsole.log('".expand('<cword>')
 				\ . "====> ', ".expand('<cword>').")"

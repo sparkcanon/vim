@@ -139,7 +139,6 @@ tnoremap <silent> <space>th <C-\><C-n>:FloatermHide<CR>
 " Netrw has a bug that doesnt open url in browser
 nnoremap gx :call utils#OpenURLUnderCursor()<CR>
 
-set iminsert=1
 for mode in ['n', 'x']
 	execute mode . 'noremap  : ;'
 	execute mode . 'noremap  ; :'
@@ -331,8 +330,10 @@ call utils#setupCommandAbbrs('ft','tabfind')
 call utils#setupCommandAbbrs('bv','ls\<space>t\<CR>:vert sb \| b')
 call utils#setupCommandAbbrs('bt','ls\<space>t\<CR>:tab sb \| b')
 call utils#setupCommandAbbrs('bs','sb \| b')
-call utils#setupCommandAbbrs('dm','marks\<CR>:delmarks')
 call utils#setupCommandAbbrs('br','bp\<bar>bd#')
+
+" Marks
+call utils#setupCommandAbbrs('dm','marks\<CR>:delmarks')
 
 " Session
 call utils#setupCommandAbbrs('sl','SessionLoad')
