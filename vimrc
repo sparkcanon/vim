@@ -69,7 +69,7 @@ set hlsearch
 set showmatch
 set wrap
 set autoindent
-set clipboard
+set clipboard^=unnamed
 set cursorline
 set number
 set signcolumn=yes
@@ -87,9 +87,6 @@ set wildmode=list:longest,full
 set wildignorecase
 set wildignore+=*/node_modules/*
 set wildignore+=package-lock.json,yarn.lock
-
-" Set fd error format
-set errorformat
 
 " Path options
 let &path = utils#SetPath()
