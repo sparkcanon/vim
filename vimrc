@@ -115,7 +115,9 @@ if executable('rg')
 endif
 
 " Viminfo
-call system('touch ' . $PWD . '/.viminfo')
+if finddir('.git', '.;')
+	call system('touch ' . $PWD . '/.viminfo')
+endif
 let &viminfofile=findfile('.viminfo','.;')
 " }}}
 
