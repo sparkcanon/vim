@@ -324,7 +324,7 @@ call utils#setupCommandAbbrs('w','update')
 
 " Files
 call utils#setupCommandAbbrs('ff','find')
-call utils#setupCommandAbbrs('fv','vsplit \| sfind')
+call utils#setupCommandAbbrs('fv','vert sfind')
 call utils#setupCommandAbbrs('fs','sfind')
 call utils#setupCommandAbbrs('ft','tabfind')
 
