@@ -94,8 +94,7 @@ function! utils#SetPath() abort
 	setglobal path-=/usr/include
 	let l:vimPath = 'after/**,' .
 				\ 'autoload/**,' .
-				\ 'plugin/**,' .
-				\ 'plugged/**,'
+				\ 'plugin/**,'
 	let l:jsPath = "src/**," .
 				\ "packages/aphrodite-uk/src/**,packages/aphrodite-de/src/**," .
 				\ "packages/aphrodite-uk/,packages/aphrodite-de/," .
