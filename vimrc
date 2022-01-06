@@ -34,6 +34,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-sleuth'
 Plug 'wellle/targets.vim'
 Plug 'j5shi/CommandlineComplete.vim'
 Plug 'lambdalisue/vim-backslash', { 'for': 'vim' }
