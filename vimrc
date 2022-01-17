@@ -46,7 +46,7 @@ Plug 'rhysd/conflict-marker.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'markonm/traces.vim'
-Plug 'habamax/vim-habanight'
+Plug 'habamax/vim-bronzage'
 Plug 'mhinz/vim-signify'
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plug 'sheerun/vim-polyglot'
@@ -54,6 +54,7 @@ Plug 'sheerun/vim-polyglot'
 " may be?
 " Plug 'ludovicchabant/vim-gutentags'
 " Plug 'yegappan/lsp'
+" Plug 'habamax/vim-habanight'
 call plug#end()
 " }}}
 
@@ -251,7 +252,7 @@ set termguicolors
 " }}}
 
 set background=dark
-colorscheme habanight
+colorscheme bronzage
 " }}}
 
 " Section: Auto commands {{{
@@ -332,6 +333,7 @@ call utils#setupCommandAbbrs('ft','tabfind')
 " Buffer list
 call utils#setupCommandAbbrs('bv','ls\<space>t\<CR>:vert sb \| b')
 call utils#setupCommandAbbrs('bt','ls\<space>t\<CR>:tab sb \| b')
+call utils#setupCommandAbbrs('bD','ls\<space>t\<CR>:bd')
 call utils#setupCommandAbbrs('bs','sb \| b')
 call utils#setupCommandAbbrs('br','bp\<bar>bd#')
 
