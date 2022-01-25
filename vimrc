@@ -40,7 +40,6 @@ Plug 'j5shi/CommandlineComplete.vim'
 Plug 'lambdalisue/vim-backslash', { 'for': 'vim' }
 Plug 'puremourning/vimspector'
 Plug 'bfrg/vim-qf-preview'
-Plug 'voldikss/vim-floaterm'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'rhysd/conflict-marker.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -127,18 +126,6 @@ let &viminfofile=findfile('.viminfo','.;')
 " Enter commands mode completion
 cmap <c-p> <Plug>CmdlineCompleteBackward
 cmap <c-n> <Plug>CmdlineCompleteForward
-
-" floaterm
-nnoremap <silent> <space>tt <cmd>FloatermToggle<cr>
-nnoremap <silent> <space>tn <cmd>FloatermNew<cr>
-nnoremap <silent> <space>tk <cmd>FloatermKill<cr>
-nnoremap <silent> <space>tp <cmd>FloatermNext<cr>
-nnoremap <silent> <space>th <cmd>FloatermHide<cr>
-tnoremap <silent> <space>tt <C-\><C-n>:FloatermToggle<CR>
-tnoremap <silent> <space>tk <C-\><C-n>:FloatermKill<CR>
-tnoremap <silent> <space>tn <C-\><C-n>:FloatermNew<CR>
-tnoremap <silent> <space>tp <C-\><C-n>:FloatermNext<CR>
-tnoremap <silent> <space>th <C-\><C-n>:FloatermHide<CR>
 
 " Netrw has a bug that doesnt open url in browser
 nnoremap gx :call utils#OpenURLUnderCursor()<CR>
@@ -348,8 +335,8 @@ call utils#setupCommandAbbrs('sa','SessionSave')
 call utils#setupCommandAbbrs('sr','grep!')
 
 " Git
-call utils#setupCommandAbbrs('gf','FloatermNew git fetch --all')
-call utils#setupCommandAbbrs('gp','FloatermNew git push')
+call utils#setupCommandAbbrs('gf','G fetch --all')
+call utils#setupCommandAbbrs('gp','G push')
 call utils#setupCommandAbbrs('gl','Git pull')
 call utils#setupCommandAbbrs('gd','Git difftool')
 call utils#setupCommandAbbrs('gm','Git mergetool')
