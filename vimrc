@@ -84,7 +84,8 @@ set smartcase
 set ignorecase
 
 " Wild menu options
-set wildmode=list:longest,full
+set wildmode=longest,full
+set wildoptions=pum
 set wildignorecase
 set wildignore+=*/node_modules/*
 set wildignore+=package-lock.json,yarn.lock
