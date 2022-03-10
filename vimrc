@@ -45,7 +45,7 @@ Plug 'rhysd/conflict-marker.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'markonm/traces.vim'
-Plug 'habamax/vim-bronzage'
+Plug 'habamax/vim-habamax'
 Plug 'mhinz/vim-signify'
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plug 'sheerun/vim-polyglot'
@@ -53,7 +53,6 @@ Plug 'sheerun/vim-polyglot'
 " may be?
 " Plug 'ludovicchabant/vim-gutentags'
 " Plug 'yegappan/lsp'
-" Plug 'habamax/vim-habanight'
 call plug#end()
 " }}}
 
@@ -240,7 +239,7 @@ set termguicolors
 " }}}
 
 set background=dark
-colorscheme bronzage
+colorscheme habamax
 " }}}
 
 " Section: Auto commands {{{
