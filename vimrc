@@ -277,9 +277,6 @@ autocmd! GeneralAutocmds QuickFixCmdPost lmake call setloclist(
 
 " If swap exists, open read only mode
 autocmd! GeneralAutocmds SwapExists * :let v:swapchoice = 'o'
-
-" Wipe netrw buffers
-autocmd GeneralAutocmds FileType netrw setlocal bufhidden=wipe
 " }}}
 
 " Section: Custom commands {{{
@@ -351,6 +348,9 @@ packadd! matchit
 
 " Gutentag files to tag
 " let g:gutentags_file_list_command = 'fd -t f'
+
+" This fixes stray open directories from appearing in the buffer list
+let g:netrw_fastbrowse = 0
 
 " fzf
 let g:fzf_layout = { 'window': { 'width': 1, 'height': 0.3, 'yoffset': 1 } }
