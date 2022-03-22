@@ -10,16 +10,6 @@ function! utils#setupCommandAbbrs(from, to) abort
 endfunction
 " }}}
 
-" Desc: Current project check {{{
-function! utils#isProject(match) abort
-	if system('git rev-parse --show-toplevel')[:-2]->fnamemodify(':t') == a:match
-		return 1
-	else
-		return 0
-	endif
-endfunction
-" }}}
-
 " Desc: Create new dir if it doesnt exist {{{
 function! utils#mkdir(path) abort
 	if !isdirectory(a:path)
@@ -40,23 +30,6 @@ function! utils#js_mappings() abort
 
 	" Add import statement
 	command! -nargs=0 ImportJs execute "normal ggOimport { ".expand('<cword>')." } from '';"
-endfunction
-" }}}
-
-" Desc: Statusline {{{
-function! utils#statusline_expr() abort
-	let l:mod = " %m"
-	let l:ro  = "%{&readonly ? '[RO] ' : ''}"
-	let l:ft  = "%y "
-	let l:sep = ' %= '
-	let l:pos = ' %-12(%l/%c%) '
-	let l:pct = ' %P'
-	let l:fn  = ' %{pathshorten(expand("%"))}'
-
-	" Fugitive
-	" let l:fug = "%{exists('g:loaded_fugitive') ? fugitive#statusline() : ''}"
-
-	return l:fn.'%<'.l:mod.l:ro.l:ft.l:sep.l:pos.'%*'.l:pct.' '
 endfunction
 " }}}
 

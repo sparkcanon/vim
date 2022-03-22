@@ -74,10 +74,6 @@ set cursorline
 set number
 set signcolumn=yes
 
-" Splits
-set splitbelow
-set splitright
-
 " Case
 set smartcase
 set ignorecase
@@ -104,10 +100,6 @@ set undodir=$HOME/.vim/tmp/dir_undo
 
 " List chars
 set list listchars=trail:·,tab:¦\ ,eol:¬
-
-" Ruler
-set laststatus=1
-set statusline=%{%utils#statusline_expr()%}
 
 " Grepprg & grepformat
 if executable('rg')
