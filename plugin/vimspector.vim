@@ -40,3 +40,7 @@ call utils#setupCommandAbbrs('dcb','DBToggleConditional')
 call utils#setupCommandAbbrs('dsO','DStepOver')
 call utils#setupCommandAbbrs('dso','DStepOut')
 call utils#setupCommandAbbrs('dsi','DStepInto')
+
+let g:vimspector_sign_priority = {
+  \    'vimspectorBP':         999,
+  \ }

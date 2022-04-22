@@ -44,5 +44,9 @@
 	],
 	"session.directory": "~/.vim/tmp/dir_session",
 	"session.saveOnVimLeave": false,
-	"git.enableGutters": false
+	"git.enableGutters": true,
+  "git.addedSign.hlGroup": "GitGutterAdd",
+  "git.changedSign.hlGroup": "GitGutterChange",
+  "git.removedSign.hlGroup": "GitGutterDelete",
+  "git.topRemovedSign.hlGroup": "GitGutterDelete"
 }
