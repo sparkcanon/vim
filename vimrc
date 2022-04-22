@@ -242,10 +242,10 @@ autocmd! GeneralAutocmds WinNew * au BufEnter * ++once
 			\ endif
 
 " Opens terminal vertically if space available
-autocmd! GeneralAutocmds TerminalOpen * au TerminalWinOpen * ++once
-			\ if winwidth(winnr('#')) >= 165 |
-			\ exe 'wincmd ' . (&splitright ? 'L' : 'H') |
-			\ endif
+" autocmd! GeneralAutocmds TerminalOpen * au TerminalWinOpen * ++once
+" 			\ if winwidth(winnr('#')) >= 165 |
+" 			\ exe 'wincmd ' . (&splitright ? 'L' : 'H') |
+" 			\ endif
 
 " Create a new dir if it doesnt exists
 autocmd! GeneralAutocmds BufNewFile * call utils#mkdir(expand('<afile>:p:h'))
@@ -344,7 +344,7 @@ packadd! matchit
 let g:netrw_fastbrowse = 0
 
 " fzf
-let g:fzf_layout = { 'window': { 'width': 1, 'height': 0.3, 'yoffset': 1 } }
+let g:fzf_layout = { 'window': { 'width': 1, 'height': 0.3, 'yoffset': 1.0, 'relative': v:true } }
 set runtimepath+=/usr/local/opt/fzf
 set rtp+=/opt/homebrew/opt/fzf
 
