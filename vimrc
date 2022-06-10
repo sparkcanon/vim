@@ -79,7 +79,7 @@ set ignorecase
 
 " Wild menu options
 set wildmode=longest,full
-set wildoptions=pum
+set wildoptions=pum,fuzzy
 set wildignorecase
 set wildignore+=*/node_modules/*
 set wildignore+=package-lock.json,yarn.lock
