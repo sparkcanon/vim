@@ -75,6 +75,7 @@ function! utils#SetPath() abort
 				\ "components/**," .
 				\ "components/," .
 				\ "css/**," .
+				\ "e2e/**," .
 				\ "stories/**,"
 	return &path . l:vimPath . l:jsPath
 endfunction

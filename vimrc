@@ -79,7 +79,7 @@ set ignorecase
 
 " Wild menu options
 set wildmode=longest,full
-set wildoptions=pum,fuzzy
+set wildoptions+=pum,fuzzy
 set wildignorecase
 set wildignore+=*/node_modules/*
 set wildignore+=package-lock.json,yarn.lock
@@ -200,7 +200,7 @@ nnoremap <BS> <C-^>
 nnoremap <Bslash>s :%s;\%V
 
 " Global
-nnoremap <Bslash>g :g;;#<Left><Left>
+nnoremap <Bslash>g :g//#<Left><Left>
 
 " Lists
 cnoremap <expr> <CR> listcommands#CR()
@@ -281,8 +281,8 @@ command! -nargs=? -complete=dir YRelative :let @+ = expand("%")
 command! -nargs=? -complete=dir YFilename :let @+ = expand("%:t")
 
 " Fuzzy pickers
-" command! -nargs=1 -complete=customlist,jest#picker Jest                call jest#runner(<q-args>)
-" command! -nargs=0 JestCurrent                                          call jest#runner(expand('%'))
+command! -nargs=1 -complete=customlist,jest#picker Jest                call jest#runner(<q-args>)
+command! -nargs=0 JestCurrent                                          call jest#runner(expand('%'))
 command! -nargs=1 -complete=customlist,npm#complete Npm                call npm#runner(<q-args>)
 command! -nargs=1 -complete=customlist,files#picker Files              call files#runner(<q-args>)
 command! -nargs=1 -complete=customlist,buffers#picker Buffers          call buffers#runner(<q-args>)
@@ -320,7 +320,7 @@ call utils#setupCommandAbbrs('sl','SessionLoad')
 call utils#setupCommandAbbrs('sa','SessionSave')
 
 " Grep
-call utils#setupCommandAbbrs('sr','grep!')
+call utils#setupCommandAbbrs('gr','gr!')
 
 " Git
 call utils#setupCommandAbbrs('gf','G fetch --all')
