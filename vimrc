@@ -11,32 +11,23 @@
 
 " Section: Reset augroup {{{
 augroup GeneralAutocmds
-	autocmd!
+  autocmd!
 augroup END
 " }}}
 
 " Section: Load plug {{{
 " Install vim-plug if not found
-if !has('nvim')
-  let g:plug_autoload_path = empty(glob('~/.vim/autoload/plug.vim'))
-  let g:plugged_path = '~/.vim/plugged'
-else
-  let g:plug_autoload_path = '~/.config/nvim/autoload/plug.vim'
-  let g:plugged_path = '~/.config/nvim/plugged'
-endif
-
-" if empty(glob('~/.vim/autoload/plug.vim'))
-if empty(glob(expand(g:plug_autoload_path)))
-	silent !curl -fLo expand(g:plug_autoload_path) --create-dirs
-				\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
 
 " Run PlugInstall if there are missing plugins
 autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
-			\| PlugInstall --sync | source $MYVIMRC
-			\| endif
+      \| PlugInstall --sync | source $MYVIMRC
+      \| endif
 
-call plug#begin(g:plugged_path)
+call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-fugitive'
@@ -54,15 +45,9 @@ Plug 'markonm/traces.vim'
 " Plug 'mhinz/vim-signify'
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-if !has('nvim')
-  Plug 'puremourning/vimspector'
-  Plug 'sheerun/vim-polyglot'
-  Plug 'catppuccin/vim', { 'as': 'catppuccin' }
-else
-  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-  Plug 'catppuccin/nvim', {'as': 'catppuccin'}
-endif
+Plug 'puremourning/vimspector'
+Plug 'sheerun/vim-polyglot'
+Plug 'habamax/vim-habanight'
 
 " may be?
 " Plug 'ludovicchabant/vim-gutentags'
@@ -71,16 +56,12 @@ call plug#end()
 " }}}
 
 " Section: Completion {{{
-if !has('nvim')
-  set completeopt+=menuone,noinsert,popup
-endif
+set completeopt+=menuone,noinsert,popup
 set omnifunc=syntaxcomplete#Complete
 " }}}
 
 " Section: Basic Settings {{{
-if !has('nvim')
-  source $VIMRUNTIME/defaults.vim
-endif
+source $VIMRUNTIME/defaults.vim
 set hidden
 set autoread
 set hlsearch
@@ -98,9 +79,7 @@ set ignorecase
 
 " Wild menu options
 set wildmode=longest,full
-if !has('nvim')
-  set wildoptions+=fuzzy,pum
-endif
+set wildoptions+=fuzzy,pum
 set wildignorecase
 set wildignore+=*/node_modules/*
 set wildignore+=package-lock.json,yarn.lock
@@ -114,32 +93,24 @@ set viewoptions-=options
 set undofile
 set backup
 set writebackup
-if !has('nvim')
-  set backupdir=$HOME/.vim/tmp/dir_backup//
-  set directory^=$HOME/.vim/tmp/dir_swap//
-  set undodir=$HOME/.vim/tmp/dir_undo
-else
-  set backupdir=$HOME/.config/nvim/tmp/dir_backup//
-  set directory^=$HOME/.config/nvim/tmp/dir_swap//
-  set undodir=$HOME/.config/nvim/tmp/dir_undo
-endif
+set backupdir=$HOME/.vim/tmp/dir_backup//
+set directory^=$HOME/.vim/tmp/dir_swap//
+set undodir=$HOME/.vim/tmp/dir_undo
 
 " List chars
 set list listchars=trail:·,tab:¦\ ,eol:¬
 
 " Grepprg & grepformat
 if executable('rg')
-	set grepprg=rg\ --vimgrep
-	set grepformat=%f:%l:%c:%m
+  set grepprg=rg\ --vimgrep
+  set grepformat=%f:%l:%c:%m
 endif
 
 " Viminfo
-if !has('nvim')
-  if finddir('.git', '.;')
-    call system('touch ' . $PWD . '/.viminfo')
-  endif
-  let &viminfofile=findfile('.viminfo','.;')
+if finddir('.git', '.;')
+  call system('touch ' . $PWD . '/.viminfo')
 endif
+let &viminfofile=findfile('.viminfo','.;')
 " }}}
 
 " Section: Mappings {{{
@@ -151,8 +122,8 @@ cmap <c-n> <Plug>CmdlineCompleteForward
 nnoremap gx :call utils#OpenURLUnderCursor()<CR>
 
 for mode in ['n', 'x']
-	execute mode . 'noremap  : ;'
-	execute mode . 'noremap  ; :'
+  execute mode . 'noremap  : ;'
+  execute mode . 'noremap  ; :'
 endfor
 
 " Clear highlighting
@@ -259,20 +230,16 @@ set termguicolors
 " }}}
 
 set background=dark
-if !has('nvim')
-  colorscheme catppuccin_mocha
-else
-  colorscheme catppuccin
-endif
+colorscheme habanight
 " }}}
 
 " Section: Auto commands {{{
 " Opens fugitive, man, help vertically if space available
 autocmd! GeneralAutocmds WinNew * au BufEnter * ++once
-			\ if (&bt ==? 'help' || &ft ==? 'man' || &ft ==? 'fugitive')
-			\     && winwidth(winnr('#')) >= 180 |
-			\ exe 'wincmd ' . (&splitright ? 'L' : 'H') |
-			\ endif
+      \ if (&bt ==? 'help' || &ft ==? 'man' || &ft ==? 'fugitive')
+      \     && winwidth(winnr('#')) >= 180 |
+      \ exe 'wincmd ' . (&splitright ? 'L' : 'H') |
+      \ endif
 
 " Opens terminal vertically if space available
 " autocmd! GeneralAutocmds TerminalOpen * au TerminalWinOpen * ++once
@@ -294,10 +261,10 @@ autocmd! GeneralAutocmds QuickFixCmdPre  lmake update
 autocmd! GeneralAutocmds QuickFixCmdPost [^l]* botright cwindow
 autocmd! GeneralAutocmds QuickFixCmdPost l* lwindow
 autocmd! GeneralAutocmds QuickFixCmdPost lmake call setloclist(
-			\ bufnr(),
-			\ filter(getloclist(bufnr()),
-			\ "v:val['valid']"), 'r'
-			\ )
+      \ bufnr(),
+      \ filter(getloclist(bufnr()),
+      \ "v:val['valid']"), 'r'
+      \ )
 
 " If swap exists, open read only mode
 autocmd! GeneralAutocmds SwapExists * :let v:swapchoice = 'o'
