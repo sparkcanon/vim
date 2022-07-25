@@ -13,6 +13,6 @@ endfunction
 
 " Desc: jest runner {{{
 function! jest#runner(args) abort
-	execute 'term npx jest --watch ' .. a:args
+	execute 'vert term npx jest --watch ' .. a:args
 endfunction
 " }}}

@@ -17,8 +17,17 @@ augroup END
 
 " Section: Load plug {{{
 " Install vim-plug if not found
-if empty(glob('~/.vim/autoload/plug.vim'))
-	silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+if !has('nvim')
+  let g:plug_autoload_path = empty(glob('~/.vim/autoload/plug.vim'))
+  let g:plugged_path = '~/.vim/plugged'
+else
+  let g:plug_autoload_path = '~/.config/nvim/autoload/plug.vim'
+  let g:plugged_path = '~/.config/nvim/plugged'
+endif
+
+" if empty(glob('~/.vim/autoload/plug.vim'))
+if empty(glob(expand(g:plug_autoload_path)))
+	silent !curl -fLo expand(g:plug_autoload_path) --create-dirs
 				\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
 
@@ -27,7 +36,7 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 			\| PlugInstall --sync | source $MYVIMRC
 			\| endif
 
-call plug#begin('~/.vim/plugged')
+call plug#begin(g:plugged_path)
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-fugitive'
@@ -37,17 +46,23 @@ Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-sleuth'
 Plug 'j5shi/CommandlineComplete.vim'
 Plug 'lambdalisue/vim-backslash', { 'for': 'vim' }
-Plug 'puremourning/vimspector'
 Plug 'bfrg/vim-qf-preview'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'rhysd/conflict-marker.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'markonm/traces.vim'
-Plug 'habamax/vim-habamax'
 " Plug 'mhinz/vim-signify'
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
-Plug 'sheerun/vim-polyglot'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+if !has('nvim')
+  Plug 'puremourning/vimspector'
+  Plug 'sheerun/vim-polyglot'
+  Plug 'catppuccin/vim', { 'as': 'catppuccin' }
+else
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+  Plug 'catppuccin/nvim', {'as': 'catppuccin'}
+endif
 
 " may be?
 " Plug 'ludovicchabant/vim-gutentags'
@@ -56,12 +71,16 @@ call plug#end()
 " }}}
 
 " Section: Completion {{{
-set completeopt+=menuone,noinsert,popup
+if !has('nvim')
+  set completeopt+=menuone,noinsert,popup
+endif
 set omnifunc=syntaxcomplete#Complete
 " }}}
 
 " Section: Basic Settings {{{
-source $VIMRUNTIME/defaults.vim
+if !has('nvim')
+  source $VIMRUNTIME/defaults.vim
+endif
 set hidden
 set autoread
 set hlsearch
@@ -79,7 +98,9 @@ set ignorecase
 
 " Wild menu options
 set wildmode=longest,full
-set wildoptions+=pum,fuzzy
+if !has('nvim')
+  set wildoptions+=fuzzy,pum
+endif
 set wildignorecase
 set wildignore+=*/node_modules/*
 set wildignore+=package-lock.json,yarn.lock
@@ -93,9 +114,15 @@ set viewoptions-=options
 set undofile
 set backup
 set writebackup
-set backupdir=$HOME/.vim/tmp/dir_backup//
-set directory^=$HOME/.vim/tmp/dir_swap//
-set undodir=$HOME/.vim/tmp/dir_undo
+if !has('nvim')
+  set backupdir=$HOME/.vim/tmp/dir_backup//
+  set directory^=$HOME/.vim/tmp/dir_swap//
+  set undodir=$HOME/.vim/tmp/dir_undo
+else
+  set backupdir=$HOME/.config/nvim/tmp/dir_backup//
+  set directory^=$HOME/.config/nvim/tmp/dir_swap//
+  set undodir=$HOME/.config/nvim/tmp/dir_undo
+endif
 
 " List chars
 set list listchars=trail:·,tab:¦\ ,eol:¬
@@ -107,10 +134,12 @@ if executable('rg')
 endif
 
 " Viminfo
-if finddir('.git', '.;')
-	call system('touch ' . $PWD . '/.viminfo')
+if !has('nvim')
+  if finddir('.git', '.;')
+    call system('touch ' . $PWD . '/.viminfo')
+  endif
+  let &viminfofile=findfile('.viminfo','.;')
 endif
-let &viminfofile=findfile('.viminfo','.;')
 " }}}
 
 " Section: Mappings {{{
@@ -230,7 +259,11 @@ set termguicolors
 " }}}
 
 set background=dark
-colorscheme habamax
+if !has('nvim')
+  colorscheme catppuccin_mocha
+else
+  colorscheme catppuccin
+endif
 " }}}
 
 " Section: Auto commands {{{
