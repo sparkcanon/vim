@@ -43,7 +43,6 @@ Plug 'rhysd/conflict-marker.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'markonm/traces.vim'
 " Plug 'mhinz/vim-signify'
-Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'puremourning/vimspector'
 Plug 'sheerun/vim-polyglot'
@@ -56,7 +55,7 @@ call plug#end()
 " }}}
 
 " Section: Completion {{{
-set completeopt+=menuone,noinsert,popup
+set completeopt+=menuone,popup
 set omnifunc=syntaxcomplete#Complete
 " }}}
 
