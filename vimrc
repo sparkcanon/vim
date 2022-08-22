@@ -46,7 +46,6 @@ Plug 'markonm/traces.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'puremourning/vimspector'
 Plug 'sheerun/vim-polyglot'
-Plug 'habamax/vim-habanight'
 
 " may be?
 " Plug 'ludovicchabant/vim-gutentags'
@@ -77,7 +76,7 @@ set smartcase
 set ignorecase
 
 " Wild menu options
-set wildmode=longest,full
+set wildmode=lastused,full
 set wildoptions+=fuzzy,pum
 set wildignorecase
 set wildignore+=*/node_modules/*
@@ -233,7 +232,7 @@ set termguicolors
 " }}}
 
 set background=dark
-colorscheme habanight
+colorscheme lunaperche
 " }}}
 
 " Section: Auto commands {{{
@@ -348,7 +347,7 @@ let g:netrw_fastbrowse = 0
 
 " fzf
 let g:fzf_layout = { 'window': { 'width': 1, 'height': 0.3, 'yoffset': 1.0, 'relative': v:true } }
-set runtimepath+=/usr/local/opt/fzf
+set rtp+=/usr/local/opt/fzf
 set rtp+=/opt/homebrew/opt/fzf
 
 " Hexokinase
