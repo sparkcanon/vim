@@ -201,6 +201,10 @@ nnoremap <Bslash>s :%s;\%V
 " Global
 nnoremap <Bslash>g :g//#<Left><Left>
 
+" highlight and replace with dot
+nnoremap ,* *``cgn
+nnoremap ,# #``cgN
+
 " Lists
 cnoremap <expr> <CR> listcommands#CR()
 
