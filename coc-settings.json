@@ -48,5 +48,19 @@
   "git.addedSign.hlGroup": "GitGutterAdd",
   "git.changedSign.hlGroup": "GitGutterChange",
   "git.removedSign.hlGroup": "GitGutterDelete",
-  "git.topRemovedSign.hlGroup": "GitGutterDelete"
+  "git.topRemovedSign.hlGroup": "GitGutterDelete",
+  "json.schemas": [
+    {
+      "name": ".vimspector.json",
+      "description": "vimspector configuration file",
+      "fileMatch": [ ".vimspector.json" ],
+      "url": "https://puremourning.github.io/vimspector/schema/vimspector.schema.json"
+    },
+    {
+      "name": ".gadgets.json",
+      "description": "gadgets configuration file",
+      "fileMatch": [ ".gadgets.json", ".gadgets.d/*.json" ],
+      "url": "https://puremourning.github.io/vimspector/schema/gadgets.schema.json"
+    }
+  ]
 }
