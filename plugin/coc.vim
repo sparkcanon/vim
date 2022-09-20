@@ -158,5 +158,6 @@ let g:coc_global_extensions = [
       \ 'coc-lists',
       \ 'coc-scssmodules',
       \ 'coc-cssmodules',
-      \ 'coc-highlight'
+      \ 'coc-highlight',
+      \ 'coc-svelte',
       \ ]
