@@ -243,6 +243,8 @@ autocmd! GeneralAutocmds WinNew * au BufEnter * ++once
       \ exe 'wincmd ' . (&splitright ? 'L' : 'H') |
       \ endif
 
+autocmd! GeneralAutocmds BufWritePost $MYVIMRC source <afile>
+
 " Opens terminal vertically if space available
 " autocmd! GeneralAutocmds TerminalOpen * au TerminalWinOpen * ++once
 " 			\ if winwidth(winnr('#')) >= 165 |
@@ -339,9 +341,6 @@ call utils#setupCommandAbbrs('gc','GitCheckout')
 packadd! cfilter
 packadd! matchit
 
-" Gutentag files to tag
-" let g:gutentags_file_list_command = 'fd -t f'
-
 " This fixes stray open directories from appearing in the buffer list
 let g:netrw_fastbrowse = 0
 
@@ -350,8 +349,6 @@ let g:fzf_layout = { 'window': { 'width': 1, 'height': 0.3, 'yoffset': 1.0, 'rel
 set rtp+=/usr/local/opt/fzf
 set rtp+=/opt/homebrew/opt/fzf
 
-" Hexokinase
-let g:Hexokinase_highlighters = ['backgroundfull']
 
 " Disable vim plugins
 let g:loaded_getscriptPlugin = 1
