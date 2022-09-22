@@ -218,6 +218,10 @@ nnoremap <space><space> :CocList buffers<CR>
 nnoremap <space>sg :CocList grep<CR>
 nnoremap <space>? :CocList mru<CR>
 nnoremap <space>/ :CocList words<CR>
+nnoremap <space>sm :CocList marks<CR>
+nnoremap <space>sR :CocListResume<CR>
+nnoremap <space>cc :CocCommand<CR>
+nnoremap <space>cl :CocList<CR>
 " }}}
 
 " Section: Colors {{{
@@ -295,8 +299,6 @@ command! -nargs=? -complete=dir YFilename :let @+ = expand("%:t")
 command! -nargs=1 -complete=customlist,jest#picker Jest                call jest#runner(<q-args>)
 command! -nargs=0 JestCurrent                                          call jest#runner(expand('%'))
 command! -nargs=1 -complete=customlist,npm#complete Npm                call npm#runner(<q-args>)
-command! -nargs=1 -complete=customlist,files#picker Files              call files#runner(<q-args>)
-command! -nargs=1 -complete=customlist,buffers#picker Buffers          call buffers#runner(<q-args>)
 " }}}
 
 " Section: Custom abbr {{{
