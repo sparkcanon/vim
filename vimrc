@@ -35,6 +35,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-dispatch'
 Plug 'j5shi/CommandlineComplete.vim'
 Plug 'lambdalisue/vim-backslash', { 'for': 'vim' }
 Plug 'bfrg/vim-qf-preview'
@@ -42,10 +43,10 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'rhysd/conflict-marker.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'markonm/traces.vim'
-" Plug 'mhinz/vim-signify'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'puremourning/vimspector'
 Plug 'sheerun/vim-polyglot'
+Plug 'habamax/vim-habanight'
 
 " may be?
 " Plug 'ludovicchabant/vim-gutentags'
@@ -83,7 +84,7 @@ set wildignore+=*/node_modules/*
 set wildignore+=package-lock.json,yarn.lock
 
 " Path options
-let &path = utils#SetPath()
+" let &path = utils#SetPath()
 
 " Backup settings
 set sessionoptions-=options
@@ -97,6 +98,7 @@ set undodir=$HOME/.vim/tmp/dir_undo
 
 " List chars
 set list listchars=trail:·,tab:¦\ ,eol:¬
+set fillchars+=vert:\┃
 
 " Grepprg & grepformat
 if executable('rg')
@@ -192,7 +194,6 @@ nnoremap [<C-F> :cpfile<CR>
 nnoremap ]b :bnext<CR>
 nnoremap [b :bprev<CR>
 nnoremap <BS> <C-^>
-" nnoremap gQ :call format#buffer()<CR>
 
 " Substitute
 nnoremap <Bslash>s :%s;\%V
@@ -211,6 +212,10 @@ cnoremap <expr> <CR> listcommands#CR()
 nnoremap <space>ee :e <C-R>='%:h/'<CR>
 nnoremap <space>ev :vsp <C-R>='%:h/'<CR>
 nnoremap <space>es :sp <C-R>='%:h/'<CR>
+
+nnoremap <space>sf :CocList files<CR>
+nnoremap <space><space> :CocList buffers<CR>
+nnoremap <space>sg :CocList grep<CR>
 " }}}
 
 " Section: Colors {{{
@@ -232,7 +237,7 @@ set termguicolors
 " }}}
 
 set background=dark
-colorscheme lunaperche
+colorscheme habanight
 " }}}
 
 " Section: Auto commands {{{
@@ -290,24 +295,11 @@ command! -nargs=0 JestCurrent                                          call jest
 command! -nargs=1 -complete=customlist,npm#complete Npm                call npm#runner(<q-args>)
 command! -nargs=1 -complete=customlist,files#picker Files              call files#runner(<q-args>)
 command! -nargs=1 -complete=customlist,buffers#picker Buffers          call buffers#runner(<q-args>)
-command! -nargs=0 Fzf                                                  call files#fzf()
-command! -nargs=+ Rg                                                   call files#rg(<q-args>)
-
-" Git
-command! -nargs=1 -complete=customlist,git#stash_picker GitStash       call git#stash_runner(<q-args>)
-command! -nargs=1 -complete=customlist,git#checkout_picker GitCheckout call git#checkout_runner(<q-args>)
-command! -nargs=? Diff call utils#Diff(<q-args>)
 " }}}
 
 " Section: Custom abbr {{{
 " Write
 call utils#setupCommandAbbrs('w','update')
-
-" Files
-call utils#setupCommandAbbrs('ff','find')
-call utils#setupCommandAbbrs('fv','vert sfind')
-call utils#setupCommandAbbrs('fs','sfind')
-call utils#setupCommandAbbrs('ft','tabfind')
 
 " Buffer list
 call utils#setupCommandAbbrs('bv','ls\<space>t\<CR>:vert sb \| b')
@@ -332,8 +324,6 @@ call utils#setupCommandAbbrs('gp','G push')
 call utils#setupCommandAbbrs('gl','Git pull')
 call utils#setupCommandAbbrs('gd','Git difftool')
 call utils#setupCommandAbbrs('gm','Git mergetool')
-call utils#setupCommandAbbrs('gs','GitStash')
-call utils#setupCommandAbbrs('gc','GitCheckout')
 " }}}
 
 " Section: Plugins && related setup {{{

@@ -24,20 +24,19 @@ command! -nargs=? DebugStepOut call vimspector#StepOut()
 nmap ,dE <Plug>VimspectorBalloonEval
 " for visual mode, the visually selected text
 xmap ,dE <Plug>VimspectorBalloonEval
-nmap ,db <Plug>VimspectorToggleBreakpoint
 
-" Easy abbrs
-call utils#setupCommandAbbrs('de','Debug')
-call utils#setupCommandAbbrs('dr','DebugRestart')
-call utils#setupCommandAbbrs('dR','DebugReset')
-call utils#setupCommandAbbrs('dc','DebugContinue')
-call utils#setupCommandAbbrs('dC','DebugRunToCursor')
-call utils#setupCommandAbbrs('db','DebugBreakpointToggle')
-call utils#setupCommandAbbrs('dB','DebugBreakpointClear')
-call utils#setupCommandAbbrs('dbc','DebugBreakpointToggleConditional')
-call utils#setupCommandAbbrs('dsO','DebugStepOver')
-call utils#setupCommandAbbrs('dso','DebugStepOut')
-call utils#setupCommandAbbrs('dsi','DebugStepInto')
+" Mappings
+nnoremap <silent> <space>dl :call vimspector#Launch()<CR>
+nnoremap <silent> <space>dR :call vimspector#Reset()<CR>
+nnoremap <silent> <space>dr :call vimspector#Restart()<CR>
+nnoremap <silent> <space>dc :call vimspector#Continue()<CR>
+nnoremap <silent> <space>ds :call vimspector#Stop()<CR>
+nnoremap <silent> <space>dp :call vimspector#Pause()<CR>
+nnoremap <silent> <space>db :call vimspector#ToggleBreakpoint()<CR>
+nnoremap <silent> <space>dbc :call vimspector#ClearBreakpoints()<CR>
+nnoremap <silent> <space>dso :call vimspector#StepOver()<CR>
+nnoremap <silent> <space>dsi :call vimspector#StepInto()<CR>
+nnoremap <silent> <space>dsO :call vimspector#StepOut()<CR>
 
 let g:vimspector_sign_priority = {
   \    'vimspectorBP':         999,
