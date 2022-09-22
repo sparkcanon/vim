@@ -46,7 +46,7 @@ Plug 'markonm/traces.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'puremourning/vimspector'
 Plug 'sheerun/vim-polyglot'
-Plug 'habamax/vim-habanight'
+Plug 'bluz71/vim-moonfly-colors'
 
 " may be?
 " Plug 'ludovicchabant/vim-gutentags'
@@ -216,6 +216,8 @@ nnoremap <space>es :sp <C-R>='%:h/'<CR>
 nnoremap <space>sf :CocList files<CR>
 nnoremap <space><space> :CocList buffers<CR>
 nnoremap <space>sg :CocList grep<CR>
+nnoremap <space>? :CocList mru<CR>
+nnoremap <space>/ :CocList words<CR>
 " }}}
 
 " Section: Colors {{{
@@ -237,7 +239,7 @@ set termguicolors
 " }}}
 
 set background=dark
-colorscheme habanight
+colorscheme moonfly
 " }}}
 
 " Section: Auto commands {{{
