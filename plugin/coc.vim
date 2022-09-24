@@ -5,32 +5,21 @@ if executable('node')
 
   " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
   " delays and poor user experience.
-  set updatetime=100
+  set updatetime=300
 
   " Don't pass messages to |ins-completion-menu|.
   set shortmess+=c
-
-  " Use tab for trigger completion with characters ahead and navigate.
-  " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
-  " other plugin before putting this into your config.
-  inoremap <silent><expr> <TAB>
-        \ coc#pum#visible() ? coc#pum#next(1):
-        \ CheckBackspace() ? "\<Tab>" :
-        \ coc#refresh()
-  inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
   function! CheckBackspace() abort
     let col = col('.') - 1
     return !col || getline('.')[col - 1]  =~# '\s'
   endfunction
 
-  function! s:show_documentation()
-    if (index(['vim','help'], &filetype) >= 0)
-      execute 'h '.expand('<cword>')
-    elseif (coc#rpc#ready())
+  function! ShowDocumentation()
+    if CocAction('hasProvider', 'hover')
       call CocActionAsync('doHover')
     else
-      execute '!' . &keywordprg . " " . expand('<cword>')
+      call feedkeys('K', 'in')
     endif
   endfunction
 
@@ -51,6 +40,18 @@ if executable('node')
   " set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
   " Mappings
+  " Use tab for trigger completion with characters ahead and navigate.
+  " NOTE: There's always complete item selected by default, you may want to enable
+  " no select by `"suggest.noselect": true` in your configuration file.
+  " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+  " other plugin before putting this into your config.
+  inoremap <silent><expr> <TAB>
+        \ coc#pum#visible() ? coc#pum#next(1) :
+        \ CheckBackspace() ? "\<Tab>" :
+        \ coc#refresh()
+
+  inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+
   " Show all diagnostics.
   nnoremap <space>sd :CocDiagnostics<cr>
   nnoremap gq :Format<CR>
@@ -99,8 +100,7 @@ if executable('node')
   nmap <silent> gr <Plug>(coc-references)
 
   " Use K to show documentation in preview window.
-  nnoremap <silent> K :call <SID>show_documentation()<CR>
-
+  nnoremap <silent> K :call ShowDocumentation()<CR>
 
   " Remap <C-f> and <C-b> for scroll float windows/popups.
   if has('nvim-0.4.0') || has('patch-8.2.0750')
@@ -128,7 +128,6 @@ if executable('node')
   nmap <silent> <C-s> <Plug>(coc-range-select)
   xmap <silent> <C-s> <Plug>(coc-range-select)
 
-
   " Commands
   " Add `:Format` command to format current buffer.
   command! -nargs=0 Format :call CocAction('format')
@@ -138,7 +137,6 @@ if executable('node')
 
   " Add `:OR` command for organize imports of the current buffer.
   command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
-
 
   " Global Extentions
   let g:coc_global_extensions = [
