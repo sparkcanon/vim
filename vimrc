@@ -43,14 +43,13 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'rhysd/conflict-marker.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'markonm/traces.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'puremourning/vimspector'
 Plug 'sheerun/vim-polyglot'
 Plug 'bluz71/vim-moonfly-colors'
 
-" may be?
-" Plug 'ludovicchabant/vim-gutentags'
-" Plug 'yegappan/lsp'
+if executable('node')
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+endif
 call plug#end()
 " }}}
 
@@ -68,7 +67,7 @@ set showmatch
 set wrap
 set autoindent
 set clipboard^=unnamed
-set cursorline
+set nocursorline
 set number
 set signcolumn=yes
 
@@ -222,6 +221,10 @@ nnoremap <space>sm :CocList marks<CR>
 nnoremap <space>sR :CocListResume<CR>
 nnoremap <space>cc :CocCommand<CR>
 nnoremap <space>cl :CocList<CR>
+nnoremap <silent> <space>gc :<C-u>CocList --input=git. commands<CR>
+nnoremap <silent> <space>jc :<C-u>CocList --input=jest. commands<CR>
+nnoremap <silent> <space>ss :<C-u>CocList -I symbols<cr>
+nnoremap <silent> <space>gs :<C-u>CocList --auto-preview gstatus<CR>
 " }}}
 
 " Section: Colors {{{
@@ -328,6 +331,7 @@ call utils#setupCommandAbbrs('gp','G push')
 call utils#setupCommandAbbrs('gl','Git pull')
 call utils#setupCommandAbbrs('gd','Git difftool')
 call utils#setupCommandAbbrs('gm','Git mergetool')
+call utils#setupCommandAbbrs('lg','!lazygit')
 " }}}
 
 " Section: Plugins && related setup {{{

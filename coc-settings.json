@@ -16,9 +16,8 @@
 	],
 	"list.previewSplitRight": true,
 	"list.source.grep.maxColumns": 300,
-	"javascript.suggestionActions.enabled": false,
-	"typescript.suggestionActions.enabled": false,
-	"prettier.eslintIntegration": true,
+	// "javascript.suggestionActions.enabled": false,
+	// "typescript.suggestionActions.enabled": false,
 	"prettier.onlyUseLocalVersion": true,
 	"html.format.wrapLineLength": 0,
 	"html.format.indentHandlebars": true,
@@ -26,22 +25,6 @@
 	// "less.validate": false,
 	// "scss.validate": false,
 	// "wxss.validate": false,
-	"stylelint.filetypes": [
-		"css",
-		"wxss",
-		"scss",
-		"less",
-		"postcss",
-		"sugarss"
-	],
-	"stylelintplus.filetypes": [
-		"css",
-		"less",
-		"postcss",
-		"scss",
-		"sugarss",
-		"wxss"
-	],
 	"session.directory": "~/.vim/tmp/dir_session",
 	"session.saveOnVimLeave": false,
 	"git.enableGutters": true,
@@ -63,5 +46,13 @@
       "url": "https://puremourning.github.io/vimspector/schema/gadgets.schema.json"
     }
   ],
-  "svelte.enable-ts-plugin": true
+  "svelte.enable-ts-plugin": true,
+  "diagnostic.enableMessage": "jump",
+  "diagnostic.virtualText": true,
+  "diagnostic.virtualTextAlign": "right",
+  // "diagnostic.virtualTextLevel": "warning",
+  "diagnostic.virtualTextLimitInOneLine": 1,
+  "diagnostic.virtualTextLines": 1,
+  "diagnostic.virtualTextPrefix": "   ",
+  "suggest.virtualText": true
 }
