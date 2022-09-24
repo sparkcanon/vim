@@ -159,7 +159,6 @@ if executable('node')
         \ 'coc-scssmodules',
         \ 'coc-cssmodules',
         \ 'coc-highlight',
-        \ 'coc-svelte',
         \ 'coc-lists'
         \ ]
 endif

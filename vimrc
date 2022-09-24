@@ -49,6 +49,7 @@ Plug 'bluz71/vim-moonfly-colors'
 
 if executable('node')
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'coc-extensions/coc-svelte', {'do': 'yarn install --frozen-lockfile'}
 endif
 call plug#end()
 " }}}
