@@ -342,12 +342,6 @@ packadd! matchit
 " This fixes stray open directories from appearing in the buffer list
 let g:netrw_fastbrowse = 0
 
-" fzf
-let g:fzf_layout = { 'window': { 'width': 1, 'height': 0.3, 'yoffset': 1.0, 'relative': v:true } }
-set rtp+=/usr/local/opt/fzf
-set rtp+=/opt/homebrew/opt/fzf
-
-
 " Disable vim plugins
 let g:loaded_getscriptPlugin = 1
 let g:loaded_gzip            = 1
