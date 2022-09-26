@@ -226,6 +226,8 @@ nnoremap <silent> <space>gc :<C-u>CocList --input=git. commands<CR>
 nnoremap <silent> <space>jc :<C-u>CocList --input=jest. commands<CR>
 nnoremap <silent> <space>ss :<C-u>CocList -I symbols<cr>
 nnoremap <silent> <space>gs :<C-u>CocList --auto-preview gstatus<CR>
+
+nnoremap <silent> <space>gg :!lazygit<CR>
 " }}}
 
 " Section: Colors {{{
@@ -259,6 +261,8 @@ autocmd! GeneralAutocmds WinNew * au BufEnter * ++once
       \ endif
 
 autocmd! GeneralAutocmds BufWritePost $MYVIMRC source <afile>
+
+autocmd! GeneralAutocmds TerminalOpen * setlocal nonumber nolist
 
 " Opens terminal vertically if space available
 " autocmd! GeneralAutocmds TerminalOpen * au TerminalWinOpen * ++once
@@ -332,7 +336,6 @@ call utils#setupCommandAbbrs('gp','G push')
 call utils#setupCommandAbbrs('gl','Git pull')
 call utils#setupCommandAbbrs('gd','Git difftool')
 call utils#setupCommandAbbrs('gm','Git mergetool')
-call utils#setupCommandAbbrs('lg','!lazygit')
 " }}}
 
 " Section: Plugins && related setup {{{
