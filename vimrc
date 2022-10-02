@@ -343,6 +343,8 @@ call utils#setupCommandAbbrs('gm','Git mergetool')
 packadd! cfilter
 packadd! matchit
 
+let g:vim_svelte_plugin_use_typescript = 1
+
 " This fixes stray open directories from appearing in the buffer list
 let g:netrw_fastbrowse = 0
 
