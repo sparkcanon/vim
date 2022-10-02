@@ -68,7 +68,7 @@ set showmatch
 set wrap
 set autoindent
 set clipboard^=unnamed
-set nocursorline
+set cursorline
 set number
 set signcolumn=yes
 
@@ -99,6 +99,20 @@ set undodir=$HOME/.vim/tmp/dir_undo
 " List chars
 set list listchars=trail:·,tab:¦\ ,eol:¬
 set fillchars+=vert:\┃
+
+" Cursor shape {{{
+let &t_SI.="\e[5 q" "SI = INSERT mode
+let &t_EI.="\e[3 q" "EI = NORMAL mode (ELSE)
+
+"Cursor settings:
+
+"  1 -> blinking block
+"  2 -> solid block
+"  3 -> blinking underscore
+"  4 -> solid underscore
+"  5 -> blinking vertical bar
+"  6 -> solid vertical bar
+" }}}
 
 " Grepprg & grepformat
 if executable('rg')
