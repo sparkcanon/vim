@@ -99,6 +99,11 @@ if executable('node')
   nmap <silent> gi <Plug>(coc-implementation)
   nmap <silent> gr <Plug>(coc-references)
 
+  " Git
+  nmap <silent> ]c <Plug>(coc-git-nextchunk)
+  nmap <silent> [c <Plug>(coc-git-prevchunk)
+  nmap <silent> ]C <Plug>(coc-git-chunkinfo)
+
   " Use K to show documentation in preview window.
   nnoremap <silent> K :call ShowDocumentation()<CR>
 

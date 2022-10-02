@@ -10,6 +10,16 @@
 "                ||     ||
 
 " Section: Reset augroup {{{
+" Disable some vim plugins
+let g:loaded_getscriptPlugin = 1
+let g:loaded_gzip            = 1
+let g:loaded_logiPat         = 1
+let g:loaded_rrhelper        = 1
+let g:loaded_tarPlugin       = 1
+let g:loaded_vimballPlugin   = 1
+let g:loaded_zipPlugin       = 1
+let g:loaded_netrwPlugin     = 1
+
 augroup GeneralAutocmds
   autocmd!
 augroup END
@@ -40,7 +50,6 @@ Plug 'j5shi/CommandlineComplete.vim'
 Plug 'lambdalisue/vim-backslash', { 'for': 'vim' }
 Plug 'bfrg/vim-qf-preview'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'rhysd/conflict-marker.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'markonm/traces.vim'
 Plug 'puremourning/vimspector'
@@ -233,9 +242,10 @@ nnoremap <space>sg :CocList grep<CR>
 nnoremap <space>? :CocList mru<CR>
 nnoremap <space>/ :CocList words<CR>
 nnoremap <space>sm :CocList marks<CR>
-nnoremap <space>sR :CocListResume<CR>
+nnoremap <space>cr :CocListResume<CR>
 nnoremap <space>cc :CocCommand<CR>
 nnoremap <space>cl :CocList<CR>
+nnoremap <space>ck :CocList maps<CR>
 nnoremap <silent> <space>gc :<C-u>CocList --input=git. commands<CR>
 nnoremap <silent> <space>jc :<C-u>CocList --input=jest. commands<CR>
 nnoremap <silent> <space>ss :<C-u>CocList -I symbols<cr>
@@ -365,16 +375,4 @@ let g:vim_svelte_plugin_use_typescript = 1
 " Dirvish
 let g:dirvish_mode = ':sort ,^\v(.*[\/])|\ze,'
 
-" This fixes stray open directories from appearing in the buffer list
-let g:netrw_fastbrowse = 0
-
-" Disable vim plugins
-let g:loaded_getscriptPlugin = 1
-let g:loaded_gzip            = 1
-let g:loaded_logiPat         = 1
-let g:loaded_rrhelper        = 1
-let g:loaded_tarPlugin       = 1
-let g:loaded_vimballPlugin   = 1
-let g:loaded_zipPlugin       = 1
-let g:loaded_netrwPlugin     = 1
 " }}}
