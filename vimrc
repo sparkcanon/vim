@@ -241,7 +241,7 @@ nnoremap <silent> <space>jc :<C-u>CocList --input=jest. commands<CR>
 nnoremap <silent> <space>ss :<C-u>CocList -I symbols<cr>
 nnoremap <silent> <space>gs :<C-u>CocList --auto-preview gstatus<CR>
 
-nnoremap <silent> <space>gg :!lazygit<CR>
+nnoremap <silent> <space>gg :Spawn lazygit<CR>
 " }}}
 
 " Section: Colors {{{
