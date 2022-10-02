@@ -102,7 +102,7 @@ set fillchars+=vert:\┃
 
 " Cursor shape {{{
 let &t_SI.="\e[5 q" "SI = INSERT mode
-let &t_EI.="\e[3 q" "EI = NORMAL mode (ELSE)
+let &t_EI.="\e[1 q" "EI = NORMAL mode (ELSE)
 
 "Cursor settings:
 
@@ -263,6 +263,8 @@ set termguicolors
 " }}}
 
 set background=dark
+let g:moonflyUnderlineMatchParen = v:true
+let g:moonflyWinSeparator = 2
 colorscheme moonfly
 " }}}
 
