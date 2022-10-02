@@ -33,7 +33,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-vinegar'
+Plug 'justinmk/vim-dirvish'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-dispatch'
 Plug 'j5shi/CommandlineComplete.vim'
@@ -357,7 +357,11 @@ call utils#setupCommandAbbrs('gm','Git mergetool')
 packadd! cfilter
 packadd! matchit
 
+" Svelte
 let g:vim_svelte_plugin_use_typescript = 1
+
+" Dirvish
+let g:dirvish_mode = ':sort ,^\v(.*[\/])|\ze,'
 
 " This fixes stray open directories from appearing in the buffer list
 let g:netrw_fastbrowse = 0
@@ -370,4 +374,5 @@ let g:loaded_rrhelper        = 1
 let g:loaded_tarPlugin       = 1
 let g:loaded_vimballPlugin   = 1
 let g:loaded_zipPlugin       = 1
+let g:loaded_netrwPlugin     = 1
 " }}}
