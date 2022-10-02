@@ -20,12 +20,20 @@ function! npm#runner(args) abort
 	let l:filePath = findfile('package.json')
 	if filereadable(l:filePath)
 		let l:cd = l:filePath->split('/')[0:-2]->join('/')
+    if exists(':Dispatch')
+      if executable('nvm')
+        execute ':Spawn nvm use && npm run ' . a:args
+      endif
+      execute ':Spawn npm run ' . a:args
+    else
       if executable('nvm')
         execute 'vert term ++shell nvm use && npm run ' . a:args
       endif
 			execute 'vert term ++shell npm run ' . a:args
+    endif
 	else
 		echom "Error: Package.json not found"
 	endif
+  silent redraw!
 endfunction
 " }}}
