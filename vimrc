@@ -47,7 +47,6 @@ Plug 'justinmk/vim-dirvish'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-dispatch'
 Plug 'j5shi/CommandlineComplete.vim'
-Plug 'lambdalisue/vim-backslash', { 'for': 'vim' }
 Plug 'bfrg/vim-qf-preview'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'christoomey/vim-tmux-navigator'
@@ -89,8 +88,7 @@ set ignorecase
 set wildmode=lastused,full
 set wildoptions+=fuzzy,pum
 set wildignorecase
-set wildignore+=*/node_modules/*
-set wildignore+=package-lock.json,yarn.lock
+set wildignore+=*/node_modules/*,package-lock.json,yarn.lock
 
 " Path options
 " let &path = utils#SetPath()
@@ -107,7 +105,6 @@ set undodir=$HOME/.vim/tmp/dir_undo
 
 " List chars
 set list listchars=trail:·,tab:¦\ ,eol:¬
-set fillchars+=vert:\┃
 
 " Cursor shape {{{
 let &t_SI.="\e[5 q" "SI = INSERT mode
