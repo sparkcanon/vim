@@ -14,6 +14,7 @@
     "--exclude",
     "*.groovy"
   ],
+  "list.extendedSearchMode": true,
   "list.previewSplitRight": true,
   "list.source.grep.maxColumns": 300,
   // "javascript.suggestionActions.enabled": false,
@@ -50,8 +51,8 @@
   "diagnostic.enableMessage": "never",
   "diagnostic.enableSign": false,
   "diagnostic.virtualText": true,
-  "diagnostic.virtualTextAlign": "right",
-  "diagnostic.virtualTextLevel": "warning",
+  // "diagnostic.virtualTextAlign": "right",
+  // "diagnostic.virtualTextLevel": "warning",
   "diagnostic.virtualTextLimitInOneLine": 1,
   "diagnostic.virtualTextLines": 1,
   "suggest.virtualText": true,

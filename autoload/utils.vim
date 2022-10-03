@@ -24,6 +24,12 @@ endfunction
 
 " Desc: Js/ts mappings {{{
 function! utils#js_mappings() abort
+
+  " Fold
+  set foldmethod=syntax "syntax highlighting items specify folds
+  set foldlevel=50
+  set foldlevelstart=50
+
 	" Console log command
 	command! -nargs=0 Log execute "normal oconsole.log('".expand('<cword>')
 				\ . "====> ', ".expand('<cword>').")"

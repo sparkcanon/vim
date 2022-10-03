@@ -13,5 +13,3 @@ let &l:includeexpr="substitute(v:fname,'^\#','web','')"
 
 " Make Vim use ES6 export statements as define statements
 let &l:define = '\v(export\s+(default\s+)?)?(var|let|const|(async\s+)?function|class)|export\s+'
-setlocal foldmethod=syntax
-setlocal nofoldenable
