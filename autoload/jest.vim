@@ -13,6 +13,11 @@ endfunction
 
 " Desc: jest runner {{{
 function! jest#runner(args) abort
-	execute 'vert term ++shell nvm use && npx jest --watch ' .. a:args
+  if filereadable('./node_modules/.bin/react-scripts')
+    execute 'Spawn npx react-scripts test ' .. a:args
+  else
+    execute 'Spawn npx jest --watch ' .. a:args
+  endif
+  silent redraw!
 endfunction
 " }}}
