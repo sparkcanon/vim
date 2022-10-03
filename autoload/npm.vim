@@ -21,14 +21,8 @@ function! npm#runner(args) abort
 	if filereadable(l:filePath)
 		let l:cd = l:filePath->split('/')[0:-2]->join('/')
     if exists(':Dispatch')
-      if executable('nvm')
-        execute ':Spawn nvm use && npm run ' . a:args
-      endif
-      execute ':Spawn npm run ' . a:args
+      execute ':Spawn! -title=npm-' . a:args . ' npm run ' . a:args
     else
-      if executable('nvm')
-        execute 'vert term ++shell nvm use && npm run ' . a:args
-      endif
 			execute 'vert term ++shell npm run ' . a:args
     endif
 	else
