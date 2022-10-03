@@ -314,6 +314,9 @@ autocmd! GeneralAutocmds QuickFixCmdPost lmake call setloclist(
 
 " If swap exists, open read only mode
 autocmd! GeneralAutocmds SwapExists * :let v:swapchoice = 'o'
+
+" This prevents weird artifacts from dispatch
+autocmd! GeneralAutocmds FocusGained * silent redraw!
 " }}}
 
 " Section: Custom commands {{{
