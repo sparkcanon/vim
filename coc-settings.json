@@ -47,7 +47,8 @@
     }
   ],
   "svelte.enable-ts-plugin": true,
-  "diagnostic.enableMessage": "jump",
+  "diagnostic.enableMessage": "never",
+  "diagnostic.enableSign": false,
   "diagnostic.virtualText": true,
   "diagnostic.virtualTextAlign": "right",
   "diagnostic.virtualTextLevel": "warning",

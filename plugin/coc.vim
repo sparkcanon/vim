@@ -89,6 +89,7 @@ if executable('node')
   " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
   nmap <silent> [d <Plug>(coc-diagnostic-prev)
   nmap <silent> ]d <Plug>(coc-diagnostic-next)
+  nmap <silent> ]D <Plug>(coc-diagnostic-info)
 
   " GoTo code navigation.
   nmap <silent> gd <Plug>(coc-definition)
@@ -105,8 +106,8 @@ if executable('node')
 
   nmap <silent> ]C <Plug>(coc-git-chunkinfo)
 
-  nmap <silent> ]D <Plug>(coc-git-nextconflict)
-  nmap <silent> [D <Plug>(coc-git-prevconflict)
+  nmap <silent> ]g <Plug>(coc-git-nextconflict)
+  nmap <silent> [g <Plug>(coc-git-prevconflict)
 
   " Use K to show documentation in preview window.
   nnoremap <silent> K :call ShowDocumentation()<CR>
