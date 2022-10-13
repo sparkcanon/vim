@@ -53,7 +53,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'markonm/traces.vim'
 Plug 'puremourning/vimspector'
 Plug 'sheerun/vim-polyglot'
-Plug 'bluz71/vim-moonfly-colors'
+Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 
 if executable('node')
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -270,9 +270,7 @@ set termguicolors
 " }}}
 
 set background=dark
-let g:moonflyUnderlineMatchParen = v:true
-let g:moonflyWinSeparator = 2
-colorscheme moonfly
+colorscheme catppuccin_mocha
 " }}}
 
 " Section: Auto commands {{{
