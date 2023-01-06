@@ -240,17 +240,16 @@ nnoremap <silent><nowait> <space>sg :CocList grep<CR>
 nnoremap <silent><nowait> <space>? :CocList mru<CR>
 nnoremap <silent><nowait> <space>/ :CocList words<CR>
 nnoremap <silent><nowait> <space>sm :CocList marks<CR>
-nnoremap <silent><nowait> <space>cr :CocListResume<CR>
-nnoremap <silent><nowait> <space>cc :CocCommand<CR>
-nnoremap <silent><nowait> <space>cl :CocList<CR>
-nnoremap <silent><nowait> <space>ck :CocList maps<CR>
-nnoremap <silent><nowait> <space>gc :<C-u>CocList --input=git. commands<CR>
-nnoremap <silent><nowait> <space>jc :<C-u>CocList --input=jest. commands<CR>
+nnoremap <silent><nowait> <space>sr :CocListResume<CR>
+nnoremap <silent><nowait> <space>sc :CocCommand<CR>
+nnoremap <silent><nowait> <space>sk :CocList maps<CR>
 nnoremap <silent><nowait> <space>sw :<C-u>CocList -I symbols<cr>
 nnoremap <silent><nowait> <space>ss :<C-u>CocList outline<cr>
+nnoremap <silent><nowait> <space>sd  :<C-u>CocList diagnostics<cr>
+
+nnoremap <silent><nowait> <space>jc :<C-u>CocList --input=jest. commands<CR>
+nnoremap <silent><nowait> <space>gc :<C-u>CocList --input=git. commands<CR>
 nnoremap <silent><nowait> <space>gs :<C-u>CocList --auto-preview gstatus<CR>
-nnoremap <silent><nowait> <space>cd  :<C-u>CocList diagnostics<cr>
-nnoremap <silent><nowait> <space>co  :<C-u>CocList outline<cr>
 
 nnoremap <silent> <space>gg :Spawn lazygit<CR>
 " }}}

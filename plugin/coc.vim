@@ -53,7 +53,6 @@ if executable('node')
   inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
   " Show all diagnostics.
-  nnoremap <space>sd :CocDiagnostics<cr>
   nnoremap gq :Format<CR>
 
   " Applying codeAction to the selected region.
@@ -68,8 +67,11 @@ if executable('node')
   " Apply the most preferred quickfix action to fix diagnostic on the current line
   nmap <space>qf  <Plug>(coc-fix-current)
 
+  " Run the Code Lens action on the current line
+  nmap <space>cl  <Plug>(coc-codelens-action)
+
   " Symbol renaming.
-  nmap <space>rn <Plug>(coc-rename)
+  nmap <space>re <Plug>(coc-rename)
 
   " Formatting selected code.
   xmap <space>fs  <Plug>(coc-format-selected)
