@@ -61,10 +61,12 @@ if executable('node')
   xmap <space>ca  <Plug>(coc-codeaction-selected)
   nmap <space>ca  <Plug>(coc-codeaction-selected)
 
-  " Remap keys for applying codeAction to the current buffer.
-  nmap <space>cA  <Plug>(coc-codeaction)
-  " Apply AutoFix to problem on the current line.
-  nmap <space>fc  <Plug>(coc-fix-current)
+  " Remap keys for applying code actions at the cursor position
+  nmap <space>ac  <Plug>(coc-codeaction-cursor)
+  " Remap keys for apply code actions affect whole buffer
+  nmap <space>as  <Plug>(coc-codeaction-source)
+  " Apply the most preferred quickfix action to fix diagnostic on the current line
+  nmap <space>qf  <Plug>(coc-fix-current)
 
   " Symbol renaming.
   nmap <space>rn <Plug>(coc-rename)
@@ -93,12 +95,16 @@ if executable('node')
 
   " GoTo code navigation.
   nmap <silent> gd <Plug>(coc-definition)
-  nmap <silent> gds <cmd>call CocAction('jumpDefinition', 'split')<CR>
-  nmap <silent> gdv <cmd>call CocAction('jumpDefinition', 'vsplit')<CR>
-  nmap <silent> gdt <cmd>call CocAction('jumpDefinition', 'tabe')<CR>
-  nmap <silent> gtd <Plug>(coc-type-definition)
+  nmap <silent> gjs <cmd>call CocAction('jumpDefinition', 'split')<CR>
+  nmap <silent> gjv <cmd>call CocAction('jumpDefinition', 'vsplit')<CR>
+  nmap <silent> gjt <cmd>call CocAction('jumpDefinition', 'tabe')<CR>
+  nmap <silent> gy <Plug>(coc-type-definition)
   nmap <silent> gi <Plug>(coc-implementation)
   nmap <silent> gr <Plug>(coc-references)
+
+  nmap <silent> <space>re <Plug>(coc-codeaction-refactor)
+  xmap <silent> <space>r  <Plug>(coc-codeaction-refactor-selected)
+  nmap <silent> <space>r  <Plug>(coc-codeaction-refactor-selected)
 
   " Git
   nmap <silent> ]c <Plug>(coc-git-nextchunk)

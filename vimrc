@@ -53,6 +53,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'markonm/traces.vim'
 Plug 'puremourning/vimspector'
 Plug 'sheerun/vim-polyglot'
+Plug 'github/copilot.vim'
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 
 if executable('node')
@@ -233,20 +234,23 @@ nnoremap <space>ee :e <C-R>='%:h/'<CR>
 nnoremap <space>ev :vsp <C-R>='%:h/'<CR>
 nnoremap <space>es :sp <C-R>='%:h/'<CR>
 
-nnoremap <space>sf :CocList files<CR>
-nnoremap <space><space> :CocList buffers<CR>
-nnoremap <space>sg :CocList grep<CR>
-nnoremap <space>? :CocList mru<CR>
-nnoremap <space>/ :CocList words<CR>
-nnoremap <space>sm :CocList marks<CR>
-nnoremap <space>cr :CocListResume<CR>
-nnoremap <space>cc :CocCommand<CR>
-nnoremap <space>cl :CocList<CR>
-nnoremap <space>ck :CocList maps<CR>
-nnoremap <silent> <space>gc :<C-u>CocList --input=git. commands<CR>
-nnoremap <silent> <space>jc :<C-u>CocList --input=jest. commands<CR>
-nnoremap <silent> <space>ss :<C-u>CocList -I symbols<cr>
-nnoremap <silent> <space>gs :<C-u>CocList --auto-preview gstatus<CR>
+nnoremap <silent><nowait> <space>sf :CocList files<CR>
+nnoremap <silent><nowait> <space><space> :CocList buffers<CR>
+nnoremap <silent><nowait> <space>sg :CocList grep<CR>
+nnoremap <silent><nowait> <space>? :CocList mru<CR>
+nnoremap <silent><nowait> <space>/ :CocList words<CR>
+nnoremap <silent><nowait> <space>sm :CocList marks<CR>
+nnoremap <silent><nowait> <space>cr :CocListResume<CR>
+nnoremap <silent><nowait> <space>cc :CocCommand<CR>
+nnoremap <silent><nowait> <space>cl :CocList<CR>
+nnoremap <silent><nowait> <space>ck :CocList maps<CR>
+nnoremap <silent><nowait> <space>gc :<C-u>CocList --input=git. commands<CR>
+nnoremap <silent><nowait> <space>jc :<C-u>CocList --input=jest. commands<CR>
+nnoremap <silent><nowait> <space>sw :<C-u>CocList -I symbols<cr>
+nnoremap <silent><nowait> <space>ss :<C-u>CocList outline<cr>
+nnoremap <silent><nowait> <space>gs :<C-u>CocList --auto-preview gstatus<CR>
+nnoremap <silent><nowait> <space>cd  :<C-u>CocList diagnostics<cr>
+nnoremap <silent><nowait> <space>co  :<C-u>CocList outline<cr>
 
 nnoremap <silent> <space>gg :Spawn lazygit<CR>
 " }}}
