@@ -252,6 +252,10 @@ nnoremap <silent><nowait> <space>gc :<C-u>CocList --input=git. commands<CR>
 nnoremap <silent><nowait> <space>gs :<C-u>CocList --auto-preview gstatus<CR>
 
 nnoremap <silent> <space>gg :Spawn lazygit<CR>
+
+" copilot
+imap <silent><script><expr> <c-g> copilot#Accept("\<CR>")
+let g:copilot_no_tab_map = v:true
 " }}}
 
 " Section: Colors {{{
