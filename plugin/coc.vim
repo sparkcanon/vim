@@ -172,11 +172,10 @@ if executable('node')
         \ 'coc-jest',
         \ 'coc-format-json',
         \ 'coc-highlight',
-        \ 'coc-docthis',
         \ 'coc-lists',
         \ 'coc-scssmodules',
         \ 'coc-cssmodules',
         \ 'coc-highlight',
-        \ 'coc-lists'
+        \ 'coc-lists',
         \ ]
 endif
