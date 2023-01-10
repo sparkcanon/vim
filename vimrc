@@ -55,6 +55,10 @@ Plug 'puremourning/vimspector'
 Plug 'sheerun/vim-polyglot'
 Plug 'github/copilot.vim'
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
+Plug 'heavenshell/vim-jsdoc', {
+  \ 'for': ['javascript', 'javascript.jsx','typescript'],
+  \ 'do': 'make install'
+  \}
 
 if executable('node')
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
