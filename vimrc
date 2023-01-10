@@ -57,6 +57,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'github/copilot.vim'
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'mbbill/undotree'
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'heavenshell/vim-jsdoc', {
   \ 'for': ['javascript', 'javascript.jsx','typescript'],
   \ 'do': 'make install'
