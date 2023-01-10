@@ -221,10 +221,11 @@ nnoremap [b :bprev<CR>
 nnoremap <BS> <C-^>
 
 " Substitute
-nnoremap <Bslash>s :%s;\%V
+nnoremap ,s :%s;\(<C-r><C-w>\);<C-r><C-w>;gI<Left><Left><Left>
+nnoremap g*n *Ncgn
 
 " Global
-nnoremap <Bslash>g :g//#<Left><Left>
+nnoremap ,g :g//#<Left><Left>
 
 " highlight and replace with dot
 nnoremap ,* *``cgn
