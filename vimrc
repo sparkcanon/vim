@@ -51,10 +51,12 @@ Plug 'bfrg/vim-qf-preview'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'markonm/traces.vim'
+Plug 'machakann/vim-highlightedyank'
 Plug 'puremourning/vimspector'
 Plug 'sheerun/vim-polyglot'
 Plug 'github/copilot.vim'
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
+Plug 'mbbill/undotree'
 Plug 'heavenshell/vim-jsdoc', {
   \ 'for': ['javascript', 'javascript.jsx','typescript'],
   \ 'do': 'make install'
@@ -143,6 +145,9 @@ let &viminfofile=findfile('.viminfo','.;')
 cmap <c-p> <Plug>CmdlineCompleteBackward
 cmap <c-n> <Plug>CmdlineCompleteForward
 
+" Disable Q
+nnoremap Q <nop>
+
 " Netrw has a bug that doesnt open url in browser
 nnoremap gx :call utils#OpenURLUnderCursor()<CR>
 
@@ -195,6 +200,9 @@ nnoremap N Nzvzz
 nnoremap * *zvzz
 nnoremap # #zvzz
 nnoremap `` ``zz
+
+" Undo tree toggle
+nnoremap ,u :UndotreeToggle<CR>
 
 " Location list
 nnoremap <script> <silent> <Up> :call togglelist#ToggleList('Location List', 'l')<CR>
