@@ -167,15 +167,11 @@ if executable('node')
         \ 'coc-git',
         \ 'coc-html',
         \ 'coc-prettier',
-        \ 'coc-styled-components',
         \ 'coc-pairs',
         \ 'coc-jest',
         \ 'coc-format-json',
         \ 'coc-highlight',
         \ 'coc-lists',
-        \ 'coc-scssmodules',
-        \ 'coc-cssmodules',
         \ 'coc-highlight',
-        \ 'coc-lists',
         \ ]
 endif

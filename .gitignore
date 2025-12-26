@@ -2,3 +2,5 @@
 .netrwhist
 /sessions
 .DS_Store
+.viminfo
+tags

@@ -65,7 +65,6 @@ Plug 'heavenshell/vim-jsdoc', {
 
 if executable('node')
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
-  Plug 'coc-extensions/coc-svelte', {'do': 'yarn install --frozen-lockfile'}
 endif
 call plug#end()
 " }}}
